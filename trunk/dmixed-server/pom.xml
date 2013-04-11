@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>de.clubbiertest</groupId>
+  <artifactId>bierliste-server</artifactId>
+  <version>1-SNAPSHOT</version>
+
+  <packaging>jar</packaging>
+
+  <name>Bierliste-Server</name>
+
+  <properties>
+    <releaseVersion>1.0.11</releaseVersion>
+  </properties>
+  <scm>
+    <developerConnection>scm:svn:svn://sogu.de/myrepo/bierliste/bierliste-server/trunk</developerConnection>
+  </scm>
+
+  <build>
+    <plugins>
+      <!-- Java auf Compiler-Level 1.6 -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+          <compilerVersion>1.6</compilerVersion>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>de.clubbiertest</groupId>
+        <artifactId>bierliste-mojo</artifactId>
+        <version>1.0.12</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate-xml</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <access>${project.basedir}/src/liste/access.xml</access>
+          <kontinente>${project.basedir}/src/liste/kontinente.xml</kontinente>
+          <output>${project.build.directory}/generated-sources/xml/META-INF/liste.xml</output>
+          <path>${project.build.directory}/generated-sources/xml</path>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>de.clubbiertest</groupId>
+      <artifactId>bierliste-commons</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.jersey</groupId>
+      <artifactId>jersey-server</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.jersey</groupId>
+      <artifactId>jersey-json</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>de.sogu</groupId>
+        <artifactId>home-versions</artifactId>
+        <version>1-SNAPSHOT</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>
