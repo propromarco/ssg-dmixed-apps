@@ -34,6 +34,12 @@
 
   <dependencies>
     <dependency>
+      <groupId>com.appspot.ssg-dmixed</groupId>
+      <artifactId>dmixed-api</artifactId>
+      <version>1-SNAPSHOT</version>
+    </dependency>
+    <!-- Runtime -->
+    <dependency>
       <groupId>com.sun.jersey</groupId>
       <artifactId>jersey-server</artifactId>
     </dependency>

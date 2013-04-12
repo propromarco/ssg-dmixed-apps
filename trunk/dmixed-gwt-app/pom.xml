@@ -55,7 +55,7 @@
           <execution>
             <goals>
               <goal>compile</goal>
-              <goal>test</goal>
+<!--               <goal>test</goal> -->
             </goals>
           </execution>
         </executions>
@@ -64,8 +64,11 @@
           <hostedWebapp>${project.build.directory}/${project.build.finalName}</hostedWebapp>
           <debugPort>54000</debugPort>
           <runTarget>index.html</runTarget>
+          <compileSourcesArtifacts>
+            <compileSourcesArtifact>com.appspot.ssg-dmixed:dmixed-api</compileSourcesArtifact>
+          </compileSourcesArtifacts>
           <modules>
-            <param>de.clubbiertest.clubbiertest</param>
+            <param>com.appspot.ssg.dmixed.DMixed</param>
           </modules>
         </configuration>
       </plugin>
@@ -94,6 +97,12 @@
       <groupId>com.appspot.ssg-dmixed</groupId>
       <artifactId>dmixed-api</artifactId>
       <version>1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.appspot.ssg-dmixed</groupId>
+      <artifactId>dmixed-api</artifactId>
+      <version>1-SNAPSHOT</version>
+      <classifier>sources</classifier>
     </dependency>
     <dependency>
       <groupId>com.appspot.ssg-dmixed</groupId>

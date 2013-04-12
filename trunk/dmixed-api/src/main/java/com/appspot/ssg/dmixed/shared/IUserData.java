@@ -1,5 +1,7 @@
 package com.appspot.ssg.dmixed.shared;
 
-public interface IUserData {
+import java.io.Serializable;
+
+public interface IUserData extends Serializable {
 
 }
