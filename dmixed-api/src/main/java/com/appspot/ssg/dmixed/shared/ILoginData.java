@@ -1,5 +1,7 @@
 package com.appspot.ssg.dmixed.shared;
 
-public interface ILoginData {
+import java.io.Serializable;
+
+public interface ILoginData extends Serializable {
 
 }
