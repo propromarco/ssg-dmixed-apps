@@ -1,13 +1,16 @@
 package com.appspot.ssg.dmixed.server;
 
-import com.appspot.ssg.dmixed.shared.IDMixedUsecaseService;
-import com.appspot.ssg.dmixed.shared.ILoginData;
-import com.appspot.ssg.dmixed.shared.IUserData;
+import javax.ws.rs.Path;
 
-public class DMixedUsecaseService implements IDMixedUsecaseService {
+import com.appspot.ssg.dmixed.server.beans.LoginData;
+import com.appspot.ssg.dmixed.server.beans.UserData;
 
-    @Override
-    public IUserData login(ILoginData data) {
+@Path("workflow")
+public class DMixedUsecaseService
+{
+
+    public UserData login(LoginData data)
+    {
         // TODO Auto-generated method stub
         return null;
     }

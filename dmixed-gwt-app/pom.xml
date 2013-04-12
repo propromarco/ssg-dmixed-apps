@@ -129,7 +129,7 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>com.ixmid</groupId>
+      <groupId>build</groupId>
       <artifactId>gwt-starter</artifactId>
       <version>1-SNAPSHOT</version>
       <scope>test</scope>
