@@ -116,6 +116,11 @@
       <artifactId>jqm4gwt</artifactId>
     </dependency>
     <dependency>
+      <groupId>com.sksamuel.jqm4gwt</groupId>
+      <artifactId>jqm4gwt</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
       <groupId>org.json</groupId>
       <artifactId>json</artifactId>
       <scope>provided</scope>
@@ -129,7 +134,7 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>build</groupId>
+      <groupId>com.ixmid</groupId>
       <artifactId>gwt-starter</artifactId>
       <version>1-SNAPSHOT</version>
       <scope>test</scope>
