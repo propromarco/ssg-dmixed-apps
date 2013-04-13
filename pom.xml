@@ -21,12 +21,12 @@
       <dependency>
         <groupId>com.sun.jersey</groupId>
         <artifactId>jersey-server</artifactId>
-        <version>1.17.1</version>
+        <version>1.8</version>
       </dependency>
       <dependency>
         <groupId>com.sun.jersey</groupId>
         <artifactId>jersey-json</artifactId>
-        <version>1.17.1</version>
+        <version>1.8</version>
       </dependency>
       <dependency>
         <groupId>org.json</groupId>
@@ -37,6 +37,12 @@
         <groupId>com.sksamuel.jqm4gwt</groupId>
         <artifactId>jqm4gwt</artifactId>
         <version>1.2.1</version>
+      </dependency>
+      <dependency>
+        <groupId>com.sksamuel.jqm4gwt</groupId>
+        <artifactId>jqm4gwt</artifactId>
+        <version>1.2.1</version>
+        <classifier>sources</classifier>
       </dependency>
       <dependency>
         <groupId>com.google.gwt</groupId>
