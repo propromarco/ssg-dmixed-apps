@@ -52,5 +52,10 @@ public class AbstractData {
     protected void setBoolean(String key, Boolean value) {
         _jsonObject.put(key, JSONBoolean.getInstance(value));
     }
-    
+
+    @Override
+    public String toString() {
+        return _jsonObject.toString();
+    }
+
 }

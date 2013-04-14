@@ -36,6 +36,7 @@ public class LoginPage extends JQMPage implements ClickHandler {
             @Override
             public void onSuccess(IUserData t) {
                 // TODO Auto-generated method stub
+                System.out.print(t.getBirthday());
             }
         };
         _service.login(data, answer);
