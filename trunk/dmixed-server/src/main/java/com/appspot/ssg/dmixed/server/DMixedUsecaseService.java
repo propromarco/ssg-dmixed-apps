@@ -1,5 +1,7 @@
 package com.appspot.ssg.dmixed.server;
 
+import java.util.Date;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -14,8 +16,8 @@ import com.appspot.ssg.dmixed.server.beans.Termine;
 import com.appspot.ssg.dmixed.server.beans.UserData;
 
 @Path("dmixed")
-@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class DMixedUsecaseService {
 
     @POST
@@ -35,7 +37,7 @@ public class DMixedUsecaseService {
     @Path("termin/{userid}/{terminId}")
     public TerminDetails termin(@PathParam("userid") Long userId, @PathParam("terminId") Long terminId) {
         // TODO Auto-generated method stub
-        return new TerminDetails();
+        return new TerminDetails(1l, new Date(), "kurz", "lang");
     }
 
     @GET

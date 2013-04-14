@@ -3,8 +3,7 @@ package com.appspot.ssg.dmixed.shared;
 import java.io.Serializable;
 import java.util.Date;
 
-public interface IUserData extends Serializable
-{
+public interface IUserData extends Serializable {
 
     Long getId();
 
@@ -13,5 +12,7 @@ public interface IUserData extends Serializable
     String getName();
 
     Date getBirthday();
+
+    boolean isAdmin();
 
 }
