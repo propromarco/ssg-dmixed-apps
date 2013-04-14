@@ -13,6 +13,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.appspot.ssg.dmixed.server.beans.LoginData;
+import com.appspot.ssg.dmixed.server.beans.Termin;
 import com.appspot.ssg.dmixed.server.beans.TerminDetails;
 import com.appspot.ssg.dmixed.server.beans.TerminMitbringsel;
 import com.appspot.ssg.dmixed.server.beans.Termine;
@@ -34,7 +35,10 @@ public class DMixedUsecaseService {
     @Path("termine/{userid}")
     public Termine termine(@PathParam("userid") Long userId) {
         // TODO Auto-generated method stub
-        return new Termine();
+        Termine termine = new Termine();
+        termine.getAll().add(new Termin(5l, new Date(), "Testme", false));
+        termine.getAll().add(new Termin(6l, new Date(), "Testme", false));
+        return termine;
     }
 
     @GET

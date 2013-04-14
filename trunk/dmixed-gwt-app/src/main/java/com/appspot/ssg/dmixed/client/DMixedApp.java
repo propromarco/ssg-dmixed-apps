@@ -14,7 +14,8 @@ public class DMixedApp implements EntryPoint {
     public void onModuleLoad() {
         String baseUrl = GWT.getHostPageBaseURL();
         IDMixedUsecase service = new DMixedUsecaseConnector(baseUrl);
-        JQMPage page = new LoginPage(service);
+        DMixedModel model = new DMixedModel();
+        JQMPage page = new LoginPage(service, model);
         JQMContext.changePage(page);
     }
 
