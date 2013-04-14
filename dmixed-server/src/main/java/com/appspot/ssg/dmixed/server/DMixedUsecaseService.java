@@ -27,7 +27,7 @@ public class DMixedUsecaseService {
     @POST
     public UserData login(LoginData data) {
         // TODO Auto-generated method stub
-        return null;
+        return new UserData(1l, "Marco", "Schwarz", java.sql.Date.valueOf("1968-06-03"));
     }
 
     @GET

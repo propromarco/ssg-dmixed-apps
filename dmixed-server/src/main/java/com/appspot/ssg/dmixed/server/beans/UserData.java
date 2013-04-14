@@ -3,6 +3,7 @@ package com.appspot.ssg.dmixed.server.beans;
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.appspot.ssg.dmixed.shared.IUserData;
 
@@ -54,6 +55,7 @@ public class UserData implements IUserData {
     }
 
     @Override
+    @XmlJavaTypeAdapter(DateAdapter.class)
     public Date getBirthday() {
         return this.birthday;
     }
