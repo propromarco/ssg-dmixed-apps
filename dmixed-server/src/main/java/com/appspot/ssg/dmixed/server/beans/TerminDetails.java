@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.appspot.ssg.dmixed.shared.ITerminDetails;
 import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
@@ -41,6 +42,7 @@ public class TerminDetails implements ITerminDetails {
     }
 
     @Override
+    @XmlJavaTypeAdapter(DateAdapter.class)
     public Date getTermineDatum() {
         return termineDatum;
     }
@@ -77,6 +79,7 @@ public class TerminDetails implements ITerminDetails {
     }
 
     @Override
+    @XmlJavaTypeAdapter(TerminTeilnehmerAdapter.class)
     public List<ITerminTeilnehmer> getTeilnehmer() {
         return teilnehmer;
     }
@@ -86,6 +89,7 @@ public class TerminDetails implements ITerminDetails {
     }
 
     @Override
+    @XmlJavaTypeAdapter(TerminMitbringselAdapter.class)
     public List<ITerminMitbringsel> getMitbringsel() {
         return mitbringsel;
     }

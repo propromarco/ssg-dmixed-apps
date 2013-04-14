@@ -1,6 +1,8 @@
 package com.appspot.ssg.dmixed.server;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -12,8 +14,10 @@ import javax.ws.rs.core.MediaType;
 
 import com.appspot.ssg.dmixed.server.beans.LoginData;
 import com.appspot.ssg.dmixed.server.beans.TerminDetails;
+import com.appspot.ssg.dmixed.server.beans.TerminMitbringsel;
 import com.appspot.ssg.dmixed.server.beans.Termine;
 import com.appspot.ssg.dmixed.server.beans.UserData;
+import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
 
 @Path("dmixed")
 @Produces(MediaType.APPLICATION_JSON)
@@ -37,7 +41,13 @@ public class DMixedUsecaseService {
     @Path("termin/{userid}/{terminId}")
     public TerminDetails termin(@PathParam("userid") Long userId, @PathParam("terminId") Long terminId) {
         // TODO Auto-generated method stub
-        return new TerminDetails(1l, new Date(), "kurz", "lang");
+        TerminDetails terminDetails = new TerminDetails(1l, new Date(), "kurz", "lang");
+        terminDetails.setHeimspiel(true);
+        List<ITerminMitbringsel> mitbringsel = new ArrayList<ITerminMitbringsel>();
+        mitbringsel.add(new TerminMitbringsel(12l, "k.a."));
+        mitbringsel.add(new TerminMitbringsel(13l, "k.a."));
+        terminDetails.setMitbringsel(mitbringsel);
+        return terminDetails;
     }
 
     @GET
