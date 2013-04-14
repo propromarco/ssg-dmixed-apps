@@ -55,7 +55,7 @@
           <execution>
             <goals>
               <goal>compile</goal>
-<!--               <goal>test</goal> -->
+              <!-- <goal>test</goal> -->
             </goals>
           </execution>
         </executions>
@@ -72,8 +72,11 @@
           </modules>
         </configuration>
       </plugin>
-      <!-- <plugin> <groupId>net.kindleit</groupId> <artifactId>maven-gae-plugin</artifactId> 
-        <version>0.9.1</version> </plugin> -->
+      <plugin>
+        <groupId>net.kindleit</groupId>
+        <artifactId>maven-gae-plugin</artifactId>
+        <version>0.9.1</version>
+      </plugin>
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>2.1-alpha-1</version>
@@ -103,6 +106,7 @@
       <artifactId>dmixed-api</artifactId>
       <version>1-SNAPSHOT</version>
       <classifier>sources</classifier>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.appspot.ssg-dmixed</groupId>
@@ -114,11 +118,13 @@
     <dependency>
       <groupId>com.sksamuel.jqm4gwt</groupId>
       <artifactId>jqm4gwt</artifactId>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.sksamuel.jqm4gwt</groupId>
       <artifactId>jqm4gwt</artifactId>
       <classifier>sources</classifier>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.json</groupId>
@@ -150,17 +156,4 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <repositories>
-    <repository>
-      <id>m2</id>
-      <url>http://repo1.maven.org/maven2/</url>
-    </repository>
-  </repositories>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>maven-gae-plugin-repo</id>
-      <name>Maven Google App Engine Repository</name>
-      <url>http://maven-gae-plugin.googlecode.com/svn/repository/</url>
-    </pluginRepository>
-  </pluginRepositories>
 </project>

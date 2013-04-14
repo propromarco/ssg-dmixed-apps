@@ -8,6 +8,7 @@ import com.appspot.ssg.dmixed.shared.ITermine;
 import com.appspot.ssg.dmixed.shared.IUserData;
 import com.google.gwt.http.client.Request;
 import com.google.gwt.http.client.RequestBuilder;
+import com.google.gwt.http.client.RequestBuilder.Method;
 import com.google.gwt.http.client.RequestCallback;
 import com.google.gwt.http.client.RequestException;
 import com.google.gwt.http.client.Response;
@@ -26,25 +27,19 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
 
     @Override
     public void login(ILoginData data, final IAsync<IUserData> answer) {
-        String url = _baseUrl + "rest/dmixed";
-        RequestBuilder requestBuilder = new RequestBuilder(RequestBuilder.POST, url);
-        requestBuilder.setHeader("Content-Type", APPLICATION_JSON);
-        requestBuilder.setHeader("Accept", APPLICATION_JSON);
-        String requestData = ((LoginData) data).toString();
+        String url = getServiceUrl();
+        RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.POST);
+        String requestData = data.toString();
         RequestCallback callback = new RequestCallback() {
-
             @Override
             public void onResponseReceived(Request request, Response response) {
-                String text = response.getText();
-                JSONValue parseStrict = JSONParser.parseStrict(text);
-                JSONObject object = parseStrict.isObject();
+                JSONObject object = toObject(response.getText());
                 UserData userData = new UserData(object);
                 answer.onSuccess(userData);
             }
 
             @Override
             public void onError(Request request, Throwable exception) {
-                // TODO Auto-generated method stub
                 exception.printStackTrace();
             }
         };
@@ -52,15 +47,53 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
             requestBuilder.sendRequest(requestData, callback);
         }
         catch (RequestException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
 
-    @Override
-    public void termine(Long userId, IAsync<ITermine> answer) {
-        // TODO Auto-generated method stub
+    protected String getServiceUrl() {
+        String url = _baseUrl + "rest/dmixed";
+        return url;
+    }
 
+    protected RequestBuilder createRequestBuilder(String url, Method method) {
+        RequestBuilder requestBuilder = new RequestBuilder(method, url);
+        requestBuilder.setHeader("Content-Type", APPLICATION_JSON);
+        requestBuilder.setHeader("Accept", APPLICATION_JSON);
+        return requestBuilder;
+    }
+
+    protected JSONObject toObject(String text) {
+        JSONValue parseStrict = JSONParser.parseStrict(text);
+        JSONObject object = parseStrict.isObject();
+        return object;
+    }
+
+    @Override
+    public void termine(Long userId, final IAsync<ITermine> answer) {
+        String url = getServiceUrl() + "/termine/" + userId;
+        RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.GET);
+        RequestCallback callback = new RequestCallback() {
+
+            @Override
+            public void onResponseReceived(Request request, Response response) {
+                JSONObject object = toObject(response.getText());
+                Termine userData = new Termine(object);
+                answer.onSuccess(userData);
+            }
+
+            @Override
+            public void onError(Request request, Throwable exception) {
+                exception.printStackTrace();
+            }
+        };
+        requestBuilder.setCallback(callback);
+        try {
+            requestBuilder.send();
+        }
+        catch (RequestException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

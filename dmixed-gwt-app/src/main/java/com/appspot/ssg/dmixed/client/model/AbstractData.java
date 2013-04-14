@@ -2,6 +2,7 @@ package com.appspot.ssg.dmixed.client.model;
 
 import java.util.Date;
 
+import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONBoolean;
 import com.google.gwt.json.client.JSONNumber;
 import com.google.gwt.json.client.JSONObject;
@@ -28,21 +29,41 @@ public class AbstractData {
     protected Long getLong(String key) {
         JSONValue jsonValue = _jsonObject.get(key);
         JSONNumber number = jsonValue.isNumber();
-        double doubleValue = number.doubleValue();
-        return (long) doubleValue;
+        if (number != null) {
+            double doubleValue = number.doubleValue();
+            return (long) doubleValue;
+        }
+        else {
+            JSONString string = jsonValue.isString();
+            String s = string.stringValue();
+            return Long.valueOf(s);
+        }
     }
 
     protected Date getDate(String key) {
         JSONValue jsonValue = _jsonObject.get(key);
         JSONNumber number = jsonValue.isNumber();
-        long longValue = (long) number.doubleValue();
-        return new Date(longValue);
+        if (number != null) {
+            long longValue = (long) number.doubleValue();
+            return new Date(longValue);
+        }
+        else {
+            JSONString string = jsonValue.isString();
+            String s = string.stringValue();
+            return new Date(Long.valueOf(s));
+        }
     }
 
     protected boolean getBoolean(String key) {
         JSONValue jsonValue = _jsonObject.get(key);
         JSONBoolean jsonBoolean = jsonValue.isBoolean();
         return jsonBoolean.booleanValue();
+    }
+
+    protected JSONArray getArray(String key) {
+        JSONValue jsonValue = _jsonObject.get(key);
+        JSONArray array = jsonValue.isArray();
+        return array;
     }
 
     protected void setString(String key, String value) {
