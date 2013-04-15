@@ -63,6 +63,11 @@ public class AbstractData {
     protected JSONArray getArray(String key) {
         JSONValue jsonValue = _jsonObject.get(key);
         JSONArray array = jsonValue.isArray();
+        if(array == null){
+            JSONObject object = jsonValue.isObject();
+            array = new JSONArray();
+            array.set(0, object);
+        }
         return array;
     }
 

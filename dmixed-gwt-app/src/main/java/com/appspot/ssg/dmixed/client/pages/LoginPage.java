@@ -1,6 +1,7 @@
 package com.appspot.ssg.dmixed.client.pages;
 
 import com.appspot.ssg.dmixed.client.DMixedModel;
+import com.appspot.ssg.dmixed.client.IDMixedMessages;
 import com.appspot.ssg.dmixed.client.model.LoginData;
 import com.appspot.ssg.dmixed.shared.IAsync;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
@@ -23,11 +24,12 @@ public class LoginPage extends JQMPage implements ClickHandler {
     public LoginPage(IDMixedUsecase service, DMixedModel model) {
         _service = service;
         _model = model;
-        this.nameOfChild = new JQMText("Name des Kindes");
+        IDMixedMessages messages = model.getMessages();
+        this.nameOfChild = new JQMText(messages.nameOfChild());
         add(nameOfChild);
-        this.eMail = new JQMEmail("EMail-Adresse");
+        this.eMail = new JQMEmail(messages.emailAdress());
         add(eMail);
-        JQMButton loginButton = new JQMButton("Login");
+        JQMButton loginButton = new JQMButton(messages.login());
         loginButton.addClickHandler(this);
         add(loginButton);
     }
