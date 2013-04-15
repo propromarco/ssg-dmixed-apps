@@ -3,25 +3,39 @@ package com.appspot.ssg.dmixed.server.beans;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 
 public class TerminTeilnehmer implements ITerminTeilnehmer {
-
     private static final long serialVersionUID = -7880403326312006230L;
+    private String vorname;
+    private String name;
+    private boolean teilnahme;
+
+    public TerminTeilnehmer() {
+    }
 
     @Override
     public String getVorname() {
-        // TODO Auto-generated method stub
-        return null;
+        return vorname;
+    }
+
+    public void setVorname(String vorname) {
+        this.vorname = vorname;
     }
 
     @Override
     public String getName() {
-        // TODO Auto-generated method stub
-        return null;
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public boolean isTeilnahme() {
-        // TODO Auto-generated method stub
-        return false;
+        return teilnahme;
+    }
+
+    public void setTeilnahme(boolean teilnahme) {
+        this.teilnahme = teilnahme;
     }
 
 }

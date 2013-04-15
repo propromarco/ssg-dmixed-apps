@@ -6,6 +6,9 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import com.appspot.ssg.dmixed.server.adapter.DateAdapter;
+import com.appspot.ssg.dmixed.server.adapter.TerminMitbringselAdapter;
+import com.appspot.ssg.dmixed.server.adapter.TerminTeilnehmerAdapter;
 import com.appspot.ssg.dmixed.shared.ITerminDetails;
 import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;

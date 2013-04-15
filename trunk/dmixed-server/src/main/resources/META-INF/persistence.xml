@@ -6,6 +6,8 @@
 
     <persistence-unit name="transactions-optional">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
+        <class>com.appspot.ssg.dmixed.server.jpa.User</class>
+        <class>com.appspot.ssg.dmixed.server.jpa.Termin</class>
         <properties>
             <property name="datanucleus.NontransactionalRead" value="true"/>
             <property name="datanucleus.NontransactionalWrite" value="true"/>

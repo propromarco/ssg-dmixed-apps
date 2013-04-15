@@ -1,7 +1,8 @@
-package com.appspot.ssg.dmixed.server.beans;
+package com.appspot.ssg.dmixed.server.adapter;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 
+import com.appspot.ssg.dmixed.server.beans.TerminMitbringsel;
 import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
 
 public class TerminMitbringselAdapter extends XmlAdapter<TerminMitbringsel, ITerminMitbringsel> {
