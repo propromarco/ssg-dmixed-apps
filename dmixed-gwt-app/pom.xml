@@ -131,6 +131,7 @@
       <artifactId>json</artifactId>
       <scope>provided</scope>
     </dependency>
+<!--
     <dependency>
       <groupId>com.google.appengine</groupId>
       <artifactId>appengine-endpoints</artifactId>
@@ -166,8 +167,7 @@
       <artifactId>geronimo-jpa_2.0_spec</artifactId>
       <version>1.0</version>
     </dependency>
-    <!-- <dependency> <groupId>xalan</groupId> <artifactId>xalan</artifactId> 
-      <scope>runtime</scope> </dependency> -->
+-->
     <!-- Dependencies for compile/debug -->
     <dependency>
       <groupId>com.google.gwt</groupId>
