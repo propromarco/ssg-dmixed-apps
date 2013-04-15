@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import com.appspot.ssg.dmixed.server.adapter.DateAdapter;
 import com.appspot.ssg.dmixed.shared.IUserData;
 
 @XmlRootElement

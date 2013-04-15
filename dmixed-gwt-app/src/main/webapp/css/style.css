@@ -1,4 +1,13 @@
 .ui-page {
-/*	background: url("../gfx/gras.jpg");*/
+	background: url("../gfx/gras.jpg");
 	color: #DDDDDD;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+h3 {
+	padding: 0.5em;
 }

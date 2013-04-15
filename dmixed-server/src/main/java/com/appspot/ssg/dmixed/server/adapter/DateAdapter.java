@@ -1,4 +1,4 @@
-package com.appspot.ssg.dmixed.server.beans;
+package com.appspot.ssg.dmixed.server.adapter;
 
 import java.util.Date;
 
