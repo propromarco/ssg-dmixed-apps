@@ -60,12 +60,13 @@ public class TerminePage extends JQMPage {
         _liste.clear();
         ITermine termine = _model.getTermine();
         List<ITermin> all = termine.getAll();
-        final JQMPage jqmPage = new JQMPage();
+        final TerminPage jqmPage = new TerminPage(_service, _model);
         for (final ITermin termin : all) {
             JQMListItem item = _liste.addItem(termin.getTerminKurzbeschreibung(), jqmPage);
             item.addClickHandler(new ClickHandler() {
                 @Override
                 public void onClick(ClickEvent event) {
+                    jqmPage.setTermin(termin);
                     JQMContext.changePage(jqmPage);
                 }
             });
