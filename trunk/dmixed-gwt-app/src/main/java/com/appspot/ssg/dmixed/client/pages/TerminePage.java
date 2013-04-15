@@ -3,12 +3,14 @@ package com.appspot.ssg.dmixed.client.pages;
 import java.util.List;
 
 import com.appspot.ssg.dmixed.client.DMixedModel;
+import com.appspot.ssg.dmixed.client.IDMixedMessages;
 import com.appspot.ssg.dmixed.shared.IAsync;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
 import com.appspot.ssg.dmixed.shared.ITermin;
 import com.appspot.ssg.dmixed.shared.ITermine;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.sksamuel.jqm4gwt.JQMContext;
 import com.sksamuel.jqm4gwt.JQMPage;
 import com.sksamuel.jqm4gwt.list.JQMList;
 import com.sksamuel.jqm4gwt.list.JQMListItem;
@@ -24,7 +26,8 @@ public class TerminePage extends JQMPage {
     public TerminePage(IDMixedUsecase service, DMixedModel model) {
         _service = service;
         _model = model;
-        _header = new JQMHeader("Termine");
+        IDMixedMessages messages = model.getMessages();
+        _header = new JQMHeader(messages.termine());
         setHeader(_header);
         _liste = new JQMList();
         _liste.setInset(true);
@@ -57,14 +60,13 @@ public class TerminePage extends JQMPage {
         _liste.clear();
         ITermine termine = _model.getTermine();
         List<ITermin> all = termine.getAll();
-        for (ITermin termin : all) {
-            JQMListItem item = _liste.addItem(termin.getTerminKurzbeschreibung(), "");
+        final JQMPage jqmPage = new JQMPage();
+        for (final ITermin termin : all) {
+            JQMListItem item = _liste.addItem(termin.getTerminKurzbeschreibung(), jqmPage);
             item.addClickHandler(new ClickHandler() {
-
                 @Override
                 public void onClick(ClickEvent event) {
-                    // TODO Auto-generated method stub
-
+                    JQMContext.changePage(jqmPage);
                 }
             });
         }

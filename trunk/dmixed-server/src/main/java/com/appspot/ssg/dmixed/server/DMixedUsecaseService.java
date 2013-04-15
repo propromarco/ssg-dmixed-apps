@@ -36,7 +36,7 @@ public class DMixedUsecaseService {
     public Termine termine(@PathParam("userid") Long userId) {
         // TODO Auto-generated method stub
         Termine termine = new Termine();
-        termine.getAll().add(new Termin(5l, new Date(), "Testme", false));
+//        termine.getAll().add(new Termin(5l, new Date(), "Testme", false));
         termine.getAll().add(new Termin(6l, new Date(), "Testme", false));
         return termine;
     }
