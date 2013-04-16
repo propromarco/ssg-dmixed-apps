@@ -97,9 +97,30 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
     }
 
     @Override
-    public void termin(Long userId, Long terminId, IAsync<ITerminDetails> answer) {
-        // TODO Auto-generated method stub
+    public void termin(Long userId, Long terminId, final IAsync<ITerminDetails> answer) {
+        String url = getServiceUrl() + "termin/" + userId + "/" + terminId;
+        RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.GET);
+        RequestCallback callback = new RequestCallback() {
 
+            @Override
+            public void onResponseReceived(Request request, Response response) {
+                JSONObject object = toObject(response.getText());
+                TerminDetails userData = new TerminDetails(object);
+                answer.onSuccess(userData);
+            }
+
+            @Override
+            public void onError(Request request, Throwable exception) {
+                exception.printStackTrace();
+            }
+        };
+        requestBuilder.setCallback(callback);
+        try {
+            requestBuilder.send();
+        }
+        catch (RequestException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
