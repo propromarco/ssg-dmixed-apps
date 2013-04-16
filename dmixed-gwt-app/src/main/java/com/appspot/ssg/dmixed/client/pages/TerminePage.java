@@ -48,6 +48,8 @@ public class TerminePage extends JQMPage {
                     if (t != null) {
                         _model.setTermine(t);
                         loadTermine();
+                    } else {
+                        // TODO Error oder Nicht erlaubt
                     }
                 }
             };
