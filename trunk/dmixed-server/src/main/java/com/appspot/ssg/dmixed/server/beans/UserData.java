@@ -21,11 +21,12 @@ public class UserData implements IUserData {
     public UserData() {
     }
 
-    public UserData(Long id, String vorname, String name, Date birthday) {
-        this.id = id;
-        this.vorname = vorname;
-        this.name = name;
-        this.birthday = birthday;
+    public UserData(IUserData user) {
+        this.id = user.getId();
+        this.vorname = user.getVorname();
+        this.name = user.getName();
+        this.birthday = user.getBirthday();
+        this.admin = user.isAdmin();
     }
 
     @Override

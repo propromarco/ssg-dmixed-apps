@@ -2,6 +2,9 @@ package com.appspot.ssg.dmixed.server.beans;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import com.appspot.ssg.dmixed.server.adapter.DateAdapter;
 import com.appspot.ssg.dmixed.shared.ITermin;
 
 public class Termin implements ITermin {
@@ -14,6 +17,13 @@ public class Termin implements ITermin {
     private String terminKurzbeschreibung;
 
     public Termin() {
+    }
+
+    public Termin(ITermin termin) {
+        terminId = termin.getTerminId();
+        termineDatum = termin.getTermineDatum();
+        terminKurzbeschreibung = termin.getTerminKurzbeschreibung();
+        heimspiel = termin.isHeimspiel();
     }
 
     public Termin(Long terminId, Date termineDatum, String terminKurzbeschreibung, boolean heimspiel) {
@@ -43,6 +53,7 @@ public class Termin implements ITermin {
     }
 
     @Override
+    @XmlJavaTypeAdapter(DateAdapter.class)
     public Date getTermineDatum() {
         return termineDatum;
     }

@@ -1,5 +1,6 @@
 package com.appspot.ssg.dmixed.client.pages;
 
+import java.util.Date;
 import java.util.List;
 
 import com.appspot.ssg.dmixed.client.DMixedModel;
@@ -10,6 +11,7 @@ import com.appspot.ssg.dmixed.shared.ITermin;
 import com.appspot.ssg.dmixed.shared.ITermine;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.i18n.client.DateTimeFormat;
 import com.sksamuel.jqm4gwt.JQMContext;
 import com.sksamuel.jqm4gwt.JQMPage;
 import com.sksamuel.jqm4gwt.list.JQMList;
@@ -62,7 +64,12 @@ public class TerminePage extends JQMPage {
         List<ITermin> all = termine.getAll();
         final TerminPage jqmPage = new TerminPage(_service, _model);
         for (final ITermin termin : all) {
-            JQMListItem item = _liste.addItem(termin.getTerminKurzbeschreibung(), jqmPage);
+            Date termineDatum = termin.getTermineDatum();
+            String terminKurzbeschreibung = termin.getTerminKurzbeschreibung();
+            DateTimeFormat formatter = DateTimeFormat.getFormat("dd.MM.yyyy");
+            String d = formatter.format(termineDatum);
+            String title = terminKurzbeschreibung + " - " + d;
+            JQMListItem item = _liste.addItem(title, jqmPage);
             item.addClickHandler(new ClickHandler() {
                 @Override
                 public void onClick(ClickEvent event) {
