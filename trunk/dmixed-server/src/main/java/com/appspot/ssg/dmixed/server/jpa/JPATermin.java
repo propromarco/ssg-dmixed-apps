@@ -5,7 +5,9 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.appspot.ssg.dmixed.shared.ITermin;
@@ -16,6 +18,7 @@ public class JPATermin implements ITermin {
     private static final long serialVersionUID = -2074181411290603332L;
 
     @Id
+    @GeneratedValue
     private Long terminId;
     @Column
     private boolean heimspiel;
@@ -25,7 +28,7 @@ public class JPATermin implements ITermin {
     private String terminKurzbeschreibung;
     @Column
     private String terminBeschreibung;
-
+    @OneToMany
     private List<JPATerminMitbringsel> mitbringsel;
 
     public JPATermin() {
