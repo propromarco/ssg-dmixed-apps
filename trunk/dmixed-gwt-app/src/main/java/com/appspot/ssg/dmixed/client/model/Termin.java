@@ -19,11 +19,6 @@ public class Termin extends AbstractData implements ITermin {
     }
 
     @Override
-    public boolean isHeimspiel() {
-        return getBoolean("heimspiel");
-    }
-
-    @Override
     public Date getTermineDatum() {
         return getDate("termineDatum");
     }
@@ -31,11 +26,6 @@ public class Termin extends AbstractData implements ITermin {
     @Override
     public String getTerminKurzbeschreibung() {
         return getString("terminKurzbeschreibung");
-    }
-
-    @Override
-    public String getTerminBeschreibung() {
-        return getString("terminbeschreibung");
     }
 
 }

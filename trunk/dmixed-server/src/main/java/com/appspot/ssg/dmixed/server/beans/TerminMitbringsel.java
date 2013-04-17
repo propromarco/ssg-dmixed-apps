@@ -17,11 +17,6 @@ public class TerminMitbringsel implements ITerminMitbringsel {
     public TerminMitbringsel() {
     }
 
-    public TerminMitbringsel(Long id, String beschreibung) {
-        this.id = id;
-        this.beschreibung = beschreibung;
-    }
-
     @Override
     public Long getId() {
         return id;

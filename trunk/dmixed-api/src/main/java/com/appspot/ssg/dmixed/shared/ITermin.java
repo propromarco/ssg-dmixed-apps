@@ -6,11 +6,8 @@ import java.util.Date;
 public interface ITermin extends Serializable {
     Long getTerminId();
 
-    boolean isHeimspiel();
-
     Date getTermineDatum();
 
     String getTerminKurzbeschreibung();
 
-    String getTerminBeschreibung();
 }

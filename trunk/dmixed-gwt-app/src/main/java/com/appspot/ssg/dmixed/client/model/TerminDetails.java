@@ -43,4 +43,9 @@ public class TerminDetails extends Termin implements ITerminDetails {
         };
     }
 
+    @Override
+    public boolean isHeimspiel() {
+        return getBoolean("heimspiel");
+    }
+
 }
