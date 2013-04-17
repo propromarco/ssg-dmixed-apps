@@ -15,7 +15,7 @@ import com.appspot.ssg.dmixed.server.beans.Termin;
 import com.appspot.ssg.dmixed.server.beans.TerminDetails;
 import com.appspot.ssg.dmixed.server.beans.Termine;
 import com.appspot.ssg.dmixed.server.beans.UserData;
-import com.appspot.ssg.dmixed.server.jpa.JPAAdapter;
+import com.appspot.ssg.dmixed.server.jpa.FakeAdapter;
 import com.appspot.ssg.dmixed.server.jpa.JPATermin;
 import com.appspot.ssg.dmixed.server.jpa.JPATerminMitbringsel;
 import com.appspot.ssg.dmixed.server.jpa.JPAUser;
@@ -28,7 +28,7 @@ public class DMixedUsecaseService {
     private final IJPAAdapter adapter;
 
     public DMixedUsecaseService() {
-        adapter = new JPAAdapter();
+        adapter = new FakeAdapter();
     }
 
     @POST

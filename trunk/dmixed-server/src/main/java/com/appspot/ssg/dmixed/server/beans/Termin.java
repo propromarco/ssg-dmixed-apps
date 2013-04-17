@@ -16,6 +16,8 @@ public class Termin implements ITermin {
     private Date termineDatum;
     private String terminKurzbeschreibung;
 
+    private String terminBeschreibung;
+
     public Termin() {
     }
 
@@ -24,14 +26,6 @@ public class Termin implements ITermin {
         termineDatum = termin.getTermineDatum();
         terminKurzbeschreibung = termin.getTerminKurzbeschreibung();
         heimspiel = termin.isHeimspiel();
-    }
-
-    public Termin(Long terminId, Date termineDatum, String terminKurzbeschreibung, boolean heimspiel) {
-        super();
-        this.terminId = terminId;
-        this.termineDatum = termineDatum;
-        this.terminKurzbeschreibung = terminKurzbeschreibung;
-        this.heimspiel = heimspiel;
     }
 
     @Override
@@ -69,6 +63,15 @@ public class Termin implements ITermin {
 
     public void setTerminKurzbeschreibung(String terminKurzbeschreibung) {
         this.terminKurzbeschreibung = terminKurzbeschreibung;
+    }
+
+    @Override
+    public String getTerminBeschreibung() {
+        return this.terminBeschreibung;
+    }
+
+    public void setTerminBeschreibung(String terminBeschreibung) {
+        this.terminBeschreibung = terminBeschreibung;
     }
 
 }

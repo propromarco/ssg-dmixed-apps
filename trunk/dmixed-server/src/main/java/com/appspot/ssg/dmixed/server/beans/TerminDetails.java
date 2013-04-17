@@ -29,13 +29,6 @@ public class TerminDetails implements ITerminDetails {
     public TerminDetails() {
     }
 
-    public TerminDetails(Long terminId, Date termineDatum, String terminKurzbeschreibung, String terminBeschreibung) {
-        this.terminId = terminId;
-        this.termineDatum = termineDatum;
-        this.terminKurzbeschreibung = terminKurzbeschreibung;
-        this.terminBeschreibung = terminBeschreibung;
-    }
-
     public TerminDetails(ITermin termin) {
         this.terminId = termin.getTerminId();
         this.termineDatum = termin.getTermineDatum();

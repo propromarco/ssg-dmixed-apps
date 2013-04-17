@@ -11,4 +11,6 @@ public interface ITermin extends Serializable {
     Date getTermineDatum();
 
     String getTerminKurzbeschreibung();
+
+    String getTerminBeschreibung();
 }

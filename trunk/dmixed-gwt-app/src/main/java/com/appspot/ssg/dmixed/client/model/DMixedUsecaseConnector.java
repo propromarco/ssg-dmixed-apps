@@ -15,6 +15,7 @@ import com.google.gwt.http.client.Response;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONParser;
 import com.google.gwt.json.client.JSONValue;
+import com.sksamuel.jqm4gwt.Mobile;
 
 public class DMixedUsecaseConnector implements IDMixedUsecase {
 
@@ -30,25 +31,54 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
         String url = getServiceUrl();
         RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.POST);
         String requestData = data.toString();
-        RequestCallback callback = new RequestCallback() {
+        IAsync<JSONObject> newAnswer = new IAsync<JSONObject>() {
             @Override
-            public void onResponseReceived(Request request, Response response) {
-                JSONObject object = toObject(response.getText());
+            public void onSuccess(JSONObject object) {
                 UserData userData = new UserData(object);
                 answer.onSuccess(userData);
             }
+        };
+        executePost(requestBuilder, requestData, newAnswer);
+    }
 
+    @Override
+    public void termine(Long userId, final IAsync<ITermine> answer) {
+        String url = getServiceUrl() + "/termine/" + userId;
+        RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.GET);
+        IAsync<JSONObject> newAnswer = new IAsync<JSONObject>() {
             @Override
-            public void onError(Request request, Throwable exception) {
-                exception.printStackTrace();
+            public void onSuccess(JSONObject object) {
+                Termine userData = new Termine(object);
+                answer.onSuccess(userData);
             }
         };
-        try {
-            requestBuilder.sendRequest(requestData, callback);
-        }
-        catch (RequestException e) {
-            e.printStackTrace();
-        }
+        executeGet(requestBuilder, newAnswer);
+    }
+
+    @Override
+    public void termin(Long userId, Long terminId, final IAsync<ITerminDetails> answer) {
+        String url = getServiceUrl() + "/termin/" + userId + "/" + terminId;
+        RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.GET);
+        IAsync<JSONObject> newAnswer = new IAsync<JSONObject>() {
+            @Override
+            public void onSuccess(JSONObject object) {
+                TerminDetails userData = new TerminDetails(object);
+                answer.onSuccess(userData);
+            }
+        };
+        executeGet(requestBuilder, newAnswer);
+    }
+
+    @Override
+    public void teilname(Long userId, Long terminId, Boolean teilnahme, IAsync<ITerminDetails> answer) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void mitringen(Long userId, Long terminId, Long mitbringId, Boolean mitbringen, IAsync<ITerminDetails> answer) {
+        // TODO Auto-generated method stub
+
     }
 
     protected String getServiceUrl() {
@@ -69,22 +99,45 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
         return object;
     }
 
-    @Override
-    public void termine(Long userId, final IAsync<ITermine> answer) {
-        String url = getServiceUrl() + "/termine/" + userId;
-        RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.GET);
+    protected void executePost(final RequestBuilder requestBuilder, final String requestData, final IAsync<JSONObject> answer) {
+        Mobile.showLoadingDialog("Loading...");
         RequestCallback callback = new RequestCallback() {
-
             @Override
             public void onResponseReceived(Request request, Response response) {
                 JSONObject object = toObject(response.getText());
-                Termine userData = new Termine(object);
-                answer.onSuccess(userData);
+                answer.onSuccess(object);
+                Mobile.hideLoadingDialog();
             }
 
             @Override
             public void onError(Request request, Throwable exception) {
                 exception.printStackTrace();
+                Mobile.hideLoadingDialog();
+            }
+        };
+        try {
+            requestBuilder.sendRequest(requestData, callback);
+        }
+        catch (RequestException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void executeGet(final RequestBuilder requestBuilder, final IAsync<JSONObject> answer) {
+        Mobile.showLoadingDialog("Loading...");
+        RequestCallback callback = new RequestCallback() {
+
+            @Override
+            public void onResponseReceived(Request request, Response response) {
+                JSONObject object = toObject(response.getText());
+                answer.onSuccess(object);
+                Mobile.hideLoadingDialog();
+            }
+
+            @Override
+            public void onError(Request request, Throwable exception) {
+                exception.printStackTrace();
+                Mobile.hideLoadingDialog();
             }
         };
         requestBuilder.setCallback(callback);
@@ -95,44 +148,4 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
             e.printStackTrace();
         }
     }
-
-    @Override
-    public void termin(Long userId, Long terminId, final IAsync<ITerminDetails> answer) {
-        String url = getServiceUrl() + "termin/" + userId + "/" + terminId;
-        RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.GET);
-        RequestCallback callback = new RequestCallback() {
-
-            @Override
-            public void onResponseReceived(Request request, Response response) {
-                JSONObject object = toObject(response.getText());
-                TerminDetails userData = new TerminDetails(object);
-                answer.onSuccess(userData);
-            }
-
-            @Override
-            public void onError(Request request, Throwable exception) {
-                exception.printStackTrace();
-            }
-        };
-        requestBuilder.setCallback(callback);
-        try {
-            requestBuilder.send();
-        }
-        catch (RequestException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void teilname(Long userId, Long terminId, Boolean teilnahme, IAsync<ITerminDetails> answer) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void mitringen(Long userId, Long terminId, Long mitbringId, Boolean mitbringen, IAsync<ITerminDetails> answer) {
-        // TODO Auto-generated method stub
-
-    }
-
 }

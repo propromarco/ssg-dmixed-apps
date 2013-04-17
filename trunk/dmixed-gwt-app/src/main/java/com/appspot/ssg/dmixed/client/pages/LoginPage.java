@@ -9,10 +9,8 @@ import com.appspot.ssg.dmixed.shared.ILoginData;
 import com.appspot.ssg.dmixed.shared.IUserData;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.client.ui.HTML;
 import com.sksamuel.jqm4gwt.JQMContext;
 import com.sksamuel.jqm4gwt.JQMPage;
-import com.sksamuel.jqm4gwt.JQMPopup;
 import com.sksamuel.jqm4gwt.button.JQMButton;
 import com.sksamuel.jqm4gwt.form.elements.JQMEmail;
 import com.sksamuel.jqm4gwt.form.elements.JQMText;
@@ -49,9 +47,6 @@ public class LoginPage extends JQMPage implements ClickHandler {
                 }
                 else {
                     // TODO ERROR on Login
-                    JQMPopup jqmPopup = new JQMPopup();
-                    jqmPopup.add(new HTML("Error on Login"));
-                    jqmPopup.open();
                 }
             }
         };
