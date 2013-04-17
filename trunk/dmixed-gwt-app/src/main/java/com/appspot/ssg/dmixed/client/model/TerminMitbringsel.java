@@ -8,7 +8,7 @@ import com.google.gwt.json.client.JSONValue;
 public class TerminMitbringsel extends AbstractData implements ITerminMitbringsel {
     private static final long serialVersionUID = -7422259613243218283L;
 
-    public TerminMitbringsel(JSONObject jsonObject) {
+    public TerminMitbringsel(final JSONObject jsonObject) {
         super(jsonObject);
     }
 
@@ -24,8 +24,8 @@ public class TerminMitbringsel extends AbstractData implements ITerminMitbringse
 
     @Override
     public ITerminTeilnehmer getMitbringer() {
-        JSONValue jsonValue = _jsonObject.get("mitbringer");
-        JSONObject object = jsonValue.isObject();
+        final JSONValue jsonValue = _jsonObject.get("mitbringer");
+        final JSONObject object = jsonValue.isObject();
         return new TerminTeilnehmer(object);
     }
 

@@ -7,7 +7,7 @@ public class TerminTeilnehmer extends AbstractData implements ITerminTeilnehmer 
 
     private static final long serialVersionUID = -7582905882242579846L;
 
-    public TerminTeilnehmer(JSONObject obj) {
+    public TerminTeilnehmer(final JSONObject obj) {
         super(obj);
     }
 

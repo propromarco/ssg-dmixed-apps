@@ -19,7 +19,7 @@ public class JPAMitbringsel {
     public JPAMitbringsel() {
     }
 
-    public JPAMitbringsel(long mitbringselId, String bezeichnung) {
+    public JPAMitbringsel(final long mitbringselId, final String bezeichnung) {
         this.mitbringselId = mitbringselId;
         this.bezeichnung = bezeichnung;
     }
@@ -28,7 +28,7 @@ public class JPAMitbringsel {
         return mitbringselId;
     }
 
-    public final void setMitbringselId(long mitbringselId) {
+    public final void setMitbringselId(final long mitbringselId) {
         this.mitbringselId = mitbringselId;
     }
 
@@ -36,7 +36,7 @@ public class JPAMitbringsel {
         return bezeichnung;
     }
 
-    public final void setBezeichnung(String bezeichnung) {
+    public final void setBezeichnung(final String bezeichnung) {
         this.bezeichnung = bezeichnung;
     }
 

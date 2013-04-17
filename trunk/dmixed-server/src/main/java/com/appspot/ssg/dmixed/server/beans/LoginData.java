@@ -8,28 +8,28 @@ import com.appspot.ssg.dmixed.shared.ILoginData;
 public class LoginData implements ILoginData {
     private static final long serialVersionUID = 4317385007201849533L;
 
-    private String username;
-    private String password;
+    private String vorname;
+    private String email;
 
     public LoginData() {
     }
 
     @Override
-    public String getUsername() {
-        return this.username;
+    public final String getVorname() {
+        return vorname;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public final void setVorname(final String vorname) {
+        this.vorname = vorname;
     }
 
     @Override
-    public String getPassword() {
-        return this.password;
+    public final String getEmail() {
+        return email;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public final void setEmail(final String email) {
+        this.email = email;
     }
 
 }

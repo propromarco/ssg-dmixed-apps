@@ -8,12 +8,12 @@ import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
 public class TerminMitbringselAdapter extends XmlAdapter<TerminMitbringsel, ITerminMitbringsel> {
 
     @Override
-    public ITerminMitbringsel unmarshal(TerminMitbringsel v) throws Exception {
+    public ITerminMitbringsel unmarshal(final TerminMitbringsel v) throws Exception {
         return v;
     }
 
     @Override
-    public TerminMitbringsel marshal(ITerminMitbringsel v) throws Exception {
+    public TerminMitbringsel marshal(final ITerminMitbringsel v) throws Exception {
         return (TerminMitbringsel) v;
     }
 

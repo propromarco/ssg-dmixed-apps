@@ -26,7 +26,7 @@ public abstract class Mapping<E> implements List<E> {
 
         @Override
         public E next() {
-            JSONValue jsonValue = _array.get(_pos);
+            final JSONValue jsonValue = _array.get(_pos);
             _pos++;
             return create(jsonValue.isObject());
         }
@@ -38,9 +38,9 @@ public abstract class Mapping<E> implements List<E> {
 
     }
 
-    private JSONArray _array;
+    private final JSONArray _array;
 
-    public Mapping(JSONArray array) {
+    public Mapping(final JSONArray array) {
         _array = array;
     }
 
@@ -57,7 +57,7 @@ public abstract class Mapping<E> implements List<E> {
     }
 
     @Override
-    public boolean contains(Object o) {
+    public boolean contains(final Object o) {
         throw new UnsupportedOperationException();
     }
 
@@ -72,42 +72,42 @@ public abstract class Mapping<E> implements List<E> {
     }
 
     @Override
-    public <T> T[] toArray(T[] a) {
+    public <T> T[] toArray(final T[] a) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public boolean add(E e) {
+    public boolean add(final E e) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public boolean remove(Object o) {
+    public boolean remove(final Object o) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public boolean containsAll(Collection<?> c) {
+    public boolean containsAll(final Collection<?> c) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public boolean addAll(Collection<? extends E> c) {
+    public boolean addAll(final Collection<? extends E> c) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public boolean addAll(int index, Collection<? extends E> c) {
+    public boolean addAll(final int index, final Collection<? extends E> c) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public boolean removeAll(Collection<?> c) {
+    public boolean removeAll(final Collection<?> c) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public boolean retainAll(Collection<?> c) {
+    public boolean retainAll(final Collection<?> c) {
         throw new UnsupportedOperationException();
     }
 
@@ -117,32 +117,32 @@ public abstract class Mapping<E> implements List<E> {
     }
 
     @Override
-    public E get(int index) {
+    public E get(final int index) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public E set(int index, E element) {
+    public E set(final int index, final E element) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void add(int index, E element) {
+    public void add(final int index, final E element) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public E remove(int index) {
+    public E remove(final int index) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public int indexOf(Object o) {
+    public int indexOf(final Object o) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public int lastIndexOf(Object o) {
+    public int lastIndexOf(final Object o) {
         throw new UnsupportedOperationException();
     }
 
@@ -152,12 +152,12 @@ public abstract class Mapping<E> implements List<E> {
     }
 
     @Override
-    public ListIterator<E> listIterator(int index) {
+    public ListIterator<E> listIterator(final int index) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public List<E> subList(int fromIndex, int toIndex) {
+    public List<E> subList(final int fromIndex, final int toIndex) {
         throw new UnsupportedOperationException();
     }
 

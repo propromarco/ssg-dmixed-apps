@@ -26,7 +26,7 @@ public class Termine implements ITermine {
         return _all;
     }
 
-    public void setAll(List<ITermin> all) {
+    public void setAll(final List<ITermin> all) {
         _all = all;
     }
 

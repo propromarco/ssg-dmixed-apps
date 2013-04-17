@@ -9,7 +9,7 @@ public class Termin extends AbstractData implements ITermin {
 
     private static final long serialVersionUID = -4595597086302004317L;
 
-    public Termin(JSONObject jsonObject) {
+    public Termin(final JSONObject jsonObject) {
         super(jsonObject);
     }
 

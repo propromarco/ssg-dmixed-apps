@@ -16,7 +16,7 @@ public class TerminTeilnehmer implements ITerminTeilnehmer {
         return vorname;
     }
 
-    public void setVorname(String vorname) {
+    public void setVorname(final String vorname) {
         this.vorname = vorname;
     }
 
@@ -25,7 +25,7 @@ public class TerminTeilnehmer implements ITerminTeilnehmer {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -34,7 +34,7 @@ public class TerminTeilnehmer implements ITerminTeilnehmer {
         return teilnahme;
     }
 
-    public void setTeilnahme(boolean teilnahme) {
+    public void setTeilnahme(final boolean teilnahme) {
         this.teilnahme = teilnahme;
     }
 

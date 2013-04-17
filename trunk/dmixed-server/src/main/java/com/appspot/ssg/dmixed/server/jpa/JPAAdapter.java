@@ -17,17 +17,17 @@ public class JPAAdapter implements IJPAAdapter {
     }
 
     @Override
-    public JPAUser findUser(String username, String password) {
-        EntityManager entityManager = _entityManagerFactory.createEntityManager();
-        Query query = entityManager.createNamedQuery(JPAUser.FINDUSER);
-        query.setParameter("username", username);
-        query.setParameter("password", password);
+    public JPAUser findUser(final String vorname, final String email) {
+        final EntityManager entityManager = _entityManagerFactory.createEntityManager();
+        final Query query = entityManager.createNamedQuery(JPAUser.FINDUSER);
+        query.setParameter("vorname", vorname);
+        query.setParameter("email", email);
         try {
-            JPAUser singleResult = (JPAUser) query.getSingleResult();
+            final JPAUser singleResult = (JPAUser) query.getSingleResult();
             // Match
             return singleResult;
         }
-        catch (NoResultException e) {
+        catch (final NoResultException e) {
             // No Match
             return null;
         }
@@ -37,12 +37,12 @@ public class JPAAdapter implements IJPAAdapter {
     }
 
     @Override
-    public JPAUser findUser(Long userId) {
-        EntityManager entityManager = _entityManagerFactory.createEntityManager();
+    public JPAUser findUser(final Long userId) {
+        final EntityManager entityManager = _entityManagerFactory.createEntityManager();
         try {
             return entityManager.find(JPAUser.class, userId);
         }
-        catch (NoResultException e) {
+        catch (final NoResultException e) {
             // No Match
             return null;
         }
@@ -58,25 +58,26 @@ public class JPAAdapter implements IJPAAdapter {
     }
 
     @Override
-    public JPATermin getTermin(Long terminId) {
+    public JPATermin getTermin(final Long terminId) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public JPATerminMitbringsel getTerminMitbringsel(Long terminId, Long mitbringId) {
+    public JPATerminMitbringsel getTerminMitbringsel(final Long terminId, final Long mitbringId) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public void userOnTermin(JPAUser user, JPATermin termin, Boolean teilnahme) {
+    public void userOnTermin(final JPAUser user, final JPATermin termin, final Boolean teilnahme) {
         // TODO Auto-generated method stub
 
     }
 
     @Override
-    public void onUserToTerminMitbringen(JPAUser user, JPATermin termin, JPATerminMitbringsel terminMitbringsel, Boolean mitbringen) {
+    public void onUserToTerminMitbringen(final JPAUser user, final JPATermin termin, final JPATerminMitbringsel terminMitbringsel,
+            final Boolean mitbringen) {
         // TODO Auto-generated method stub
 
     }

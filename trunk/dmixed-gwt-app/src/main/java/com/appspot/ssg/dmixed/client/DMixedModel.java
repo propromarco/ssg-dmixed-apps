@@ -7,9 +7,9 @@ public class DMixedModel {
 
     private IUserData _user;
     private ITermine _termine;
-    private IDMixedMessages _messages;
+    private final IDMixedMessages _messages;
 
-    public DMixedModel(IDMixedMessages messages) {
+    public DMixedModel(final IDMixedMessages messages) {
         _messages = messages;
     }
 
@@ -17,7 +17,7 @@ public class DMixedModel {
         return _messages;
     }
 
-    public void setUser(IUserData user) {
+    public void setUser(final IUserData user) {
         _user = user;
     }
 
@@ -25,7 +25,7 @@ public class DMixedModel {
         return _user;
     }
 
-    public void setTermine(ITermine termine) {
+    public void setTermine(final ITermine termine) {
         _termine = termine;
     }
 

@@ -12,7 +12,7 @@ public class TerminDetails extends Termin implements ITerminDetails {
 
     private static final long serialVersionUID = -6936051379531665989L;
 
-    public TerminDetails(JSONObject jsonObject) {
+    public TerminDetails(final JSONObject jsonObject) {
         super(jsonObject);
     }
 
@@ -23,10 +23,10 @@ public class TerminDetails extends Termin implements ITerminDetails {
 
     @Override
     public List<ITerminTeilnehmer> getTeilnehmer() {
-        JSONArray array = getArray("teilnehmer");
+        final JSONArray array = getArray("teilnehmer");
         return new Mapping<ITerminTeilnehmer>(array) {
             @Override
-            protected ITerminTeilnehmer create(JSONObject object) {
+            protected ITerminTeilnehmer create(final JSONObject object) {
                 return new TerminTeilnehmer(object);
             }
         };
@@ -34,10 +34,10 @@ public class TerminDetails extends Termin implements ITerminDetails {
 
     @Override
     public List<ITerminMitbringsel> getMitbringsel() {
-        JSONArray array = getArray("teilnehmer");
+        final JSONArray array = getArray("teilnehmer");
         return new Mapping<ITerminMitbringsel>(array) {
             @Override
-            protected ITerminMitbringsel create(JSONObject object) {
+            protected ITerminMitbringsel create(final JSONObject object) {
                 return new TerminMitbringsel(object);
             }
         };

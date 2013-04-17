@@ -26,7 +26,7 @@ public class UserData implements IUserData {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -35,7 +35,7 @@ public class UserData implements IUserData {
         return this.vorname;
     }
 
-    public void setVorname(String vorname) {
+    public void setVorname(final String vorname) {
         this.vorname = vorname;
     }
 
@@ -44,7 +44,7 @@ public class UserData implements IUserData {
         return this.name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -54,7 +54,7 @@ public class UserData implements IUserData {
         return this.birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(final Date birthday) {
         this.birthday = birthday;
     }
 
@@ -63,7 +63,7 @@ public class UserData implements IUserData {
         return admin;
     }
 
-    public void setAdmin(boolean admin) {
+    public void setAdmin(final boolean admin) {
         this.admin = admin;
     }
 

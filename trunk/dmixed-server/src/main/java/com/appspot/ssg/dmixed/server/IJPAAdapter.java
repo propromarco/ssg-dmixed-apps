@@ -8,7 +8,7 @@ import com.appspot.ssg.dmixed.server.jpa.JPAUser;
 
 public interface IJPAAdapter {
 
-    JPAUser findUser(String username, String password);
+    JPAUser findUser(String vorname, String email);
 
     JPAUser findUser(Long userId);
 

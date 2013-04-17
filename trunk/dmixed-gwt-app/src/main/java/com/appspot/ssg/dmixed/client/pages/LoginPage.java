@@ -19,30 +19,30 @@ public class LoginPage extends JQMPage implements ClickHandler {
     private final JQMText nameOfChild;
     private final JQMEmail eMail;
     private final IDMixedUsecase _service;
-    private DMixedModel _model;
+    private final DMixedModel _model;
 
-    public LoginPage(IDMixedUsecase service, DMixedModel model) {
+    public LoginPage(final IDMixedUsecase service, final DMixedModel model) {
         _service = service;
         _model = model;
-        IDMixedMessages messages = model.getMessages();
+        final IDMixedMessages messages = model.getMessages();
         this.nameOfChild = new JQMText(messages.nameOfChild());
         add(nameOfChild);
         this.eMail = new JQMEmail(messages.emailAdress());
         add(eMail);
-        JQMButton loginButton = new JQMButton(messages.login());
+        final JQMButton loginButton = new JQMButton(messages.login());
         loginButton.addClickHandler(this);
         add(loginButton);
     }
 
     @Override
-    public void onClick(ClickEvent event) {
-        ILoginData data = new LoginData(nameOfChild.getValue(), eMail.getValue());
-        IAsync<IUserData> answer = new IAsync<IUserData>() {
+    public void onClick(final ClickEvent event) {
+        final ILoginData data = new LoginData(nameOfChild.getValue(), eMail.getValue());
+        final IAsync<IUserData> answer = new IAsync<IUserData>() {
             @Override
-            public void onSuccess(IUserData t) {
+            public void onSuccess(final IUserData t) {
                 if (t != null) {
                     _model.setUser(t);
-                    TerminePage terminePage = new TerminePage(_service, _model);
+                    final TerminePage terminePage = new TerminePage(_service, _model);
                     JQMContext.changePage(terminePage);
                 }
                 else {

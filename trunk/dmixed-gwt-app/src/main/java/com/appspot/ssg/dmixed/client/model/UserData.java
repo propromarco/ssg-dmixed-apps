@@ -9,7 +9,7 @@ public class UserData extends AbstractData implements IUserData {
 
     private static final long serialVersionUID = 8113909811709789110L;
 
-    public UserData(JSONObject object) {
+    public UserData(final JSONObject object) {
         super(object);
     }
 
