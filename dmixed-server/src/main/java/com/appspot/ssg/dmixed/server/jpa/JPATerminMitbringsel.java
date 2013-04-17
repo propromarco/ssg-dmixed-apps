@@ -1,28 +1,33 @@
 package com.appspot.ssg.dmixed.server.jpa;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "mitbringsel")
+@Table(name = "terminmitbringsel")
 public class JPATerminMitbringsel {
 
     @Id
     @GeneratedValue
     private long mitbringselId;
-    @Column
-    private String bezeichnung;
+
+    @ManyToOne
+    private JPATermin termin;
+
+    @ManyToOne
+    private JPAMitbringsel mitbringsel;
+
+    @ManyToOne
+    private JPAUser user;
 
     public JPATerminMitbringsel() {
-        // TODO Auto-generated constructor stub
     }
 
-    public JPATerminMitbringsel(long mitbringselId, String bezeichnung) {
+    public JPATerminMitbringsel(long mitbringselId) {
         this.mitbringselId = mitbringselId;
-        this.bezeichnung = bezeichnung;
     }
 
     public final long getMitbringselId() {
@@ -33,12 +38,20 @@ public class JPATerminMitbringsel {
         this.mitbringselId = mitbringselId;
     }
 
-    public final String getBezeichnung() {
-        return bezeichnung;
+    public final JPAMitbringsel getMitbringsel() {
+        return mitbringsel;
     }
 
-    public final void setBezeichnung(String bezeichnung) {
-        this.bezeichnung = bezeichnung;
+    public final void setMitbringsel(JPAMitbringsel mitbringsel) {
+        this.mitbringsel = mitbringsel;
+    }
+
+    public final JPAUser getUser() {
+        return user;
+    }
+
+    public final void setUser(JPAUser user) {
+        this.user = user;
     }
 
 }

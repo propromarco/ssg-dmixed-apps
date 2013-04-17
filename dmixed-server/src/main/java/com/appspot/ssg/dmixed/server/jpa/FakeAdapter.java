@@ -51,15 +51,15 @@ public class FakeAdapter implements IJPAAdapter {
         JPATermin terminDetails = new JPATermin(1l, new java.util.Date(), "kurz", "lang");
         terminDetails.setHeimspiel(true);
         List<JPATerminMitbringsel> mitbringsel = new ArrayList<JPATerminMitbringsel>();
-        mitbringsel.add(new JPATerminMitbringsel(12l, "k.a."));
-        mitbringsel.add(new JPATerminMitbringsel(13l, "k.a."));
+        mitbringsel.add(new JPATerminMitbringsel(12l));
+        mitbringsel.add(new JPATerminMitbringsel(13l));
         terminDetails.setMitbringsel(mitbringsel);
         return terminDetails;
     }
 
     @Override
     public JPATerminMitbringsel getTerminMitbringsel(Long terminId, Long mitbringId) {
-        return new JPATerminMitbringsel(12l, "k.a.");
+        return new JPATerminMitbringsel(12l);
     }
 
     @Override

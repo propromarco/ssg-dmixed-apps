@@ -6,14 +6,18 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import com.appspot.ssg.dmixed.shared.IUserData;
 
 @Entity
 @Table(name = "user")
+@NamedQuery(name = JPAUser.FINDUSER, query = "SELECT user FROM JPAUser user WHERE user.username = :username and user.password = :password")
 public class JPAUser implements IUserData {
     private static final long serialVersionUID = 6370048349787799422L;
+    
+    public static final String FINDUSER = "FINDUSER";
 
     @Id
     @GeneratedValue
