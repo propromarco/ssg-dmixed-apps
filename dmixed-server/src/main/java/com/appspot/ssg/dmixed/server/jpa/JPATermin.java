@@ -10,12 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.appspot.ssg.dmixed.shared.ITermin;
-
 @Entity
 @Table(name = "termin")
-public class JPATermin implements ITermin {
-    private static final long serialVersionUID = -2074181411290603332L;
+public class JPATermin {
 
     @Id
     @GeneratedValue

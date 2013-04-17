@@ -19,6 +19,8 @@ import com.appspot.ssg.dmixed.server.jpa.FakeAdapter;
 import com.appspot.ssg.dmixed.server.jpa.JPATermin;
 import com.appspot.ssg.dmixed.server.jpa.JPATerminMitbringsel;
 import com.appspot.ssg.dmixed.server.jpa.JPAUser;
+import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
+import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 
 @Path("dmixed")
 @Produces(MediaType.APPLICATION_JSON)
@@ -40,7 +42,13 @@ public class DMixedUsecaseService {
             return null;
         }
         else {
-            return new UserData(user);
+            UserData userData = new UserData();
+            userData.setAdmin(user.isAdmin());
+            userData.setBirthday(user.getBirthday());
+            userData.setId(user.getId());
+            userData.setName(user.getName());
+            userData.setVorname(user.getName());
+            return userData;
         }
     }
 
@@ -53,7 +61,11 @@ public class DMixedUsecaseService {
         List<JPATermin> jpaTermine = adapter.getTermine();
         Termine termine = new Termine();
         for (JPATermin jpaTermin : jpaTermine) {
-            termine.getAll().add(new Termin(jpaTermin));
+            Termin termin = new Termin();
+            termin.setTerminId(jpaTermin.getTerminId());
+            termin.setTermineDatum(jpaTermin.getTermineDatum());
+            termin.setTerminKurzbeschreibung(jpaTermin.getTerminKurzbeschreibung());
+            termine.getAll().add(termin);
         }
         return termine;
     }
@@ -65,7 +77,8 @@ public class DMixedUsecaseService {
         if (user == null)
             return null;
         JPATermin termin = adapter.getTermin(terminId);
-        return new TerminDetails(termin);
+        TerminDetails terminDetails = copyToDetails(termin);
+        return terminDetails;
     }
 
     @GET
@@ -76,7 +89,8 @@ public class DMixedUsecaseService {
             return null;
         JPATermin termin = adapter.getTermin(terminId);
         adapter.userOnTermin(user, termin, teilnahme);
-        return new TerminDetails(termin);
+        TerminDetails terminDetails = copyToDetails(termin);
+        return terminDetails;
     }
 
     @GET
@@ -89,7 +103,30 @@ public class DMixedUsecaseService {
         JPATermin termin = adapter.getTermin(terminId);
         JPATerminMitbringsel terminMitbringsel = adapter.getTerminMitbringsel(terminId, mitbringId);
         adapter.onUserToTerminMitbringen(user, termin, terminMitbringsel, mitbringen);
-        return new TerminDetails(termin);
+        TerminDetails terminDetails = copyToDetails(termin);
+        return terminDetails;
+    }
+
+    private TerminDetails copyToDetails(JPATermin termin) {
+        TerminDetails terminDetails = new TerminDetails();
+        terminDetails.setHeimspiel(termin.isHeimspiel());
+        terminDetails.setMitbringsel(createMitbringsel(termin));
+        terminDetails.setTeilnehmer(createTeilnehmer(termin));
+        terminDetails.setTerminBeschreibung(termin.getTerminBeschreibung());
+        terminDetails.setTermineDatum(termin.getTermineDatum());
+        terminDetails.setTerminId(termin.getTerminId());
+        terminDetails.setTerminKurzbeschreibung(termin.getTerminKurzbeschreibung());
+        return terminDetails;
+    }
+
+    private List<ITerminTeilnehmer> createTeilnehmer(JPATermin termin) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    private List<ITerminMitbringsel> createMitbringsel(JPATermin termin) {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }

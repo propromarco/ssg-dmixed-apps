@@ -21,14 +21,6 @@ public class UserData implements IUserData {
     public UserData() {
     }
 
-    public UserData(IUserData user) {
-        this.id = user.getId();
-        this.vorname = user.getVorname();
-        this.name = user.getName();
-        this.birthday = user.getBirthday();
-        this.admin = user.isAdmin();
-    }
-
     @Override
     public Long getId() {
         return this.id;
