@@ -34,15 +34,15 @@ public class DMixedUsecaseService {
     }
 
     @POST
-    public UserData login(LoginData data) {
-        String username = data.getUsername();
-        String password = data.getPassword();
-        JPAUser user = adapter.findUser(username, password);
+    public UserData login(final LoginData data) {
+        final String vorname = data.getVorname();
+        final String email = data.getEmail();
+        final JPAUser user = adapter.findUser(vorname, email);
         if (user == null) {
             return null;
         }
         else {
-            UserData userData = new UserData();
+            final UserData userData = new UserData();
             userData.setAdmin(user.isAdmin());
             userData.setBirthday(user.getBirthday());
             userData.setId(user.getId());
@@ -54,14 +54,14 @@ public class DMixedUsecaseService {
 
     @GET
     @Path("termine/{userid}")
-    public Termine termine(@PathParam("userid") Long userId) {
-        JPAUser user = adapter.findUser(userId);
+    public Termine termine(@PathParam("userid") final Long userId) {
+        final JPAUser user = adapter.findUser(userId);
         if (user == null)
             return null;
-        List<JPATermin> jpaTermine = adapter.getTermine();
-        Termine termine = new Termine();
-        for (JPATermin jpaTermin : jpaTermine) {
-            Termin termin = new Termin();
+        final List<JPATermin> jpaTermine = adapter.getTermine();
+        final Termine termine = new Termine();
+        for (final JPATermin jpaTermin : jpaTermine) {
+            final Termin termin = new Termin();
             termin.setTerminId(jpaTermin.getTerminId());
             termin.setTermineDatum(jpaTermin.getTermineDatum());
             termin.setTerminKurzbeschreibung(jpaTermin.getTerminKurzbeschreibung());
@@ -72,43 +72,44 @@ public class DMixedUsecaseService {
 
     @GET
     @Path("termin/{userid}/{terminId}")
-    public TerminDetails termin(@PathParam("userid") Long userId, @PathParam("terminId") Long terminId) {
-        JPAUser user = adapter.findUser(userId);
+    public TerminDetails termin(@PathParam("userid") final Long userId, @PathParam("terminId") final Long terminId) {
+        final JPAUser user = adapter.findUser(userId);
         if (user == null)
             return null;
-        JPATermin termin = adapter.getTermin(terminId);
-        TerminDetails terminDetails = copyToDetails(termin);
+        final JPATermin termin = adapter.getTermin(terminId);
+        final TerminDetails terminDetails = copyToDetails(termin);
         return terminDetails;
     }
 
     @GET
     @Path("teilname/{userid}/{terminid}/{teilname}")
-    public TerminDetails teilname(@PathParam("userid") Long userId, @PathParam("terminid") Long terminId, @PathParam("teilname") Boolean teilnahme) {
-        JPAUser user = adapter.findUser(userId);
+    public TerminDetails teilname(@PathParam("userid") final Long userId, @PathParam("terminid") final Long terminId,
+            @PathParam("teilname") final Boolean teilnahme) {
+        final JPAUser user = adapter.findUser(userId);
         if (user == null)
             return null;
-        JPATermin termin = adapter.getTermin(terminId);
+        final JPATermin termin = adapter.getTermin(terminId);
         adapter.userOnTermin(user, termin, teilnahme);
-        TerminDetails terminDetails = copyToDetails(termin);
+        final TerminDetails terminDetails = copyToDetails(termin);
         return terminDetails;
     }
 
     @GET
     @Path("mitringen/{userid}/{terminid}/{mitbringid}/{mitbringen}")
-    public TerminDetails mitringen(@PathParam("userid") Long userId, @PathParam("terminid") Long terminId, @PathParam("mitbringid") Long mitbringId,
-            @PathParam("mitbringen") Boolean mitbringen) {
-        JPAUser user = adapter.findUser(userId);
+    public TerminDetails mitringen(@PathParam("userid") final Long userId, @PathParam("terminid") final Long terminId,
+            @PathParam("mitbringid") final Long mitbringId, @PathParam("mitbringen") final Boolean mitbringen) {
+        final JPAUser user = adapter.findUser(userId);
         if (user == null)
             return null;
-        JPATermin termin = adapter.getTermin(terminId);
-        JPATerminMitbringsel terminMitbringsel = adapter.getTerminMitbringsel(terminId, mitbringId);
+        final JPATermin termin = adapter.getTermin(terminId);
+        final JPATerminMitbringsel terminMitbringsel = adapter.getTerminMitbringsel(terminId, mitbringId);
         adapter.onUserToTerminMitbringen(user, termin, terminMitbringsel, mitbringen);
-        TerminDetails terminDetails = copyToDetails(termin);
+        final TerminDetails terminDetails = copyToDetails(termin);
         return terminDetails;
     }
 
-    private TerminDetails copyToDetails(JPATermin termin) {
-        TerminDetails terminDetails = new TerminDetails();
+    private TerminDetails copyToDetails(final JPATermin termin) {
+        final TerminDetails terminDetails = new TerminDetails();
         terminDetails.setHeimspiel(termin.isHeimspiel());
         terminDetails.setMitbringsel(createMitbringsel(termin));
         terminDetails.setTeilnehmer(createTeilnehmer(termin));
@@ -119,12 +120,12 @@ public class DMixedUsecaseService {
         return terminDetails;
     }
 
-    private List<ITerminTeilnehmer> createTeilnehmer(JPATermin termin) {
+    private List<ITerminTeilnehmer> createTeilnehmer(final JPATermin termin) {
         // TODO Auto-generated method stub
         return null;
     }
 
-    private List<ITerminMitbringsel> createMitbringsel(JPATermin termin) {
+    private List<ITerminMitbringsel> createMitbringsel(final JPATermin termin) {
         // TODO Auto-generated method stub
         return null;
     }

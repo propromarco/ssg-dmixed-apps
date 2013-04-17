@@ -26,7 +26,7 @@ public class JPATerminMitbringsel {
     public JPATerminMitbringsel() {
     }
 
-    public JPATerminMitbringsel(long mitbringselId) {
+    public JPATerminMitbringsel(final long mitbringselId) {
         this.mitbringselId = mitbringselId;
     }
 
@@ -34,7 +34,7 @@ public class JPATerminMitbringsel {
         return mitbringselId;
     }
 
-    public final void setMitbringselId(long mitbringselId) {
+    public final void setMitbringselId(final long mitbringselId) {
         this.mitbringselId = mitbringselId;
     }
 
@@ -42,7 +42,7 @@ public class JPATerminMitbringsel {
         return mitbringsel;
     }
 
-    public final void setMitbringsel(JPAMitbringsel mitbringsel) {
+    public final void setMitbringsel(final JPAMitbringsel mitbringsel) {
         this.mitbringsel = mitbringsel;
     }
 
@@ -50,7 +50,7 @@ public class JPATerminMitbringsel {
         return user;
     }
 
-    public final void setUser(JPAUser user) {
+    public final void setUser(final JPAUser user) {
         this.user = user;
     }
 

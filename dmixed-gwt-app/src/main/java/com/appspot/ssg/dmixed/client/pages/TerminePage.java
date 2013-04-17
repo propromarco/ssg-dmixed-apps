@@ -25,10 +25,10 @@ public class TerminePage extends JQMPage {
     private final JQMHeader _header;
     private final JQMList _liste;
 
-    public TerminePage(IDMixedUsecase service, DMixedModel model) {
+    public TerminePage(final IDMixedUsecase service, final DMixedModel model) {
         _service = service;
         _model = model;
-        IDMixedMessages messages = model.getMessages();
+        final IDMixedMessages messages = model.getMessages();
         _header = new JQMHeader(messages.termine());
         setHeader(_header);
         _liste = new JQMList();
@@ -40,15 +40,16 @@ public class TerminePage extends JQMPage {
     protected void onPageBeforeShow() {
         super.onPageBeforeShow();
         if (_model.getTermine() == null) {
-            Long userId = _model.getUser().getId();
-            IAsync<ITermine> answer = new IAsync<ITermine>() {
+            final Long userId = _model.getUser().getId();
+            final IAsync<ITermine> answer = new IAsync<ITermine>() {
 
                 @Override
-                public void onSuccess(ITermine t) {
+                public void onSuccess(final ITermine t) {
                     if (t != null) {
                         _model.setTermine(t);
                         loadTermine();
-                    } else {
+                    }
+                    else {
                         // TODO Error oder Nicht erlaubt
                     }
                 }
@@ -62,19 +63,19 @@ public class TerminePage extends JQMPage {
 
     private void loadTermine() {
         _liste.clear();
-        ITermine termine = _model.getTermine();
-        List<ITermin> all = termine.getAll();
+        final ITermine termine = _model.getTermine();
+        final List<ITermin> all = termine.getAll();
         final TerminPage jqmPage = new TerminPage(_service, _model);
         for (final ITermin termin : all) {
-            Date termineDatum = termin.getTermineDatum();
-            String terminKurzbeschreibung = termin.getTerminKurzbeschreibung();
-            DateTimeFormat formatter = DateTimeFormat.getFormat("dd.MM.yyyy");
-            String d = formatter.format(termineDatum);
-            String title = terminKurzbeschreibung + " - " + d;
-            JQMListItem item = _liste.addItem(title, jqmPage);
+            final Date termineDatum = termin.getTermineDatum();
+            final String terminKurzbeschreibung = termin.getTerminKurzbeschreibung();
+            final DateTimeFormat formatter = DateTimeFormat.getFormat("dd.MM.yyyy");
+            final String d = formatter.format(termineDatum);
+            final String title = terminKurzbeschreibung + " - " + d;
+            final JQMListItem item = _liste.addItem(title, jqmPage);
             item.addClickHandler(new ClickHandler() {
                 @Override
-                public void onClick(ClickEvent event) {
+                public void onClick(final ClickEvent event) {
                     jqmPage.setTermin(termin);
                     JQMContext.changePage(jqmPage);
                 }

@@ -14,35 +14,35 @@ import com.sksamuel.jqm4gwt.toolbar.JQMHeader;
 public class TerminPage extends JQMPage {
 
     private ITermin _termin;
-    private IDMixedUsecase _service;
-    private DMixedModel _model;
-    private JQMHeader _header;
+    private final IDMixedUsecase _service;
+    private final DMixedModel _model;
+    private final JQMHeader _header;
 
-    public TerminPage(IDMixedUsecase service, DMixedModel model) {
+    public TerminPage(final IDMixedUsecase service, final DMixedModel model) {
         _service = service;
         _model = model;
         _header = new JQMHeader("&nbsp;");
         setHeader(_header);
     }
 
-    public void setTermin(ITermin termin) {
+    public void setTermin(final ITermin termin) {
         _termin = termin;
     }
 
     @Override
     protected void onPageBeforeShow() {
         super.onPageBeforeShow();
-        Long userId = _model.getUser().getId();
-        Long terminId = _termin.getTerminId();
-        IAsync<ITerminDetails> answer = new IAsync<ITerminDetails>() {
+        final Long userId = _model.getUser().getId();
+        final Long terminId = _termin.getTerminId();
+        final IAsync<ITerminDetails> answer = new IAsync<ITerminDetails>() {
             @Override
-            public void onSuccess(ITerminDetails termin) {
+            public void onSuccess(final ITerminDetails termin) {
                 if (termin != null) {
-                    Date termineDatum = termin.getTermineDatum();
-                    String terminKurzbeschreibung = termin.getTerminKurzbeschreibung();
-                    DateTimeFormat formatter = DateTimeFormat.getFormat("dd.MM.yyyy");
-                    String d = formatter.format(termineDatum);
-                    String title = terminKurzbeschreibung + " - " + d;
+                    final Date termineDatum = termin.getTermineDatum();
+                    final String terminKurzbeschreibung = termin.getTerminKurzbeschreibung();
+                    final DateTimeFormat formatter = DateTimeFormat.getFormat("dd.MM.yyyy");
+                    final String d = formatter.format(termineDatum);
+                    final String title = terminKurzbeschreibung + " - " + d;
                     _header.setText(title);
                     //
                 }

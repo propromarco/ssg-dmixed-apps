@@ -22,7 +22,7 @@ public class TerminMitbringsel implements ITerminMitbringsel {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -31,7 +31,7 @@ public class TerminMitbringsel implements ITerminMitbringsel {
         return beschreibung;
     }
 
-    public void setBeschreibung(String beschreibung) {
+    public void setBeschreibung(final String beschreibung) {
         this.beschreibung = beschreibung;
     }
 
@@ -41,7 +41,7 @@ public class TerminMitbringsel implements ITerminMitbringsel {
         return mitbringer;
     }
 
-    public void setMitbringer(ITerminTeilnehmer mitbringer) {
+    public void setMitbringer(final ITerminTeilnehmer mitbringer) {
         this.mitbringer = mitbringer;
     }
 

@@ -33,7 +33,7 @@ public class TerminDetails implements ITerminDetails {
         return terminId;
     }
 
-    public void setTerminId(Long terminId) {
+    public void setTerminId(final Long terminId) {
         this.terminId = terminId;
     }
 
@@ -43,7 +43,7 @@ public class TerminDetails implements ITerminDetails {
         return termineDatum;
     }
 
-    public void setTermineDatum(Date termineDatum) {
+    public void setTermineDatum(final Date termineDatum) {
         this.termineDatum = termineDatum;
     }
 
@@ -52,7 +52,7 @@ public class TerminDetails implements ITerminDetails {
         return terminKurzbeschreibung;
     }
 
-    public void setTerminKurzbeschreibung(String terminKurzbeschreibung) {
+    public void setTerminKurzbeschreibung(final String terminKurzbeschreibung) {
         this.terminKurzbeschreibung = terminKurzbeschreibung;
     }
 
@@ -61,7 +61,7 @@ public class TerminDetails implements ITerminDetails {
         return terminBeschreibung;
     }
 
-    public void setTerminBeschreibung(String terminBeschreibung) {
+    public void setTerminBeschreibung(final String terminBeschreibung) {
         this.terminBeschreibung = terminBeschreibung;
     }
 
@@ -70,7 +70,7 @@ public class TerminDetails implements ITerminDetails {
         return heimspiel;
     }
 
-    public void setHeimspiel(boolean heimspiel) {
+    public void setHeimspiel(final boolean heimspiel) {
         this.heimspiel = heimspiel;
     }
 
@@ -80,7 +80,7 @@ public class TerminDetails implements ITerminDetails {
         return teilnehmer;
     }
 
-    public void setTeilnehmer(List<ITerminTeilnehmer> teilnehmer) {
+    public void setTeilnehmer(final List<ITerminTeilnehmer> teilnehmer) {
         this.teilnehmer = teilnehmer;
     }
 
@@ -90,7 +90,7 @@ public class TerminDetails implements ITerminDetails {
         return mitbringsel;
     }
 
-    public void setMitbringsel(List<ITerminMitbringsel> mitbringsel) {
+    public void setMitbringsel(final List<ITerminMitbringsel> mitbringsel) {
         this.mitbringsel = mitbringsel;
     }
 

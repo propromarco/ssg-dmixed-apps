@@ -12,11 +12,11 @@ public class DMixedApp implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        IDMixedMessages messages = GWT.create(IDMixedMessages.class);
-        String baseUrl = GWT.getHostPageBaseURL();
-        IDMixedUsecase service = new DMixedUsecaseConnector(baseUrl);
-        DMixedModel model = new DMixedModel(messages);
-        JQMPage page = new LoginPage(service, model);
+        final IDMixedMessages messages = GWT.create(IDMixedMessages.class);
+        final String baseUrl = GWT.getHostPageBaseURL();
+        final IDMixedUsecase service = new DMixedUsecaseConnector(baseUrl);
+        final DMixedModel model = new DMixedModel(messages);
+        final JQMPage page = new LoginPage(service, model);
         JQMContext.changePage(page);
     }
 

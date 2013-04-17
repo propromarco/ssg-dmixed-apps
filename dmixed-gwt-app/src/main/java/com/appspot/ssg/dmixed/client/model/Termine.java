@@ -11,16 +11,16 @@ public class Termine extends AbstractData implements ITermine {
 
     private static final long serialVersionUID = -6566178482824695480L;
 
-    public Termine(JSONObject object) {
+    public Termine(final JSONObject object) {
         super(object);
     }
 
     @Override
     public List<ITermin> getAll() {
-        JSONArray array = getArray("all");
+        final JSONArray array = getArray("all");
         return new Mapping<ITermin>(array) {
             @Override
-            protected ITermin create(JSONObject object) {
+            protected ITermin create(final JSONObject object) {
                 return new Termin(object);
             }
         };
