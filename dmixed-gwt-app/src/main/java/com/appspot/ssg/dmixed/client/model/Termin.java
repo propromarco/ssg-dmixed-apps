@@ -33,4 +33,9 @@ public class Termin extends AbstractData implements ITermin {
         return getString("terminKurzbeschreibung");
     }
 
+    @Override
+    public String getTerminBeschreibung() {
+        return getString("terminbeschreibung");
+    }
+
 }
