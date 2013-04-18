@@ -1,11 +1,11 @@
-.ui-page {
-	background: url("../gfx/gras.jpg");
-	color: #DDDDDD;
+body {
+/*	background: url("../gfx/gras.jpg");
+	color: #DDDDDD;*/
 }
 
 a {
 	text-decoration: none;
-	color: white;
+/*	color: white;*/
 }
 
 h3 {

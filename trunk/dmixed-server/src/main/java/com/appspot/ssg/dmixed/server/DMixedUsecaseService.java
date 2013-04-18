@@ -1,5 +1,6 @@
 package com.appspot.ssg.dmixed.server;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -13,11 +14,14 @@ import javax.ws.rs.core.MediaType;
 import com.appspot.ssg.dmixed.server.beans.LoginData;
 import com.appspot.ssg.dmixed.server.beans.Termin;
 import com.appspot.ssg.dmixed.server.beans.TerminDetails;
+import com.appspot.ssg.dmixed.server.beans.TerminMitbringsel;
+import com.appspot.ssg.dmixed.server.beans.TerminTeilnehmer;
 import com.appspot.ssg.dmixed.server.beans.Termine;
 import com.appspot.ssg.dmixed.server.beans.UserData;
 import com.appspot.ssg.dmixed.server.jpa.FakeAdapter;
 import com.appspot.ssg.dmixed.server.jpa.JPATermin;
 import com.appspot.ssg.dmixed.server.jpa.JPATerminMitbringsel;
+import com.appspot.ssg.dmixed.server.jpa.JPATerminTeilnehmer;
 import com.appspot.ssg.dmixed.server.jpa.JPAUser;
 import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
@@ -30,7 +34,7 @@ public class DMixedUsecaseService {
     private final IJPAAdapter adapter;
 
     public DMixedUsecaseService() {
-        adapter = new FakeAdapter();
+        adapter = FakeAdapter.getInstance();
     }
 
     @POST
@@ -121,13 +125,43 @@ public class DMixedUsecaseService {
     }
 
     private List<ITerminTeilnehmer> createTeilnehmer(final JPATermin termin) {
-        // TODO Auto-generated method stub
-        return null;
+        final List<ITerminTeilnehmer> list = new ArrayList<ITerminTeilnehmer>();
+        final List<JPAUser> users = this.adapter.getUsers();
+        for (final JPAUser jpaUser : users) {
+            final TerminTeilnehmer terminTeilnehmer = new TerminTeilnehmer();
+            terminTeilnehmer.setVorname(jpaUser.getVorname());
+            terminTeilnehmer.setName(jpaUser.getName());
+            terminTeilnehmer.setTeilnahme(false);
+            final List<JPATerminTeilnehmer> teilnehmer = termin.getTeilnehmer();
+            for (final JPATerminTeilnehmer jpaTerminTeilnehmer : teilnehmer) {
+                if (jpaTerminTeilnehmer.getId() == jpaUser.getId())
+                    terminTeilnehmer.setTeilnahme(true);
+            }
+            list.add(terminTeilnehmer);
+        }
+        return list;
     }
 
     private List<ITerminMitbringsel> createMitbringsel(final JPATermin termin) {
-        // TODO Auto-generated method stub
-        return null;
+        final List<ITerminMitbringsel> list = new ArrayList<ITerminMitbringsel>();
+        final List<JPATerminMitbringsel> mitbringsel = termin.getMitbringsel();
+        for (final JPATerminMitbringsel jpaTerminMitbringsel : mitbringsel) {
+            final TerminMitbringsel m = new TerminMitbringsel();
+            m.setId(jpaTerminMitbringsel.getMitbringselId());
+            m.setBeschreibung(jpaTerminMitbringsel.getMitbringsel().getBezeichnung());
+            m.setMitbringer(createMitbringer(jpaTerminMitbringsel.getUser()));
+            list.add(m);
+        }
+        return list;
+    }
+
+    private ITerminTeilnehmer createMitbringer(final JPAUser user) {
+        if (user == null)
+            return null;
+        final TerminTeilnehmer t = new TerminTeilnehmer();
+        t.setVorname(user.getVorname());
+        t.setName(user.getName());
+        return t;
     }
 
 }

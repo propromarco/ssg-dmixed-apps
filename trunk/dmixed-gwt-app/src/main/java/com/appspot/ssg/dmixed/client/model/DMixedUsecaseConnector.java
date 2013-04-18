@@ -94,9 +94,14 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
     }
 
     protected JSONObject toObject(final String text) {
-        final JSONValue parseStrict = JSONParser.parseStrict(text);
-        final JSONObject object = parseStrict.isObject();
-        return object;
+        try {
+            final JSONValue parseStrict = JSONParser.parseStrict(text);
+            final JSONObject object = parseStrict.isObject();
+            return object;
+        }
+        catch (final Exception e) {
+            return null;
+        }
     }
 
     protected void executePost(final RequestBuilder requestBuilder, final String requestData, final IAsync<JSONObject> answer) {
