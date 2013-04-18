@@ -1,5 +1,6 @@
 package com.appspot.ssg.dmixed.server.jpa;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,9 +27,9 @@ public class JPATermin {
     @Column
     private String terminBeschreibung;
     @OneToMany
-    private List<JPATerminMitbringsel> mitbringsel;
+    private List<JPATerminMitbringsel> mitbringsel = new ArrayList<JPATerminMitbringsel>();
     @OneToMany
-    private List<JPATerminTeilnehmer> teilnehmer;
+    private List<JPATerminTeilnehmer> teilnehmer = new ArrayList<JPATerminTeilnehmer>();
 
     public JPATermin() {
     }
@@ -86,6 +87,14 @@ public class JPATermin {
 
     public List<JPATerminMitbringsel> getMitbringsel() {
         return mitbringsel;
+    }
+
+    public final List<JPATerminTeilnehmer> getTeilnehmer() {
+        return teilnehmer;
+    }
+
+    public final void setTeilnehmer(final List<JPATerminTeilnehmer> teilnehmer) {
+        this.teilnehmer = teilnehmer;
     }
 
 }

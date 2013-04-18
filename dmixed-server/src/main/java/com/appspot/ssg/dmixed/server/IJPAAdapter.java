@@ -2,6 +2,7 @@ package com.appspot.ssg.dmixed.server;
 
 import java.util.List;
 
+import com.appspot.ssg.dmixed.server.jpa.JPAMitbringsel;
 import com.appspot.ssg.dmixed.server.jpa.JPATermin;
 import com.appspot.ssg.dmixed.server.jpa.JPATerminMitbringsel;
 import com.appspot.ssg.dmixed.server.jpa.JPAUser;
@@ -21,5 +22,9 @@ public interface IJPAAdapter {
     void userOnTermin(JPAUser user, JPATermin termin, Boolean teilnahme);
 
     void onUserToTerminMitbringen(JPAUser user, JPATermin termin, JPATerminMitbringsel terminMitbringsel, Boolean mitbringen);
+
+    List<JPAUser> getUsers();
+
+    List<JPAMitbringsel> getMitbringsel();
 
 }

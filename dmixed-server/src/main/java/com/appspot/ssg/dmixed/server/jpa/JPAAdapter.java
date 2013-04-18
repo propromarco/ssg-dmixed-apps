@@ -82,4 +82,16 @@ public class JPAAdapter implements IJPAAdapter {
 
     }
 
+    @Override
+    public List<JPAUser> getUsers() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public List<JPAMitbringsel> getMitbringsel() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
 }
