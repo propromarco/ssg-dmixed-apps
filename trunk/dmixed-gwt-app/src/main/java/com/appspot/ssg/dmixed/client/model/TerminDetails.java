@@ -34,7 +34,7 @@ public class TerminDetails extends Termin implements ITerminDetails {
 
     @Override
     public List<ITerminMitbringsel> getMitbringsel() {
-        final JSONArray array = getArray("teilnehmer");
+        final JSONArray array = getArray("mitbringsel");
         return new Mapping<ITerminMitbringsel>(array) {
             @Override
             protected ITerminMitbringsel create(final JSONObject object) {
