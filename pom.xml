@@ -10,6 +10,7 @@
     <module>dmixed-api</module>
     <module>dmixed-server</module>
     <module>dmixed-gwt-app</module>
+    <module>dmixed-android-app</module>
   </modules>
   <dependencyManagement>
     <dependencies>
