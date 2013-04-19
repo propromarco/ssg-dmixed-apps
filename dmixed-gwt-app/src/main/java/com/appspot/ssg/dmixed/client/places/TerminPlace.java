@@ -15,7 +15,6 @@
  */
 package com.appspot.ssg.dmixed.client.places;
 
-import com.appspot.ssg.dmixed.shared.ITermin;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceTokenizer;
 
@@ -25,7 +24,7 @@ import com.google.gwt.place.shared.PlaceTokenizer;
  */
 public class TerminPlace extends Place {
 
-    private final ITermin _termin;
+    private final Long _termin;
 
     public static class TerminePlaceTokenizer implements PlaceTokenizer<TerminPlace> {
 
@@ -45,11 +44,11 @@ public class TerminPlace extends Place {
         this(null);
     }
 
-    public TerminPlace(final ITermin iTermin) {
-        _termin = iTermin;
+    public TerminPlace(final Long terminId) {
+        _termin = terminId;
     }
-    
-    public ITermin getTermin() {
+
+    public Long getTermin() {
         return _termin;
     }
 

@@ -62,11 +62,10 @@ public class TermineActivity extends MGWTAbstractActivity {
             @Override
             public void onCellSelected(final CellSelectedEvent event) {
                 final int index = event.getIndex();
-                final DMixedModel model2 = _clientFactory.getModel();
-                final ITermine termine = model2.getTermine();
+                final ITermine termine = model.getTermine();
                 final List<ITermin> all = termine.getAll();
                 final ITermin iTermin = all.get(index);
-                _clientFactory.getPlaceController().goTo(new TerminPlace(iTermin));
+                _clientFactory.getPlaceController().goTo(new TerminPlace(iTermin.getTerminId()));
             }
         }));
 
