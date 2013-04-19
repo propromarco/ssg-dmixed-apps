@@ -62,7 +62,13 @@ public class FakeAdapter implements IJPAAdapter {
 
     @Override
     public JPATerminMitbringsel getTerminMitbringsel(final Long terminId, final Long mitbringId) {
-        return new JPATerminMitbringsel(12l);
+        final JPATermin termin = getTermin(terminId);
+        final List<JPATerminMitbringsel> mitbringsel = termin.getMitbringsel();
+        for (final JPATerminMitbringsel jpaTerminMitbringsel : mitbringsel) {
+            if (jpaTerminMitbringsel.getMitbringsel().getMitbringselId() == mitbringId)
+                return jpaTerminMitbringsel;
+        }
+        return null;
     }
 
     @Override
