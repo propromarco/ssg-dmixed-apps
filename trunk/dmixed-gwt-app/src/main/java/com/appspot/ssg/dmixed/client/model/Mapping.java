@@ -118,7 +118,8 @@ public abstract class Mapping<E> implements List<E> {
 
     @Override
     public E get(final int index) {
-        throw new UnsupportedOperationException();
+        final JSONValue jsonValue = _array.get(index);
+        return create(jsonValue.isObject());
     }
 
     @Override

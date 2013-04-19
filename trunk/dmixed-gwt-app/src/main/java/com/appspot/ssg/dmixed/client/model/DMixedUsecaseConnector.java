@@ -15,7 +15,6 @@ import com.google.gwt.http.client.Response;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONParser;
 import com.google.gwt.json.client.JSONValue;
-import com.sksamuel.jqm4gwt.Mobile;
 
 public class DMixedUsecaseConnector implements IDMixedUsecase {
 
@@ -105,19 +104,19 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
     }
 
     protected void executePost(final RequestBuilder requestBuilder, final String requestData, final IAsync<JSONObject> answer) {
-        Mobile.showLoadingDialog("Loading...");
+//        Mobile.showLoadingDialog("Loading...");
         final RequestCallback callback = new RequestCallback() {
             @Override
             public void onResponseReceived(final Request request, final Response response) {
                 final JSONObject object = toObject(response.getText());
                 answer.onSuccess(object);
-                Mobile.hideLoadingDialog();
+//                Mobile.hideLoadingDialog();
             }
 
             @Override
             public void onError(final Request request, final Throwable exception) {
                 exception.printStackTrace();
-                Mobile.hideLoadingDialog();
+//                Mobile.hideLoadingDialog();
             }
         };
         try {
@@ -129,20 +128,20 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
     }
 
     public void executeGet(final RequestBuilder requestBuilder, final IAsync<JSONObject> answer) {
-        Mobile.showLoadingDialog("Loading...");
+//        Mobile.showLoadingDialog("Loading...");
         final RequestCallback callback = new RequestCallback() {
 
             @Override
             public void onResponseReceived(final Request request, final Response response) {
                 final JSONObject object = toObject(response.getText());
                 answer.onSuccess(object);
-                Mobile.hideLoadingDialog();
+//                Mobile.hideLoadingDialog();
             }
 
             @Override
             public void onError(final Request request, final Throwable exception) {
                 exception.printStackTrace();
-                Mobile.hideLoadingDialog();
+//                Mobile.hideLoadingDialog();
             }
         };
         requestBuilder.setCallback(callback);

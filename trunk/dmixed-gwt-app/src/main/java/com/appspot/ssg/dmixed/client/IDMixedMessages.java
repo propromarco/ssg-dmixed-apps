@@ -10,4 +10,6 @@ public interface IDMixedMessages extends Messages {
     String login();
 
     String termine();
+
+    String loginData();
 }
