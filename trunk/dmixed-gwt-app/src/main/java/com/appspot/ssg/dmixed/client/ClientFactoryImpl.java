@@ -1,9 +1,11 @@
 package com.appspot.ssg.dmixed.client;
 
 import com.appspot.ssg.dmixed.client.activities.LoginActivity.LoginView;
+import com.appspot.ssg.dmixed.client.activities.TerminActivity.TerminView;
 import com.appspot.ssg.dmixed.client.activities.TermineActivity.TermineView;
 import com.appspot.ssg.dmixed.client.model.DMixedUsecaseConnector;
 import com.appspot.ssg.dmixed.client.views.LoginViewImpl;
+import com.appspot.ssg.dmixed.client.views.TerminViewImpl;
 import com.appspot.ssg.dmixed.client.views.TermineViewImpl;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
 import com.google.gwt.core.client.GWT;
@@ -21,12 +23,14 @@ public class ClientFactoryImpl implements ClientFactory {
     private final DMixedModel model = new DMixedModel(messages);
     private final LoginViewImpl _loginViewImpl;
     private final TermineViewImpl _termineViewImpl;
+    private final TerminViewImpl _terminView;
 
     public ClientFactoryImpl() {
         eventBus = new SimpleEventBus();
         placeController = new PlaceController(eventBus);
         _loginViewImpl = new LoginViewImpl(this);
         _termineViewImpl = new TermineViewImpl(this);
+        _terminView = new TerminViewImpl(this);
     }
 
     @Override
@@ -67,6 +71,11 @@ public class ClientFactoryImpl implements ClientFactory {
     @Override
     public TermineView getTermineView() {
         return _termineViewImpl;
+    }
+
+    @Override
+    public TerminView getTerminView() {
+        return _terminView;
     }
 
 }

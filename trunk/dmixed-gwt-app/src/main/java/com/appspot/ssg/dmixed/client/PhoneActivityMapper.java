@@ -27,7 +27,8 @@ public class PhoneActivityMapper implements ActivityMapper {
             return new TermineActivity(_clientFactory);
         }
         else if (place instanceof TerminPlace) {
-            return new TerminActivity(_clientFactory);
+            final TerminPlace terminPlace = (TerminPlace) place;
+            return new TerminActivity(_clientFactory, terminPlace.getTermin());
         }
         return null;
     }

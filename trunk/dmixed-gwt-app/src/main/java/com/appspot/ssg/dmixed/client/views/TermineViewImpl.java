@@ -25,6 +25,7 @@ public class TermineViewImpl extends Composite implements TermineView {
         _layoutPanel = new LayoutPanel();
         initWidget(_layoutPanel);
         _headerPanel = new HeaderPanel();
+        _headerPanel.setCenter("Termine");
         _layoutPanel.add(_headerPanel);
         _cellList = new CellListWithHeader<ITermin>(new BasicCell<ITermin>() {
 
