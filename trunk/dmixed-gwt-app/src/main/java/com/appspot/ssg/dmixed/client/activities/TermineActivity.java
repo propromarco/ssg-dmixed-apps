@@ -38,6 +38,7 @@ public class TermineActivity extends MGWTAbstractActivity {
         panel.setWidget(termineView);
         if (model.getTermine() == null) {
             final Long userId = model.getUser().getId();
+            termineView.setProgress(true);
             final IAsync<ITermine> answer = new IAsync<ITermine>() {
 
                 @Override
@@ -49,6 +50,7 @@ public class TermineActivity extends MGWTAbstractActivity {
                     else {
                         // TODO Error oder Nicht erlaubt
                     }
+                    termineView.setProgress(false);
                 }
             };
             service.getTermine(userId, answer);

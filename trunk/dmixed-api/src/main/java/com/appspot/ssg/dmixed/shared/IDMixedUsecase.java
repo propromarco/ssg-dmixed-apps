@@ -10,6 +10,8 @@ public interface IDMixedUsecase {
     void onTeilnahme(ITeilnahmeData teilnahmeData, IAsync<Void> answer);
 
     void onMitringen(IMitbringData mitbringData, IAsync<Void> answer);
+
+    void getUsers(Long userId, IAsync<IUsers> answer);
     
     void newUser(IUserData userData, IAsync<Void> answer);
 

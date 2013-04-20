@@ -8,6 +8,7 @@ import com.appspot.ssg.dmixed.shared.ITeilnahmeData;
 import com.appspot.ssg.dmixed.shared.ITerminDetails;
 import com.appspot.ssg.dmixed.shared.ITermine;
 import com.appspot.ssg.dmixed.shared.IUserData;
+import com.appspot.ssg.dmixed.shared.IUsers;
 import com.google.gwt.http.client.Request;
 import com.google.gwt.http.client.RequestBuilder;
 import com.google.gwt.http.client.RequestBuilder.Method;
@@ -84,6 +85,20 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
         final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.PUT);
         final String requestData = data.toString();
         executePut(requestBuilder, requestData, answer);
+    }
+
+    @Override
+    public void getUsers(final Long userId, final IAsync<IUsers> answer) {
+        final String url = getServiceUrl() + "/users/" + userId;
+        final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.GET);
+        final IAsync<JSONObject> newAnswer = new IAsync<JSONObject>() {
+            @Override
+            public void onSuccess(final JSONObject object) {
+                final Users userData = new Users(object);
+                answer.onSuccess(userData);
+            }
+        };
+        executeGet(requestBuilder, newAnswer);
     }
 
     @Override
