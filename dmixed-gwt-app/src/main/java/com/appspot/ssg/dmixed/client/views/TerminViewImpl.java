@@ -11,6 +11,14 @@ import com.googlecode.mgwt.ui.client.widget.WidgetList;
 
 public class TerminViewImpl extends AbstractDmixedView implements TerminView {
 
+    public class InternalRadioButton extends MRadioButton implements IListItem {
+
+        public InternalRadioButton(final String name) {
+            super(name);
+        }
+
+    }
+
     private final WidgetList _teilnehmerList, _mitbrinselList;
     private final HTML _beschreibung;
     private final HTML _teilnehmerHeader, _mitbringerHeader;
@@ -42,16 +50,17 @@ public class TerminViewImpl extends AbstractDmixedView implements TerminView {
         _teilnehmerList.clear();
         return new IListCreator<ITerminTeilnehmer>() {
             @Override
-            public void create(final ITerminTeilnehmer terminTeilnehmer) {
+            public IListItem create(final ITerminTeilnehmer terminTeilnehmer) {
                 final String vorname = terminTeilnehmer.getVorname();
                 final String name = terminTeilnehmer.getName();
                 final String komplett = vorname + " " + name;
                 final boolean teilnahme = terminTeilnehmer.isTeilnahme();
-                final MRadioButton androidRadioButton = new MRadioButton(komplett);
+                final InternalRadioButton androidRadioButton = new InternalRadioButton(komplett);
                 androidRadioButton.setText(komplett);
                 androidRadioButton.setValue(teilnahme);
                 androidRadioButton.setEnabled(false);
                 _teilnehmerList.add(androidRadioButton);
+                return androidRadioButton;
             }
 
             @Override
@@ -66,16 +75,17 @@ public class TerminViewImpl extends AbstractDmixedView implements TerminView {
         _mitbrinselList.clear();
         return new IListCreator<ITerminMitbringsel>() {
             @Override
-            public void create(final ITerminMitbringsel terminMitbringsel) {
+            public IListItem create(final ITerminMitbringsel terminMitbringsel) {
                 final Long id = terminMitbringsel.getId();
                 final String beschreibung = terminMitbringsel.getBeschreibung();
                 final ITerminTeilnehmer mitbringer = terminMitbringsel.getMitbringer();
-                final MRadioButton androidRadioButton = new MRadioButton(id.toString());
+                final InternalRadioButton androidRadioButton = new InternalRadioButton(id.toString());
                 androidRadioButton.setText(beschreibung);
                 final boolean hatMitbringer = mitbringer != null;
                 androidRadioButton.setValue(hatMitbringer);
                 androidRadioButton.setEnabled(hatMitbringer);
                 _mitbrinselList.add(androidRadioButton);
+                return androidRadioButton;
             }
 
             @Override
