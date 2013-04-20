@@ -3,11 +3,11 @@ package com.appspot.ssg.dmixed.shared;
 public interface IDMixedUsecase {
     void login(ILoginData data, IAsync<IUserData> answer);
 
-    void termine(Long userId, IAsync<ITermine> answer);
+    void getTermine(Long userId, IAsync<ITermine> answer);
 
-    void termin(Long userId, Long terminId, IAsync<ITerminDetails> answer);
+    void getTermin(Long userId, Long terminId, IAsync<ITerminDetails> answer);
 
-    void teilname(Long userId, Long terminId, Boolean teilnahme, IAsync<ITerminDetails> answer);
+    void onTeilnahme(ITeilnahmeData teilnahmeData, IAsync<Void> answer);
 
-    void mitringen(Long userId, Long terminId, Long mitbringId, Boolean mitbringen, IAsync<ITerminDetails> answer);
+    void onMitringen(IMitbringData mitbringData, IAsync<Void> answer);
 }

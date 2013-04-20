@@ -3,6 +3,8 @@ package com.appspot.ssg.dmixed.client.model;
 import com.appspot.ssg.dmixed.shared.IAsync;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
 import com.appspot.ssg.dmixed.shared.ILoginData;
+import com.appspot.ssg.dmixed.shared.IMitbringData;
+import com.appspot.ssg.dmixed.shared.ITeilnahmeData;
 import com.appspot.ssg.dmixed.shared.ITerminDetails;
 import com.appspot.ssg.dmixed.shared.ITermine;
 import com.appspot.ssg.dmixed.shared.IUserData;
@@ -41,7 +43,7 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
     }
 
     @Override
-    public void termine(final Long userId, final IAsync<ITermine> answer) {
+    public void getTermine(final Long userId, final IAsync<ITermine> answer) {
         final String url = getServiceUrl() + "/termine/" + userId;
         final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.GET);
         final IAsync<JSONObject> newAnswer = new IAsync<JSONObject>() {
@@ -55,7 +57,7 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
     }
 
     @Override
-    public void termin(final Long userId, final Long terminId, final IAsync<ITerminDetails> answer) {
+    public void getTermin(final Long userId, final Long terminId, final IAsync<ITerminDetails> answer) {
         final String url = getServiceUrl() + "/termin/" + userId + "/" + terminId;
         final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.GET);
         final IAsync<JSONObject> newAnswer = new IAsync<JSONObject>() {
@@ -69,15 +71,19 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
     }
 
     @Override
-    public void teilname(final Long userId, final Long terminId, final Boolean teilnahme, final IAsync<ITerminDetails> answer) {
-        // TODO Auto-generated method stub
-
+    public void onTeilnahme(final ITeilnahmeData data, final IAsync<Void> answer) {
+        final String url = getServiceUrl() + "/teilnahme";
+        final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.PUT);
+        final String requestData = data.toString();
+        executePut(requestBuilder, requestData, answer);
     }
 
     @Override
-    public void mitringen(final Long userId, final Long terminId, final Long mitbringId, final Boolean mitbringen, final IAsync<ITerminDetails> answer) {
-        // TODO Auto-generated method stub
-
+    public void onMitringen(final IMitbringData data, final IAsync<Void> answer) {
+        final String url = getServiceUrl() + "/mitbringen";
+        final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.PUT);
+        final String requestData = data.toString();
+        executePut(requestBuilder, requestData, answer);
     }
 
     protected String getServiceUrl() {
@@ -104,19 +110,42 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
     }
 
     protected void executePost(final RequestBuilder requestBuilder, final String requestData, final IAsync<JSONObject> answer) {
-//        Mobile.showLoadingDialog("Loading...");
+        // Mobile.showLoadingDialog("Loading...");
         final RequestCallback callback = new RequestCallback() {
             @Override
             public void onResponseReceived(final Request request, final Response response) {
                 final JSONObject object = toObject(response.getText());
                 answer.onSuccess(object);
-//                Mobile.hideLoadingDialog();
+                // Mobile.hideLoadingDialog();
             }
 
             @Override
             public void onError(final Request request, final Throwable exception) {
                 exception.printStackTrace();
-//                Mobile.hideLoadingDialog();
+                // Mobile.hideLoadingDialog();
+            }
+        };
+        try {
+            requestBuilder.sendRequest(requestData, callback);
+        }
+        catch (final RequestException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void executePut(final RequestBuilder requestBuilder, final String requestData, final IAsync<Void> answer) {
+        // Mobile.showLoadingDialog("Loading...");
+        final RequestCallback callback = new RequestCallback() {
+            @Override
+            public void onResponseReceived(final Request request, final Response response) {
+                answer.onSuccess(null);
+                // Mobile.hideLoadingDialog();
+            }
+
+            @Override
+            public void onError(final Request request, final Throwable exception) {
+                exception.printStackTrace();
+                // Mobile.hideLoadingDialog();
             }
         };
         try {
@@ -128,20 +157,20 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
     }
 
     public void executeGet(final RequestBuilder requestBuilder, final IAsync<JSONObject> answer) {
-//        Mobile.showLoadingDialog("Loading...");
+        // Mobile.showLoadingDialog("Loading...");
         final RequestCallback callback = new RequestCallback() {
 
             @Override
             public void onResponseReceived(final Request request, final Response response) {
                 final JSONObject object = toObject(response.getText());
                 answer.onSuccess(object);
-//                Mobile.hideLoadingDialog();
+                // Mobile.hideLoadingDialog();
             }
 
             @Override
             public void onError(final Request request, final Throwable exception) {
                 exception.printStackTrace();
-//                Mobile.hideLoadingDialog();
+                // Mobile.hideLoadingDialog();
             }
         };
         requestBuilder.setCallback(callback);
@@ -152,4 +181,5 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
             e.printStackTrace();
         }
     }
+
 }
