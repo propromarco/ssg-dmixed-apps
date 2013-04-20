@@ -52,7 +52,7 @@ public class TermineActivity extends MGWTAbstractActivity {
                     }
                 }
             };
-            service.termine(userId, answer);
+            service.getTermine(userId, answer);
         }
         else {
             loadTermine();

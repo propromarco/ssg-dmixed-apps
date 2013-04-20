@@ -66,7 +66,7 @@ public class TerminActivity extends MGWTAbstractActivity {
                 }
             }
         };
-        service.termin(userId, _terminId, answer);
+        service.getTermin(userId, _terminId, answer);
     }
 
 }

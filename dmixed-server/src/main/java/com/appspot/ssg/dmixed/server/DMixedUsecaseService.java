@@ -6,12 +6,15 @@ import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.appspot.ssg.dmixed.server.beans.LoginData;
+import com.appspot.ssg.dmixed.server.beans.MitbringData;
+import com.appspot.ssg.dmixed.server.beans.TeilnahmeData;
 import com.appspot.ssg.dmixed.server.beans.Termin;
 import com.appspot.ssg.dmixed.server.beans.TerminDetails;
 import com.appspot.ssg.dmixed.server.beans.TerminMitbringsel;
@@ -58,7 +61,7 @@ public class DMixedUsecaseService {
 
     @GET
     @Path("termine/{userid}")
-    public Termine termine(@PathParam("userid") final Long userId) {
+    public Termine getTermine(@PathParam("userid") final Long userId) {
         final JPAUser user = adapter.findUser(userId);
         if (user == null)
             return null;
@@ -76,7 +79,7 @@ public class DMixedUsecaseService {
 
     @GET
     @Path("termin/{userid}/{terminId}")
-    public TerminDetails termin(@PathParam("userid") final Long userId, @PathParam("terminId") final Long terminId) {
+    public TerminDetails getTermin(@PathParam("userid") final Long userId, @PathParam("terminId") final Long terminId) {
         final JPAUser user = adapter.findUser(userId);
         if (user == null)
             return null;
@@ -85,31 +88,25 @@ public class DMixedUsecaseService {
         return terminDetails;
     }
 
-    @GET
-    @Path("teilname/{userid}/{terminid}/{teilname}")
-    public TerminDetails teilname(@PathParam("userid") final Long userId, @PathParam("terminid") final Long terminId,
-            @PathParam("teilname") final Boolean teilnahme) {
-        final JPAUser user = adapter.findUser(userId);
+    @PUT
+    @Path("teilnahme")
+    public void onTeilnahme(final TeilnahmeData teilnahmeData) {
+        final JPAUser user = adapter.findUser(teilnahmeData.getUserId());
         if (user == null)
-            return null;
-        final JPATermin termin = adapter.getTermin(terminId);
-        adapter.userOnTermin(user, termin, teilnahme);
-        final TerminDetails terminDetails = copyToDetails(termin);
-        return terminDetails;
+            return;
+        final JPATermin termin = adapter.getTermin(teilnahmeData.getTerminId());
+        adapter.userOnTermin(user, termin, teilnahmeData.getTeilnahme());
     }
 
-    @GET
-    @Path("mitringen/{userid}/{terminid}/{mitbringid}/{mitbringen}")
-    public TerminDetails mitringen(@PathParam("userid") final Long userId, @PathParam("terminid") final Long terminId,
-            @PathParam("mitbringid") final Long mitbringId, @PathParam("mitbringen") final Boolean mitbringen) {
-        final JPAUser user = adapter.findUser(userId);
+    @PUT
+    @Path("mitringen")
+    public void onMitringen(final MitbringData mitbringData) {
+        final JPAUser user = adapter.findUser(mitbringData.getUserId());
         if (user == null)
-            return null;
-        final JPATermin termin = adapter.getTermin(terminId);
-        final JPATerminMitbringsel terminMitbringsel = adapter.getTerminMitbringsel(terminId, mitbringId);
-        adapter.onUserToTerminMitbringen(user, termin, terminMitbringsel, mitbringen);
-        final TerminDetails terminDetails = copyToDetails(termin);
-        return terminDetails;
+            return;
+        final JPATermin termin = adapter.getTermin(mitbringData.getTerminId());
+        final JPATerminMitbringsel terminMitbringsel = adapter.getTerminMitbringsel(mitbringData.getTerminId(), mitbringData.getMitbringselId());
+        adapter.onUserToTerminMitbringen(user, termin, terminMitbringsel, mitbringData.getMitbringen());
     }
 
     private TerminDetails copyToDetails(final JPATermin termin) {
