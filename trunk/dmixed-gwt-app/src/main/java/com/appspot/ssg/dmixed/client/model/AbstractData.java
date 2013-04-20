@@ -56,12 +56,18 @@ public class AbstractData {
 
     protected boolean getBoolean(final String key) {
         final JSONValue jsonValue = _jsonObject.get(key);
+        if (jsonValue == null)
+            return false;
         final JSONBoolean jsonBoolean = jsonValue.isBoolean();
+        if (jsonBoolean == null)
+            return false;
         return jsonBoolean.booleanValue();
     }
 
     protected JSONArray getArray(final String key) {
         final JSONValue jsonValue = _jsonObject.get(key);
+        if (jsonValue == null)
+            return null;
         JSONArray array = jsonValue.isArray();
         if (array == null) {
             final JSONObject object = jsonValue.isObject();
