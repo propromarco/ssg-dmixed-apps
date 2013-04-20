@@ -22,6 +22,7 @@ import com.appspot.ssg.dmixed.server.beans.TerminMitbringsel;
 import com.appspot.ssg.dmixed.server.beans.TerminTeilnehmer;
 import com.appspot.ssg.dmixed.server.beans.Termine;
 import com.appspot.ssg.dmixed.server.beans.UserData;
+import com.appspot.ssg.dmixed.server.beans.Users;
 import com.appspot.ssg.dmixed.server.jpa.FakeAdapter;
 import com.appspot.ssg.dmixed.server.jpa.JPATermin;
 import com.appspot.ssg.dmixed.server.jpa.JPATerminMitbringsel;
@@ -108,6 +109,12 @@ public class DMixedUsecaseService {
         final JPATermin termin = adapter.getTermin(mitbringData.getTerminId());
         final JPATerminMitbringsel terminMitbringsel = adapter.getTerminMitbringsel(mitbringData.getTerminId(), mitbringData.getMitbringselId());
         adapter.onUserToTerminMitbringen(user, termin, terminMitbringsel, mitbringData.getMitbringen());
+    }
+
+    @GET
+    @Path("users/{userid}")
+    public Users getUsers(@PathParam("userId") final Long userId) {
+        return null;
     }
 
     @PUT

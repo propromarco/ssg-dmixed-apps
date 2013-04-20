@@ -43,6 +43,7 @@ public class LoginActivity extends MGWTAbstractActivity {
         addHandlerRegistration(loginView.getLogin().addTapHandler(new TapHandler() {
             @Override
             public void onTap(final TapEvent event) {
+                loginView.setProgress(true);
                 final String vorname = loginView.getVorname().getText();
                 final String email = loginView.getEmail().getText();
                 final ILoginData data = new LoginData(vorname, email);
@@ -56,6 +57,7 @@ public class LoginActivity extends MGWTAbstractActivity {
                         else {
                             // TODO ERROR on Login
                         }
+                        loginView.setProgress(false);
                     }
                 };
                 service.login(data, answer);
