@@ -10,7 +10,6 @@ import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
 import com.appspot.ssg.dmixed.shared.ITermin;
 import com.appspot.ssg.dmixed.shared.ITermine;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
-import com.google.gwt.user.client.ui.IsWidget;
 import com.google.web.bindery.event.shared.EventBus;
 import com.googlecode.mgwt.mvp.client.MGWTAbstractActivity;
 import com.googlecode.mgwt.ui.client.widget.celllist.CellSelectedEvent;
@@ -19,7 +18,7 @@ import com.googlecode.mgwt.ui.client.widget.celllist.HasCellSelectedHandler;
 
 public class TermineActivity extends MGWTAbstractActivity {
 
-    public interface TermineView extends IsWidget {
+    public interface TermineView extends IDMixedView {
         public HasCellSelectedHandler getCellSelectedHandler();
 
         void updateList(List<ITermin> termine);

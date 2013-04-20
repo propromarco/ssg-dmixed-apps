@@ -86,6 +86,22 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
         executePut(requestBuilder, requestData, answer);
     }
 
+    @Override
+    public void newUser(final IUserData data, final IAsync<Void> answer) {
+        final String url = getServiceUrl() + "/user";
+        final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.PUT);
+        final String requestData = data.toString();
+        executePut(requestBuilder, requestData, answer);
+    }
+
+    @Override
+    public void deleteUser(final IUserData data, final IAsync<Void> answer) {
+        final String url = getServiceUrl() + "/user";
+        final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.DELETE);
+        final String requestData = data.toString();
+        executePut(requestBuilder, requestData, answer);
+    }
+
     protected String getServiceUrl() {
         final String url = _baseUrl + "rest/dmixed";
         return url;
@@ -134,6 +150,29 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
     }
 
     protected void executePut(final RequestBuilder requestBuilder, final String requestData, final IAsync<Void> answer) {
+        // Mobile.showLoadingDialog("Loading...");
+        final RequestCallback callback = new RequestCallback() {
+            @Override
+            public void onResponseReceived(final Request request, final Response response) {
+                answer.onSuccess(null);
+                // Mobile.hideLoadingDialog();
+            }
+
+            @Override
+            public void onError(final Request request, final Throwable exception) {
+                exception.printStackTrace();
+                // Mobile.hideLoadingDialog();
+            }
+        };
+        try {
+            requestBuilder.sendRequest(requestData, callback);
+        }
+        catch (final RequestException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void executeDelete(final RequestBuilder requestBuilder, final String requestData, final IAsync<Void> answer) {
         // Mobile.showLoadingDialog("Loading...");
         final RequestCallback callback = new RequestCallback() {
             @Override

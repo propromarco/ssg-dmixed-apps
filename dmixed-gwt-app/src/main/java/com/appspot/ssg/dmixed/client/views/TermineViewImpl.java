@@ -3,30 +3,22 @@ package com.appspot.ssg.dmixed.client.views;
 import java.util.Date;
 import java.util.List;
 
-import com.appspot.ssg.dmixed.client.ClientFactory;
+import com.appspot.ssg.dmixed.client.IDMixedMessages;
 import com.appspot.ssg.dmixed.client.activities.TermineActivity.TermineView;
 import com.appspot.ssg.dmixed.shared.ITermin;
 import com.google.gwt.i18n.client.DateTimeFormat;
-import com.google.gwt.user.client.ui.Composite;
-import com.googlecode.mgwt.ui.client.widget.HeaderPanel;
-import com.googlecode.mgwt.ui.client.widget.LayoutPanel;
 import com.googlecode.mgwt.ui.client.widget.ScrollPanel;
 import com.googlecode.mgwt.ui.client.widget.celllist.BasicCell;
 import com.googlecode.mgwt.ui.client.widget.celllist.CellListWithHeader;
 import com.googlecode.mgwt.ui.client.widget.celllist.HasCellSelectedHandler;
 
-public class TermineViewImpl extends Composite implements TermineView {
+public class TermineViewImpl extends AbstractDmixedView implements TermineView {
 
-    private final LayoutPanel _layoutPanel;
-    private final HeaderPanel _headerPanel;
     private final CellListWithHeader<ITermin> _cellList;
 
-    public TermineViewImpl(final ClientFactory clientFactory) {
-        _layoutPanel = new LayoutPanel();
-        initWidget(_layoutPanel);
-        _headerPanel = new HeaderPanel();
-        _headerPanel.setCenter("Termine");
-        _layoutPanel.add(_headerPanel);
+    public TermineViewImpl(final IDMixedMessages messages) {
+        super(messages);
+        setHeaderText("Termine");
         _cellList = new CellListWithHeader<ITermin>(new BasicCell<ITermin>() {
 
             @Override

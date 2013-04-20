@@ -12,4 +12,8 @@ public interface IDMixedMessages extends Messages {
     String termine();
 
     String loginData();
+
+    String teilnehmer();
+
+    String mitbringen();
 }

@@ -10,7 +10,6 @@ import com.appspot.ssg.dmixed.shared.ILoginData;
 import com.appspot.ssg.dmixed.shared.IUserData;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.HasText;
-import com.google.gwt.user.client.ui.IsWidget;
 import com.google.web.bindery.event.shared.EventBus;
 import com.googlecode.mgwt.dom.client.event.tap.HasTapHandlers;
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
@@ -19,7 +18,7 @@ import com.googlecode.mgwt.mvp.client.MGWTAbstractActivity;
 
 public class LoginActivity extends MGWTAbstractActivity {
     
-    public interface LoginView extends IsWidget {
+    public interface LoginView extends IDMixedView {
 
         HasText getVorname();
 
