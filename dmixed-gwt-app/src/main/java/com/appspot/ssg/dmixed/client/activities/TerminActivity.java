@@ -1,12 +1,15 @@
 package com.appspot.ssg.dmixed.client.activities;
 
 import java.util.Date;
+import java.util.List;
 
 import com.appspot.ssg.dmixed.client.ClientFactory;
 import com.appspot.ssg.dmixed.client.DMixedModel;
 import com.appspot.ssg.dmixed.shared.IAsync;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
 import com.appspot.ssg.dmixed.shared.ITerminDetails;
+import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
+import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.IsWidget;
@@ -16,6 +19,14 @@ import com.googlecode.mgwt.mvp.client.MGWTAbstractActivity;
 public class TerminActivity extends MGWTAbstractActivity {
 
     public interface TerminView extends IsWidget {
+
+        void setText(String title);
+
+        void setTerminBeschreibung(String terminBeschreibung);
+
+        void fillTeilnehmer(List<ITerminTeilnehmer> teilnehmer);
+
+        void fillMitbringsel(List<ITerminMitbringsel> mitbringsel);
     }
 
     private final ClientFactory _clientFactory;
@@ -42,12 +53,13 @@ public class TerminActivity extends MGWTAbstractActivity {
                     final DateTimeFormat formatter = DateTimeFormat.getFormat("dd.MM.yyyy");
                     final String d = formatter.format(termineDatum);
                     final String title = terminKurzbeschreibung + " - " + d;
-//                    _header.setText(title);
+                    terminView.setText(title);
                     final String terminBeschreibung = termin.getTerminBeschreibung();
-//                    _text.setHTML(terminBeschreibung);
-//                    fillTeilnehmer(termin.getTeilnehmer());
-//                    fillMitbringsel(termin.getMitbringsel());
-//                    _fieldSet.refresh();
+                    terminView.setTerminBeschreibung(terminBeschreibung);
+                    terminView.fillTeilnehmer(termin.getTeilnehmer());
+                    if (termin.getMitbringsel() != null) {
+                        terminView.fillMitbringsel(termin.getMitbringsel());
+                    }
                 }
                 else {
                     // TODO Error oder nicht erlaubt
