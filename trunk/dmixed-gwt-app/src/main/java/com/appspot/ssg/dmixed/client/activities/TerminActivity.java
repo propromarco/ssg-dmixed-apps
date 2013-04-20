@@ -6,6 +6,7 @@ import java.util.List;
 import com.appspot.ssg.dmixed.client.ClientFactory;
 import com.appspot.ssg.dmixed.client.DMixedModel;
 import com.appspot.ssg.dmixed.client.activities.TerminActivity.TerminView.IListCreator;
+import com.appspot.ssg.dmixed.client.activities.TerminActivity.TerminView.IListItem;
 import com.appspot.ssg.dmixed.shared.IAsync;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
 import com.appspot.ssg.dmixed.shared.ITerminDetails;
@@ -13,15 +14,22 @@ import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
+import com.google.gwt.user.client.ui.HasValue;
 import com.google.web.bindery.event.shared.EventBus;
+import com.googlecode.mgwt.dom.client.event.tap.HasTapHandlers;
+import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
+import com.googlecode.mgwt.dom.client.event.tap.TapHandler;
 import com.googlecode.mgwt.mvp.client.MGWTAbstractActivity;
 
 public class TerminActivity extends MGWTAbstractActivity {
 
     public interface TerminView extends IDMixedView {
 
+        public interface IListItem extends HasValue<Boolean>, HasTapHandlers {
+        }
+
         public interface IListCreator<T> {
-            void create(T t);
+            IListItem create(T t);
 
             void onFinish(boolean hasItems);
         }
@@ -63,14 +71,28 @@ public class TerminActivity extends MGWTAbstractActivity {
                     final List<ITerminTeilnehmer> teilnehmer = termin.getTeilnehmer();
                     final IListCreator<ITerminTeilnehmer> teilnehmerCreator = terminView.fillTeilnehmer();
                     for (final ITerminTeilnehmer terminTeilnehmer : teilnehmer) {
-                        teilnehmerCreator.create(terminTeilnehmer);
+                        final IListItem item = teilnehmerCreator.create(terminTeilnehmer);
+                        addHandlerRegistration(item.addTapHandler(new TapHandler() {
+                            @Override
+                            public void onTap(final TapEvent event) {
+                                // TODO Auto-generated method stub
+
+                            }
+                        }));
                     }
                     teilnehmerCreator.onFinish(teilnehmer.size() > 0);
                     final IListCreator<ITerminMitbringsel> mitbringselCreator = terminView.fillMitbringsel();
                     final List<ITerminMitbringsel> mitbringsel = termin.getMitbringsel();
                     if (mitbringsel != null) {
                         for (final ITerminMitbringsel terminMitbringsel : mitbringsel) {
-                            mitbringselCreator.create(terminMitbringsel);
+                            final IListItem item = mitbringselCreator.create(terminMitbringsel);
+                            addHandlerRegistration(item.addTapHandler(new TapHandler() {
+                                @Override
+                                public void onTap(final TapEvent event) {
+                                    // TODO Auto-generated method stub
+
+                                }
+                            }));
                         }
                     }
                     mitbringselCreator.onFinish(mitbringsel != null && mitbringsel.size() > 0);
