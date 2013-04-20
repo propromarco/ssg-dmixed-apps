@@ -28,9 +28,9 @@ public class ClientFactoryImpl implements ClientFactory {
     public ClientFactoryImpl() {
         eventBus = new SimpleEventBus();
         placeController = new PlaceController(eventBus);
-        _loginViewImpl = new LoginViewImpl(this);
-        _termineViewImpl = new TermineViewImpl(this);
-        _terminView = new TerminViewImpl(this);
+        _loginViewImpl = new LoginViewImpl(messages);
+        _termineViewImpl = new TermineViewImpl(messages);
+        _terminView = new TerminViewImpl(messages);
     }
 
     @Override

@@ -1,13 +1,4 @@
-body {
-/*	background: url("../gfx/gras.jpg");
-	color: #DDDDDD;*/
-}
-
-a {
-	text-decoration: none;
-/*	color: white;*/
-}
-
-h3 {
-	padding: 0.5em;
+.terminBeschreibung {
+	font-size: 1.2em;
+	padding: 1em;
 }

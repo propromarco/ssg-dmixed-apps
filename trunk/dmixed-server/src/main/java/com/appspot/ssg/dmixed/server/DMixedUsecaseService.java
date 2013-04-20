@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -107,6 +108,16 @@ public class DMixedUsecaseService {
         final JPATermin termin = adapter.getTermin(mitbringData.getTerminId());
         final JPATerminMitbringsel terminMitbringsel = adapter.getTerminMitbringsel(mitbringData.getTerminId(), mitbringData.getMitbringselId());
         adapter.onUserToTerminMitbringen(user, termin, terminMitbringsel, mitbringData.getMitbringen());
+    }
+
+    @PUT
+    @Path("user")
+    public void newUser(final UserData userData) {
+    }
+
+    @DELETE
+    @Path("user")
+    public void deleteUser(final UserData userData) {
     }
 
     private TerminDetails copyToDetails(final JPATermin termin) {
