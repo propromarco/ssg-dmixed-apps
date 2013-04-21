@@ -8,4 +8,6 @@ public interface ITerminMitbringsel extends Serializable {
     String getBeschreibung();
 
     ITerminTeilnehmer getMitbringer();
+
+    void setMitbringer(ITerminTeilnehmer mitbringer);
 }

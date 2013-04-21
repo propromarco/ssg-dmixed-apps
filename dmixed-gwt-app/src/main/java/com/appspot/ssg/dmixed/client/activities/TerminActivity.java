@@ -7,11 +7,13 @@ import com.appspot.ssg.dmixed.client.ClientFactory;
 import com.appspot.ssg.dmixed.client.DMixedModel;
 import com.appspot.ssg.dmixed.client.activities.TerminActivity.TerminView.IListCreator;
 import com.appspot.ssg.dmixed.client.activities.TerminActivity.TerminView.IListItem;
+import com.appspot.ssg.dmixed.client.model.TerminTeilnehmer;
 import com.appspot.ssg.dmixed.shared.IAsync;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
 import com.appspot.ssg.dmixed.shared.ITerminDetails;
 import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
+import com.appspot.ssg.dmixed.shared.IUserData;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.HasValue;
@@ -75,9 +77,10 @@ public class TerminActivity extends MGWTAbstractActivity {
                         addHandlerRegistration(item.addTapHandler(new TapHandler() {
                             @Override
                             public void onTap(final TapEvent event) {
-                                // TODO Auto-generated method stub
-
+                                final boolean checked = checkTeilnehmer(terminTeilnehmer);
+                                item.setValue(checked);
                             }
+
                         }));
                     }
                     teilnehmerCreator.onFinish(teilnehmer.size() > 0);
@@ -89,9 +92,10 @@ public class TerminActivity extends MGWTAbstractActivity {
                             addHandlerRegistration(item.addTapHandler(new TapHandler() {
                                 @Override
                                 public void onTap(final TapEvent event) {
-                                    // TODO Auto-generated method stub
-
+                                    final boolean checked = checkMitbringsel(terminMitbringsel);
+                                    item.setValue(checked);
                                 }
+
                             }));
                         }
                     }
@@ -103,6 +107,49 @@ public class TerminActivity extends MGWTAbstractActivity {
             }
         };
         service.getTermin(userId, _terminId, answer);
+    }
+
+    private boolean checkMitbringsel(final ITerminMitbringsel terminMitbringsel) {
+        final ITerminTeilnehmer mitbringer = terminMitbringsel.getMitbringer();
+        final DMixedModel model = _clientFactory.getModel();
+        final IUserData user = model.getUser();
+        if (mitbringer == null) {
+            // Es bringt noch keiner mit
+            final TerminTeilnehmer ich = new TerminTeilnehmer();
+            ich.setId(user.getId());
+            ich.setVorname(user.getVorname());
+            ich.setName(user.getName());
+            terminMitbringsel.setMitbringer(ich);
+            // TODO Fire ich brings mit
+            return true;
+        }
+        else {
+            // Es bringt schon einer mit
+            final Long id = mitbringer.getId();
+            final Long id2 = user.getId();
+            if (id.equals(id2)) {
+                // Ich war eingetragen
+                terminMitbringsel.setMitbringer(null);
+                // TODO Fire ich brings nicht mehr mit
+                return false;
+            }
+            else {
+                // Ich darf das nicht
+                return true;
+            }
+        }
+    }
+
+    private boolean checkTeilnehmer(final ITerminTeilnehmer terminTeilnehmer) {
+        final Long id = terminTeilnehmer.getId();
+        final Long id2 = _clientFactory.getModel().getUser().getId();
+        if (!id.equals(id2))
+            return false;
+        final boolean oldValue = terminTeilnehmer.isTeilnahme();
+        final boolean newValue = !oldValue;
+        terminTeilnehmer.setTeilnahme(newValue);
+        // TODO Fire newValue to server
+        return newValue;
     }
 
 }

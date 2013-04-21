@@ -31,4 +31,14 @@ public class TerminMitbringsel extends AbstractData implements ITerminMitbringse
         return new TerminTeilnehmer(object);
     }
 
+    @Override
+    public void setMitbringer(final ITerminTeilnehmer mitbringer) {
+        if (mitbringer == null) {
+            _jsonObject.put("mitbringer", null);
+        }
+        else {
+            _jsonObject.put("mitbringer", ((TerminTeilnehmer) mitbringer)._jsonObject);
+        }
+    }
+
 }
