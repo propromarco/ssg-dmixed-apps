@@ -144,6 +144,7 @@ public class DMixedUsecaseService {
         final List<JPAUser> users = this.adapter.getUsers();
         for (final JPAUser jpaUser : users) {
             final TerminTeilnehmer terminTeilnehmer = new TerminTeilnehmer();
+            terminTeilnehmer.setId(jpaUser.getId());
             terminTeilnehmer.setVorname(jpaUser.getVorname());
             terminTeilnehmer.setName(jpaUser.getName());
             terminTeilnehmer.setTeilnahme(false);

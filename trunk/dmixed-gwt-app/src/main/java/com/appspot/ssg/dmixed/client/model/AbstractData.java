@@ -81,6 +81,10 @@ public class AbstractData {
         _jsonObject.put(key, new JSONString(value));
     }
 
+    protected void setLong(final String key, final Long value) {
+        _jsonObject.put(key, new JSONString(value.toString()));
+    }
+
     protected void setBoolean(final String key, final Boolean value) {
         _jsonObject.put(key, JSONBoolean.getInstance(value));
     }

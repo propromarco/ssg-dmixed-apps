@@ -4,11 +4,21 @@ import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 
 public class TerminTeilnehmer implements ITerminTeilnehmer {
     private static final long serialVersionUID = -7880403326312006230L;
+    private Long id;
     private String vorname;
     private String name;
     private boolean teilnahme;
 
     public TerminTeilnehmer() {
+    }
+
+    @Override
+    public final Long getId() {
+        return id;
+    }
+
+    public final void setId(final Long id) {
+        this.id = id;
     }
 
     @Override
