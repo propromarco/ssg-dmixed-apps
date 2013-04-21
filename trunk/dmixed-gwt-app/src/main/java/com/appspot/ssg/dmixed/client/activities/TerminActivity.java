@@ -7,6 +7,8 @@ import com.appspot.ssg.dmixed.client.ClientFactory;
 import com.appspot.ssg.dmixed.client.DMixedModel;
 import com.appspot.ssg.dmixed.client.activities.TerminActivity.TerminView.IListCreator;
 import com.appspot.ssg.dmixed.client.activities.TerminActivity.TerminView.IListItem;
+import com.appspot.ssg.dmixed.client.model.MitbringData;
+import com.appspot.ssg.dmixed.client.model.TeilnahmeData;
 import com.appspot.ssg.dmixed.client.model.TerminTeilnehmer;
 import com.appspot.ssg.dmixed.shared.IAsync;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
@@ -77,7 +79,7 @@ public class TerminActivity extends MGWTAbstractActivity {
                         addHandlerRegistration(item.addTapHandler(new TapHandler() {
                             @Override
                             public void onTap(final TapEvent event) {
-                                final boolean checked = checkTeilnehmer(terminTeilnehmer);
+                                final boolean checked = checkTeilnehmer(terminTeilnehmer, termin.getTerminId());
                                 item.setValue(checked);
                             }
 
@@ -112,6 +114,7 @@ public class TerminActivity extends MGWTAbstractActivity {
     private boolean checkMitbringsel(final ITerminMitbringsel terminMitbringsel) {
         final ITerminTeilnehmer mitbringer = terminMitbringsel.getMitbringer();
         final DMixedModel model = _clientFactory.getModel();
+        final IDMixedUsecase service = _clientFactory.getService();
         final IUserData user = model.getUser();
         if (mitbringer == null) {
             // Es bringt noch keiner mit
@@ -120,7 +123,18 @@ public class TerminActivity extends MGWTAbstractActivity {
             ich.setVorname(user.getVorname());
             ich.setName(user.getName());
             terminMitbringsel.setMitbringer(ich);
-            // TODO Fire ich brings mit
+            final MitbringData mitbringData = new MitbringData();
+            mitbringData.setMitbringselId(terminMitbringsel.getId());
+            mitbringData.setTerminId(_terminId);
+            mitbringData.setUserId(user.getId());
+            mitbringData.setMitbringen(true);
+            final IAsync<Void> answer = new IAsync<Void>() {
+                @Override
+                public void onSuccess(final Void t) {
+                }
+            };
+            service.onMitringen(mitbringData, answer);
+            // Fire ich brings mit
             return true;
         }
         else {
@@ -130,7 +144,18 @@ public class TerminActivity extends MGWTAbstractActivity {
             if (id.equals(id2)) {
                 // Ich war eingetragen
                 terminMitbringsel.setMitbringer(null);
-                // TODO Fire ich brings nicht mehr mit
+                final MitbringData mitbringData = new MitbringData();
+                mitbringData.setMitbringselId(terminMitbringsel.getId());
+                mitbringData.setTerminId(_terminId);
+                mitbringData.setUserId(user.getId());
+                mitbringData.setMitbringen(false);
+                final IAsync<Void> answer = new IAsync<Void>() {
+                    @Override
+                    public void onSuccess(final Void t) {
+                    }
+                };
+                service.onMitringen(mitbringData, answer);
+                // Fire ich brings nicht mehr mit
                 return false;
             }
             else {
@@ -140,7 +165,7 @@ public class TerminActivity extends MGWTAbstractActivity {
         }
     }
 
-    private boolean checkTeilnehmer(final ITerminTeilnehmer terminTeilnehmer) {
+    private boolean checkTeilnehmer(final ITerminTeilnehmer terminTeilnehmer, final Long terminId) {
         final Long id = terminTeilnehmer.getId();
         final Long id2 = _clientFactory.getModel().getUser().getId();
         if (!id.equals(id2))
@@ -148,7 +173,18 @@ public class TerminActivity extends MGWTAbstractActivity {
         final boolean oldValue = terminTeilnehmer.isTeilnahme();
         final boolean newValue = !oldValue;
         terminTeilnehmer.setTeilnahme(newValue);
-        // TODO Fire newValue to server
+        final IDMixedUsecase service = _clientFactory.getService();
+        final TeilnahmeData teilnahmeData = new TeilnahmeData();
+        teilnahmeData.setUserId(id2);
+        teilnahmeData.setTerminId(terminId);
+        teilnahmeData.setTeilnahme(newValue);
+        final IAsync<Void> answer = new IAsync<Void>() {
+            @Override
+            public void onSuccess(final Void t) {
+            }
+        };
+        service.onTeilnahme(teilnahmeData, answer);
+        // Fire newValue to server
         return newValue;
     }
 
