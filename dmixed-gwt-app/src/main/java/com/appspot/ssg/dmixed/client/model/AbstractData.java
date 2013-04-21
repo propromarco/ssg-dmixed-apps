@@ -59,8 +59,12 @@ public class AbstractData {
         if (jsonValue == null)
             return false;
         final JSONBoolean jsonBoolean = jsonValue.isBoolean();
-        if (jsonBoolean == null)
-            return false;
+        if (jsonBoolean == null) {
+            final JSONString string = jsonValue.isString();
+            final String str = string.stringValue();
+            final Boolean b = Boolean.valueOf(str);
+            return b;
+        }
         return jsonBoolean.booleanValue();
     }
 

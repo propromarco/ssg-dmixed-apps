@@ -73,15 +73,35 @@ public class FakeAdapter implements IJPAAdapter {
 
     @Override
     public void userOnTermin(final JPAUser user, final JPATermin termin, final Boolean teilnahme) {
-        // TODO Auto-generated method stub
+        final List<JPATerminTeilnehmer> teilnehmer = termin.getTeilnehmer();
+        JPATerminTeilnehmer tt = findTeilnehmer(teilnehmer, user);
+        if (tt == null && teilnahme) {
+            tt = new JPATerminTeilnehmer();
+            tt.setId(1l);
+            tt.setTermin(termin);
+            tt.setUser(user);
+            teilnehmer.add(tt);
+        }
+        else if (tt != null && !teilnahme) {
+            teilnehmer.remove(tt);
+        }
+    }
 
+    private JPATerminTeilnehmer findTeilnehmer(final List<JPATerminTeilnehmer> teilnehmer, final JPAUser user) {
+        for (final JPATerminTeilnehmer terminTeilnehmer : teilnehmer) {
+            if (terminTeilnehmer.getUser() == user)
+                return terminTeilnehmer;
+        }
+        return null;
     }
 
     @Override
     public void onUserToTerminMitbringen(final JPAUser user, final JPATermin termin, final JPATerminMitbringsel terminMitbringsel,
             final Boolean mitbringen) {
-        // TODO Auto-generated method stub
-
+        if (mitbringen)
+            terminMitbringsel.setUser(user);
+        else
+            terminMitbringsel.setUser(null);
     }
 
     @Override

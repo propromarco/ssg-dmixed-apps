@@ -101,7 +101,7 @@ public class DMixedUsecaseService {
     }
 
     @PUT
-    @Path("mitringen")
+    @Path("mitbringen")
     public void onMitringen(final MitbringData mitbringData) {
         final JPAUser user = adapter.findUser(mitbringData.getUserId());
         if (user == null)
@@ -175,6 +175,7 @@ public class DMixedUsecaseService {
         if (user == null)
             return null;
         final TerminTeilnehmer t = new TerminTeilnehmer();
+        t.setId(user.getId());
         t.setVorname(user.getVorname());
         t.setName(user.getName());
         return t;
