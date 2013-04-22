@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SSG - TerminApp</string>
+    <string name="login_button">Login</string>
+    <string name="IntroLogin">Login für die SSG TerminApp. Bitte geben Sie Ihre EMail Adresse und Ihr Passwort ein:</string>
+    <string name="Mail">EMail</string>
+    <string name="exampleMail">max.muster@gmail.com</string>
+    <string name="Termine">Termine</string>
+    <string name="Datum">Datum</string>
+    <string name="Kurzbeschreibung">Kurzbeschreibung</string>
+    <string name="TermindetailsIntro">Termindetails</string>
+    <string name="SpielArt">SpielArt</string>
+    <string name="Teilnehmer">Teilnehmer</string>
+    <string name="Mitbringsel">Mitbringsel</string>
+    <string name="Vorname">Vorname</string>
+</resources>
