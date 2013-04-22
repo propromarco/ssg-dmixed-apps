@@ -9,36 +9,35 @@ public class TerminMitbringsel extends AbstractData implements ITerminMitbringse
     private static final long serialVersionUID = -7422259613243218283L;
 
     public TerminMitbringsel(final JSONObject jsonObject) {
-        super(jsonObject);
+	super(jsonObject);
     }
 
     @Override
     public Long getId() {
-        return getLong("id");
+	return getLong("id");
     }
 
     @Override
     public String getBeschreibung() {
-        return getString("beschreibung");
+	return getString("beschreibung");
     }
 
     @Override
     public ITerminTeilnehmer getMitbringer() {
-        final JSONValue jsonValue = _jsonObject.get("mitbringer");
-        if (jsonValue == null)
-            return null;
-        final JSONObject object = jsonValue.isObject();
-        return new TerminTeilnehmer(object);
+	final JSONValue jsonValue = _jsonObject.get("mitbringer");
+	if (jsonValue == null)
+	    return null;
+	final JSONObject object = jsonValue.isObject();
+	return new TerminTeilnehmer(object);
     }
 
     @Override
     public void setMitbringer(final ITerminTeilnehmer mitbringer) {
-        if (mitbringer == null) {
-            _jsonObject.put("mitbringer", null);
-        }
-        else {
-            _jsonObject.put("mitbringer", ((TerminTeilnehmer) mitbringer)._jsonObject);
-        }
+	if (mitbringer == null) {
+	    _jsonObject.put("mitbringer", null);
+	} else {
+	    _jsonObject.put("mitbringer", ((TerminTeilnehmer) mitbringer)._jsonObject);
+	}
     }
 
 }

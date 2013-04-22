@@ -19,30 +19,30 @@ public class TerminMitbringsel implements ITerminMitbringsel {
 
     @Override
     public Long getId() {
-        return id;
+	return id;
     }
 
     public void setId(final Long id) {
-        this.id = id;
+	this.id = id;
     }
 
     @Override
     public String getBeschreibung() {
-        return beschreibung;
+	return beschreibung;
     }
 
     public void setBeschreibung(final String beschreibung) {
-        this.beschreibung = beschreibung;
+	this.beschreibung = beschreibung;
     }
 
     @Override
     @XmlJavaTypeAdapter(TerminTeilnehmerAdapter.class)
     public ITerminTeilnehmer getMitbringer() {
-        return mitbringer;
+	return mitbringer;
     }
 
     public void setMitbringer(final ITerminTeilnehmer mitbringer) {
-        this.mitbringer = mitbringer;
+	this.mitbringer = mitbringer;
     }
 
 }

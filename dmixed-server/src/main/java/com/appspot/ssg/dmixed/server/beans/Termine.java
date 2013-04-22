@@ -17,17 +17,17 @@ public class Termine implements ITermine {
     private List<ITermin> _all;
 
     public Termine() {
-        _all = new ArrayList<ITermin>();
+	_all = new ArrayList<ITermin>();
     }
 
     @Override
     @XmlJavaTypeAdapter(TerminAdapter.class)
     public List<ITermin> getAll() {
-        return _all;
+	return _all;
     }
 
     public void setAll(final List<ITermin> all) {
-        _all = all;
+	_all = all;
     }
 
 }

@@ -9,12 +9,12 @@ public class UserDataAdapter extends XmlAdapter<UserData, IUserData> {
 
     @Override
     public IUserData unmarshal(final UserData v) throws Exception {
-        return v;
+	return v;
     }
 
     @Override
     public UserData marshal(final IUserData v) throws Exception {
-        return (UserData) v;
+	return (UserData) v;
     }
 
 }

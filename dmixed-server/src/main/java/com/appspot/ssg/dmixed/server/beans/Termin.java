@@ -20,30 +20,30 @@ public class Termin implements ITermin {
 
     @Override
     public Long getTerminId() {
-        return terminId;
+	return terminId;
     }
 
     public void setTerminId(final Long terminId) {
-        this.terminId = terminId;
+	this.terminId = terminId;
     }
 
     @Override
     @XmlJavaTypeAdapter(DateAdapter.class)
     public Date getTermineDatum() {
-        return termineDatum;
+	return termineDatum;
     }
 
     public void setTermineDatum(final Date termineDatum) {
-        this.termineDatum = termineDatum;
+	this.termineDatum = termineDatum;
     }
 
     @Override
     public String getTerminKurzbeschreibung() {
-        return terminKurzbeschreibung;
+	return terminKurzbeschreibung;
     }
 
     public void setTerminKurzbeschreibung(final String terminKurzbeschreibung) {
-        this.terminKurzbeschreibung = terminKurzbeschreibung;
+	this.terminKurzbeschreibung = terminKurzbeschreibung;
     }
 
 }

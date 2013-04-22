@@ -14,38 +14,38 @@ public class TerminTeilnehmer implements ITerminTeilnehmer {
 
     @Override
     public final Long getId() {
-        return id;
+	return id;
     }
 
     public final void setId(final Long id) {
-        this.id = id;
+	this.id = id;
     }
 
     @Override
     public String getVorname() {
-        return vorname;
+	return vorname;
     }
 
     public void setVorname(final String vorname) {
-        this.vorname = vorname;
+	this.vorname = vorname;
     }
 
     @Override
     public String getName() {
-        return name;
+	return name;
     }
 
     public void setName(final String name) {
-        this.name = name;
+	this.name = name;
     }
 
     @Override
     public boolean isTeilnahme() {
-        return teilnahme;
+	return teilnahme;
     }
 
     public void setTeilnahme(final boolean teilnahme) {
-        this.teilnahme = teilnahme;
+	this.teilnahme = teilnahme;
     }
 
 }

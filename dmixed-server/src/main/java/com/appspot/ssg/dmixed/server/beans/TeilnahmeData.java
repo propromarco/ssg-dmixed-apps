@@ -15,32 +15,32 @@ public class TeilnahmeData implements ITeilnahmeData {
 
     @Override
     public Long getUserId() {
-        return _userId;
+	return _userId;
     }
 
     @Override
     public void setUserId(final Long userId) {
-        _userId = userId;
+	_userId = userId;
     }
 
     @Override
     public Long getTerminId() {
-        return _terminId;
+	return _terminId;
     }
 
     @Override
     public void setTerminId(final Long terminId) {
-        _terminId = terminId;
+	_terminId = terminId;
     }
 
     @Override
     public Boolean getTeilnahme() {
-        return _teilnahme;
+	return _teilnahme;
     }
 
     @Override
     public void setTeilnahme(final Boolean teilnahme) {
-        _teilnahme = teilnahme;
+	_teilnahme = teilnahme;
     }
 
 }

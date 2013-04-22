@@ -17,50 +17,50 @@ public class MitbringData implements IMitbringData {
 
     @Override
     public Long getUserId() {
-        return _userId;
+	return _userId;
     }
 
     @Override
     public void setUserId(final Long userId) {
-        _userId = userId;
+	_userId = userId;
     }
 
     @Override
     public Long getTerminId() {
-        return _terminId;
+	return _terminId;
     }
 
     @Override
     public void setTerminId(final Long terminId) {
-        _terminId = terminId;
+	_terminId = terminId;
     }
 
     public final Boolean getTeilnahme() {
-        return _teilnahme;
+	return _teilnahme;
     }
 
     public final void setTeilnahme(final Boolean teilnahme) {
-        _teilnahme = teilnahme;
+	_teilnahme = teilnahme;
     }
 
     @Override
     public Long getMitbringselId() {
-        return _mitbringselId;
+	return _mitbringselId;
     }
 
     @Override
     public void setMitbringselId(final Long mitbringselId) {
-        _mitbringselId = mitbringselId;
+	_mitbringselId = mitbringselId;
     }
 
     @Override
     public Boolean getMitbringen() {
-        return _mitbringen;
+	return _mitbringen;
     }
 
     @Override
     public void setMitbringen(final Boolean mitbringen) {
-        _mitbringen = mitbringen;
+	_mitbringen = mitbringen;
     }
 
 }

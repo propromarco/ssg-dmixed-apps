@@ -35,51 +35,51 @@ public class JPAUser {
     }
 
     public final Long getId() {
-        return id;
+	return id;
     }
 
     public final void setId(final Long id) {
-        this.id = id;
+	this.id = id;
     }
 
     public String getVorname() {
-        return vorname;
+	return vorname;
     }
 
     public void setVorname(final String vorname) {
-        this.vorname = vorname;
+	this.vorname = vorname;
     }
 
     public String getName() {
-        return name;
+	return name;
     }
 
     public void setName(final String name) {
-        this.name = name;
+	this.name = name;
     }
 
     public final String getEmail() {
-        return email;
+	return email;
     }
 
     public final void setEmail(final String email) {
-        this.email = email;
+	this.email = email;
     }
 
     public Date getBirthday() {
-        return birthday;
+	return birthday;
     }
 
     public void setBirthday(final Date birthday) {
-        this.birthday = birthday;
+	this.birthday = birthday;
     }
 
     public boolean isAdmin() {
-        return admin;
+	return admin;
     }
 
     public void setAdmin(final boolean admin) {
-        this.admin = admin;
+	this.admin = admin;
     }
 
 }

@@ -10,22 +10,22 @@ public class Termin extends AbstractData implements ITermin {
     private static final long serialVersionUID = -4595597086302004317L;
 
     public Termin(final JSONObject jsonObject) {
-        super(jsonObject);
+	super(jsonObject);
     }
 
     @Override
     public Long getTerminId() {
-        return getLong("terminId");
+	return getLong("terminId");
     }
 
     @Override
     public Date getTermineDatum() {
-        return getDate("termineDatum");
+	return getDate("termineDatum");
     }
 
     @Override
     public String getTerminKurzbeschreibung() {
-        return getString("terminKurzbeschreibung");
+	return getString("terminKurzbeschreibung");
     }
 
 }

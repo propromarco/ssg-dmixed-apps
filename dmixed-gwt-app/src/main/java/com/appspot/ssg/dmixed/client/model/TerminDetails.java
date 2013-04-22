@@ -13,41 +13,41 @@ public class TerminDetails extends Termin implements ITerminDetails {
     private static final long serialVersionUID = -6936051379531665989L;
 
     public TerminDetails(final JSONObject jsonObject) {
-        super(jsonObject);
+	super(jsonObject);
     }
 
     @Override
     public String getTerminBeschreibung() {
-        return getString("terminBeschreibung");
+	return getString("terminBeschreibung");
     }
 
     @Override
     public List<ITerminTeilnehmer> getTeilnehmer() {
-        final JSONArray array = getArray("teilnehmer");
-        return new Mapping<ITerminTeilnehmer>(array) {
-            @Override
-            protected ITerminTeilnehmer create(final JSONObject object) {
-                return new TerminTeilnehmer(object);
-            }
-        };
+	final JSONArray array = getArray("teilnehmer");
+	return new Mapping<ITerminTeilnehmer>(array) {
+	    @Override
+	    protected ITerminTeilnehmer create(final JSONObject object) {
+		return new TerminTeilnehmer(object);
+	    }
+	};
     }
 
     @Override
     public List<ITerminMitbringsel> getMitbringsel() {
-        final JSONArray array = getArray("mitbringsel");
-        if (array == null)
-            return null;
-        return new Mapping<ITerminMitbringsel>(array) {
-            @Override
-            protected ITerminMitbringsel create(final JSONObject object) {
-                return new TerminMitbringsel(object);
-            }
-        };
+	final JSONArray array = getArray("mitbringsel");
+	if (array == null)
+	    return null;
+	return new Mapping<ITerminMitbringsel>(array) {
+	    @Override
+	    protected ITerminMitbringsel create(final JSONObject object) {
+		return new TerminMitbringsel(object);
+	    }
+	};
     }
 
     @Override
     public boolean isHeimspiel() {
-        return getBoolean("heimspiel");
+	return getBoolean("heimspiel");
     }
 
 }

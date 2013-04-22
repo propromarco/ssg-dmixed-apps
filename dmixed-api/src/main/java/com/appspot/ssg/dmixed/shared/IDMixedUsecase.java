@@ -12,8 +12,9 @@ public interface IDMixedUsecase {
     void onMitringen(IMitbringData mitbringData, IAsync<Void> answer);
 
     void getUsers(Long userId, IAsync<IUsers> answer);
-    
-    void newUser(IUserData userData, IAsync<Void> answer);
 
-    void deleteUser(IUserData userData, IAsync<Void> answer);
+    void newUser(Long userId, IUserData userData, IAsync<Void> answer);
+
+    void deleteUser(Long userId, IUserData userData, IAsync<Void> answer);
+
 }
