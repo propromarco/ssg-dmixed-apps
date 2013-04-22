@@ -20,24 +20,24 @@ public class JPAMitbringsel {
     }
 
     public JPAMitbringsel(final long mitbringselId, final String bezeichnung) {
-        this.mitbringselId = mitbringselId;
-        this.bezeichnung = bezeichnung;
+	this.mitbringselId = mitbringselId;
+	this.bezeichnung = bezeichnung;
     }
 
     public final long getMitbringselId() {
-        return mitbringselId;
+	return mitbringselId;
     }
 
     public final void setMitbringselId(final long mitbringselId) {
-        this.mitbringselId = mitbringselId;
+	this.mitbringselId = mitbringselId;
     }
 
     public final String getBezeichnung() {
-        return bezeichnung;
+	return bezeichnung;
     }
 
     public final void setBezeichnung(final String bezeichnung) {
-        this.bezeichnung = bezeichnung;
+	this.bezeichnung = bezeichnung;
     }
 
 }

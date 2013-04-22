@@ -24,27 +24,27 @@ public class JPATerminTeilnehmer {
     }
 
     public final long getId() {
-        return id;
+	return id;
     }
 
     public final void setId(final long id) {
-        this.id = id;
+	this.id = id;
     }
 
     public final JPATermin getTermin() {
-        return termin;
+	return termin;
     }
 
     public final void setTermin(final JPATermin termin) {
-        this.termin = termin;
+	this.termin = termin;
     }
 
     public final JPAUser getUser() {
-        return user;
+	return user;
     }
 
     public final void setUser(final JPAUser user) {
-        this.user = user;
+	this.user = user;
     }
 
 }

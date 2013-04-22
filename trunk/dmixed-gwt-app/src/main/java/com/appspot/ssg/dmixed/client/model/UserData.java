@@ -10,32 +10,37 @@ public class UserData extends AbstractData implements IUserData {
     private static final long serialVersionUID = 8113909811709789110L;
 
     public UserData(final JSONObject object) {
-        super(object);
+	super(object);
     }
 
     @Override
     public Long getId() {
-        return getLong("id");
+	return getLong("id");
     }
 
     @Override
     public String getVorname() {
-        return getString("vorname");
+	return getString("vorname");
     }
 
     @Override
     public String getName() {
-        return getString("name");
+	return getString("name");
     }
 
     @Override
     public Date getBirthday() {
-        return getDate("birthday");
+	return getDate("birthday");
     }
 
     @Override
     public boolean isAdmin() {
-        return getBoolean("admin");
+	return getBoolean("admin");
+    }
+
+    @Override
+    public String getEmail() {
+	return getString("email");
     }
 
 }

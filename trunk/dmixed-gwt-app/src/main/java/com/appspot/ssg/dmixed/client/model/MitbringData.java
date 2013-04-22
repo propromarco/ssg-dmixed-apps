@@ -8,42 +8,42 @@ public class MitbringData extends AbstractData implements IMitbringData {
 
     @Override
     public Long getUserId() {
-        return getLong("userId");
+	return getLong("userId");
     }
 
     @Override
     public void setUserId(final Long userId) {
-        setLong("userId", userId);
+	setLong("userId", userId);
     }
 
     @Override
     public Long getTerminId() {
-        return getLong("terminId");
+	return getLong("terminId");
     }
 
     @Override
     public void setTerminId(final Long terminId) {
-        setLong("terminId", terminId);
+	setLong("terminId", terminId);
     }
 
     @Override
     public Long getMitbringselId() {
-        return getLong("mitbringselId");
+	return getLong("mitbringselId");
     }
 
     @Override
     public void setMitbringselId(final Long mitbringselId) {
-        setLong("mitbringselId", mitbringselId);
+	setLong("mitbringselId", mitbringselId);
     }
 
     @Override
     public Boolean getMitbringen() {
-        return getBoolean("mitbringen");
+	return getBoolean("mitbringen");
     }
 
     @Override
     public void setMitbringen(final Boolean mitbringen) {
-        setBoolean("mitbringen", mitbringen);
+	setBoolean("mitbringen", mitbringen);
     }
 
 }

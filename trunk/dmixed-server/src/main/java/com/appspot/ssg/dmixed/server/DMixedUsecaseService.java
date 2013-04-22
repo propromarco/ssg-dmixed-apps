@@ -39,146 +39,177 @@ public class DMixedUsecaseService {
     private final IJPAAdapter adapter;
 
     public DMixedUsecaseService() {
-        adapter = FakeAdapter.getInstance();
+	adapter = FakeAdapter.getInstance();
     }
 
     @POST
     public UserData login(final LoginData data) {
-        final String vorname = data.getVorname();
-        final String email = data.getEmail();
-        final JPAUser user = adapter.findUser(vorname, email);
-        if (user == null) {
-            return null;
-        }
-        else {
-            final UserData userData = new UserData();
-            userData.setAdmin(user.isAdmin());
-            userData.setBirthday(user.getBirthday());
-            userData.setId(user.getId());
-            userData.setName(user.getName());
-            userData.setVorname(user.getName());
-            return userData;
-        }
+	final String vorname = data.getVorname();
+	final String email = data.getEmail();
+	final JPAUser user = adapter.findUser(vorname, email);
+	if (user == null) {
+	    return null;
+	} else {
+	    final UserData userData = new UserData();
+	    userData.setAdmin(user.isAdmin());
+	    userData.setBirthday(user.getBirthday());
+	    userData.setId(user.getId());
+	    userData.setName(user.getName());
+	    userData.setVorname(user.getVorname());
+	    return userData;
+	}
     }
 
     @GET
     @Path("termine/{userid}")
     public Termine getTermine(@PathParam("userid") final Long userId) {
-        final JPAUser user = adapter.findUser(userId);
-        if (user == null)
-            return null;
-        final List<JPATermin> jpaTermine = adapter.getTermine();
-        final Termine termine = new Termine();
-        for (final JPATermin jpaTermin : jpaTermine) {
-            final Termin termin = new Termin();
-            termin.setTerminId(jpaTermin.getTerminId());
-            termin.setTermineDatum(jpaTermin.getTermineDatum());
-            termin.setTerminKurzbeschreibung(jpaTermin.getTerminKurzbeschreibung());
-            termine.getAll().add(termin);
-        }
-        return termine;
+	final JPAUser user = adapter.findUser(userId);
+	if (user == null)
+	    return null;
+	final List<JPATermin> jpaTermine = adapter.getTermine();
+	final Termine termine = new Termine();
+	for (final JPATermin jpaTermin : jpaTermine) {
+	    final Termin termin = new Termin();
+	    termin.setTerminId(jpaTermin.getTerminId());
+	    termin.setTermineDatum(jpaTermin.getTermineDatum());
+	    termin.setTerminKurzbeschreibung(jpaTermin.getTerminKurzbeschreibung());
+	    termine.getAll().add(termin);
+	}
+	return termine;
     }
 
     @GET
     @Path("termin/{userid}/{terminId}")
     public TerminDetails getTermin(@PathParam("userid") final Long userId, @PathParam("terminId") final Long terminId) {
-        final JPAUser user = adapter.findUser(userId);
-        if (user == null)
-            return null;
-        final JPATermin termin = adapter.getTermin(terminId);
-        final TerminDetails terminDetails = copyToDetails(termin);
-        return terminDetails;
+	final JPAUser user = adapter.findUser(userId);
+	if (user == null)
+	    return null;
+	final JPATermin termin = adapter.getTermin(terminId);
+	final TerminDetails terminDetails = copyToDetails(termin);
+	return terminDetails;
     }
 
     @PUT
     @Path("teilnahme")
     public void onTeilnahme(final TeilnahmeData teilnahmeData) {
-        final JPAUser user = adapter.findUser(teilnahmeData.getUserId());
-        if (user == null)
-            return;
-        final JPATermin termin = adapter.getTermin(teilnahmeData.getTerminId());
-        adapter.userOnTermin(user, termin, teilnahmeData.getTeilnahme());
+	final JPAUser user = adapter.findUser(teilnahmeData.getUserId());
+	if (user == null)
+	    return;
+	final JPATermin termin = adapter.getTermin(teilnahmeData.getTerminId());
+	adapter.userOnTermin(user, termin, teilnahmeData.getTeilnahme());
     }
 
     @PUT
     @Path("mitbringen")
     public void onMitringen(final MitbringData mitbringData) {
-        final JPAUser user = adapter.findUser(mitbringData.getUserId());
-        if (user == null)
-            return;
-        final JPATermin termin = adapter.getTermin(mitbringData.getTerminId());
-        final JPATerminMitbringsel terminMitbringsel = adapter.getTerminMitbringsel(mitbringData.getTerminId(), mitbringData.getMitbringselId());
-        adapter.onUserToTerminMitbringen(user, termin, terminMitbringsel, mitbringData.getMitbringen());
+	final JPAUser user = adapter.findUser(mitbringData.getUserId());
+	if (user == null)
+	    return;
+	final JPATermin termin = adapter.getTermin(mitbringData.getTerminId());
+	final JPATerminMitbringsel terminMitbringsel = adapter.getTerminMitbringsel(mitbringData.getTerminId(), mitbringData.getMitbringselId());
+	adapter.onUserToTerminMitbringen(user, termin, terminMitbringsel, mitbringData.getMitbringen());
     }
 
     @GET
     @Path("users/{userid}")
     public Users getUsers(@PathParam("userId") final Long userId) {
-        return null;
+	final JPAUser user = adapter.findUser(userId);
+	if (user == null || !user.isAdmin())
+	    return null;
+	final List<JPAUser> users = adapter.getUsers();
+	final Users newUsers = new Users();
+	for (final JPAUser jpaUser : users) {
+	    final UserData userData = new UserData();
+	    userData.setId(jpaUser.getId());
+	    userData.setAdmin(jpaUser.isAdmin());
+	    userData.setBirthday(jpaUser.getBirthday());
+	    userData.setVorname(jpaUser.getVorname());
+	    userData.setName(jpaUser.getName());
+	    newUsers.getAll().add(userData);
+	}
+	return newUsers;
     }
 
     @PUT
-    @Path("user")
-    public void newUser(final UserData userData) {
+    @Path("user/{userid}")
+    public void newUser(@PathParam("userId") final Long userId, final UserData userData) {
+	final JPAUser user = adapter.findUser(userId);
+	if (user == null || !user.isAdmin())
+	    return;
+	final JPAUser jpaUser = createFrom(userData);
     }
 
     @DELETE
-    @Path("user")
-    public void deleteUser(final UserData userData) {
+    @Path("user/{userid}")
+    public void deleteUser(@PathParam("userId") final Long userId, final UserData userData) {
+	final JPAUser user = adapter.findUser(userId);
+	if (user == null || !user.isAdmin())
+	    return;
+    }
+
+    private JPAUser createFrom(final UserData userData) {
+	final JPAUser jpaUser = new JPAUser();
+	jpaUser.setId(userData.getId());
+	jpaUser.setAdmin(userData.isAdmin());
+	jpaUser.setBirthday(userData.getBirthday());
+	jpaUser.setVorname(userData.getVorname());
+	jpaUser.setName(userData.getName());
+	jpaUser.setEmail(userData.getEmail());
+	return jpaUser;
     }
 
     private TerminDetails copyToDetails(final JPATermin termin) {
-        final TerminDetails terminDetails = new TerminDetails();
-        terminDetails.setHeimspiel(termin.isHeimspiel());
-        terminDetails.setMitbringsel(createMitbringsel(termin));
-        terminDetails.setTeilnehmer(createTeilnehmer(termin));
-        terminDetails.setTerminBeschreibung(termin.getTerminBeschreibung());
-        terminDetails.setTermineDatum(termin.getTermineDatum());
-        terminDetails.setTerminId(termin.getTerminId());
-        terminDetails.setTerminKurzbeschreibung(termin.getTerminKurzbeschreibung());
-        return terminDetails;
+	final TerminDetails terminDetails = new TerminDetails();
+	terminDetails.setHeimspiel(termin.isHeimspiel());
+	terminDetails.setMitbringsel(createMitbringsel(termin));
+	terminDetails.setTeilnehmer(createTeilnehmer(termin));
+	terminDetails.setTerminBeschreibung(termin.getTerminBeschreibung());
+	terminDetails.setTermineDatum(termin.getTermineDatum());
+	terminDetails.setTerminId(termin.getTerminId());
+	terminDetails.setTerminKurzbeschreibung(termin.getTerminKurzbeschreibung());
+	return terminDetails;
     }
 
     private List<ITerminTeilnehmer> createTeilnehmer(final JPATermin termin) {
-        final List<ITerminTeilnehmer> list = new ArrayList<ITerminTeilnehmer>();
-        final List<JPAUser> users = this.adapter.getUsers();
-        for (final JPAUser jpaUser : users) {
-            final TerminTeilnehmer terminTeilnehmer = new TerminTeilnehmer();
-            terminTeilnehmer.setId(jpaUser.getId());
-            terminTeilnehmer.setVorname(jpaUser.getVorname());
-            terminTeilnehmer.setName(jpaUser.getName());
-            terminTeilnehmer.setTeilnahme(false);
-            final List<JPATerminTeilnehmer> teilnehmer = termin.getTeilnehmer();
-            for (final JPATerminTeilnehmer jpaTerminTeilnehmer : teilnehmer) {
-                if (jpaTerminTeilnehmer.getId() == jpaUser.getId())
-                    terminTeilnehmer.setTeilnahme(true);
-            }
-            list.add(terminTeilnehmer);
-        }
-        return list;
+	final List<ITerminTeilnehmer> list = new ArrayList<ITerminTeilnehmer>();
+	final List<JPAUser> users = this.adapter.getUsers();
+	for (final JPAUser jpaUser : users) {
+	    final TerminTeilnehmer terminTeilnehmer = new TerminTeilnehmer();
+	    terminTeilnehmer.setId(jpaUser.getId());
+	    terminTeilnehmer.setVorname(jpaUser.getVorname());
+	    terminTeilnehmer.setName(jpaUser.getName());
+	    terminTeilnehmer.setTeilnahme(false);
+	    final List<JPATerminTeilnehmer> teilnehmer = termin.getTeilnehmer();
+	    for (final JPATerminTeilnehmer jpaTerminTeilnehmer : teilnehmer) {
+		if (jpaTerminTeilnehmer.getId() == jpaUser.getId())
+		    terminTeilnehmer.setTeilnahme(true);
+	    }
+	    list.add(terminTeilnehmer);
+	}
+	return list;
     }
 
     private List<ITerminMitbringsel> createMitbringsel(final JPATermin termin) {
-        final List<ITerminMitbringsel> list = new ArrayList<ITerminMitbringsel>();
-        final List<JPATerminMitbringsel> mitbringsel = termin.getMitbringsel();
-        for (final JPATerminMitbringsel jpaTerminMitbringsel : mitbringsel) {
-            final TerminMitbringsel m = new TerminMitbringsel();
-            m.setId(jpaTerminMitbringsel.getMitbringselId());
-            m.setBeschreibung(jpaTerminMitbringsel.getMitbringsel().getBezeichnung());
-            m.setMitbringer(createMitbringer(jpaTerminMitbringsel.getUser()));
-            list.add(m);
-        }
-        return list;
+	final List<ITerminMitbringsel> list = new ArrayList<ITerminMitbringsel>();
+	final List<JPATerminMitbringsel> mitbringsel = termin.getMitbringsel();
+	for (final JPATerminMitbringsel jpaTerminMitbringsel : mitbringsel) {
+	    final TerminMitbringsel m = new TerminMitbringsel();
+	    m.setId(jpaTerminMitbringsel.getMitbringselId());
+	    m.setBeschreibung(jpaTerminMitbringsel.getMitbringsel().getBezeichnung());
+	    m.setMitbringer(createMitbringer(jpaTerminMitbringsel.getUser()));
+	    list.add(m);
+	}
+	return list;
     }
 
     private ITerminTeilnehmer createMitbringer(final JPAUser user) {
-        if (user == null)
-            return null;
-        final TerminTeilnehmer t = new TerminTeilnehmer();
-        t.setId(user.getId());
-        t.setVorname(user.getVorname());
-        t.setName(user.getName());
-        return t;
+	if (user == null)
+	    return null;
+	final TerminTeilnehmer t = new TerminTeilnehmer();
+	t.setId(user.getId());
+	t.setVorname(user.getVorname());
+	t.setName(user.getName());
+	return t;
     }
 
 }

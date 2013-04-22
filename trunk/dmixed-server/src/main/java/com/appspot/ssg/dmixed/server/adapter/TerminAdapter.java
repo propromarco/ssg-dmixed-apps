@@ -9,12 +9,12 @@ public class TerminAdapter extends XmlAdapter<Termin, ITermin> {
 
     @Override
     public ITermin unmarshal(final Termin v) throws Exception {
-        return v;
+	return v;
     }
 
     @Override
     public Termin marshal(final ITermin v) throws Exception {
-        return (Termin) v;
+	return (Termin) v;
     }
 
 }

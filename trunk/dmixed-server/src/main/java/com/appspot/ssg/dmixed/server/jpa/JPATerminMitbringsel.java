@@ -27,31 +27,31 @@ public class JPATerminMitbringsel {
     }
 
     public JPATerminMitbringsel(final long mitbringselId) {
-        this.mitbringselId = mitbringselId;
+	this.mitbringselId = mitbringselId;
     }
 
     public final long getMitbringselId() {
-        return mitbringselId;
+	return mitbringselId;
     }
 
     public final void setMitbringselId(final long mitbringselId) {
-        this.mitbringselId = mitbringselId;
+	this.mitbringselId = mitbringselId;
     }
 
     public final JPAMitbringsel getMitbringsel() {
-        return mitbringsel;
+	return mitbringsel;
     }
 
     public final void setMitbringsel(final JPAMitbringsel mitbringsel) {
-        this.mitbringsel = mitbringsel;
+	this.mitbringsel = mitbringsel;
     }
 
     public final JPAUser getUser() {
-        return user;
+	return user;
     }
 
     public final void setUser(final JPAUser user) {
-        this.user = user;
+	this.user = user;
     }
 
 }

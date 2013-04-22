@@ -16,20 +16,20 @@ public class LoginData implements ILoginData {
 
     @Override
     public final String getVorname() {
-        return vorname;
+	return vorname;
     }
 
     public final void setVorname(final String vorname) {
-        this.vorname = vorname;
+	this.vorname = vorname;
     }
 
     @Override
     public final String getEmail() {
-        return email;
+	return email;
     }
 
     public final void setEmail(final String email) {
-        this.email = email;
+	this.email = email;
     }
 
 }

@@ -8,8 +8,8 @@ public class PhoneAnimationMapper implements AnimationMapper {
 
     @Override
     public Animation getAnimation(final Place oldPlace, final Place newPlace) {
-        // TODO Auto-generated method stub
-        return null;
+	// TODO Auto-generated method stub
+	return null;
     }
 
 }

@@ -29,163 +29,180 @@ public class TerminActivity extends MGWTAbstractActivity {
 
     public interface TerminView extends IDMixedView {
 
-        public interface IListItem extends HasValue<Boolean>, HasTapHandlers {
-        }
+	public interface IListItem extends HasValue<Boolean>, HasTapHandlers {
+	}
 
-        public interface IListCreator<T> {
-            IListItem create(T t);
+	public interface IListCreator<T> {
+	    IListItem create(T t);
 
-            void onFinish(boolean hasItems);
-        }
+	    void onFinish(boolean hasItems);
+	}
 
-        void setTerminBeschreibung(String terminBeschreibung);
+	void setTerminBeschreibung(String terminBeschreibung);
 
-        IListCreator<ITerminTeilnehmer> fillTeilnehmer();
+	IListCreator<ITerminTeilnehmer> fillTeilnehmer();
 
-        IListCreator<ITerminMitbringsel> fillMitbringsel();
+	IListCreator<ITerminMitbringsel> fillMitbringsel();
     }
 
     private final ClientFactory _clientFactory;
     private final Long _terminId;
 
     public TerminActivity(final ClientFactory clientFactory, final Long terminId) {
-        _clientFactory = clientFactory;
-        _terminId = terminId;
+	_clientFactory = clientFactory;
+	_terminId = terminId;
     }
 
     @Override
     public void start(final AcceptsOneWidget panel, final EventBus eventBus) {
-        final TerminView terminView = _clientFactory.getTerminView();
-        final DMixedModel model = _clientFactory.getModel();
-        final IDMixedUsecase service = _clientFactory.getService();
-        panel.setWidget(terminView);
-        final Long userId = model.getUser().getId();
-        final IAsync<ITerminDetails> answer = new IAsync<ITerminDetails>() {
-            @Override
-            public void onSuccess(final ITerminDetails termin) {
-                if (termin != null) {
-                    final Date termineDatum = termin.getTermineDatum();
-                    final String terminKurzbeschreibung = termin.getTerminKurzbeschreibung();
-                    final DateTimeFormat formatter = DateTimeFormat.getFormat("dd.MM.yyyy");
-                    final String d = formatter.format(termineDatum);
-                    final String title = terminKurzbeschreibung + " - " + d;
-                    terminView.setHeaderText(title);
-                    final String terminBeschreibung = termin.getTerminBeschreibung();
-                    terminView.setTerminBeschreibung(terminBeschreibung);
-                    final List<ITerminTeilnehmer> teilnehmer = termin.getTeilnehmer();
-                    final IListCreator<ITerminTeilnehmer> teilnehmerCreator = terminView.fillTeilnehmer();
-                    for (final ITerminTeilnehmer terminTeilnehmer : teilnehmer) {
-                        final IListItem item = teilnehmerCreator.create(terminTeilnehmer);
-                        addHandlerRegistration(item.addTapHandler(new TapHandler() {
-                            @Override
-                            public void onTap(final TapEvent event) {
-                                final boolean checked = checkTeilnehmer(terminTeilnehmer, termin.getTerminId());
-                                item.setValue(checked);
-                            }
+	final TerminView terminView = _clientFactory.getTerminView();
+	final DMixedModel model = _clientFactory.getModel();
+	final IDMixedUsecase service = _clientFactory.getService();
+	panel.setWidget(terminView);
+	final Long userId = model.getUser().getId();
+	final IAsync<ITerminDetails> answer = new IAsync<ITerminDetails>() {
+	    @Override
+	    public void onSuccess(final ITerminDetails termin) {
+		if (termin != null) {
+		    final Date termineDatum = termin.getTermineDatum();
+		    final String terminKurzbeschreibung = termin.getTerminKurzbeschreibung();
+		    final DateTimeFormat formatter = DateTimeFormat.getFormat("dd.MM.yyyy");
+		    final String d = formatter.format(termineDatum);
+		    final String title = terminKurzbeschreibung + " - " + d;
+		    terminView.setHeaderText(title);
+		    final String terminBeschreibung = termin.getTerminBeschreibung();
+		    terminView.setTerminBeschreibung(terminBeschreibung);
+		    final List<ITerminTeilnehmer> teilnehmer = termin.getTeilnehmer();
+		    final IListCreator<ITerminTeilnehmer> teilnehmerCreator = terminView.fillTeilnehmer();
+		    for (final ITerminTeilnehmer terminTeilnehmer : teilnehmer) {
+			final IListItem item = teilnehmerCreator.create(terminTeilnehmer);
+			addHandlerRegistration(item.addTapHandler(new TapHandler() {
+			    @Override
+			    public void onTap(final TapEvent event) {
+				final boolean checked = checkTeilnehmer(terminTeilnehmer, termin.getTerminId());
+				item.setValue(checked);
+			    }
 
-                        }));
-                    }
-                    teilnehmerCreator.onFinish(teilnehmer.size() > 0);
-                    final IListCreator<ITerminMitbringsel> mitbringselCreator = terminView.fillMitbringsel();
-                    final List<ITerminMitbringsel> mitbringsel = termin.getMitbringsel();
-                    if (mitbringsel != null) {
-                        for (final ITerminMitbringsel terminMitbringsel : mitbringsel) {
-                            final IListItem item = mitbringselCreator.create(terminMitbringsel);
-                            addHandlerRegistration(item.addTapHandler(new TapHandler() {
-                                @Override
-                                public void onTap(final TapEvent event) {
-                                    final boolean checked = checkMitbringsel(terminMitbringsel);
-                                    item.setValue(checked);
-                                }
+			}));
+		    }
+		    teilnehmerCreator.onFinish(teilnehmer.size() > 0);
+		    final IListCreator<ITerminMitbringsel> mitbringselCreator = terminView.fillMitbringsel();
+		    final List<ITerminMitbringsel> mitbringsel = termin.getMitbringsel();
+		    if (mitbringsel != null) {
+			for (final ITerminMitbringsel terminMitbringsel : mitbringsel) {
+			    final IListItem item = mitbringselCreator.create(terminMitbringsel);
+			    addHandlerRegistration(item.addTapHandler(new TapHandler() {
+				@Override
+				public void onTap(final TapEvent event) {
+				    final boolean checked = checkMitbringsel(terminMitbringsel);
+				    item.setValue(checked);
+				}
 
-                            }));
-                        }
-                    }
-                    mitbringselCreator.onFinish(mitbringsel != null && mitbringsel.size() > 0);
-                }
-                else {
-                    // TODO Error oder nicht erlaubt
-                }
-            }
-        };
-        service.getTermin(userId, _terminId, answer);
+			    }));
+			}
+		    }
+		    mitbringselCreator.onFinish(mitbringsel != null && mitbringsel.size() > 0);
+		} else {
+		    // TODO Error oder nicht erlaubt
+		}
+	    }
+
+	    @Override
+	    public void onError(Throwable exception) {
+		terminView.showError(exception);
+	    }
+	};
+	service.getTermin(userId, _terminId, answer);
     }
 
     private boolean checkMitbringsel(final ITerminMitbringsel terminMitbringsel) {
-        final ITerminTeilnehmer mitbringer = terminMitbringsel.getMitbringer();
-        final DMixedModel model = _clientFactory.getModel();
-        final IDMixedUsecase service = _clientFactory.getService();
-        final IUserData user = model.getUser();
-        if (mitbringer == null) {
-            // Es bringt noch keiner mit
-            final TerminTeilnehmer ich = new TerminTeilnehmer();
-            ich.setId(user.getId());
-            ich.setVorname(user.getVorname());
-            ich.setName(user.getName());
-            terminMitbringsel.setMitbringer(ich);
-            final MitbringData mitbringData = new MitbringData();
-            mitbringData.setMitbringselId(terminMitbringsel.getId());
-            mitbringData.setTerminId(_terminId);
-            mitbringData.setUserId(user.getId());
-            mitbringData.setMitbringen(true);
-            final IAsync<Void> answer = new IAsync<Void>() {
-                @Override
-                public void onSuccess(final Void t) {
-                }
-            };
-            service.onMitringen(mitbringData, answer);
-            // Fire ich brings mit
-            return true;
-        }
-        else {
-            // Es bringt schon einer mit
-            final Long id = mitbringer.getId();
-            final Long id2 = user.getId();
-            if (id.equals(id2)) {
-                // Ich war eingetragen
-                terminMitbringsel.setMitbringer(null);
-                final MitbringData mitbringData = new MitbringData();
-                mitbringData.setMitbringselId(terminMitbringsel.getId());
-                mitbringData.setTerminId(_terminId);
-                mitbringData.setUserId(user.getId());
-                mitbringData.setMitbringen(false);
-                final IAsync<Void> answer = new IAsync<Void>() {
-                    @Override
-                    public void onSuccess(final Void t) {
-                    }
-                };
-                service.onMitringen(mitbringData, answer);
-                // Fire ich brings nicht mehr mit
-                return false;
-            }
-            else {
-                // Ich darf das nicht
-                return true;
-            }
-        }
+	final ITerminTeilnehmer mitbringer = terminMitbringsel.getMitbringer();
+	final DMixedModel model = _clientFactory.getModel();
+	final IDMixedUsecase service = _clientFactory.getService();
+	final IUserData user = model.getUser();
+	if (mitbringer == null) {
+	    // Es bringt noch keiner mit
+	    final TerminTeilnehmer ich = new TerminTeilnehmer();
+	    ich.setId(user.getId());
+	    ich.setVorname(user.getVorname());
+	    ich.setName(user.getName());
+	    terminMitbringsel.setMitbringer(ich);
+	    final MitbringData mitbringData = new MitbringData();
+	    mitbringData.setMitbringselId(terminMitbringsel.getId());
+	    mitbringData.setTerminId(_terminId);
+	    mitbringData.setUserId(user.getId());
+	    mitbringData.setMitbringen(true);
+	    final IAsync<Void> answer = new IAsync<Void>() {
+		@Override
+		public void onSuccess(final Void t) {
+		}
+
+		@Override
+		public void onError(Throwable exception) {
+		    exception.printStackTrace();
+		}
+	    };
+	    service.onMitringen(mitbringData, answer);
+	    // Fire ich brings mit
+	    return true;
+	} else {
+	    // Es bringt schon einer mit
+	    final Long id = mitbringer.getId();
+	    final Long id2 = user.getId();
+	    if (id.equals(id2)) {
+		// Ich war eingetragen
+		terminMitbringsel.setMitbringer(null);
+		final MitbringData mitbringData = new MitbringData();
+		mitbringData.setMitbringselId(terminMitbringsel.getId());
+		mitbringData.setTerminId(_terminId);
+		mitbringData.setUserId(user.getId());
+		mitbringData.setMitbringen(false);
+		final IAsync<Void> answer = new IAsync<Void>() {
+		    @Override
+		    public void onSuccess(final Void t) {
+		    }
+
+		    @Override
+		    public void onError(Throwable exception) {
+			exception.printStackTrace();
+		    }
+		};
+		service.onMitringen(mitbringData, answer);
+		// Fire ich brings nicht mehr mit
+		return false;
+	    } else {
+		// Ich darf das nicht
+		return true;
+	    }
+	}
     }
 
     private boolean checkTeilnehmer(final ITerminTeilnehmer terminTeilnehmer, final Long terminId) {
-        final Long id = terminTeilnehmer.getId();
-        final Long id2 = _clientFactory.getModel().getUser().getId();
-        if (!id.equals(id2))
-            return false;
-        final boolean oldValue = terminTeilnehmer.isTeilnahme();
-        final boolean newValue = !oldValue;
-        terminTeilnehmer.setTeilnahme(newValue);
-        final IDMixedUsecase service = _clientFactory.getService();
-        final TeilnahmeData teilnahmeData = new TeilnahmeData();
-        teilnahmeData.setUserId(id2);
-        teilnahmeData.setTerminId(terminId);
-        teilnahmeData.setTeilnahme(newValue);
-        final IAsync<Void> answer = new IAsync<Void>() {
-            @Override
-            public void onSuccess(final Void t) {
-            }
-        };
-        service.onTeilnahme(teilnahmeData, answer);
-        // Fire newValue to server
-        return newValue;
+	final Long id = terminTeilnehmer.getId();
+	final Long id2 = _clientFactory.getModel().getUser().getId();
+	if (!id.equals(id2))
+	    return false;
+	final boolean oldValue = terminTeilnehmer.isTeilnahme();
+	final boolean newValue = !oldValue;
+	terminTeilnehmer.setTeilnahme(newValue);
+	final IDMixedUsecase service = _clientFactory.getService();
+	final TeilnahmeData teilnahmeData = new TeilnahmeData();
+	teilnahmeData.setUserId(id2);
+	teilnahmeData.setTerminId(terminId);
+	teilnahmeData.setTeilnahme(newValue);
+	final IAsync<Void> answer = new IAsync<Void>() {
+	    @Override
+	    public void onSuccess(final Void t) {
+	    }
+
+	    @Override
+	    public void onError(Throwable exception) {
+		exception.printStackTrace();
+	    }
+	};
+	service.onTeilnahme(teilnahmeData, answer);
+	// Fire newValue to server
+	return newValue;
     }
 
 }

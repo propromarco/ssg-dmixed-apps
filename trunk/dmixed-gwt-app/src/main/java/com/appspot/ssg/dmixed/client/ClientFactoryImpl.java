@@ -26,56 +26,56 @@ public class ClientFactoryImpl implements ClientFactory {
     private final TerminViewImpl _terminView;
 
     public ClientFactoryImpl() {
-        eventBus = new SimpleEventBus();
-        placeController = new PlaceController(eventBus);
-        _loginViewImpl = new LoginViewImpl(messages);
-        _termineViewImpl = new TermineViewImpl(messages);
-        _terminView = new TerminViewImpl(messages);
+	eventBus = new SimpleEventBus();
+	placeController = new PlaceController(eventBus);
+	_loginViewImpl = new LoginViewImpl(messages, true);
+	_termineViewImpl = new TermineViewImpl(messages);
+	_terminView = new TerminViewImpl(messages);
     }
 
     @Override
     public EventBus getEventBus() {
-        return eventBus;
+	return eventBus;
     }
 
     @Override
     public PlaceController getPlaceController() {
-        return placeController;
+	return placeController;
     }
 
     @Override
     public final IDMixedMessages getMessages() {
-        return messages;
+	return messages;
     }
 
     @Override
     public final String getBaseUrl() {
-        return baseUrl;
+	return baseUrl;
     }
 
     @Override
     public final IDMixedUsecase getService() {
-        return service;
+	return service;
     }
 
     @Override
     public final DMixedModel getModel() {
-        return model;
+	return model;
     }
 
     @Override
     public LoginView getLoginView() {
-        return _loginViewImpl;
+	return _loginViewImpl;
     }
 
     @Override
     public TermineView getTermineView() {
-        return _termineViewImpl;
+	return _termineViewImpl;
     }
 
     @Override
     public TerminView getTerminView() {
-        return _terminView;
+	return _terminView;
     }
 
 }

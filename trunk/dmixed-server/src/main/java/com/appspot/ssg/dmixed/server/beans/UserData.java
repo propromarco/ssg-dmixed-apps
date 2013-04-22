@@ -18,53 +18,63 @@ public class UserData implements IUserData {
     private Date birthday;
     private boolean admin;
 
+    private String email;
+
     public UserData() {
     }
 
     @Override
     public Long getId() {
-        return this.id;
+	return this.id;
     }
 
     public void setId(final Long id) {
-        this.id = id;
+	this.id = id;
     }
 
     @Override
     public String getVorname() {
-        return this.vorname;
+	return this.vorname;
     }
 
     public void setVorname(final String vorname) {
-        this.vorname = vorname;
+	this.vorname = vorname;
     }
 
     @Override
     public String getName() {
-        return this.name;
+	return this.name;
     }
 
     public void setName(final String name) {
-        this.name = name;
+	this.name = name;
     }
 
     @Override
     @XmlJavaTypeAdapter(DateAdapter.class)
     public Date getBirthday() {
-        return this.birthday;
+	return this.birthday;
     }
 
     public void setBirthday(final Date birthday) {
-        this.birthday = birthday;
+	this.birthday = birthday;
     }
 
     @Override
     public boolean isAdmin() {
-        return admin;
+	return admin;
     }
 
     public void setAdmin(final boolean admin) {
-        this.admin = admin;
+	this.admin = admin;
     }
 
+    @Override
+    public String getEmail() {
+	return email;
+    }
+
+    public void setEmail(final String email) {
+	this.email = email;
+    }
 }

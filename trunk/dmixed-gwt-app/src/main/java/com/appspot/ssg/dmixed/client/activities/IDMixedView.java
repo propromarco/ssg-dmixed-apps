@@ -8,4 +8,8 @@ public interface IDMixedView extends IsWidget {
 
     void setProgress(boolean visible);
 
+    void showError(Throwable exception);
+
+    void showMessage(String message);
+
 }

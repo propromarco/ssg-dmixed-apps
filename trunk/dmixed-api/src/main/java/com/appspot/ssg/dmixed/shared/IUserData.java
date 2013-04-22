@@ -11,6 +11,8 @@ public interface IUserData extends Serializable {
 
     String getName();
 
+    String getEmail();
+
     Date getBirthday();
 
     boolean isAdmin();

@@ -8,32 +8,32 @@ public class TeilnahmeData extends AbstractData implements ITeilnahmeData {
 
     @Override
     public Long getUserId() {
-        return getLong("userId");
+	return getLong("userId");
     }
 
     @Override
     public void setUserId(final Long userId) {
-        setLong("userId", userId);
+	setLong("userId", userId);
     }
 
     @Override
     public Long getTerminId() {
-        return getLong("terminId");
+	return getLong("terminId");
     }
 
     @Override
     public void setTerminId(final Long terminId) {
-        setLong("terminId", terminId);
+	setLong("terminId", terminId);
     }
 
     @Override
     public Boolean getTeilnahme() {
-        return getBoolean("teilnahme");
+	return getBoolean("teilnahme");
     }
 
     @Override
     public void setTeilnahme(final Boolean teilnahme) {
-        setBoolean("teilnahme", teilnahme);
+	setBoolean("teilnahme", teilnahme);
     }
 
 }

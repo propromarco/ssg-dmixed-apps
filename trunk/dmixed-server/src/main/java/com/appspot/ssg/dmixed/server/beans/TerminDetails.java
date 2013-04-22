@@ -30,68 +30,68 @@ public class TerminDetails implements ITerminDetails {
 
     @Override
     public Long getTerminId() {
-        return terminId;
+	return terminId;
     }
 
     public void setTerminId(final Long terminId) {
-        this.terminId = terminId;
+	this.terminId = terminId;
     }
 
     @Override
     @XmlJavaTypeAdapter(DateAdapter.class)
     public Date getTermineDatum() {
-        return termineDatum;
+	return termineDatum;
     }
 
     public void setTermineDatum(final Date termineDatum) {
-        this.termineDatum = termineDatum;
+	this.termineDatum = termineDatum;
     }
 
     @Override
     public String getTerminKurzbeschreibung() {
-        return terminKurzbeschreibung;
+	return terminKurzbeschreibung;
     }
 
     public void setTerminKurzbeschreibung(final String terminKurzbeschreibung) {
-        this.terminKurzbeschreibung = terminKurzbeschreibung;
+	this.terminKurzbeschreibung = terminKurzbeschreibung;
     }
 
     @Override
     public String getTerminBeschreibung() {
-        return terminBeschreibung;
+	return terminBeschreibung;
     }
 
     public void setTerminBeschreibung(final String terminBeschreibung) {
-        this.terminBeschreibung = terminBeschreibung;
+	this.terminBeschreibung = terminBeschreibung;
     }
 
     @Override
     public boolean isHeimspiel() {
-        return heimspiel;
+	return heimspiel;
     }
 
     public void setHeimspiel(final boolean heimspiel) {
-        this.heimspiel = heimspiel;
+	this.heimspiel = heimspiel;
     }
 
     @Override
     @XmlJavaTypeAdapter(TerminTeilnehmerAdapter.class)
     public List<ITerminTeilnehmer> getTeilnehmer() {
-        return teilnehmer;
+	return teilnehmer;
     }
 
     public void setTeilnehmer(final List<ITerminTeilnehmer> teilnehmer) {
-        this.teilnehmer = teilnehmer;
+	this.teilnehmer = teilnehmer;
     }
 
     @Override
     @XmlJavaTypeAdapter(TerminMitbringselAdapter.class)
     public List<ITerminMitbringsel> getMitbringsel() {
-        return mitbringsel;
+	return mitbringsel;
     }
 
     public void setMitbringsel(final List<ITerminMitbringsel> mitbringsel) {
-        this.mitbringsel = mitbringsel;
+	this.mitbringsel = mitbringsel;
     }
 
 }

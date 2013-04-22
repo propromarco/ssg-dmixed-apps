@@ -1,5 +1,6 @@
 package com.appspot.ssg.dmixed.server.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -13,7 +14,7 @@ import com.appspot.ssg.dmixed.shared.IUsers;
 public class Users implements IUsers {
 
     private static final long serialVersionUID = 5088845540647481994L;
-    private List<IUserData> _all;
+    private List<IUserData> _all = new ArrayList<IUserData>();
 
     public Users() {
     }
@@ -21,11 +22,11 @@ public class Users implements IUsers {
     @Override
     @XmlJavaTypeAdapter(UserDataAdapter.class)
     public List<IUserData> getAll() {
-        return _all;
+	return _all;
     }
 
     public void setAll(final List<IUserData> all) {
-        _all = all;
+	_all = all;
     }
 
 }

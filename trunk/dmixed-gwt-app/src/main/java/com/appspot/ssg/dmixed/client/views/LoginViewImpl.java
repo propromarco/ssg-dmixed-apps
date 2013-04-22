@@ -19,48 +19,52 @@ public class LoginViewImpl extends AbstractDmixedView implements LoginView {
     private final MEmailTextBox _email;
     private final Button _loginButton;
 
-    public LoginViewImpl(final IDMixedMessages messages) {
-        super(messages);
-        _vorname = new MTextBox();
-        _email = new MEmailTextBox();
-        final String login = messages.login();
-        _loginButton = new Button(login);
-        _layoutPanel.add(createEingabePanel());
-        _layoutPanel.add(_loginButton);
+    public LoginViewImpl(final IDMixedMessages messages, final boolean inititalData) {
+	super(messages);
+	_vorname = new MTextBox();
+	_email = new MEmailTextBox();
+	if (inititalData) {
+	    _vorname.setValue("Nuria");
+	    _email.setValue("123@456.com");
+	}
+	final String login = messages.login();
+	_loginButton = new Button(login);
+	_layoutPanel.add(createEingabePanel());
+	_layoutPanel.add(_loginButton);
     }
 
     private FlowPanel createEingabePanel() {
-        final FlowPanel container = new FlowPanel();
+	final FlowPanel container = new FlowPanel();
 
-        final HTML header = new HTML(_messages.loginData());
-        header.addStyleName(MGWTStyle.getTheme().getMGWTClientBundle().getListCss().listHeader());
+	final HTML header = new HTML(_messages.loginData());
+	header.addStyleName(MGWTStyle.getTheme().getMGWTClientBundle().getListCss().listHeader());
 
-        container.add(header);
+	container.add(header);
 
-        final WidgetList widgetList = new WidgetList();
-        widgetList.setRound(true);
+	final WidgetList widgetList = new WidgetList();
+	widgetList.setRound(true);
 
-        // lets put in some widgets
-        widgetList.add(new FormListEntry(_messages.nameOfChild(), _vorname));
-        widgetList.add(new FormListEntry(_messages.emailAdress(), _email));
+	// lets put in some widgets
+	widgetList.add(new FormListEntry(_messages.nameOfChild(), _vorname));
+	widgetList.add(new FormListEntry(_messages.emailAdress(), _email));
 
-        container.add(widgetList);
-        return container;
+	container.add(widgetList);
+	return container;
     }
 
     @Override
     public HasText getVorname() {
-        return _vorname;
+	return _vorname;
     }
 
     @Override
     public HasText getEmail() {
-        return _email;
+	return _email;
     }
 
     @Override
     public HasTapHandlers getLogin() {
-        return _loginButton;
+	return _loginButton;
     }
 
 }
