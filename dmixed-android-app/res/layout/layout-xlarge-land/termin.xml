@@ -5,10 +5,9 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Termine"
+        android:text="@string/TerminUebersichtTitel"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TableLayout
@@ -21,7 +20,6 @@
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/DatumHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Datum"
@@ -29,7 +27,6 @@
                 android:width="80dp" />
 
             <TextView
-                android:id="@+id/textView3"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/Kurzbeschreibung"
@@ -40,11 +37,19 @@
     </TableLayout>
 
     <TableLayout
-        android:id="@+id/TermineTable"
+        android:id="@+id/TerminUebersichtTabelle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="vertical" >
 
     </TableLayout>
+
+    <Button
+        android:id="@+id/TerminUebersichtTerminErstellenButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/TerminUebersichtTerminErstellenButton"
+        android:visibility="invisible" />
 
 </LinearLayout>

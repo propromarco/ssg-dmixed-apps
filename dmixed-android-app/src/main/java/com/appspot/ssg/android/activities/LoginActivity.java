@@ -22,12 +22,12 @@ public class LoginActivity extends Activity {
 		if (userId >= 0) {
 			final Context applicationContext = getApplicationContext();
 			Intent myIntent = new Intent(applicationContext,
-					TermineActrivity.class);
+					TerminUebersichtActrivity.class);
 			startActivityForResult(myIntent, 0);
 
 		} else {
 			setContentView(R.layout.login);
-			Button button = (Button) findViewById(R.id.button1);
+			Button button = (Button) findViewById(R.id.LoginButton);
 			button.setOnClickListener(new OnClickListener() {
 
 				@Override
@@ -38,7 +38,7 @@ public class LoginActivity extends Activity {
 							vornameString, mailString);
 					if (result != null) {
 						Intent myIntent = new Intent(view.getContext(),
-								TermineActrivity.class);
+								TerminUebersichtActrivity.class);
 						final Long usrId = result.getId();
 						AndroidConstants.setUserId(LoginActivity.this, usrId);
 						AndroidConstants.setAdmin(LoginActivity.this,
