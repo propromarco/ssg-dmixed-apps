@@ -3,9 +3,13 @@ package com.appspot.ssg.android.activities;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -40,20 +44,35 @@ public class TerminDetailsActivity extends Activity {
 		ITermin termin = (ITermin) getIntent().getExtras().get(
 				AndroidConstants.TERMIN_KEY);
 		if (termin != null) {
+			final boolean admin = AndroidConstants.isAdmin(this);
+			final  Button bearbeitenButton = (Button) findViewById(R.id.TerminDetailsBearbeitenButton);
+			bearbeitenButton.setVisibility(admin ? View.VISIBLE : View.INVISIBLE);
+			if(admin)
+			{
+				bearbeitenButton.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View view)
+					{
+						final Intent intent = new Intent(view.getContext(), TerminDetailsBearbeitenActivity.class);
+						startActivityForResult(intent, 0);
+					}
+				});
+			}
 			ITerminDetails details = ServerRequestUtil.getTerminDetails(
 					AndroidConstants.getUserId(this), termin.getTerminId());
-			TextView terminInfo = (TextView) findViewById(R.id.TerminInfo);
+			TextView terminInfo = (TextView) findViewById(R.id.TerminDetailsInfo);
 			terminInfo.setText(AndroidConstants.formatDate(details
 					.getTermineDatum())
 					+ " "
 					+ details.getTerminKurzbeschreibung());
-			ImageView spielTyp = (ImageView) findViewById(R.id.TerminSpielTyp);
+			ImageView spielTyp = (ImageView) findViewById(R.id.TerminDetailsSpielTyp);
 			spielTyp.setImageDrawable(details.isHeimspiel() ? heimspielBitmap
 					: auswaertsBitmap);
-			TextView beschreibung = (TextView) findViewById(R.id.TerminBeschreibung);
+			TextView beschreibung = (TextView) findViewById(R.id.TerminDetailsBeschreibung);
 			beschreibung.setText(details.getTerminBeschreibung());
 			{// Teilnehmer
-				TableLayout teilnehmerTabelle = (TableLayout) findViewById(R.id.TeilnehmerTabelle);
+				TableLayout teilnehmerTabelle = (TableLayout) findViewById(R.id.TerminDetailsTeilnehmerTabelle);
 				teilnehmerTabelle.removeAllViews();
 				List<ITerminTeilnehmer> teilnehmer = details.getTeilnehmer();
 				for (ITerminTeilnehmer t : teilnehmer) {
@@ -71,7 +90,7 @@ public class TerminDetailsActivity extends Activity {
 				}
 			}
 			{// Mitbringsel
-				TableLayout mitbringselTabelle = (TableLayout) findViewById(R.id.mitbringselTable);
+				TableLayout mitbringselTabelle = (TableLayout) findViewById(R.id.TerminDetailsMitbringselTable);
 				mitbringselTabelle.removeAllViews();
 				List<ITerminMitbringsel> mitbringsel = details.getMitbringsel();
 				for (ITerminMitbringsel m : mitbringsel) {

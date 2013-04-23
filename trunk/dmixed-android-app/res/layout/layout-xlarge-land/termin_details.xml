@@ -2,15 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:contentDescription="@string/SpielArt"
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="@string/TermindetailsIntro"
+        android:text="@string/TerminDetailsIntro"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <LinearLayout
@@ -18,28 +16,27 @@
         android:layout_height="wrap_content" >
 
         <ImageView
-            android:id="@+id/TerminSpielTyp"
+            android:id="@+id/TerminDetailsSpielTyp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/SpielArt"
             android:scaleType="fitXY"
+            android:contentDescription="@string/Heimspiel"
             android:src="@drawable/auswaerts" />
 
         <TextView
-            android:id="@+id/TerminInfo"
+            android:id="@+id/TerminDetailsInfo"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/TerminBeschreibung"
+        android:id="@+id/TerminDetailsBeschreibung"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/textView3"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -47,14 +44,13 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TableLayout
-        android:id="@+id/TeilnehmerTabelle"
+        android:id="@+id/TerminDetailsTeilnehmerTabelle"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
 
     </TableLayout>
 
     <TextView
-        android:id="@+id/textView2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -62,10 +58,19 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TableLayout
-        android:id="@+id/mitbringselTable"
+        android:id="@+id/TerminDetailsMitbringselTable"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
 
     </TableLayout>
+
+    <Button
+        android:id="@+id/TerminDetailsBearbeitenButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="@string/TerminDetailsBearbeitenButton"
+        android:visibility="invisible" />
     
 </LinearLayout>

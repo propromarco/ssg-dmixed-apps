@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup.MarginLayoutParams;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -17,7 +18,7 @@ import com.appspot.ssg.android.data.AndroidConstants;
 import com.appspot.ssg.android.server.ServerRequestUtil;
 import com.appspot.ssg.dmixed.shared.ITermin;
 
-public class TermineActrivity extends Activity {
+public class TerminUebersichtActrivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,16 +29,25 @@ public class TermineActrivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		Collection<ITermin> termine = ServerRequestUtil.getTermine(
-				AndroidConstants.getUserId(this));
-		TableLayout table = (TableLayout) findViewById(R.id.TermineTable);
+		Collection<ITermin> termine = ServerRequestUtil
+				.getTermine(AndroidConstants.getUserId(this));
+		TableLayout table = (TableLayout) findViewById(R.id.TerminUebersichtTabelle);
 		table.removeAllViews();
 		int width = 80;// findViewById(R.id.DatumHeader).getWidth();
-		if(AndroidConstants.isAdmin(this))
-		{
-			// TODO Termin Anlegen ermoeglichen
+		if (AndroidConstants.isAdmin(this)) {
+			final Button button = (Button) findViewById(R.id.TerminUebersichtTerminErstellenButton);
+			button.setVisibility(View.VISIBLE);
+			button.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					final Intent intent = new Intent(v.getContext(),
+							TerminErstellenActivity.class);
+					startActivityForResult(intent, 0);
+				}
+			});
 		}
-		
+
 		for (final ITermin iTermin : termine) {
 			TableRow row = new TableRow(this);
 			{

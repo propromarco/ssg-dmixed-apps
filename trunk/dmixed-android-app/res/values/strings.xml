@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Allgemein -->
     <string name="app_name">SSG - TerminApp</string>
-    <string name="login_button">Login</string>
-    <string name="IntroLogin">Login für die SSG TerminApp. Bitte geben Sie Ihre EMail Adresse und Ihr Passwort ein:</string>
-    <string name="Mail">EMail</string>
-    <string name="exampleMail">max.muster@gmail.com</string>
-    <string name="Termine">Termine</string>
     <string name="Datum">Datum</string>
     <string name="Kurzbeschreibung">Kurzbeschreibung</string>
-    <string name="TermindetailsIntro">Termindetails</string>
-    <string name="SpielArt">SpielArt</string>
     <string name="Teilnehmer">Teilnehmer</string>
     <string name="Mitbringsel">Mitbringsel</string>
-    <string name="Vorname">Vorname</string>
+    <string name="Heimspiel">Heimspiel</string>
+    <!-- Login-Seite -->
+    <string name="LoginIntro">Login für die SSG TerminApp. Bitte geben Sie Ihre EMail Adresse und Ihren Vornamen ein:</string>
+    <string name="LoginVorname">Vorname</string>
+    <string name="LoginMail">EMail</string>
+    <string name="LoginMailExample">max.muster@gmail.com</string>
+    <string name="LoginButton">Login</string>
+    <!-- Übersichtseite -->
+    <string name="TerminUebersichtTitel">Termine</string>
+    <string name="TerminUebersichtTerminErstellenButton">Neuen Termin erstellen</string>
+    <!-- Detailsseite -->
+    <string name="TerminDetailsIntro">Termindetails</string>
+    <string name="TerminDetailsBearbeitenButton">Bearbeiten</string>
+    <!-- Details-Bearbeitenseite -->
+    <string name="TerminDetailsBearbeitenBeschreibung">Bitte geben Sie eine detailliertere Beschreibung des Termins an</string>
+    <string name="terminDetailsBearbeitenAendern">Übernehmen</string>
+    <!-- Termin anlegen Seite -->
+    <string name="TerminErstellungIntro">Neuen Termin erstellen</string>
+    <string name="TerminErstellungErklaerung">Sie sind dabei einen neuen Termin zu erstellen. Wählen Sie dafür bitte den Zeitpunkt des Termins aus und geben eine kurze Beschreibung (ca. 20 Zeichen) ein</string>
+    <string name="TerminErstellungDatumAuswahl">Bitte wählen Sie ein Datum aus</string>
+    <string name="TerminErstellungKurzbeschreibung">Kurzbeschreibung für den Termin</string>
+    <string name="TerminErstellungErstellenButton">Erstellen</string>
+    <!-- NEU -->
 </resources>
