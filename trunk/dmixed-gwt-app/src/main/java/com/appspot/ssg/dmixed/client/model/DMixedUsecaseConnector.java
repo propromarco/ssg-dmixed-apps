@@ -1,5 +1,6 @@
 package com.appspot.ssg.dmixed.client.model;
 
+import com.appspot.ssg.dmixed.shared.DMixedUrlCreator;
 import com.appspot.ssg.dmixed.shared.IAsync;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
 import com.appspot.ssg.dmixed.shared.ILoginData;
@@ -22,15 +23,15 @@ import com.google.gwt.json.client.JSONValue;
 public class DMixedUsecaseConnector implements IDMixedUsecase {
 
     private final static String APPLICATION_JSON = "application/json";
-    private final String _baseUrl;
+    private final DMixedUrlCreator _urlCreator;
 
-    public DMixedUsecaseConnector(final String baseUrl) {
-	_baseUrl = baseUrl;
+    public DMixedUsecaseConnector(final DMixedUrlCreator urlCreator) {
+	_urlCreator = urlCreator;
     }
 
     @Override
     public void login(final ILoginData data, final IAsync<IUserData> answer) {
-	final String url = getServiceUrl();
+	final String url = _urlCreator.getLoginUrl();
 	final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.POST);
 	final String requestData = data.toString();
 	final IAsync<JSONObject> newAnswer = new IAsync<JSONObject>() {
@@ -50,7 +51,7 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
 
     @Override
     public void getTermine(final Long userId, final IAsync<ITermine> answer) {
-	final String url = getServiceUrl() + "/termine/" + userId;
+	final String url = _urlCreator.getTermineUrl(userId);
 	final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.GET);
 	final IAsync<JSONObject> newAnswer = new IAsync<JSONObject>() {
 	    @Override
@@ -69,7 +70,7 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
 
     @Override
     public void getTermin(final Long userId, final Long terminId, final IAsync<ITerminDetails> answer) {
-	final String url = getServiceUrl() + "/termin/" + userId + "/" + terminId;
+	final String url = _urlCreator.getTerminUrl(userId, terminId);
 	final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.GET);
 	final IAsync<JSONObject> newAnswer = new IAsync<JSONObject>() {
 	    @Override
@@ -88,7 +89,7 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
 
     @Override
     public void onTeilnahme(final ITeilnahmeData data, final IAsync<Void> answer) {
-	final String url = getServiceUrl() + "/teilnahme";
+	final String url = _urlCreator.getOnTeilnahmeUrl();
 	final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.PUT);
 	final String requestData = data.toString();
 	executePut(requestBuilder, requestData, answer);
@@ -96,7 +97,7 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
 
     @Override
     public void onMitringen(final IMitbringData data, final IAsync<Void> answer) {
-	final String url = getServiceUrl() + "/mitbringen";
+	final String url = _urlCreator.getOnMitringenUrl();
 	final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.PUT);
 	final String requestData = data.toString();
 	executePut(requestBuilder, requestData, answer);
@@ -104,7 +105,7 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
 
     @Override
     public void getUsers(final Long userId, final IAsync<IUsers> answer) {
-	final String url = getServiceUrl() + "/users/" + userId;
+	final String url = _urlCreator.getUsersUrl(userId);
 	final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.GET);
 	final IAsync<JSONObject> newAnswer = new IAsync<JSONObject>() {
 	    @Override
@@ -123,7 +124,7 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
 
     @Override
     public void newUser(final Long userId, final IUserData data, final IAsync<Void> answer) {
-	final String url = getServiceUrl() + "/user";
+	final String url = _urlCreator.getNewUserUrl();
 	final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.PUT);
 	final String requestData = data.toString();
 	executePut(requestBuilder, requestData, answer);
@@ -131,7 +132,7 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
 
     @Override
     public void deleteUser(final Long userId, final IUserData data, final IAsync<Void> answer) {
-	final String url = getServiceUrl() + "/user";
+	final String url = _urlCreator.getDeleteUserUrl();
 	final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.DELETE);
 	final String requestData = data.toString();
 	executePut(requestBuilder, requestData, answer);
@@ -147,11 +148,6 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
     public void saveTermin(final Long userId, final ITerminDetails terminDetails, final IAsync<Void> answer) {
 	// TODO Auto-generated method stub
 
-    }
-
-    protected String getServiceUrl() {
-	final String url = _baseUrl + "rest/dmixed";
-	return url;
     }
 
     protected RequestBuilder createRequestBuilder(final String url, final Method method) {
