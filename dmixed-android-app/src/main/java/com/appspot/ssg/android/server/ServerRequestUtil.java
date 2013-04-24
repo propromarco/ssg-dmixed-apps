@@ -66,35 +66,45 @@ public class ServerRequestUtil {
 	private static final String MITBRING_PATH = serverUrl
 			+ "/dmixed/mitbringen";
 
-	public static IUserData login(String username, String mail) {
+	public static IUserData login(String username, String mail)
+			throws ServerRequestException {
 		final LoginData loginData = new LoginData();
 		loginData.setEmail(mail);
 		loginData.setVorname(username);
-		final String result = call(loginData, LOGIN_PATH, HTTP_TYPE.POST);
-		final Gson gson = new Gson();
-		
-		final IUserData fromJson = gson.fromJson(result, UserData.class);
+		final String json = call(loginData, LOGIN_PATH, HTTP_TYPE.POST);
+		final IUserData fromJson = createObject(json, UserData.class);
 		return fromJson;
 	}
 
-	public static List<ITermin> getTermine(long userId) {
+	public static List<ITermin> getTermine(long userId)
+			throws ServerRequestException {
 		final String json = call(null, TERMINE_PATH + "/" + userId,
 				HTTP_TYPE.GET);
-		final ITermine fromJson = new Gson().fromJson(json,
-				Termine.class);
+		final ITermine fromJson = createObject(json, Termine.class);
 		return fromJson.getAll();
 	}
 
-	public static ITerminDetails getTerminDetails(long userId, long terminId) {
+	public static ITerminDetails getTerminDetails(long userId, long terminId)
+			throws ServerRequestException {
 		final String json = call(null, TERMIN_PATH + "/" + userId + "/"
 				+ terminId, HTTP_TYPE.GET);
-		final ITerminDetails fromJson = new Gson().fromJson(json,
-				TerminDetails.class);
+		final ITerminDetails fromJson = createObject(json, TerminDetails.class);
 		return fromJson;
 	}
 
+	private static <T> T createObject(final String json, final Class<T> clazz) throws ServerRequestException{
+		try {
+			final T fromJson = new Gson().fromJson(json, clazz);
+			return fromJson;
+		} catch (Throwable e) {
+			throw new ServerRequestException(
+					"Fehler beim Konvertieren der Daten vom Server\n" + json
+							+ "\n" + e.getMessage());
+		}
+	}
+
 	public static void setTeilnahme(boolean teilnahme, long terminId,
-			long userId) {
+			long userId) throws ServerRequestException {
 		final TeilnahmeData teilnahmeData = new TeilnahmeData();
 		teilnahmeData.setTeilnahme(teilnahme);
 		teilnahmeData.setTerminId(terminId);
@@ -103,7 +113,8 @@ public class ServerRequestUtil {
 	}
 
 	public static void addMitbringsel(long userId, long terminId,
-			boolean teilnahme, long mitbringselId, boolean mitbringen) {
+			boolean teilnahme, long mitbringselId, boolean mitbringen)
+			throws ServerRequestException {
 		final MitbringData mitbringData = new MitbringData();
 		mitbringData.setMitbringen(mitbringen);
 		mitbringData.setMitbringselId(mitbringselId);
@@ -112,7 +123,8 @@ public class ServerRequestUtil {
 		call(mitbringData, MITBRING_PATH, HTTP_TYPE.PUT);
 	}
 
-	private static String call(Object postObject, String url, HTTP_TYPE type) {
+	private static String call(Object postObject, String url, HTTP_TYPE type)
+			throws ServerRequestException {
 		HttpParams p = new BasicHttpParams();
 		// p.setParameter("name", pvo.getName());
 
@@ -144,7 +156,7 @@ public class ServerRequestUtil {
 				final StringEntity stringEntity = new StringEntity(json);
 				put.setEntity(stringEntity);
 				response = client.execute(put);
-				break;
+				return "OK";
 			}
 			default:
 				return null;
@@ -162,7 +174,7 @@ public class ServerRequestUtil {
 			// You can convert inputstream to a string with:
 			// http://senior.ceng.metu.edu.tr/2009/praeda/2009/01/11/a-simple-restful-client-at-android/
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new ServerRequestException(e.getMessage());
 		} finally {
 			if (ois != null)
 				try {
@@ -171,6 +183,5 @@ public class ServerRequestUtil {
 					e.printStackTrace();
 				}
 		}
-		return null;
 	}
 }

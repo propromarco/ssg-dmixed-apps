@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.appspot.ssg.android.data.AndroidConstants;
+import com.appspot.ssg.android.server.ServerRequestException;
 import com.appspot.ssg.android.server.ServerRequestUtil;
 import com.appspot.ssg.dmixed.shared.IUserData;
 
@@ -34,9 +35,9 @@ public class LoginActivity extends Activity {
 				public void onClick(View view) {
 					final String mailString = getString(R.id.LoginMail);
 					final String vornameString = getString(R.id.LoginVorname);
-					final IUserData result = ServerRequestUtil.login(
-							vornameString, mailString);
-					if (result != null) {
+					try {
+						IUserData result = ServerRequestUtil.login(
+								vornameString, mailString);
 						Intent myIntent = new Intent(view.getContext(),
 								TerminUebersichtActrivity.class);
 						final Long usrId = result.getId();
@@ -44,10 +45,15 @@ public class LoginActivity extends Activity {
 						AndroidConstants.setAdmin(LoginActivity.this,
 								result.isAdmin());
 						startActivityForResult(myIntent, 0);
-					} else {
+						finish();
+					} catch (ServerRequestException e) {
 						reset(R.id.LoginMail);
 						reset(R.id.LoginVorname);
-						// TODO Fehlermeldung?!?
+						Intent intent = new Intent(view.getContext(),
+								ExceptionOccuredActivity.class);
+						intent.putExtra(AndroidConstants.ERROR_KEY,
+								e.getMessage());
+						startActivity(intent);
 					}
 				}
 

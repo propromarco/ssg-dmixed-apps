@@ -1,7 +1,6 @@
 package com.appspot.ssg.android.activities;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,7 +17,7 @@ public class TerminDetailsBearbeitenActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.edit_termin);
-		ITerminDetails terminDetails = (ITerminDetails) getIntent().getExtras()
+		ITerminDetails terminDetails = (ITerminDetails) savedInstanceState
 				.get(AndroidConstants.TERMIN_DETAILS_KEY);
 		if (terminDetails != null) {
 			final EditText beschreibungText = (EditText) findViewById(R.id.TerminDetailsBearbeitenBeschreibungEingabe);
@@ -31,9 +30,7 @@ public class TerminDetailsBearbeitenActivity extends Activity {
 
 				@Override
 				public void onClick(View v) {
-					final Intent intent = new Intent(v.getContext(),
-							TerminUebersichtActrivity.class);
-					startActivityForResult(intent, 0);
+					finish();
 				}
 			});
 		}

@@ -14,6 +14,7 @@ public class AndroidConstants {
 	public static final String TERMIN_KEY = "terminData";
 	private static final String USER_ID = "userId";
 	private static final String ADMIN_ID = "adminId";
+	public static final String ERROR_KEY = "ErrorMessage";
 
 	@SuppressLint("SimpleDateFormat")
 	private static final SimpleDateFormat format = new SimpleDateFormat(

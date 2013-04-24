@@ -1,5 +1,6 @@
 package com.appspot.ssg.android.data;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -11,12 +12,12 @@ public class TerminDetails implements ITerminDetails {
 
 	private static final long serialVersionUID = 8925126053355907173L;
 	private Long terminId;
-	private Date termineDatum;
+	private Long termineDatum;
 	private String terminKurzbeschreibung;
 	private boolean heimspiel;
 	private String terminBeschreibung;
-	private List<ITerminTeilnehmer> teilnehmer;
-	private List<ITerminMitbringsel> mitbringsel;
+	private List<TerminTeilnehmer> teilnehmer;
+	private List<TerminMitbringsel> mitbringsel;
 
 	@Override
 	public Long getTerminId() {
@@ -25,7 +26,7 @@ public class TerminDetails implements ITerminDetails {
 
 	@Override
 	public Date getTermineDatum() {
-		return termineDatum;
+		return new Date(termineDatum);
 	}
 
 	@Override
@@ -45,19 +46,19 @@ public class TerminDetails implements ITerminDetails {
 
 	@Override
 	public List<ITerminTeilnehmer> getTeilnehmer() {
-		return teilnehmer;
+		return teilnehmer != null ? new ArrayList<ITerminTeilnehmer>(teilnehmer) : new ArrayList<ITerminTeilnehmer>();
 	}
 
 	@Override
 	public List<ITerminMitbringsel> getMitbringsel() {
-		return mitbringsel;
+		return mitbringsel != null ? new ArrayList<ITerminMitbringsel>(mitbringsel) : new ArrayList<ITerminMitbringsel>();
 	}
 
 	public void setTerminId(Long terminId) {
 		this.terminId = terminId;
 	}
 
-	public void setTermineDatum(Date termineDatum) {
+	public void setTermineDatum(Long termineDatum) {
 		this.termineDatum = termineDatum;
 	}
 
@@ -73,11 +74,11 @@ public class TerminDetails implements ITerminDetails {
 		this.terminBeschreibung = terminBeschreibung;
 	}
 
-	public void setTeilnehmer(List<ITerminTeilnehmer> teilnehmer) {
+	public void setTeilnehmer(List<TerminTeilnehmer> teilnehmer) {
 		this.teilnehmer = teilnehmer;
 	}
 
-	public void setMitbringsel(List<ITerminMitbringsel> mitbringsel) {
+	public void setMitbringsel(List<TerminMitbringsel> mitbringsel) {
 		this.mitbringsel = mitbringsel;
 	}
 
