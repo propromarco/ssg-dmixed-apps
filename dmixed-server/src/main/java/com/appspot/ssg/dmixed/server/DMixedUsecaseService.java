@@ -137,6 +137,7 @@ public class DMixedUsecaseService {
 	if (user == null || !user.isAdmin())
 	    return;
 	final JPAUser jpaUser = createFrom(userData);
+	this.adapter.newUser(jpaUser);
     }
 
     @DELETE
@@ -145,6 +146,39 @@ public class DMixedUsecaseService {
 	final JPAUser user = adapter.findUser(userId);
 	if (user == null || !user.isAdmin())
 	    return;
+	final JPAUser jpaUser = createFrom(userData);
+	this.adapter.delUser(jpaUser);
+    }
+
+    @GET
+    @Path("terminadmin/{userid}/{heimspiel}")
+    public TerminDetails createTermin(@PathParam("userId") final Long userId, @PathParam("heimspiel") final Boolean heimspiel) {
+	final JPAUser user = adapter.findUser(userId);
+	if (user == null || !user.isAdmin())
+	    return null;
+	final JPATermin jpaTermin = adapter.createTermin(heimspiel);
+	final TerminDetails terminDetails = copyFrom(jpaTermin);
+	return terminDetails;
+    }
+
+    @PUT
+    @Path("terminadmin/{userid}")
+    public void saveTermin(@PathParam("userId") final Long userId, final TerminDetails terminDetails) {
+	final JPAUser user = adapter.findUser(userId);
+	if (user == null || !user.isAdmin())
+	    return;
+	final JPATermin jpaTermin = copyFrom(terminDetails);
+	adapter.saveTermin(jpaTermin);
+    }
+
+    private JPATermin copyFrom(final TerminDetails terminDetails) {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+    private TerminDetails copyFrom(final JPATermin jpaTermin) {
+	// TODO Auto-generated method stub
+	return null;
     }
 
     private JPAUser createFrom(final UserData userData) {

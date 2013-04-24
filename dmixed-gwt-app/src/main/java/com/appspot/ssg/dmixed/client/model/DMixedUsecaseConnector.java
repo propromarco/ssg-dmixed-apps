@@ -137,6 +137,18 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
 	executePut(requestBuilder, requestData, answer);
     }
 
+    @Override
+    public void createTermin(final Long userId, final IAsync<ITerminDetails> answer) {
+	// TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void saveTermin(final Long userId, final ITerminDetails terminDetails, final IAsync<Void> answer) {
+	// TODO Auto-generated method stub
+
+    }
+
     protected String getServiceUrl() {
 	final String url = _baseUrl + "rest/dmixed";
 	return url;

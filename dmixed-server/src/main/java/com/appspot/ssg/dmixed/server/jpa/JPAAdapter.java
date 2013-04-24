@@ -90,4 +90,28 @@ public class JPAAdapter implements IJPAAdapter {
 	return null;
     }
 
+    @Override
+    public void newUser(final JPAUser jpaUser) {
+	// TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void delUser(final JPAUser jpaUser) {
+	// TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public JPATermin createTermin(final Boolean heimspiel) {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+    @Override
+    public void saveTermin(final JPATermin jpaTermin) {
+	// TODO Auto-generated method stub
+
+    }
+
 }
