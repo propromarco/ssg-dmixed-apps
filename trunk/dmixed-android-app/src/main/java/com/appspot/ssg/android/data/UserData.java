@@ -11,7 +11,7 @@ public class UserData implements IUserData {
 	private String vorname;
 	private String name;
 	private String email;
-	private Date birthday;
+	private Long birthday;
 	private boolean admin;
 
 	@Override
@@ -36,7 +36,7 @@ public class UserData implements IUserData {
 
 	@Override
 	public Date getBirthday() {
-		return birthday;
+		return new Date(birthday);
 	}
 
 	@Override
@@ -60,7 +60,7 @@ public class UserData implements IUserData {
 		this.email = email;
 	}
 
-	public void setBirthday(Date birthday) {
+	public void setBirthday(Long birthday) {
 		this.birthday = birthday;
 	}
 

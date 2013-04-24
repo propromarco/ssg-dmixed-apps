@@ -8,7 +8,7 @@ public class TerminMitbringsel implements ITerminMitbringsel {
 	private static final long serialVersionUID = -3024279990023869953L;
 	private Long id;
 	private String beschreibung;
-	private ITerminTeilnehmer mitbringer;
+	private TerminTeilnehmer mitbringer;
 
 	@Override
 	public Long getId() {
@@ -33,9 +33,17 @@ public class TerminMitbringsel implements ITerminMitbringsel {
 		this.beschreibung = beschreibung;
 	}
 
-	public void setMitbringer(ITerminTeilnehmer mitbringer) {
+	public void setMitbringer(TerminTeilnehmer mitbringer) {
 		this.mitbringer = mitbringer;
 	}
 
+	@Override
+	public void setMitbringer(ITerminTeilnehmer mitbringer) {
+		this.mitbringer = new TerminTeilnehmer();
+		this.mitbringer.setTeilnahme(mitbringer.isTeilnahme());
+		this.mitbringer.setName(mitbringer.getName());
+		this.mitbringer.setId(mitbringer.getId());
+		this.mitbringer.setVorname(mitbringer.getVorname());
+	}
 
 }

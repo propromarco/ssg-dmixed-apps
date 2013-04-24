@@ -10,9 +10,11 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity android:name="TermineActrivity">
-    </activity>
+    <activity android:name="ExceptionOccuredActivity"></activity>
     <activity android:name="TerminDetailsActivity"></activity>
+    <activity android:name="TerminDetailsBearbeitenActivity"></activity>
+    <activity android:name="TerminErstellenActivity"></activity>
+    <activity android:name="TerminUebersichtActrivity"></activity>
   </application>
 </manifest>
 

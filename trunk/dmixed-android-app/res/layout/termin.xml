@@ -20,7 +20,7 @@
             android:layout_height="wrap_content" >
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="@string/Datum"
                 android:textAppearance="?android:attr/textAppearanceMedium"
@@ -49,7 +49,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
         android:text="@string/TerminUebersichtTerminErstellenButton"
-        android:visibility="invisible" />
+        android:visibility="visible" />
 
 </LinearLayout>

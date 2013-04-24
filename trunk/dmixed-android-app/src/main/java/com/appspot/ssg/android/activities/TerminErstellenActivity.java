@@ -39,7 +39,7 @@ public class TerminErstellenActivity extends Activity {
 					// termindetails setzen
 					//ITerminDetails terminDetails = ServerRequestUtil.getTerminDetails(AndroidConstants.getUserId(TerminCreationActivity.this), terminId);
 					//intent.putExtra(AndroidConstants.TERMIN_DETAILS_KEY, terminDetails);
-					startActivityForResult(intent, 0);
+					startActivityForResult(intent, 10);
 				} else {
 					StringBuilder sb = new StringBuilder();
 					if (kurzbeschreibungString.length() == 0) {

@@ -28,5 +28,8 @@
     <string name="TerminErstellungDatumAuswahl">Bitte wählen Sie ein Datum aus</string>
     <string name="TerminErstellungKurzbeschreibung">Kurzbeschreibung für den Termin</string>
     <string name="TerminErstellungErstellenButton">Erstellen</string>
+    <!-- Error Activity -->
+    <string name="ErrorSchliessenButton">OK</string>
     <!-- NEU -->
+    <string name="TerminUebersichtDabei">Teilnahme</string>
 </resources>

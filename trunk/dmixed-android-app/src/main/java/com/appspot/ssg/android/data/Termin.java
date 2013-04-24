@@ -8,7 +8,7 @@ public class Termin implements ITermin {
 
 	private static final long serialVersionUID = 1931249628580345231L;
 	private Long terminId;
-	private Date termineDatum;
+	private Long termineDatum;
 	private String terminKurzbeschreibung;
 
 	@Override
@@ -18,7 +18,7 @@ public class Termin implements ITermin {
 
 	@Override
 	public Date getTermineDatum() {
-		return termineDatum;
+		return new Date(termineDatum);
 	}
 
 	@Override
@@ -30,7 +30,7 @@ public class Termin implements ITermin {
 		this.terminId = terminId;
 	}
 
-	public void setTermineDatum(Date termineDatum) {
+	public void setTermineDatum(Long termineDatum) {
 		this.termineDatum = termineDatum;
 	}
 
