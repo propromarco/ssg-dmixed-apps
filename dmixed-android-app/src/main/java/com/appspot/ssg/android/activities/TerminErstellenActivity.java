@@ -49,7 +49,9 @@ public class TerminErstellenActivity extends Activity {
 							.getYear() > 0)) {
 						sb.append("Bitte noch ein Datum auswählen");
 					}
-					// TODO fehlermeldung ausgeben...
+					final Intent intent = new Intent(view.getContext(), ExceptionOccuredActivity.class);
+					intent.putExtra(AndroidConstants.ERROR_KEY, sb.toString());
+					startActivity(intent);
 				}
 			}
 		});

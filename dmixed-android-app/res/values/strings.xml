@@ -16,6 +16,7 @@
     <!-- Übersichtseite -->
     <string name="TerminUebersichtTitel">Termine</string>
     <string name="TerminUebersichtTerminErstellenButton">Neuen Termin erstellen</string>
+    <string name="TerminUebersichtLogoutButton">Logout</string>
     <!-- Detailsseite -->
     <string name="TerminDetailsIntro">Termindetails</string>
     <string name="TerminDetailsBearbeitenButton">Bearbeiten</string>
@@ -31,5 +32,4 @@
     <!-- Error Activity -->
     <string name="ErrorSchliessenButton">OK</string>
     <!-- NEU -->
-    <string name="TerminUebersichtDabei">Teilnahme</string>
 </resources>
