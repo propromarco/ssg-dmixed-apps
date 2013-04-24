@@ -13,8 +13,20 @@ public class TerminViewImpl extends AbstractDmixedView implements TerminView {
 
     public class InternalRadioButton extends MRadioButton implements IListItem {
 
+	private final String _text;
+
 	public InternalRadioButton(final String name) {
 	    super(name);
+	    _text = name;
+	}
+
+	@Override
+	public void setMitbringer(final String user) {
+	    if (user != null) {
+		setText(_text + "(" + user + ")");
+	    } else {
+		setText(_text);
+	    }
 	}
 
     }
@@ -79,11 +91,12 @@ public class TerminViewImpl extends AbstractDmixedView implements TerminView {
 		final Long id = terminMitbringsel.getId();
 		final String beschreibung = terminMitbringsel.getBeschreibung();
 		final ITerminTeilnehmer mitbringer = terminMitbringsel.getMitbringer();
-		final InternalRadioButton androidRadioButton = new InternalRadioButton(id.toString());
+		final InternalRadioButton androidRadioButton = new InternalRadioButton(beschreibung);
 		androidRadioButton.setText(beschreibung);
 		final boolean hatMitbringer = mitbringer != null;
 		androidRadioButton.setValue(hatMitbringer);
 		androidRadioButton.setEnabled(hatMitbringer);
+		androidRadioButton.setMitbringer(hatMitbringer ? mitbringer.getName() : null);
 		_mitbrinselList.add(androidRadioButton);
 		return androidRadioButton;
 	    }

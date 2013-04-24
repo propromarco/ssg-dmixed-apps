@@ -27,4 +27,12 @@ public interface IJPAAdapter {
 
     List<JPAMitbringsel> getMitbringsel();
 
+    void newUser(JPAUser jpaUser);
+
+    void delUser(JPAUser jpaUser);
+
+    JPATermin createTermin(Boolean heimspiel);
+
+    void saveTermin(JPATermin jpaTermin);
+
 }

@@ -18,8 +18,8 @@ public class FakeAdapter implements IJPAAdapter {
 	users.add(createUser(2l, "Kiara", "Schwarz", Date.valueOf("2003-02-04"), true, "123@456.com"));
 	mitbringsel.add(createMitbringsel(1l, "Kaffee"));
 	mitbringsel.add(createMitbringsel(2l, "Kuchen"));
-	termine.add(createTermin(1l, Date.valueOf("2013-04-25"), "neuer Termin 1", "Das ist die Beschreibung von Termin 1", false));
-	termine.add(createTermin(2l, Date.valueOf("2013-04-30"), "neuer Termin 2", "Das ist die Beschreibung von Termin 2", true));
+	termine.add(createTermin((long) termine.size(), Date.valueOf("2013-04-25"), "neuer Termin 1", "Das ist die Beschreibung von Termin 1", false));
+	termine.add(createTermin((long) termine.size(), Date.valueOf("2013-04-30"), "neuer Termin 2", "Das ist die Beschreibung von Termin 2", true));
     }
 
     public static FakeAdapter getInstance() {
@@ -156,6 +156,26 @@ public class FakeAdapter implements IJPAAdapter {
 	m.setMitbringselId(mitbringselId);
 	m.setBezeichnung(bezeichnung);
 	return m;
+    }
+
+    @Override
+    public void newUser(final JPAUser jpaUser) {
+	this.users.add(jpaUser);
+    }
+
+    @Override
+    public void delUser(final JPAUser jpaUser) {
+	this.users.remove(jpaUser);
+    }
+
+    @Override
+    public JPATermin createTermin(final Boolean heimspiel) {
+	return createTermin((long) termine.size(), new Date(System.currentTimeMillis()), "", "", heimspiel);
+    }
+
+    @Override
+    public void saveTermin(final JPATermin jpaTermin) {
+	this.termine.add(jpaTermin);
     }
 
 }

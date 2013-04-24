@@ -30,6 +30,7 @@ public class TerminActivity extends MGWTAbstractActivity {
     public interface TerminView extends IDMixedView {
 
 	public interface IListItem extends HasValue<Boolean>, HasTapHandlers {
+	    void setMitbringer(String string);
 	}
 
 	public interface IListCreator<T> {
@@ -94,7 +95,7 @@ public class TerminActivity extends MGWTAbstractActivity {
 			    addHandlerRegistration(item.addTapHandler(new TapHandler() {
 				@Override
 				public void onTap(final TapEvent event) {
-				    final boolean checked = checkMitbringsel(terminMitbringsel);
+				    final boolean checked = checkMitbringsel(item, terminMitbringsel);
 				    item.setValue(checked);
 				}
 
@@ -108,14 +109,14 @@ public class TerminActivity extends MGWTAbstractActivity {
 	    }
 
 	    @Override
-	    public void onError(Throwable exception) {
+	    public void onError(final Throwable exception) {
 		terminView.showError(exception);
 	    }
 	};
 	service.getTermin(userId, _terminId, answer);
     }
 
-    private boolean checkMitbringsel(final ITerminMitbringsel terminMitbringsel) {
+    private boolean checkMitbringsel(final IListItem item, final ITerminMitbringsel terminMitbringsel) {
 	final ITerminTeilnehmer mitbringer = terminMitbringsel.getMitbringer();
 	final DMixedModel model = _clientFactory.getModel();
 	final IDMixedUsecase service = _clientFactory.getService();
@@ -135,10 +136,11 @@ public class TerminActivity extends MGWTAbstractActivity {
 	    final IAsync<Void> answer = new IAsync<Void>() {
 		@Override
 		public void onSuccess(final Void t) {
+		    item.setMitbringer(user.getName());
 		}
 
 		@Override
-		public void onError(Throwable exception) {
+		public void onError(final Throwable exception) {
 		    exception.printStackTrace();
 		}
 	    };
@@ -160,10 +162,11 @@ public class TerminActivity extends MGWTAbstractActivity {
 		final IAsync<Void> answer = new IAsync<Void>() {
 		    @Override
 		    public void onSuccess(final Void t) {
+			item.setMitbringer(null);
 		    }
 
 		    @Override
-		    public void onError(Throwable exception) {
+		    public void onError(final Throwable exception) {
 			exception.printStackTrace();
 		    }
 		};
@@ -196,7 +199,7 @@ public class TerminActivity extends MGWTAbstractActivity {
 	    }
 
 	    @Override
-	    public void onError(Throwable exception) {
+	    public void onError(final Throwable exception) {
 		exception.printStackTrace();
 	    }
 	};
