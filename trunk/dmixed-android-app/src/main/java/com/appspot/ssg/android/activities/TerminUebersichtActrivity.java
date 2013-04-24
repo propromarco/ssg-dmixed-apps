@@ -35,6 +35,17 @@ public class TerminUebersichtActrivity extends Activity {
 					.getTermine(AndroidConstants.getUserId(this));
 			TableLayout table = (TableLayout) findViewById(R.id.TerminUebersichtTabelle);
 			table.removeAllViews();
+			final Button logoutButton = (Button) findViewById(R.id.TerminUebersichtLogoutButton);
+			logoutButton.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					AndroidConstants.setUserId(TerminUebersichtActrivity.this, -1l);
+					final Intent intent = new Intent(v.getContext(), LoginActivity.class);
+					startActivity(intent);
+					finish();
+				}
+			});
 			int width = 80;// findViewById(R.id.DatumHeader).getWidth();
 			final boolean admin = AndroidConstants.isAdmin(this);
 			final Button button = (Button) findViewById(R.id.TerminUebersichtTerminErstellenButton);

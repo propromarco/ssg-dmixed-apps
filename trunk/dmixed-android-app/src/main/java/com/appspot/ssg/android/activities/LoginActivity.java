@@ -19,15 +19,16 @@ public class LoginActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.login);
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
 		final long userId = AndroidConstants.getUserId(this);
 		if (userId >= 0) {
-			final Context applicationContext = getApplicationContext();
-			Intent myIntent = new Intent(applicationContext,
-					TerminUebersichtActrivity.class);
-			startActivityForResult(myIntent, 0);
-
+			swichToUebersicht();
 		} else {
-			setContentView(R.layout.login);
 			Button button = (Button) findViewById(R.id.LoginButton);
 			button.setOnClickListener(new OnClickListener() {
 
@@ -38,14 +39,11 @@ public class LoginActivity extends Activity {
 					try {
 						IUserData result = ServerRequestUtil.login(
 								vornameString, mailString);
-						Intent myIntent = new Intent(view.getContext(),
-								TerminUebersichtActrivity.class);
 						final Long usrId = result.getId();
 						AndroidConstants.setUserId(LoginActivity.this, usrId);
 						AndroidConstants.setAdmin(LoginActivity.this,
 								result.isAdmin());
-						startActivityForResult(myIntent, 0);
-						finish();
+						swichToUebersicht();
 					} catch (ServerRequestException e) {
 						reset(R.id.LoginMail);
 						reset(R.id.LoginVorname);
@@ -70,6 +68,14 @@ public class LoginActivity extends Activity {
 				}
 			});
 		}
+	}
+
+	private void swichToUebersicht() {
+		final Context applicationContext = getApplicationContext();
+		Intent myIntent = new Intent(applicationContext,
+				TerminUebersichtActrivity.class);
+		startActivityForResult(myIntent, 0);
+		finish();
 	}
 
 }
