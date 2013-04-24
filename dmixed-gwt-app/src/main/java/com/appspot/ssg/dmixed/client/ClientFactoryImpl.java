@@ -7,6 +7,7 @@ import com.appspot.ssg.dmixed.client.model.DMixedUsecaseConnector;
 import com.appspot.ssg.dmixed.client.views.LoginViewImpl;
 import com.appspot.ssg.dmixed.client.views.TerminViewImpl;
 import com.appspot.ssg.dmixed.client.views.TermineViewImpl;
+import com.appspot.ssg.dmixed.shared.DMixedUrlCreator;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.place.shared.PlaceController;
@@ -19,7 +20,8 @@ public class ClientFactoryImpl implements ClientFactory {
     private final PlaceController placeController;
     private final IDMixedMessages messages = GWT.create(IDMixedMessages.class);
     private final String baseUrl = GWT.getHostPageBaseURL();
-    private final IDMixedUsecase service = new DMixedUsecaseConnector(baseUrl);
+    private final DMixedUrlCreator urlCreator = new DMixedUrlCreator(baseUrl);
+    private final IDMixedUsecase service = new DMixedUsecaseConnector(urlCreator);
     private final DMixedModel model = new DMixedModel(messages);
     private final LoginViewImpl _loginViewImpl;
     private final TermineViewImpl _termineViewImpl;
