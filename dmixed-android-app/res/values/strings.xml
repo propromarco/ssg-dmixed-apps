@@ -10,7 +10,6 @@
     <!-- Login-Seite -->
     <string name="LoginIntro">Login für die SSG TerminApp. Bitte geben Sie Ihre EMail Adresse und Ihren Vornamen ein:</string>
     <string name="LoginVorname">Vorname</string>
-    <string name="LoginMail">EMail</string>
     <string name="LoginMailExample">max.muster@gmail.com</string>
     <string name="LoginButton">Login</string>
     <!-- Übersichtseite -->

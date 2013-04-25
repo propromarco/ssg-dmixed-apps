@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <style name="dmixed" parent="android:Theme.Light">
+        <item name="android:background">#C0C0C0</item>
+        <item name="android:animateOnClick" tools:targetApi="3">true</item>
+        <item name="android:animationDuration">100</item>
+    </style>
+    
+    <style name="table">
+		<item name="android:background">#33B5E5</item>        
+    </style>
+
+</resources>
