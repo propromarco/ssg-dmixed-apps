@@ -1,6 +1,7 @@
 package com.appspot.ssg.dmixed.server;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -23,7 +24,8 @@ import com.appspot.ssg.dmixed.server.beans.TerminTeilnehmer;
 import com.appspot.ssg.dmixed.server.beans.Termine;
 import com.appspot.ssg.dmixed.server.beans.UserData;
 import com.appspot.ssg.dmixed.server.beans.Users;
-import com.appspot.ssg.dmixed.server.jpa.FakeAdapter;
+import com.appspot.ssg.dmixed.server.jpa.JPAAdapter;
+import com.appspot.ssg.dmixed.server.jpa.JPAMitbringsel;
 import com.appspot.ssg.dmixed.server.jpa.JPATermin;
 import com.appspot.ssg.dmixed.server.jpa.JPATerminMitbringsel;
 import com.appspot.ssg.dmixed.server.jpa.JPATerminTeilnehmer;
@@ -39,7 +41,7 @@ public class DMixedUsecaseService {
     private final IJPAAdapter adapter;
 
     public DMixedUsecaseService() {
-	adapter = FakeAdapter.getInstance();
+	adapter = JPAAdapter.getInstance();
     }
 
     @POST
@@ -52,7 +54,7 @@ public class DMixedUsecaseService {
 	} else {
 	    final UserData userData = new UserData();
 	    userData.setAdmin(user.isAdmin());
-	    userData.setBirthday(user.getBirthday());
+	    userData.setBirthday(new Date(user.getBirthday()));
 	    userData.setId(user.getId());
 	    userData.setName(user.getName());
 	    userData.setVorname(user.getVorname());
@@ -71,7 +73,7 @@ public class DMixedUsecaseService {
 	for (final JPATermin jpaTermin : jpaTermine) {
 	    final Termin termin = new Termin();
 	    termin.setTerminId(jpaTermin.getTerminId());
-	    termin.setTermineDatum(jpaTermin.getTermineDatum());
+	    termin.setTermineDatum(new Date(jpaTermin.getTermineDatum()));
 	    termin.setTerminKurzbeschreibung(jpaTermin.getTerminKurzbeschreibung());
 	    termine.getAll().add(termin);
 	}
@@ -122,7 +124,7 @@ public class DMixedUsecaseService {
 	    final UserData userData = new UserData();
 	    userData.setId(jpaUser.getId());
 	    userData.setAdmin(jpaUser.isAdmin());
-	    userData.setBirthday(jpaUser.getBirthday());
+	    userData.setBirthday(new Date(jpaUser.getBirthday()));
 	    userData.setVorname(jpaUser.getVorname());
 	    userData.setName(jpaUser.getName());
 	    newUsers.getAll().add(userData);
@@ -185,7 +187,7 @@ public class DMixedUsecaseService {
 	final JPAUser jpaUser = new JPAUser();
 	jpaUser.setId(userData.getId());
 	jpaUser.setAdmin(userData.isAdmin());
-	jpaUser.setBirthday(userData.getBirthday());
+	jpaUser.setBirthday(userData.getBirthday().getTime());
 	jpaUser.setVorname(userData.getVorname());
 	jpaUser.setName(userData.getName());
 	jpaUser.setEmail(userData.getEmail());
@@ -198,7 +200,7 @@ public class DMixedUsecaseService {
 	terminDetails.setMitbringsel(createMitbringsel(termin));
 	terminDetails.setTeilnehmer(createTeilnehmer(termin));
 	terminDetails.setTerminBeschreibung(termin.getTerminBeschreibung());
-	terminDetails.setTermineDatum(termin.getTermineDatum());
+	terminDetails.setTermineDatum(new Date(termin.getTermineDatum()));
 	terminDetails.setTerminId(termin.getTerminId());
 	terminDetails.setTerminKurzbeschreibung(termin.getTerminKurzbeschreibung());
 	return terminDetails;
@@ -213,9 +215,9 @@ public class DMixedUsecaseService {
 	    terminTeilnehmer.setVorname(jpaUser.getVorname());
 	    terminTeilnehmer.setName(jpaUser.getName());
 	    terminTeilnehmer.setTeilnahme(false);
-	    final List<JPATerminTeilnehmer> teilnehmer = termin.getTeilnehmer();
+	    final List<JPATerminTeilnehmer> teilnehmer = adapter.getTeilnehmer(termin);
 	    for (final JPATerminTeilnehmer jpaTerminTeilnehmer : teilnehmer) {
-		if (jpaTerminTeilnehmer.getId() == jpaUser.getId())
+		if (jpaTerminTeilnehmer.getUser() == jpaUser.getId())
 		    terminTeilnehmer.setTeilnahme(true);
 	    }
 	    list.add(terminTeilnehmer);
@@ -225,12 +227,13 @@ public class DMixedUsecaseService {
 
     private List<ITerminMitbringsel> createMitbringsel(final JPATermin termin) {
 	final List<ITerminMitbringsel> list = new ArrayList<ITerminMitbringsel>();
-	final List<JPATerminMitbringsel> mitbringsel = termin.getMitbringsel();
+	final List<JPATerminMitbringsel> mitbringsel = adapter.getMitbringsel(termin);
 	for (final JPATerminMitbringsel jpaTerminMitbringsel : mitbringsel) {
 	    final TerminMitbringsel m = new TerminMitbringsel();
 	    m.setId(jpaTerminMitbringsel.getMitbringselId());
-	    m.setBeschreibung(jpaTerminMitbringsel.getMitbringsel().getBezeichnung());
-	    m.setMitbringer(createMitbringer(jpaTerminMitbringsel.getUser()));
+	    final JPAMitbringsel jpaMitbringsel = adapter.getMitbringsel(jpaTerminMitbringsel);
+	    m.setBeschreibung(jpaMitbringsel.getBezeichnung());
+	    m.setMitbringer(createMitbringer(adapter.getUser(jpaTerminMitbringsel)));
 	    list.add(m);
 	}
 	return list;

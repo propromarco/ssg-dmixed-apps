@@ -7,28 +7,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "terminmitbringsel")
+@Table(name = "mitbringsel")
 public class JPAMitbringsel {
 
     @Id
     @GeneratedValue
-    private long mitbringselId;
+    private Long mitbringselId;
     @Column
     private String bezeichnung;
 
     public JPAMitbringsel() {
     }
 
-    public JPAMitbringsel(final long mitbringselId, final String bezeichnung) {
-	this.mitbringselId = mitbringselId;
-	this.bezeichnung = bezeichnung;
-    }
-
-    public final long getMitbringselId() {
+    public final Long getMitbringselId() {
 	return mitbringselId;
     }
 
-    public final void setMitbringselId(final long mitbringselId) {
+    public final void setMitbringselId(final Long mitbringselId) {
 	this.mitbringselId = mitbringselId;
     }
 

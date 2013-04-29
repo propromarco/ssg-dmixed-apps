@@ -1,49 +1,62 @@
 package com.appspot.ssg.dmixed.server.jpa;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "terminteilnehmer")
+@NamedQueries({
+	@NamedQuery(name = JPATerminTeilnehmer.TEILNEHMER_EINES_TERMINS, query = "SELECT t FROM JPATerminTeilnehmer t WHERE t.termin = :termin"),
+	@NamedQuery(name = JPATerminTeilnehmer.EIN_TEILNEHMER_EINES_TERMINS, query = "SELECT t FROM JPATerminTeilnehmer t WHERE t.termin = :termin AND t.user = :user") })
 public class JPATerminTeilnehmer {
+
+    public static final String TEILNEHMER_EINES_TERMINS = "TEILNEHMER_EINES_TERMINS";
+    public static final String EIN_TEILNEHMER_EINES_TERMINS = "EIN_TEILNEHMER_EINES_TERMINS";
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
-    @ManyToOne
-    private JPATermin termin;
+    @Column
+    private Long termin;
 
-    @ManyToOne
-    private JPAUser user;
+    @Column
+    private Long user;
 
     public JPATerminTeilnehmer() {
     }
 
-    public final long getId() {
+    public JPATerminTeilnehmer(final Long termin, final Long user) {
+	this.termin = termin;
+	this.user = user;
+    }
+
+    public Long getId() {
 	return id;
     }
 
-    public final void setId(final long id) {
+    public void setId(final Long id) {
 	this.id = id;
     }
 
-    public final JPATermin getTermin() {
+    public Long getTermin() {
 	return termin;
     }
 
-    public final void setTermin(final JPATermin termin) {
+    public void setTermin(final Long termin) {
 	this.termin = termin;
     }
 
-    public final JPAUser getUser() {
+    public Long getUser() {
 	return user;
     }
 
-    public final void setUser(final JPAUser user) {
+    public void setUser(final Long user) {
 	this.user = user;
     }
 
