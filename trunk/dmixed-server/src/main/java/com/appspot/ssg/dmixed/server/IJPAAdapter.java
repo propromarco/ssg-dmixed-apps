@@ -5,6 +5,7 @@ import java.util.List;
 import com.appspot.ssg.dmixed.server.jpa.JPAMitbringsel;
 import com.appspot.ssg.dmixed.server.jpa.JPATermin;
 import com.appspot.ssg.dmixed.server.jpa.JPATerminMitbringsel;
+import com.appspot.ssg.dmixed.server.jpa.JPATerminTeilnehmer;
 import com.appspot.ssg.dmixed.server.jpa.JPAUser;
 
 public interface IJPAAdapter {
@@ -25,8 +26,6 @@ public interface IJPAAdapter {
 
     List<JPAUser> getUsers();
 
-    List<JPAMitbringsel> getMitbringsel();
-
     void newUser(JPAUser jpaUser);
 
     void delUser(JPAUser jpaUser);
@@ -34,5 +33,13 @@ public interface IJPAAdapter {
     JPATermin createTermin(Boolean heimspiel);
 
     void saveTermin(JPATermin jpaTermin);
+
+    List<JPATerminTeilnehmer> getTeilnehmer(JPATermin termin);
+
+    List<JPATerminMitbringsel> getMitbringsel(JPATermin termin);
+
+    JPAMitbringsel getMitbringsel(JPATerminMitbringsel jpaTerminMitbringsel);
+
+    JPAUser getUser(JPATerminMitbringsel jpaTerminMitbringsel);
 
 }

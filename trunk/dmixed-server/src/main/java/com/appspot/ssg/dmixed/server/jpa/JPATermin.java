@@ -1,44 +1,31 @@
 package com.appspot.ssg.dmixed.server.jpa;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "termin")
+@NamedQuery(name = JPATermin.ALLE_TERMINE, query = "SELECT termin FROM JPATermin termin")
 public class JPATermin {
 
+    public static final String ALLE_TERMINE = "ALLE_TERMINE";
     @Id
     @GeneratedValue
     private Long terminId;
     @Column
     private boolean heimspiel;
     @Column
-    private Date termineDatum;
+    private Long termineDatum;
     @Column
     private String terminKurzbeschreibung;
     @Column
     private String terminBeschreibung;
-    @OneToMany
-    private List<JPATerminMitbringsel> mitbringsel = new ArrayList<JPATerminMitbringsel>();
-    @OneToMany
-    private List<JPATerminTeilnehmer> teilnehmer = new ArrayList<JPATerminTeilnehmer>();
 
     public JPATermin() {
-    }
-
-    public JPATermin(final long terminId, final Date termineDatum, final String terminKurzbeschreibung, final String terminBeschreibung) {
-	this.terminId = terminId;
-	this.termineDatum = termineDatum;
-	this.terminKurzbeschreibung = terminKurzbeschreibung;
-	this.terminBeschreibung = terminBeschreibung;
     }
 
     public Long getTerminId() {
@@ -57,11 +44,11 @@ public class JPATermin {
 	this.heimspiel = heimspiel;
     }
 
-    public Date getTermineDatum() {
+    public Long getTermineDatum() {
 	return termineDatum;
     }
 
-    public void setTermineDatum(final Date termineDatum) {
+    public void setTermineDatum(final Long termineDatum) {
 	this.termineDatum = termineDatum;
     }
 
@@ -79,22 +66,6 @@ public class JPATermin {
 
     public final void setTerminBeschreibung(final String terminBeschreibung) {
 	this.terminBeschreibung = terminBeschreibung;
-    }
-
-    public void setMitbringsel(final List<JPATerminMitbringsel> mitbringsel) {
-	this.mitbringsel = mitbringsel;
-    }
-
-    public List<JPATerminMitbringsel> getMitbringsel() {
-	return mitbringsel;
-    }
-
-    public final List<JPATerminTeilnehmer> getTeilnehmer() {
-	return teilnehmer;
-    }
-
-    public final void setTeilnehmer(final List<JPATerminTeilnehmer> teilnehmer) {
-	this.teilnehmer = teilnehmer;
     }
 
 }

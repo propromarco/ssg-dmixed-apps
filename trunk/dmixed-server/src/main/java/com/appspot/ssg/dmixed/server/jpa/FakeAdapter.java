@@ -12,14 +12,17 @@ public class FakeAdapter implements IJPAAdapter {
     private final List<JPAUser> users = new ArrayList<JPAUser>();
     private final List<JPATermin> termine = new ArrayList<JPATermin>();
     private final List<JPAMitbringsel> mitbringsel = new ArrayList<JPAMitbringsel>();
+    private final List<JPATerminMitbringsel> terminMitbringsels = new ArrayList<JPATerminMitbringsel>();
 
     private FakeAdapter() {
 	users.add(createUser(1l, "Nuria", "Schwarz", Date.valueOf("2006-02-24"), true, "123@456.com"));
 	users.add(createUser(2l, "Kiara", "Schwarz", Date.valueOf("2003-02-04"), true, "123@456.com"));
 	mitbringsel.add(createMitbringsel(1l, "Kaffee"));
 	mitbringsel.add(createMitbringsel(2l, "Kuchen"));
-	termine.add(createTermin((long) termine.size(), Date.valueOf("2013-04-25"), "neuer Termin 1", "Das ist die Beschreibung von Termin 1", false));
-	termine.add(createTermin((long) termine.size(), Date.valueOf("2013-04-30"), "neuer Termin 2", "Das ist die Beschreibung von Termin 2", true));
+	final List<JPATerminMitbringsel> t = createTerminMitbringsel(mitbringsel, null);
+	terminMitbringsels.addAll(t);
+	termine.add(createTermin(1l, Date.valueOf("2013-04-25"), "neuer Termin 1", "Das ist die Beschreibung von Termin 1", false, t));
+	termine.add(createTermin(2l, Date.valueOf("2013-04-30"), "neuer Termin 2", "Das ist die Beschreibung von Termin 2", true, t));
     }
 
     public static FakeAdapter getInstance() {
@@ -63,9 +66,9 @@ public class FakeAdapter implements IJPAAdapter {
     @Override
     public JPATerminMitbringsel getTerminMitbringsel(final Long terminId, final Long mitbringId) {
 	final JPATermin termin = getTermin(terminId);
-	final List<JPATerminMitbringsel> mitbringsel = termin.getMitbringsel();
+	final List<JPATerminMitbringsel> mitbringsel = getMitbringsel(termin);
 	for (final JPATerminMitbringsel jpaTerminMitbringsel : mitbringsel) {
-	    if (jpaTerminMitbringsel.getMitbringsel().getMitbringselId() == mitbringId)
+	    if (jpaTerminMitbringsel.getMitbringsel().equals(mitbringId))
 		return jpaTerminMitbringsel;
 	}
 	return null;
@@ -73,13 +76,13 @@ public class FakeAdapter implements IJPAAdapter {
 
     @Override
     public void userOnTermin(final JPAUser user, final JPATermin termin, final Boolean teilnahme) {
-	final List<JPATerminTeilnehmer> teilnehmer = termin.getTeilnehmer();
+	final List<JPATerminTeilnehmer> teilnehmer = getTeilnehmer(termin);
 	JPATerminTeilnehmer tt = findTeilnehmer(teilnehmer, user);
 	if (tt == null && teilnahme) {
 	    tt = new JPATerminTeilnehmer();
 	    tt.setId(1l);
-	    tt.setTermin(termin);
-	    tt.setUser(user);
+	    tt.setTermin(termin.getTerminId());
+	    tt.setUser(user.getId());
 	    teilnehmer.add(tt);
 	} else if (tt != null && !teilnahme) {
 	    teilnehmer.remove(tt);
@@ -88,7 +91,7 @@ public class FakeAdapter implements IJPAAdapter {
 
     private JPATerminTeilnehmer findTeilnehmer(final List<JPATerminTeilnehmer> teilnehmer, final JPAUser user) {
 	for (final JPATerminTeilnehmer terminTeilnehmer : teilnehmer) {
-	    if (terminTeilnehmer.getUser() == user)
+	    if (terminTeilnehmer.getUser() == user.getId())
 		return terminTeilnehmer;
 	}
 	return null;
@@ -98,7 +101,7 @@ public class FakeAdapter implements IJPAAdapter {
     public void onUserToTerminMitbringen(final JPAUser user, final JPATermin termin, final JPATerminMitbringsel terminMitbringsel,
 	    final Boolean mitbringen) {
 	if (mitbringen)
-	    terminMitbringsel.setUser(user);
+	    terminMitbringsel.setUser(user.getId());
 	else
 	    terminMitbringsel.setUser(null);
     }
@@ -108,50 +111,55 @@ public class FakeAdapter implements IJPAAdapter {
 	return users;
     }
 
-    @Override
-    public List<JPAMitbringsel> getMitbringsel() {
-	return mitbringsel;
-    }
-
-    private JPAUser createUser(final Long id, final String vorname, final String name, final java.util.Date birthday, final boolean admin,
+    static JPAUser createUser(final Long id, final String vorname, final String name, final java.util.Date birthday, final boolean admin,
 	    final String email) {
 	final JPAUser user = new JPAUser();
 	user.setId(id);
 	user.setVorname(vorname);
 	user.setName(name);
-	user.setBirthday(birthday);
+	user.setBirthday(birthday.getTime());
 	user.setAdmin(admin);
 	user.setEmail(email);
 	return user;
     }
 
-    private JPATermin createTermin(final Long terminId, final java.util.Date termineDatum, final String terminKurzbeschreibung,
-	    final String terminBeschreibung, final boolean heimspiel) {
+    static JPATermin createTermin(final Long terminId, final java.util.Date termineDatum, final String terminKurzbeschreibung,
+	    final String terminBeschreibung, final boolean heimspiel, final List<JPATerminMitbringsel> terminMitbringsel) {
 	final JPATermin termin = new JPATermin();
 	termin.setTerminId(terminId);
-	termin.setTermineDatum(termineDatum);
+	termin.setTermineDatum(termineDatum.getTime());
 	termin.setHeimspiel(heimspiel);
 	termin.setTerminKurzbeschreibung(terminKurzbeschreibung);
 	termin.setTerminBeschreibung(terminBeschreibung);
-	if (heimspiel)
-	    termin.setMitbringsel(createTerminMitbringsel());
+	if (heimspiel) {
+	    // for (final JPATerminMitbringsel t : terminMitbringsel) {
+	    // t.setTermin(terminId);
+	    // }
+	    // termin.setMitbringsel(terminMitbringsel);
+	    // for (final JPATerminMitbringsel jpaTerminMitbringsel :
+	    // terminMitbringsel) {
+	    // jpaTerminMitbringsel.setTermin(termin);
+	    // }
+	}
 	return termin;
     }
 
-    private List<JPATerminMitbringsel> createTerminMitbringsel() {
+    static List<JPATerminMitbringsel> createTerminMitbringsel(final List<JPAMitbringsel> mitbringsel, final JPATermin termin) {
 	final List<JPATerminMitbringsel> list = new ArrayList<JPATerminMitbringsel>();
 	long i = 1;
 	for (final JPAMitbringsel jpaMitbringsel : mitbringsel) {
 	    final JPATerminMitbringsel m = new JPATerminMitbringsel();
 	    m.setMitbringselId(i);
-	    m.setMitbringsel(jpaMitbringsel);
+	    m.setMitbringsel(jpaMitbringsel.getMitbringselId());
+	    if (termin != null)
+		m.setTermin(termin.getTerminId());
 	    list.add(m);
 	    i++;
 	}
 	return list;
     }
 
-    private JPAMitbringsel createMitbringsel(final long mitbringselId, final String bezeichnung) {
+    static JPAMitbringsel createMitbringsel(final Long mitbringselId, final String bezeichnung) {
 	final JPAMitbringsel m = new JPAMitbringsel();
 	m.setMitbringselId(mitbringselId);
 	m.setBezeichnung(bezeichnung);
@@ -170,12 +178,37 @@ public class FakeAdapter implements IJPAAdapter {
 
     @Override
     public JPATermin createTermin(final Boolean heimspiel) {
-	return createTermin((long) termine.size(), new Date(System.currentTimeMillis()), "", "", heimspiel);
+	final List<JPATerminMitbringsel> t = createTerminMitbringsel(mitbringsel, null);
+	return createTermin((long) termine.size(), new Date(System.currentTimeMillis()), "", "", heimspiel, t);
     }
 
     @Override
     public void saveTermin(final JPATermin jpaTermin) {
 	this.termine.add(jpaTermin);
+    }
+
+    @Override
+    public List<JPATerminTeilnehmer> getTeilnehmer(final JPATermin termin) {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+    @Override
+    public List<JPATerminMitbringsel> getMitbringsel(final JPATermin termin) {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+    @Override
+    public JPAMitbringsel getMitbringsel(final JPATerminMitbringsel jpaTerminMitbringsel) {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+    @Override
+    public JPAUser getUser(final JPATerminMitbringsel jpaTerminMitbringsel) {
+	// TODO Auto-generated method stub
+	return null;
     }
 
 }

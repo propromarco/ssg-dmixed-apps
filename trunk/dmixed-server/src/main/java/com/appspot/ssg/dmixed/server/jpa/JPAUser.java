@@ -1,20 +1,21 @@
 package com.appspot.ssg.dmixed.server.jpa;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
-@NamedQuery(name = JPAUser.FINDUSER, query = "SELECT user FROM JPAUser user WHERE user.vorname = :vorname and user.email = :email")
+@NamedQueries({ @NamedQuery(name = JPAUser.FINDUSER, query = "SELECT user FROM JPAUser user WHERE user.vorname = :vorname and user.email = :email"),
+	@NamedQuery(name = JPAUser.ALLE_USER, query = "SELECT user FROM JPAUser user") })
 public class JPAUser {
 
     public static final String FINDUSER = "FINDUSER";
+    public static final String ALLE_USER = "ALLE_USER";
 
     @Id
     @GeneratedValue
@@ -26,7 +27,7 @@ public class JPAUser {
     @Column
     private String email;
     @Column
-    private Date birthday;
+    private Long birthday;
     @Column
     private boolean admin;
 
@@ -66,11 +67,11 @@ public class JPAUser {
 	this.email = email;
     }
 
-    public Date getBirthday() {
+    public Long getBirthday() {
 	return birthday;
     }
 
-    public void setBirthday(final Date birthday) {
+    public void setBirthday(final Long birthday) {
 	this.birthday = birthday;
     }
 

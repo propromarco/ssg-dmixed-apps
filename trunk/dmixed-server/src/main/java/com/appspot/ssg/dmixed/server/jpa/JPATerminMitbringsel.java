@@ -1,57 +1,65 @@
 package com.appspot.ssg.dmixed.server.jpa;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "terminmitbringsel")
+@NamedQuery(name = JPATerminMitbringsel.MITBRINGSEL_EINES_TERMINS, query = "SELECT m FROM JPATerminMitbringsel m WHERE m.termin = :termin")
 public class JPATerminMitbringsel {
+    
+    public static final String MITBRINGSEL_EINES_TERMINS = "MITBRINGSEL_EINES_TERMINS";
 
     @Id
     @GeneratedValue
-    private long mitbringselId;
+    private Long mitbringselId;
 
-    @ManyToOne
-    private JPATermin termin;
+    @Column
+    private Long termin;
 
-    @ManyToOne
-    private JPAMitbringsel mitbringsel;
+    @Column
+    private Long mitbringsel;
 
-    @ManyToOne
-    private JPAUser user;
+    @Column
+    private Long user;
 
     public JPATerminMitbringsel() {
     }
 
-    public JPATerminMitbringsel(final long mitbringselId) {
-	this.mitbringselId = mitbringselId;
-    }
-
-    public final long getMitbringselId() {
+    public Long getMitbringselId() {
 	return mitbringselId;
     }
 
-    public final void setMitbringselId(final long mitbringselId) {
+    public void setMitbringselId(final Long mitbringselId) {
 	this.mitbringselId = mitbringselId;
     }
 
-    public final JPAMitbringsel getMitbringsel() {
+    public Long getMitbringsel() {
 	return mitbringsel;
     }
 
-    public final void setMitbringsel(final JPAMitbringsel mitbringsel) {
+    public void setMitbringsel(final Long mitbringsel) {
 	this.mitbringsel = mitbringsel;
     }
 
-    public final JPAUser getUser() {
+    public Long getUser() {
 	return user;
     }
 
-    public final void setUser(final JPAUser user) {
+    public void setUser(final Long user) {
 	this.user = user;
+    }
+
+    public Long getTermin() {
+	return termin;
+    }
+
+    public void setTermin(final Long termin) {
+	this.termin = termin;
     }
 
 }
