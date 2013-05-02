@@ -40,7 +40,7 @@ public class TerminMitbringsel implements ITerminMitbringsel {
 	@Override
 	public void setMitbringer(ITerminTeilnehmer mitbringer) {
 		this.mitbringer = new TerminTeilnehmer();
-		this.mitbringer.setTeilnahme(mitbringer.isTeilnahme());
+		this.mitbringer.setTeilnahme(mitbringer.getTeilnahme());
 		this.mitbringer.setName(mitbringer.getName());
 		this.mitbringer.setId(mitbringer.getId());
 		this.mitbringer.setVorname(mitbringer.getVorname());

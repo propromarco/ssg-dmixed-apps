@@ -1,5 +1,6 @@
 package com.appspot.ssg.android.data;
 
+import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 
 public class TerminTeilnehmer implements ITerminTeilnehmer {
@@ -8,7 +9,7 @@ public class TerminTeilnehmer implements ITerminTeilnehmer {
 	private Long id;
 	private String vorname;
 	private String name;
-	private boolean teilnahme;
+	private ETeilnahmeStatus teilnahme;
 
 	@Override
 	public Long getId() {
@@ -26,7 +27,7 @@ public class TerminTeilnehmer implements ITerminTeilnehmer {
 	}
 
 	@Override
-	public boolean isTeilnahme() {
+	public ETeilnahmeStatus getTeilnahme() {
 		return teilnahme;
 	}
 
@@ -42,7 +43,7 @@ public class TerminTeilnehmer implements ITerminTeilnehmer {
 		this.name = name;
 	}
 
-	public void setTeilnahme(boolean teilnahme) {
+	public void setTeilnahme(ETeilnahmeStatus teilnahme) {
 		this.teilnahme = teilnahme;
 	}
 
