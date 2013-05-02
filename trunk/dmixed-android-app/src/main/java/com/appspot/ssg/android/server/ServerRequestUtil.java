@@ -162,6 +162,8 @@ public class ServerRequestUtil {
 			default:
 				return null;
 			}
+			if(response.getStatusLine().getStatusCode()!=200)
+				throw new ServerRequestException(response.getStatusLine().getReasonPhrase());
 			InputStream is = response.getEntity().getContent();
 			final InputStreamReader isr = new InputStreamReader(is);
 			final StringBuilder result = new StringBuilder();
