@@ -189,19 +189,36 @@ public class FakeAdapter implements IJPAAdapter {
 
     @Override
     public List<JPATerminTeilnehmer> getTeilnehmer(final JPATermin termin) {
-	// TODO Auto-generated method stub
-	return null;
+	final List<JPATerminTeilnehmer> list = new ArrayList<JPATerminTeilnehmer>();
+	for (final JPAUser user : users) {
+	    final JPATerminTeilnehmer t = new JPATerminTeilnehmer();
+	    t.setUser(user.getId());
+	    t.setTermin(termin.getTerminId());
+	    list.add(t);
+	}
+	return list;
     }
 
     @Override
     public List<JPATerminMitbringsel> getMitbringsel(final JPATermin termin) {
-	// TODO Auto-generated method stub
-	return null;
+	final List<JPATerminMitbringsel> list = new ArrayList<JPATerminMitbringsel>();
+	for (final JPAMitbringsel mit : mitbringsel) {
+	    final JPATerminMitbringsel t = new JPATerminMitbringsel();
+	    t.setMitbringsel(mit.getMitbringselId());
+	    t.setMitbringselId(1l);
+	    t.setTermin(termin.getTerminId());
+	    list.add(t);
+	}
+	return list;
     }
 
     @Override
     public JPAMitbringsel getMitbringsel(final JPATerminMitbringsel jpaTerminMitbringsel) {
-	// TODO Auto-generated method stub
+	final Long mitbringsel2 = jpaTerminMitbringsel.getMitbringsel();
+	for (final JPAMitbringsel mit : mitbringsel) {
+	    if (mit.getMitbringselId().equals(mitbringsel2))
+		return mit;
+	}
 	return null;
     }
 

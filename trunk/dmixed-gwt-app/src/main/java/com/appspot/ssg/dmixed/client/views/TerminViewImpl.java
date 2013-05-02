@@ -7,6 +7,7 @@ import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 import com.google.gwt.user.client.ui.HTML;
 import com.googlecode.mgwt.ui.client.MGWTStyle;
 import com.googlecode.mgwt.ui.client.widget.MRadioButton;
+import com.googlecode.mgwt.ui.client.widget.ScrollPanel;
 import com.googlecode.mgwt.ui.client.widget.WidgetList;
 
 public class TerminViewImpl extends AbstractDmixedView implements TerminView {
@@ -43,13 +44,22 @@ public class TerminViewImpl extends AbstractDmixedView implements TerminView {
 	_teilnehmerHeader = new HTML(messages.teilnehmer());
 	_teilnehmerHeader.addStyleName(MGWTStyle.getTheme().getMGWTClientBundle().getListCss().listHeader());
 	_layoutPanel.add(_teilnehmerHeader);
+
 	_teilnehmerList = new WidgetList();
-	_layoutPanel.add(_teilnehmerList);
+	final ScrollPanel scrollPanel = new ScrollPanel();
+	scrollPanel.setWidget(_teilnehmerList);
+	scrollPanel.setScrollingEnabledX(false);
+	_layoutPanel.add(scrollPanel);
+
 	_mitbringerHeader = new HTML(messages.mitbringen());
 	_mitbringerHeader.addStyleName(MGWTStyle.getTheme().getMGWTClientBundle().getListCss().listHeader());
 	_layoutPanel.add(_mitbringerHeader);
+
 	_mitbrinselList = new WidgetList();
-	_layoutPanel.add(_mitbrinselList);
+	final ScrollPanel scrollPanel2 = new ScrollPanel();
+	scrollPanel2.setWidget(_mitbrinselList);
+	scrollPanel2.setScrollingEnabledX(false);
+	_layoutPanel.add(scrollPanel2);
     }
 
     @Override
