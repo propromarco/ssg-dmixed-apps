@@ -103,7 +103,7 @@ public class TerminDetailsActivity extends Activity {
 												newTeilnahme, terminId, userId);
 										t.setTeilnahme(newTeilnahme);
 										imageView
-												.setImageDrawable(teilnahme == ETeilnahmeStatus.NimmtTeil ? dabei
+												.setImageDrawable(newTeilnahme == ETeilnahmeStatus.NimmtTeil ? dabei
 														: nichtDabei);
 									} catch (ServerRequestException e) {
 										final Intent intent = new Intent(v
