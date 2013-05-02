@@ -22,6 +22,7 @@ import com.appspot.ssg.android.data.TeilnahmeData;
 import com.appspot.ssg.android.data.TerminDetails;
 import com.appspot.ssg.android.data.Termine;
 import com.appspot.ssg.android.data.UserData;
+import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 import com.appspot.ssg.dmixed.shared.ITermin;
 import com.appspot.ssg.dmixed.shared.ITerminDetails;
 import com.appspot.ssg.dmixed.shared.ITermine;
@@ -103,7 +104,7 @@ public class ServerRequestUtil {
 		}
 	}
 
-	public static void setTeilnahme(boolean teilnahme, long terminId,
+	public static void setTeilnahme(ETeilnahmeStatus teilnahme, long terminId,
 			long userId) throws ServerRequestException {
 		final TeilnahmeData teilnahmeData = new TeilnahmeData();
 		teilnahmeData.setTeilnahme(teilnahme);

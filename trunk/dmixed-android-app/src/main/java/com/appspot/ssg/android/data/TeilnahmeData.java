@@ -1,5 +1,6 @@
 package com.appspot.ssg.android.data;
 
+import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 import com.appspot.ssg.dmixed.shared.ITeilnahmeData;
 
 public class TeilnahmeData implements ITeilnahmeData {
@@ -7,7 +8,7 @@ public class TeilnahmeData implements ITeilnahmeData {
 	private static final long serialVersionUID = 8080807108232258277L;
 	private Long userId;
 	private Long terminId;
-	private Boolean teilnahme;
+	private ETeilnahmeStatus teilnahme;
 
 	@Override
 	public Long getUserId() {
@@ -30,12 +31,12 @@ public class TeilnahmeData implements ITeilnahmeData {
 	}
 
 	@Override
-	public Boolean getTeilnahme() {
+	public ETeilnahmeStatus getTeilnahme() {
 		return teilnahme;
 	}
 
 	@Override
-	public void setTeilnahme(Boolean teilnahme) {
+	public void setTeilnahme(ETeilnahmeStatus teilnahme) {
 		this.teilnahme = teilnahme;
 	}
 

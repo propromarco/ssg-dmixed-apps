@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.appspot.ssg.android.data.AndroidConstants;
 import com.appspot.ssg.android.server.ServerRequestException;
 import com.appspot.ssg.android.server.ServerRequestUtil;
+import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 import com.appspot.ssg.dmixed.shared.ITermin;
 import com.appspot.ssg.dmixed.shared.ITerminDetails;
 import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
@@ -85,22 +86,25 @@ public class TerminDetailsActivity extends Activity {
 						final ImageView imageView = new ImageView(this);
 						// LayoutParams layoutParams = new LayoutParams(30, 30);
 						// imageView.setLayoutParams(layoutParams);
-						imageView.setImageDrawable(t.isTeilnahme() ? dabei
-								: nichtDabei);
+						final ETeilnahmeStatus teilnahme = t.getTeilnahme();
+						final Drawable drawable = teilnahme == ETeilnahmeStatus.NimmtTeil ? dabei
+								: nichtDabei;
+						imageView.setImageDrawable(drawable);
 						if (t.getId() == userId) {
 							imageView.setOnClickListener(new OnClickListener() {
 
 								@Override
 								public void onClick(View v) {
 									try {
-										final boolean newTeilnahme = !t
-												.isTeilnahme();
+										final ETeilnahmeStatus oldTeilnahme = t
+												.getTeilnahme();
+										ETeilnahmeStatus newTeilnahme = nextTeilnahme(oldTeilnahme);
 										ServerRequestUtil.setTeilnahme(
 												newTeilnahme, terminId, userId);
 										t.setTeilnahme(newTeilnahme);
-										imageView.setImageDrawable(t
-												.isTeilnahme() ? dabei
-												: nichtDabei);
+										imageView
+												.setImageDrawable(teilnahme == ETeilnahmeStatus.NimmtTeil ? dabei
+														: nichtDabei);
 									} catch (ServerRequestException e) {
 										final Intent intent = new Intent(v
 												.getContext(),
@@ -109,6 +113,18 @@ public class TerminDetailsActivity extends Activity {
 												AndroidConstants.ERROR_KEY,
 												e.getMessage());
 										startActivity(intent);
+									}
+								}
+
+								private ETeilnahmeStatus nextTeilnahme(
+										ETeilnahmeStatus oldTeilnahme) {
+									switch (oldTeilnahme) {
+									case NimmtTeil:
+										return ETeilnahmeStatus.Vielleicht;
+									case Vielleicht:
+										return ETeilnahmeStatus.NimmtNichtTeil;
+									default:
+										return ETeilnahmeStatus.NimmtTeil;
 									}
 								}
 							});
