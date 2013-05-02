@@ -70,8 +70,8 @@ public class ServerRequestUtil {
 	public static IUserData login(String username, String mail)
 			throws ServerRequestException {
 		final LoginData loginData = new LoginData();
-		loginData.setEmail(mail);
-		loginData.setVorname(username);
+		loginData.setEmail(mail.trim());
+		loginData.setVorname(username.trim());
 		final String json = call(loginData, LOGIN_PATH, HTTP_TYPE.POST);
 		final IUserData fromJson = createObject(json, UserData.class);
 		return fromJson;
