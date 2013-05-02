@@ -10,8 +10,8 @@ public interface ITerminTeilnehmer extends Serializable {
 
     String getName();
 
-    boolean isTeilnahme();
+    ETeilnahmeStatus getTeilnahme();
 
-    void setTeilnahme(boolean teilnahme);
+    void setTeilnahme(ETeilnahmeStatus teilnahme);
 
 }

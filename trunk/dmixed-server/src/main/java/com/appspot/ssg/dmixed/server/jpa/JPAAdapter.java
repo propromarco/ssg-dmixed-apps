@@ -11,6 +11,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import com.appspot.ssg.dmixed.server.IJPAAdapter;
+import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 
 public class JPAAdapter implements IJPAAdapter {
 
@@ -161,21 +162,20 @@ public class JPAAdapter implements IJPAAdapter {
     }
 
     @Override
-    public void userOnTermin(final JPAUser user, final JPATermin termin, final Boolean teilnahme) {
+    public void userOnTermin(final JPAUser user, final JPATermin termin, final ETeilnahmeStatus teilnahme) {
 	final EntityManager em = emf.createEntityManager();
 	try {
 	    final Query query = em.createNamedQuery(JPATerminTeilnehmer.EIN_TEILNEHMER_EINES_TERMINS);
 	    query.setParameter("termin", termin.getTerminId());
 	    query.setParameter("user", user.getId());
 	    final JPATerminTeilnehmer terminTeilnehmer = (JPATerminTeilnehmer) query.getSingleResult();
-	    if (!teilnahme)
-		em.remove(terminTeilnehmer);
+	    terminTeilnehmer.setStatus(teilnahme);
+	    em.persist(terminTeilnehmer);
 	} catch (final NoResultException e) {
 	    // No Match
-	    if (teilnahme) {
-		final JPATerminTeilnehmer jpaTerminTeilnehmer = new JPATerminTeilnehmer(termin.getTerminId(), user.getId());
-		em.persist(jpaTerminTeilnehmer);
-	    }
+	    final JPATerminTeilnehmer terminTeilnehmer = new JPATerminTeilnehmer(termin.getTerminId(), user.getId());
+	    terminTeilnehmer.setStatus(teilnahme);
+	    em.persist(terminTeilnehmer);
 	} finally {
 	    em.close();
 	}

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.appspot.ssg.dmixed.server.IJPAAdapter;
+import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 
 public class FakeAdapter implements IJPAAdapter {
 
@@ -75,16 +76,17 @@ public class FakeAdapter implements IJPAAdapter {
     }
 
     @Override
-    public void userOnTermin(final JPAUser user, final JPATermin termin, final Boolean teilnahme) {
+    public void userOnTermin(final JPAUser user, final JPATermin termin, final ETeilnahmeStatus teilnahme) {
 	final List<JPATerminTeilnehmer> teilnehmer = getTeilnehmer(termin);
 	JPATerminTeilnehmer tt = findTeilnehmer(teilnehmer, user);
-	if (tt == null && teilnahme) {
+	if (tt == null && !teilnahme.equals(ETeilnahmeStatus.NichtEntschieden)) {
 	    tt = new JPATerminTeilnehmer();
 	    tt.setId(1l);
 	    tt.setTermin(termin.getTerminId());
 	    tt.setUser(user.getId());
+	    tt.setStatus(teilnahme);
 	    teilnehmer.add(tt);
-	} else if (tt != null && !teilnahme) {
+	} else if (tt != null && teilnahme.equals(ETeilnahmeStatus.NichtEntschieden)) {
 	    teilnehmer.remove(tt);
 	}
     }
@@ -194,6 +196,7 @@ public class FakeAdapter implements IJPAAdapter {
 	    final JPATerminTeilnehmer t = new JPATerminTeilnehmer();
 	    t.setUser(user.getId());
 	    t.setTermin(termin.getTerminId());
+	    t.setStatus(ETeilnahmeStatus.NichtEntschieden);
 	    list.add(t);
 	}
 	return list;

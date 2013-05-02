@@ -7,6 +7,7 @@ import com.appspot.ssg.dmixed.server.jpa.JPATermin;
 import com.appspot.ssg.dmixed.server.jpa.JPATerminMitbringsel;
 import com.appspot.ssg.dmixed.server.jpa.JPATerminTeilnehmer;
 import com.appspot.ssg.dmixed.server.jpa.JPAUser;
+import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 
 public interface IJPAAdapter {
 
@@ -20,7 +21,7 @@ public interface IJPAAdapter {
 
     JPATerminMitbringsel getTerminMitbringsel(Long terminId, Long mitbringId);
 
-    void userOnTermin(JPAUser user, JPATermin termin, Boolean teilnahme);
+    void userOnTermin(JPAUser user, JPATermin termin, ETeilnahmeStatus teilnahme);
 
     void onUserToTerminMitbringen(JPAUser user, JPATermin termin, JPATerminMitbringsel terminMitbringsel, Boolean mitbringen);
 

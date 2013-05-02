@@ -10,12 +10,15 @@ import com.appspot.ssg.dmixed.client.activities.TerminActivity.TerminView.IListI
 import com.appspot.ssg.dmixed.client.model.MitbringData;
 import com.appspot.ssg.dmixed.client.model.TeilnahmeData;
 import com.appspot.ssg.dmixed.client.model.TerminTeilnehmer;
+import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 import com.appspot.ssg.dmixed.shared.IAsync;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
 import com.appspot.ssg.dmixed.shared.ITerminDetails;
 import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 import com.appspot.ssg.dmixed.shared.IUserData;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.HasValue;
@@ -29,21 +32,21 @@ public class TerminActivity extends MGWTAbstractActivity {
 
     public interface TerminView extends IDMixedView {
 
-	public interface IListItem extends HasValue<Boolean>, HasTapHandlers {
+	public interface IListItem<T> extends HasValue<T>, HasTapHandlers {
 	    void setMitbringer(String string);
 	}
 
-	public interface IListCreator<T> {
-	    IListItem create(T t);
+	public interface IListCreator<T, P> {
+	    IListItem<P> create(T t);
 
 	    void onFinish(boolean hasItems);
 	}
 
 	void setTerminBeschreibung(String terminBeschreibung);
 
-	IListCreator<ITerminTeilnehmer> fillTeilnehmer();
+	IListCreator<ITerminTeilnehmer, ETeilnahmeStatus> fillTeilnehmer();
 
-	IListCreator<ITerminMitbringsel> fillMitbringsel();
+	IListCreator<ITerminMitbringsel, Boolean> fillMitbringsel();
     }
 
     private final ClientFactory _clientFactory;
@@ -74,24 +77,34 @@ public class TerminActivity extends MGWTAbstractActivity {
 		    final String terminBeschreibung = termin.getTerminBeschreibung();
 		    terminView.setTerminBeschreibung(terminBeschreibung);
 		    final List<ITerminTeilnehmer> teilnehmer = termin.getTeilnehmer();
-		    final IListCreator<ITerminTeilnehmer> teilnehmerCreator = terminView.fillTeilnehmer();
+		    final IListCreator<ITerminTeilnehmer, ETeilnahmeStatus> teilnehmerCreator = terminView.fillTeilnehmer();
 		    for (final ITerminTeilnehmer terminTeilnehmer : teilnehmer) {
-			final IListItem item = teilnehmerCreator.create(terminTeilnehmer);
-			addHandlerRegistration(item.addTapHandler(new TapHandler() {
+			final IListItem<ETeilnahmeStatus> item = teilnehmerCreator.create(terminTeilnehmer);
+			addHandlerRegistration(item.addValueChangeHandler(new ValueChangeHandler<ETeilnahmeStatus>() {
 			    @Override
-			    public void onTap(final TapEvent event) {
-				final boolean checked = checkTeilnehmer(terminTeilnehmer, termin.getTerminId());
-				item.setValue(checked);
+			    public void onValueChange(final ValueChangeEvent<ETeilnahmeStatus> event) {
+				final ETeilnahmeStatus newValue = event.getValue();
+				if (checkTeilnehmer(terminTeilnehmer, termin.getTerminId(), newValue))
+				    item.setValue(newValue);
 			    }
-
 			}));
+			// TapHandler(new TapHandler() {
+			// @Override
+			// public void onTap(final TapEvent event) {
+			// final boolean checked =
+			// checkTeilnehmer(terminTeilnehmer,
+			// termin.getTerminId());
+			// item.setValue(checked);
+			// }
+			//
+			// }));
 		    }
 		    teilnehmerCreator.onFinish(teilnehmer.size() > 0);
-		    final IListCreator<ITerminMitbringsel> mitbringselCreator = terminView.fillMitbringsel();
+		    final IListCreator<ITerminMitbringsel, Boolean> mitbringselCreator = terminView.fillMitbringsel();
 		    final List<ITerminMitbringsel> mitbringsel = termin.getMitbringsel();
 		    if (mitbringsel != null) {
 			for (final ITerminMitbringsel terminMitbringsel : mitbringsel) {
-			    final IListItem item = mitbringselCreator.create(terminMitbringsel);
+			    final IListItem<Boolean> item = mitbringselCreator.create(terminMitbringsel);
 			    addHandlerRegistration(item.addTapHandler(new TapHandler() {
 				@Override
 				public void onTap(final TapEvent event) {
@@ -116,7 +129,7 @@ public class TerminActivity extends MGWTAbstractActivity {
 	service.getTermin(userId, _terminId, answer);
     }
 
-    private boolean checkMitbringsel(final IListItem item, final ITerminMitbringsel terminMitbringsel) {
+    private boolean checkMitbringsel(final IListItem<Boolean> item, final ITerminMitbringsel terminMitbringsel) {
 	final ITerminTeilnehmer mitbringer = terminMitbringsel.getMitbringer();
 	final DMixedModel model = _clientFactory.getModel();
 	final IDMixedUsecase service = _clientFactory.getService();
@@ -144,7 +157,7 @@ public class TerminActivity extends MGWTAbstractActivity {
 		    exception.printStackTrace();
 		}
 	    };
-	    service.onMitringen(mitbringData, answer);
+	    service.onMitbringen(mitbringData, answer);
 	    // Fire ich brings mit
 	    return true;
 	} else {
@@ -170,7 +183,7 @@ public class TerminActivity extends MGWTAbstractActivity {
 			exception.printStackTrace();
 		    }
 		};
-		service.onMitringen(mitbringData, answer);
+		service.onMitbringen(mitbringData, answer);
 		// Fire ich brings nicht mehr mit
 		return false;
 	    } else {
@@ -180,19 +193,17 @@ public class TerminActivity extends MGWTAbstractActivity {
 	}
     }
 
-    private boolean checkTeilnehmer(final ITerminTeilnehmer terminTeilnehmer, final Long terminId) {
+    private boolean checkTeilnehmer(final ITerminTeilnehmer terminTeilnehmer, final Long terminId, final ETeilnahmeStatus status) {
 	final Long id = terminTeilnehmer.getId();
 	final Long id2 = _clientFactory.getModel().getUser().getId();
 	if (!id.equals(id2))
 	    return false;
-	final boolean oldValue = terminTeilnehmer.isTeilnahme();
-	final boolean newValue = !oldValue;
-	terminTeilnehmer.setTeilnahme(newValue);
+	terminTeilnehmer.setTeilnahme(status);
 	final IDMixedUsecase service = _clientFactory.getService();
 	final TeilnahmeData teilnahmeData = new TeilnahmeData();
 	teilnahmeData.setUserId(id2);
 	teilnahmeData.setTerminId(terminId);
-	teilnahmeData.setTeilnahme(newValue);
+	teilnahmeData.setTeilnahme(status);
 	final IAsync<Void> answer = new IAsync<Void>() {
 	    @Override
 	    public void onSuccess(final Void t) {
@@ -205,7 +216,7 @@ public class TerminActivity extends MGWTAbstractActivity {
 	};
 	service.onTeilnahme(teilnahmeData, answer);
 	// Fire newValue to server
-	return newValue;
+	return true;
     }
 
 }

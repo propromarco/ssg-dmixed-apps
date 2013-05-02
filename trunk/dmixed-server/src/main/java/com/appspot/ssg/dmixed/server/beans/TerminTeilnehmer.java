@@ -1,5 +1,6 @@
 package com.appspot.ssg.dmixed.server.beans;
 
+import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 
 public class TerminTeilnehmer implements ITerminTeilnehmer {
@@ -7,7 +8,7 @@ public class TerminTeilnehmer implements ITerminTeilnehmer {
     private Long id;
     private String vorname;
     private String name;
-    private boolean teilnahme;
+    private ETeilnahmeStatus teilnahme;
 
     public TerminTeilnehmer() {
     }
@@ -40,11 +41,12 @@ public class TerminTeilnehmer implements ITerminTeilnehmer {
     }
 
     @Override
-    public boolean isTeilnahme() {
+    public ETeilnahmeStatus getTeilnahme() {
 	return teilnahme;
     }
 
-    public void setTeilnahme(final boolean teilnahme) {
+    @Override
+    public void setTeilnahme(final ETeilnahmeStatus teilnahme) {
 	this.teilnahme = teilnahme;
     }
 
