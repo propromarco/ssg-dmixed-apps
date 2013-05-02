@@ -2,6 +2,7 @@ package com.appspot.ssg.dmixed.server.beans;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 import com.appspot.ssg.dmixed.shared.ITeilnahmeData;
 
 @XmlRootElement
@@ -11,7 +12,7 @@ public class TeilnahmeData implements ITeilnahmeData {
 
     private Long _userId;
     private Long _terminId;
-    private Boolean _teilnahme;
+    private ETeilnahmeStatus _teilnahme;
 
     @Override
     public Long getUserId() {
@@ -34,12 +35,12 @@ public class TeilnahmeData implements ITeilnahmeData {
     }
 
     @Override
-    public Boolean getTeilnahme() {
+    public ETeilnahmeStatus getTeilnahme() {
 	return _teilnahme;
     }
 
     @Override
-    public void setTeilnahme(final Boolean teilnahme) {
+    public void setTeilnahme(final ETeilnahmeStatus teilnahme) {
 	_teilnahme = teilnahme;
     }
 

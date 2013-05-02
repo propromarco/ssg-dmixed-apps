@@ -1,5 +1,6 @@
 package com.appspot.ssg.dmixed.client.model;
 
+import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 import com.google.gwt.json.client.JSONObject;
 
@@ -43,13 +44,14 @@ public class TerminTeilnehmer extends AbstractData implements ITerminTeilnehmer 
     }
 
     @Override
-    public boolean isTeilnahme() {
-	return getBoolean("teilnahme");
+    public ETeilnahmeStatus getTeilnahme() {
+	final String s = getString("teilnahme");
+	return ETeilnahmeStatus.valueOf(s);
     }
 
     @Override
-    public void setTeilnahme(final boolean teilnahme) {
-	setBoolean("teilnahme", teilnahme);
+    public void setTeilnahme(final ETeilnahmeStatus teilnahme) {
+	setString("teilnahme", teilnahme.name());
     }
 
 }

@@ -2,11 +2,15 @@ package com.appspot.ssg.dmixed.server.jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 
 @Entity
 @Table(name = "terminteilnehmer")
@@ -27,6 +31,9 @@ public class JPATerminTeilnehmer {
 
     @Column
     private Long user;
+
+    @Enumerated(EnumType.STRING)
+    private ETeilnahmeStatus status;
 
     public JPATerminTeilnehmer() {
     }
@@ -58,6 +65,14 @@ public class JPATerminTeilnehmer {
 
     public void setUser(final Long user) {
 	this.user = user;
+    }
+
+    public ETeilnahmeStatus getStatus() {
+	return status;
+    }
+
+    public void setStatus(final ETeilnahmeStatus status) {
+	this.status = status;
     }
 
 }

@@ -30,4 +30,17 @@
   <source path='client'/>
   <source path='shared'/>
   
+<!--
+-->
+<!--
+  <set-property name="mgwt.os" value="android" />
+  <set-property name="mgwt.os" value="android_tablet" />
+  <set-property name="mgwt.os" value="ipad_retina" />
+  <set-property name="mgwt.os" value="ipad" />
+  <set-property name="mgwt.os" value="retina" />
+  <set-property name="mgwt.os" value="iphone" />
+  <set-property name="mgwt.os" value="blackberry" />
+  <set-property name="mgwt.os" value="desktop" />
+-->
+  
 </module>

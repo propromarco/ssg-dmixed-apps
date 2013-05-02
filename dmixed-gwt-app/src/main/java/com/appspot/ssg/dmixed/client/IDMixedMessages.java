@@ -18,4 +18,12 @@ public interface IDMixedMessages extends Messages {
     String mitbringen();
 
     String errorOnLogin();
+
+    String nimmtTeil();
+
+    String nimmtNichtTeil();
+
+    String vielleicht();
+
+    String nichtEntschieden();
 }

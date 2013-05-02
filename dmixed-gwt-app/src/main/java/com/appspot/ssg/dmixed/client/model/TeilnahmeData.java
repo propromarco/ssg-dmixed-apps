@@ -1,5 +1,6 @@
 package com.appspot.ssg.dmixed.client.model;
 
+import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 import com.appspot.ssg.dmixed.shared.ITeilnahmeData;
 
 public class TeilnahmeData extends AbstractData implements ITeilnahmeData {
@@ -27,13 +28,14 @@ public class TeilnahmeData extends AbstractData implements ITeilnahmeData {
     }
 
     @Override
-    public Boolean getTeilnahme() {
-	return getBoolean("teilnahme");
+    public ETeilnahmeStatus getTeilnahme() {
+	final String s = getString("teilnahme");
+	return ETeilnahmeStatus.valueOf(s);
     }
 
     @Override
-    public void setTeilnahme(final Boolean teilnahme) {
-	setBoolean("teilnahme", teilnahme);
+    public void setTeilnahme(final ETeilnahmeStatus teilnahme) {
+	setString("teilnahme", teilnahme.name());
     }
 
 }

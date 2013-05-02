@@ -96,7 +96,7 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
     }
 
     @Override
-    public void onMitringen(final IMitbringData data, final IAsync<Void> answer) {
+    public void onMitbringen(final IMitbringData data, final IAsync<Void> answer) {
 	final String url = _urlCreator.getOnMitringenUrl();
 	final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.PUT);
 	final String requestData = data.toString();

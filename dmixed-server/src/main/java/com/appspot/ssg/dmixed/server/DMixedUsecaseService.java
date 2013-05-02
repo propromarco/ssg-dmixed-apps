@@ -24,12 +24,13 @@ import com.appspot.ssg.dmixed.server.beans.TerminTeilnehmer;
 import com.appspot.ssg.dmixed.server.beans.Termine;
 import com.appspot.ssg.dmixed.server.beans.UserData;
 import com.appspot.ssg.dmixed.server.beans.Users;
-import com.appspot.ssg.dmixed.server.jpa.FakeAdapter;
+import com.appspot.ssg.dmixed.server.jpa.JPAAdapter;
 import com.appspot.ssg.dmixed.server.jpa.JPAMitbringsel;
 import com.appspot.ssg.dmixed.server.jpa.JPATermin;
 import com.appspot.ssg.dmixed.server.jpa.JPATerminMitbringsel;
 import com.appspot.ssg.dmixed.server.jpa.JPATerminTeilnehmer;
 import com.appspot.ssg.dmixed.server.jpa.JPAUser;
+import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 
@@ -41,7 +42,7 @@ public class DMixedUsecaseService {
     private final IJPAAdapter adapter;
 
     public DMixedUsecaseService() {
-	adapter = FakeAdapter.getInstance();
+	adapter = JPAAdapter.getInstance();
     }
 
     @POST
@@ -214,11 +215,11 @@ public class DMixedUsecaseService {
 	    terminTeilnehmer.setId(jpaUser.getId());
 	    terminTeilnehmer.setVorname(jpaUser.getVorname());
 	    terminTeilnehmer.setName(jpaUser.getName());
-	    terminTeilnehmer.setTeilnahme(false);
+	    terminTeilnehmer.setTeilnahme(ETeilnahmeStatus.NichtEntschieden);
 	    final List<JPATerminTeilnehmer> teilnehmer = adapter.getTeilnehmer(termin);
 	    for (final JPATerminTeilnehmer jpaTerminTeilnehmer : teilnehmer) {
 		if (jpaTerminTeilnehmer.getUser() == jpaUser.getId())
-		    terminTeilnehmer.setTeilnahme(true);
+		    terminTeilnehmer.setTeilnahme(jpaTerminTeilnehmer.getStatus());
 	    }
 	    list.add(terminTeilnehmer);
 	}

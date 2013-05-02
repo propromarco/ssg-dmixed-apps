@@ -12,8 +12,8 @@ public interface ITeilnahmeData extends Serializable {
 
     void setTerminId(Long terminId);
 
-    Boolean getTeilnahme();
+    ETeilnahmeStatus getTeilnahme();
 
-    void setTeilnahme(Boolean teilnahme);
+    void setTeilnahme(ETeilnahmeStatus teilnahme);
 
 }
