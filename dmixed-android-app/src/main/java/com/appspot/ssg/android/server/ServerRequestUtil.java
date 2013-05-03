@@ -80,6 +80,26 @@ public class ServerRequestUtil {
 		}
 	}
 
+	public long createUser(boolean admin, String name, String vorname,
+			String mail, Long birthday) throws ServerRequestException {
+		final String newUserUrl = urlCreator.getNewUserUrl();
+		UserData data = new UserData();
+		data.setAdmin(admin);
+		data.setName(name);
+		data.setVorname(vorname);
+		data.setEmail(mail);
+		data.setBirthday(birthday);
+		final String result = call(data, newUserUrl, HTTP_TYPE.POST);
+		try
+		{
+			return Long.getLong(result);
+		}
+		catch(Exception e)
+		{
+			throw new ServerRequestException(result);
+		}
+	}
+
 	public void setTeilnahme(ETeilnahmeStatus teilnahme, long terminId,
 			long userId) throws ServerRequestException {
 		final TeilnahmeData teilnahmeData = new TeilnahmeData();
@@ -101,6 +121,13 @@ public class ServerRequestUtil {
 		final String onMitringenUrl = urlCreator.getOnMitringenUrl();
 		call(mitbringData, onMitringenUrl, HTTP_TYPE.PUT);
 	}
+	
+	public void deleteUser(long userId) throws ServerRequestException {
+		final String deleteUserUrl = urlCreator.getDeleteUserUrl();
+		call(userId, deleteUserUrl, HTTP_TYPE.PUT);
+	}
+
+
 
 	private String call(Object postObject, String url, HTTP_TYPE type)
 			throws ServerRequestException {

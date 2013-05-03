@@ -12,6 +12,7 @@
     <string name="LoginVorname">Vorname</string>
     <string name="LoginMailExample">max.muster@gmail.com</string>
     <string name="LoginButton">Login</string>
+    <string name="LoginCreateUser">Neu</string>
     <!-- Übersichtseite -->
     <string name="TerminUebersichtTitel">Termine</string>
     <string name="TerminUebersichtTerminErstellenButton">Neuen Termin erstellen</string>
@@ -30,5 +31,11 @@
     <string name="TerminErstellungErstellenButton">Erstellen</string>
     <!-- Error Activity -->
     <string name="ErrorSchliessenButton">OK</string>
+    <!-- neuen Benutzer anlegen -->
+    <string name="CreateUserNameHint">Vorname</string>
+    <string name="CreateUserLastNameHint">Nachname</string>
+    <string name="CreateUserEMailHint">beispiel@provider.com</string>
+    <string name="CreateUserAdminCheckbox">Als Admin</string>
+    <string name="CreateUserButton">Erstellen</string>
     <!-- NEU -->
 </resources>

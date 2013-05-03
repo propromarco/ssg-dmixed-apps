@@ -2,5 +2,6 @@
 
     <item
         android:id="@+id/MenuLogout" android:title="Logout" android:menuCategory="system"/>
+    <item android:id="@+id/MenuDelete"></item>
 
 </menu>

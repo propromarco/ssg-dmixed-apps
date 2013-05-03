@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -25,6 +28,28 @@ public class LoginActivity extends Activity {
 	}
 
 	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		final MenuInflater menuInflater = getMenuInflater();
+		menuInflater.inflate(R.menu.login_menu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.LoginCreateUser:
+			final Context applicationContext = getApplicationContext();
+			final Intent intent = new Intent(applicationContext,
+					CreateUserActivity.class);
+			startActivity(intent);
+			finish();
+			return true;
+		default:
+			return false;
+		}
+	}
+
+	@Override
 	protected void onResume() {
 		super.onResume();
 		final long userId = AndroidConstants.getUserId(this);
@@ -36,8 +61,8 @@ public class LoginActivity extends Activity {
 
 				@Override
 				public void onClick(View view) {
-					final String mailString = getString(R.id.LoginMail);
-					final String vornameString = getString(R.id.LoginVorname);
+					final String mailString = getValueFromInput(R.id.LoginMail);
+					final String vornameString = getValueFromInput(R.id.LoginVorname);
 					try {
 						IUserData result = sru.login(vornameString, mailString);
 						final Long usrId = result.getId();
@@ -55,20 +80,20 @@ public class LoginActivity extends Activity {
 						startActivity(intent);
 					}
 				}
-
-				private void reset(int loginmail) {
-					final TextView view = (TextView) findViewById(loginmail);
-					view.setText("");
-				}
-
-				private String getString(int id) {
-					final String passwortString;
-					final TextView passwort = (TextView) findViewById(id);
-					passwortString = passwort.getText().toString();
-					return passwortString;
-				}
 			});
 		}
+	}
+
+	private void reset(int loginmail) {
+		final TextView view = (TextView) findViewById(loginmail);
+		view.setText("");
+	}
+
+	private String getValueFromInput(int id) {
+		final String passwortString;
+		final TextView passwort = (TextView) findViewById(id);
+		passwortString = passwort.getText().toString();
+		return passwortString;
 	}
 
 	private void swichToUebersicht() {
