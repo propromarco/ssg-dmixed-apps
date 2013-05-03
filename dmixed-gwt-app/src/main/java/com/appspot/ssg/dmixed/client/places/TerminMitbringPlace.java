@@ -3,23 +3,23 @@ package com.appspot.ssg.dmixed.client.places;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceTokenizer;
 
-public class TerminPlace extends Place {
+public class TerminMitbringPlace extends Place {
 
     private final Long _terminId;
     private final Long userId;
 
-    public static class TerminPlaceTokenizer implements PlaceTokenizer<TerminPlace> {
+    public static class TerminMitbringPlaceTokenizer implements PlaceTokenizer<TerminMitbringPlace> {
 
 	@Override
-	public TerminPlace getPlace(final String token) {
+	public TerminMitbringPlace getPlace(final String token) {
 	    final String[] ids = token.split(":");
 	    final Long userId = Long.valueOf(ids[0]);
 	    final Long terminId = Long.valueOf(ids[1]);
-	    return new TerminPlace(userId, terminId);
+	    return new TerminMitbringPlace(userId, terminId);
 	}
 
 	@Override
-	public String getToken(final TerminPlace place) {
+	public String getToken(final TerminMitbringPlace place) {
 	    final Long userId = place.getUserId();
 	    final Long terminId = place.getTerminId();
 	    return userId + ":" + terminId;
@@ -27,7 +27,7 @@ public class TerminPlace extends Place {
 
     }
 
-    public TerminPlace(final Long userId, final Long terminId) {
+    public TerminMitbringPlace(final Long userId, final Long terminId) {
 	this.userId = userId;
 	_terminId = terminId;
     }
@@ -52,7 +52,7 @@ public class TerminPlace extends Place {
 	if (other == null)
 	    return false;
 
-	if (other instanceof TerminPlace)
+	if (other instanceof TerminMitbringPlace)
 	    return true;
 	return false;
     }

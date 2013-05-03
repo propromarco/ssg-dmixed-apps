@@ -26,4 +26,6 @@ public interface IDMixedMessages extends Messages {
     String vielleicht();
 
     String nichtEntschieden();
+
+    String mitkommen();
 }

@@ -53,7 +53,7 @@ public class TermineActivity extends MGWTAbstractActivity {
 		}
 
 		@Override
-		public void onError(Throwable exception) {
+		public void onError(final Throwable exception) {
 		    termineView.showError(exception);
 		}
 	    };
@@ -69,7 +69,9 @@ public class TermineActivity extends MGWTAbstractActivity {
 		final ITermine termine = model.getTermine();
 		final List<ITermin> all = termine.getAll();
 		final ITermin iTermin = all.get(index);
-		_clientFactory.getPlaceController().goTo(new TerminPlace(iTermin.getTerminId()));
+		final Long terminId = iTermin.getTerminId();
+		final Long userId = model.getUser().getId();
+		_clientFactory.getPlaceController().goTo(new TerminPlace(userId, terminId));
 	    }
 	}));
 

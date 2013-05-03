@@ -215,14 +215,22 @@ public class JPAAdapter implements IJPAAdapter {
 
     @Override
     public void newUser(final JPAUser jpaUser) {
-	// TODO Auto-generated method stub
-
+	final EntityManager em = emf.createEntityManager();
+	try {
+	    em.persist(jpaUser);
+	} finally {
+	    em.close();
+	}
     }
 
     @Override
     public void delUser(final JPAUser jpaUser) {
-	// TODO Auto-generated method stub
-
+	final EntityManager em = emf.createEntityManager();
+	try {
+	    em.remove(jpaUser);
+	} finally {
+	    em.close();
+	}
     }
 
     @Override

@@ -47,26 +47,6 @@ public class DMixedApp implements EntryPoint {
 	historyHandler.register(clientFactory.getPlaceController(), clientFactory.getEventBus(), new LoginPlace());
 	historyHandler.handleCurrentHistory();
 
-	//
-	// // build animation helper and attach it
-	// final AnimationHelper animationHelper = new AnimationHelper();
-	// RootPanel.get().add(animationHelper);
-	//
-	// // build some UI
-	// final LayoutPanel layoutPanel = new LayoutPanel();
-	// final Button button = new Button("anmelden");
-	// layoutPanel.add(create());
-	// layoutPanel.add(button);
-	//
-	// // animate
-	// animationHelper.goTo(layoutPanel, Animation.SLIDE);
-	//
-	// final IDMixedMessages messages = GWT.create(IDMixedMessages.class);
-	// final String baseUrl = GWT.getHostPageBaseURL();
-	// final IDMixedUsecase service = new DMixedUsecaseConnector(baseUrl);
-	// final DMixedModel model = new DMixedModel(messages);
-	// // final JQMPage page = new LoginPage(service, model);
-	// // JQMContext.changePage(page);
     }
 
 }

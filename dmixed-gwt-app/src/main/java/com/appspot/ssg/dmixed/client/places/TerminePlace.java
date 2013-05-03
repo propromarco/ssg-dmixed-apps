@@ -5,18 +5,29 @@ import com.google.gwt.place.shared.PlaceTokenizer;
 
 public class TerminePlace extends Place {
 
+    private final Long userId;
+
     public static class TerminePlaceTokenizer implements PlaceTokenizer<TerminePlace> {
 
 	@Override
 	public TerminePlace getPlace(final String token) {
-	    return new TerminePlace();
+	    final Long userId = Long.valueOf(token);
+	    return new TerminePlace(userId);
 	}
 
 	@Override
 	public String getToken(final TerminePlace place) {
-	    return "";
+	    return place.getUserId().toString();
 	}
 
+    }
+
+    public TerminePlace(final Long userId) {
+	this.userId = userId;
+    }
+
+    public Long getUserId() {
+	return userId;
     }
 
     @Override
