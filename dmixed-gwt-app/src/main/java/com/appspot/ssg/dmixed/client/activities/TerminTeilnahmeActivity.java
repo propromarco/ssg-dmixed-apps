@@ -28,6 +28,8 @@ public class TerminTeilnahmeActivity extends MGWTAbstractActivity {
 
 	public interface IListItem extends HasValue<ETeilnahmeStatus>, HasTapHandlers {
 	    void setMitbringer(String string);
+
+	    void setEnabled(boolean enabled);
 	}
 
 	public interface IListCreator<T> {
@@ -69,6 +71,9 @@ public class TerminTeilnahmeActivity extends MGWTAbstractActivity {
 		    final IListCreator<ITerminTeilnehmer> teilnehmerCreator = terminView.fillTeilnehmer();
 		    for (final ITerminTeilnehmer terminTeilnehmer : teilnehmer) {
 			final IListItem item = teilnehmerCreator.create(terminTeilnehmer);
+			if (!isAngemeldeterUser(terminTeilnehmer)) {
+			    item.setEnabled(false);
+			}
 			addHandlerRegistration(item.addValueChangeHandler(new ValueChangeHandler<ETeilnahmeStatus>() {
 			    @Override
 			    public void onValueChange(final ValueChangeEvent<ETeilnahmeStatus> event) {
@@ -92,15 +97,20 @@ public class TerminTeilnahmeActivity extends MGWTAbstractActivity {
 	service.getTermin(userId, _terminId, answer);
     }
 
-    private boolean checkTeilnehmer(final ITerminTeilnehmer terminTeilnehmer, final Long terminId, final ETeilnahmeStatus status) {
+    protected boolean isAngemeldeterUser(final ITerminTeilnehmer terminTeilnehmer) {
 	final Long id = terminTeilnehmer.getId();
 	final Long id2 = _clientFactory.getModel().getUser().getId();
-	if (!id.equals(id2))
+	return id.equals(id2);
+    }
+
+    private boolean checkTeilnehmer(final ITerminTeilnehmer terminTeilnehmer, final Long terminId, final ETeilnahmeStatus status) {
+	if (!isAngemeldeterUser(terminTeilnehmer))
 	    return false;
+	final Long id = _clientFactory.getModel().getUser().getId();
 	terminTeilnehmer.setTeilnahme(status);
 	final IDMixedUsecase service = _clientFactory.getService();
 	final TeilnahmeData teilnahmeData = new TeilnahmeData();
-	teilnahmeData.setUserId(id2);
+	teilnahmeData.setUserId(id);
 	teilnahmeData.setTerminId(terminId);
 	teilnahmeData.setTeilnahme(status);
 	final IAsync<Void> answer = new IAsync<Void>() {
