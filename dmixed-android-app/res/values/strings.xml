@@ -20,13 +20,11 @@
     <string name="TerminDetailsIntro">Termindetails</string>
     <string name="TerminDetailsBearbeitenButton">Bearbeiten</string>
     <!-- Details-Bearbeitenseite -->
-    <string name="TerminDetailsBearbeitenBeschreibung">Bitte geben Sie eine detailliertere Beschreibung des Termins an</string>
+    <string name="TerminDetailsKurzbeschreibungHint">Kurzbeschreibung</string>
+    <string name="TerminDetailsBeschreibungHint">Beschreibung</string>
     <string name="terminDetailsBearbeitenAendern">Übernehmen</string>
     <!-- Termin anlegen Seite -->
     <string name="TerminErstellungIntro">Neuen Termin erstellen</string>
-    <string name="TerminErstellungErklaerung">Sie sind dabei einen neuen Termin zu erstellen. Wählen Sie dafür bitte den Zeitpunkt des Termins aus und geben eine kurze Beschreibung (ca. 20 Zeichen) ein</string>
-    <string name="TerminErstellungDatumAuswahl">Bitte wählen Sie ein Datum aus</string>
-    <string name="TerminErstellungKurzbeschreibung">Kurzbeschreibung für den Termin</string>
     <string name="TerminErstellungErstellenButton">Erstellen</string>
     <!-- Error Activity -->
     <string name="ErrorSchliessenButton">OK</string>

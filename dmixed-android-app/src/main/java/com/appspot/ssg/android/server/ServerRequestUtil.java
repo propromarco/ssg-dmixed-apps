@@ -80,6 +80,15 @@ public class ServerRequestUtil {
 		}
 	}
 
+	public ITerminDetails createTermin(long userId, boolean heimspiel)
+			throws ServerRequestException {
+		final String createTerminUrl = urlCreator.getCreateTerminUrl(userId,
+				heimspiel);
+		final String json = call(null, createTerminUrl, HTTP_TYPE.GET);
+		final TerminDetails details = createObject(json, TerminDetails.class);
+		return details;
+	}
+
 	public long createUser(boolean admin, String name, String vorname,
 			String mail, Long birthday) throws ServerRequestException {
 		final String newUserUrl = urlCreator.getNewUserUrl();
@@ -90,12 +99,9 @@ public class ServerRequestUtil {
 		data.setEmail(mail);
 		data.setBirthday(birthday);
 		final String result = call(data, newUserUrl, HTTP_TYPE.POST);
-		try
-		{
+		try {
 			return Long.getLong(result);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			throw new ServerRequestException(result);
 		}
 	}
@@ -121,13 +127,16 @@ public class ServerRequestUtil {
 		final String onMitringenUrl = urlCreator.getOnMitringenUrl();
 		call(mitbringData, onMitringenUrl, HTTP_TYPE.PUT);
 	}
-	
+
 	public void deleteUser(long userId) throws ServerRequestException {
 		final String deleteUserUrl = urlCreator.getDeleteUserUrl();
 		call(userId, deleteUserUrl, HTTP_TYPE.PUT);
 	}
 
-
+	public void updateTermin(long userId, ITerminDetails terminDetails) throws ServerRequestException {
+		final String saveTerminUrl = urlCreator.getSaveTerminUrl(userId);
+		call(terminDetails, saveTerminUrl, HTTP_TYPE.PUT);
+	}
 
 	private String call(Object postObject, String url, HTTP_TYPE type)
 			throws ServerRequestException {
@@ -193,4 +202,5 @@ public class ServerRequestUtil {
 				}
 		}
 	}
+
 }

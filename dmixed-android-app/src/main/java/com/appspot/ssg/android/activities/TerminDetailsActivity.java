@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -14,6 +16,8 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.appspot.ssg.android.activities.menu.MenuDefaultSupport;
+import com.appspot.ssg.android.activities.menu.TerminDetailsAdminMenuSupport;
 import com.appspot.ssg.android.data.AndroidConstants;
 import com.appspot.ssg.android.server.ServerRequestException;
 import com.appspot.ssg.android.server.ServerRequestUtil;
@@ -25,6 +29,7 @@ import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 
 public class TerminDetailsActivity extends Activity {
 	private final ServerRequestUtil sru = new ServerRequestUtil();
+	private MenuDefaultSupport ms;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +38,23 @@ public class TerminDetailsActivity extends Activity {
 	}
 
 	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		return ms.onCreateOptionsMenu(this, menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		return ms.onOptionsItemSelected(this, item);
+	}
+
+	@Override
 	protected void onResume() {
 		super.onResume();
 		final boolean admin = AndroidConstants.isAdmin(this);
-		if(admin)
-		{
-			
-		}
-		else
-		{
-			
+		if (admin) {
+			ms = new TerminDetailsAdminMenuSupport();
+		} else {
+			ms = new MenuDefaultSupport();
 		}
 		final Resources resources = getResources();
 		final Drawable heimspielBitmap = resources.getDrawable(R.drawable.heim);

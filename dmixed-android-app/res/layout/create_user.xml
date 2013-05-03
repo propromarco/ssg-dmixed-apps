@@ -31,7 +31,7 @@
         android:inputType="textEmailAddress" />
 
     <DatePicker
-        android:id="@+id/datePicker1"
+        android:id="@+id/TerminDetailsDatumAuswahl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
