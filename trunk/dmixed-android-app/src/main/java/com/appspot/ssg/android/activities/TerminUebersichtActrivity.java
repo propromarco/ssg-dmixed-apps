@@ -20,6 +20,7 @@ import com.appspot.ssg.android.server.ServerRequestUtil;
 import com.appspot.ssg.dmixed.shared.ITermin;
 
 public class TerminUebersichtActrivity extends Activity {
+	private final ServerRequestUtil sru = new ServerRequestUtil();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,17 +32,19 @@ public class TerminUebersichtActrivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 		try {
-			Collection<ITermin> termine = ServerRequestUtil
-					.getTermine(AndroidConstants.getUserId(this));
+			Collection<ITermin> termine = sru.getTermine(AndroidConstants
+					.getUserId(this));
 			TableLayout table = (TableLayout) findViewById(R.id.TerminUebersichtTabelle);
 			table.removeAllViews();
 			final Button logoutButton = (Button) findViewById(R.id.TerminUebersichtLogoutButton);
 			logoutButton.setOnClickListener(new OnClickListener() {
-				
+
 				@Override
 				public void onClick(View v) {
-					AndroidConstants.setUserId(TerminUebersichtActrivity.this, -1l);
-					final Intent intent = new Intent(v.getContext(), LoginActivity.class);
+					AndroidConstants.setUserId(TerminUebersichtActrivity.this,
+							-1l);
+					final Intent intent = new Intent(v.getContext(),
+							LoginActivity.class);
 					startActivity(intent);
 					finish();
 				}

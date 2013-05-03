@@ -22,6 +22,7 @@ import com.appspot.ssg.android.data.TeilnahmeData;
 import com.appspot.ssg.android.data.TerminDetails;
 import com.appspot.ssg.android.data.Termine;
 import com.appspot.ssg.android.data.UserData;
+import com.appspot.ssg.dmixed.shared.DMixedUrlCreator;
 import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 import com.appspot.ssg.dmixed.shared.ITermin;
 import com.appspot.ssg.dmixed.shared.ITerminDetails;
@@ -31,69 +32,44 @@ import com.google.gson.Gson;
 
 public class ServerRequestUtil {
 
-	private ServerRequestUtil() {
+	private final DMixedUrlCreator urlCreator = new DMixedUrlCreator(
+			"http://ssg-dmixed.appspot.com/rest");
+
+	public ServerRequestUtil() {
 	}
 
 	private enum HTTP_TYPE {
 		POST, PUT, GET
 	}
 
-	private static final String serverUrl = "http://ssg-dmixed.appspot.com/rest";
-
-	/**
-	 * Post-Method. post LoginData
-	 */
-	private static final String LOGIN_PATH = serverUrl + "/dmixed";
-
-	/**
-	 * GET-Method. Add user-id at the end
-	 */
-	private static final String TERMINE_PATH = serverUrl + "/dmixed/termine";
-
-	/**
-	 * GET-Method. Add first user-id and then termin id
-	 */
-	private static final String TERMIN_PATH = serverUrl + "/dmixed/termin";
-
-	/**
-	 * PUT-Method. Add TeilnahmeData
-	 */
-	private static final String TEILNAHME_PATH = serverUrl
-			+ "/dmixed/teilnahme";
-
-	/**
-	 * PUT-Method. Add MitbringData
-	 */
-	private static final String MITBRING_PATH = serverUrl
-			+ "/dmixed/mitbringen";
-
-	public static IUserData login(String username, String mail)
+	public IUserData login(String username, String mail)
 			throws ServerRequestException {
 		final LoginData loginData = new LoginData();
 		loginData.setEmail(mail.trim());
 		loginData.setVorname(username.trim());
-		final String json = call(loginData, LOGIN_PATH, HTTP_TYPE.POST);
+		final String loginUrl = urlCreator.getLoginUrl();
+		final String json = call(loginData, loginUrl, HTTP_TYPE.POST);
 		final IUserData fromJson = createObject(json, UserData.class);
 		return fromJson;
 	}
 
-	public static List<ITermin> getTermine(long userId)
-			throws ServerRequestException {
-		final String json = call(null, TERMINE_PATH + "/" + userId,
-				HTTP_TYPE.GET);
+	public List<ITermin> getTermine(long userId) throws ServerRequestException {
+		final String termineUrl = urlCreator.getTermineUrl(userId);
+		final String json = call(null, termineUrl, HTTP_TYPE.GET);
 		final ITermine fromJson = createObject(json, Termine.class);
 		return fromJson.getAll();
 	}
 
-	public static ITerminDetails getTerminDetails(long userId, long terminId)
+	public ITerminDetails getTerminDetails(long userId, long terminId)
 			throws ServerRequestException {
-		final String json = call(null, TERMIN_PATH + "/" + userId + "/"
-				+ terminId, HTTP_TYPE.GET);
+		final String terminUrl = urlCreator.getTerminUrl(userId, terminId);
+		final String json = call(null, terminUrl, HTTP_TYPE.GET);
 		final ITerminDetails fromJson = createObject(json, TerminDetails.class);
 		return fromJson;
 	}
 
-	private static <T> T createObject(final String json, final Class<T> clazz) throws ServerRequestException{
+	private <T> T createObject(final String json, final Class<T> clazz)
+			throws ServerRequestException {
 		try {
 			final T fromJson = new Gson().fromJson(json, clazz);
 			return fromJson;
@@ -104,27 +80,29 @@ public class ServerRequestUtil {
 		}
 	}
 
-	public static void setTeilnahme(ETeilnahmeStatus teilnahme, long terminId,
+	public void setTeilnahme(ETeilnahmeStatus teilnahme, long terminId,
 			long userId) throws ServerRequestException {
 		final TeilnahmeData teilnahmeData = new TeilnahmeData();
 		teilnahmeData.setTeilnahme(teilnahme);
 		teilnahmeData.setTerminId(terminId);
 		teilnahmeData.setUserId(userId);
-		call(teilnahmeData, TEILNAHME_PATH, HTTP_TYPE.PUT);
+		final String onTeilnahmeUrl = urlCreator.getOnTeilnahmeUrl();
+		call(teilnahmeData, onTeilnahmeUrl, HTTP_TYPE.PUT);
 	}
 
-	public static void addMitbringsel(long userId, long terminId,
-			boolean teilnahme, long mitbringselId, boolean mitbringen)
+	public void addMitbringsel(long userId, long terminId, boolean teilnahme,
+			long mitbringselId, boolean mitbringen)
 			throws ServerRequestException {
 		final MitbringData mitbringData = new MitbringData();
 		mitbringData.setMitbringen(mitbringen);
 		mitbringData.setMitbringselId(mitbringselId);
 		mitbringData.setTerminId(terminId);
 		mitbringData.setUserId(userId);
-		call(mitbringData, MITBRING_PATH, HTTP_TYPE.PUT);
+		final String onMitringenUrl = urlCreator.getOnMitringenUrl();
+		call(mitbringData, onMitringenUrl, HTTP_TYPE.PUT);
 	}
 
-	private static String call(Object postObject, String url, HTTP_TYPE type)
+	private String call(Object postObject, String url, HTTP_TYPE type)
 			throws ServerRequestException {
 		HttpParams p = new BasicHttpParams();
 		// p.setParameter("name", pvo.getName());
@@ -162,8 +140,9 @@ public class ServerRequestUtil {
 			default:
 				return null;
 			}
-			if(response.getStatusLine().getStatusCode()!=200)
-				throw new ServerRequestException(response.getStatusLine().getReasonPhrase());
+			if (response.getStatusLine().getStatusCode() != 200)
+				throw new ServerRequestException(response.getStatusLine()
+						.getReasonPhrase());
 			InputStream is = response.getEntity().getContent();
 			final InputStreamReader isr = new InputStreamReader(is);
 			final StringBuilder result = new StringBuilder();
