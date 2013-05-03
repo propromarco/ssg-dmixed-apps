@@ -11,12 +11,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup.MarginLayoutParams;
-import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.appspot.ssg.android.activities.menu.MenuActrivitySupport;
+import com.appspot.ssg.android.activities.menu.MenuDefaultSupport;
+import com.appspot.ssg.android.activities.menu.TerminUebersichtAdminMenuSupport;
 import com.appspot.ssg.android.data.AndroidConstants;
 import com.appspot.ssg.android.server.ServerRequestException;
 import com.appspot.ssg.android.server.ServerRequestUtil;
@@ -24,7 +24,7 @@ import com.appspot.ssg.dmixed.shared.ITermin;
 
 public class TerminUebersichtActrivity extends Activity {
 	private final ServerRequestUtil sru = new ServerRequestUtil();
-	private final MenuActrivitySupport mas = new MenuActrivitySupport();
+	private MenuDefaultSupport mas;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,27 +45,17 @@ public class TerminUebersichtActrivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		if (AndroidConstants.isAdmin(this)) {
+			mas = new TerminUebersichtAdminMenuSupport();
+		} else {
+			mas = new MenuDefaultSupport();
+		}
 		try {
 			Collection<ITermin> termine = sru.getTermine(AndroidConstants
 					.getUserId(this));
 			TableLayout table = (TableLayout) findViewById(R.id.TerminUebersichtTabelle);
 			table.removeAllViews();
 			int width = 80;// findViewById(R.id.DatumHeader).getWidth();
-			final boolean admin = AndroidConstants.isAdmin(this);
-			final Button button = (Button) findViewById(R.id.TerminUebersichtTerminErstellenButton);
-			button.setVisibility(admin ? View.VISIBLE : View.INVISIBLE);
-			if (admin) {
-				button.setOnClickListener(new OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
-						final Intent intent = new Intent(v.getContext(),
-								TerminErstellenActivity.class);
-						startActivityForResult(intent, 0);
-					}
-				});
-			}
-
 			for (final ITermin iTermin : termine) {
 				TableRow row = new TableRow(this);
 				{
@@ -95,13 +85,6 @@ public class TerminUebersichtActrivity extends Activity {
 						LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 				params.setMargins(0, 10, 0, 0);
 				row.setLayoutParams(params);
-				// Bitmap resource =
-				// BitmapFactory.decodeResource(getResources(),
-				// R.drawable.heim);
-				// BitmapDrawable bitmapDrawable = new
-				// BitmapDrawable(getResources(), resource);
-				// bitmapDrawable.setTileModeXY(Shader.TileMode.REPEAT, null);
-				// row.setBackground(bitmapDrawable);
 				table.addView(row);
 			}
 		} catch (ServerRequestException e) {

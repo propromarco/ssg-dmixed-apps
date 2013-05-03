@@ -9,7 +9,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -36,6 +35,15 @@ public class TerminDetailsActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		final boolean admin = AndroidConstants.isAdmin(this);
+		if(admin)
+		{
+			
+		}
+		else
+		{
+			
+		}
 		final Resources resources = getResources();
 		final Drawable heimspielBitmap = resources.getDrawable(R.drawable.heim);
 		final Drawable auswaertsBitmap = resources
@@ -47,21 +55,6 @@ public class TerminDetailsActivity extends Activity {
 		ITermin termin = (ITermin) getIntent().getExtras().get(
 				AndroidConstants.TERMIN_KEY);
 		if (termin != null) {
-			final boolean admin = AndroidConstants.isAdmin(this);
-			final Button bearbeitenButton = (Button) findViewById(R.id.TerminDetailsBearbeitenButton);
-			bearbeitenButton.setVisibility(admin ? View.VISIBLE
-					: View.INVISIBLE);
-			if (admin) {
-				bearbeitenButton.setOnClickListener(new OnClickListener() {
-
-					@Override
-					public void onClick(View view) {
-						final Intent intent = new Intent(view.getContext(),
-								TerminDetailsBearbeitenActivity.class);
-						startActivityForResult(intent, 0);
-					}
-				});
-			}
 			try {
 				final long userId = AndroidConstants.getUserId(this);
 				final Long terminId = termin.getTerminId();

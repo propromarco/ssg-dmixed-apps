@@ -15,7 +15,6 @@
     <string name="LoginCreateUser">Neu</string>
     <!-- Übersichtseite -->
     <string name="TerminUebersichtTitel">Termine</string>
-    <string name="TerminUebersichtTerminErstellenButton">Neuen Termin erstellen</string>
     <string name="TerminUebersichtLogoutButton">Logout</string>
     <!-- Detailsseite -->
     <string name="TerminDetailsIntro">Termindetails</string>
@@ -37,5 +36,9 @@
     <string name="CreateUserEMailHint">beispiel@provider.com</string>
     <string name="CreateUserAdminCheckbox">Als Admin</string>
     <string name="CreateUserButton">Erstellen</string>
+    <!-- Menu -->
+    <string name="MenuLogout">Logout</string>
+    <string name="MenuDelete">Löschen</string>
+    <string name="MenuCreateTermin">Neuer Termin</string>
     <!-- NEU -->
 </resources>

@@ -3,5 +3,6 @@
     <item
         android:id="@+id/MenuLogout" android:title="@string/MenuLogout" android:menuCategory="system"/>
     <item android:id="@+id/MenuDelete" android:title="@string/MenuDelete"></item>
+    <item android:id="@+id/MenuCreateTermin" android:title="@string/MenuCreateTermin"></item>
 
 </menu>
