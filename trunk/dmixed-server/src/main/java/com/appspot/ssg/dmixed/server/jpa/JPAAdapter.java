@@ -1,9 +1,6 @@
 package com.appspot.ssg.dmixed.server.jpa;
 
-import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,58 +12,38 @@ import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 
 public class JPAAdapter implements IJPAAdapter {
 
-    private final Logger log = Logger.getLogger(getClass().getName());
+//    private final Logger log = Logger.getLogger(getClass().getName());
     private static JPAAdapter INSTANCE = null;
 
     private final EntityManagerFactory emf;
 
     private JPAAdapter() {
 	emf = EMFService.get();
-	final JPAUser nuria = FakeAdapter.createUser(null, "Nuria", "Schwarz", Date.valueOf("2006-02-24"), true, "123@456.com");
-	final JPAUser kiara = FakeAdapter.createUser(null, "Kiara", "Schwarz", Date.valueOf("2003-02-04"), true, "123@456.com");
-	final JPAMitbringsel kaffee = FakeAdapter.createMitbringsel(null, "Kaffee");
-	final JPAMitbringsel kuchen = FakeAdapter.createMitbringsel(null, "Kuchen");
-	final List<JPAMitbringsel> mitbringsel = new ArrayList<JPAMitbringsel>();
-	mitbringsel.add(kaffee);
-	mitbringsel.add(kuchen);
-	final JPATermin termin1 = FakeAdapter.createTermin(null, Date.valueOf("2013-05-05"), "Bla", "Viel Bla Bla", false, null);
-	final JPATermin termin2 = FakeAdapter.createTermin(null, Date.valueOf("2013-05-06"), "Bla", "Viel Bla Bla", true, null);
-	final EntityManager em = emf.createEntityManager();
-	try {
-	    em.getTransaction().begin();
-	    em.persist(nuria);
-	    em.getTransaction().commit();
-	    em.getTransaction().begin();
-	    em.persist(kiara);
-	    em.getTransaction().commit();
-	    em.getTransaction().begin();
-	    em.persist(kaffee);
-	    em.getTransaction().commit();
-	    em.getTransaction().begin();
-	    em.persist(kuchen);
-	    em.getTransaction().commit();
-	    // for (final JPATerminMitbringsel jpaTerminMitbringsel : t) {
-	    // em.getTransaction().begin();
-	    // em.persist(jpaTerminMitbringsel);
-	    // em.getTransaction().commit();
-	    // }
-	    em.getTransaction().begin();
-	    em.persist(termin1);
-	    em.getTransaction().commit();
-	    em.getTransaction().begin();
-	    em.persist(termin2);
-	    em.getTransaction().commit();
-	    final List<JPATerminMitbringsel> terminMitbringselFuerTermin2 = FakeAdapter.createTerminMitbringsel(mitbringsel, termin2);
-	    for (final JPATerminMitbringsel i : terminMitbringselFuerTermin2) {
-		em.getTransaction().begin();
-		em.persist(i);
-		em.getTransaction().commit();
-	    }
-	} catch (final Exception e) {
-	    log.fine(e.getMessage());
-	} finally {
-	    em.close();
-	}
+//	final EntityManager em = emf.createEntityManager();
+//	try {
+//	    createUser(em, "Annika", "Hansen", Date.valueOf("2006-08-18"), true, "carola.hansen78@googlemail.com");
+//	    createUser(em, "Moritz", "Hansen", Date.valueOf("2006-08-18"), true, "carola.hansen78@googlemail.com");
+//	    createUser(em, "Paula", "Sottong", Date.valueOf("2006-01-14"), true, "Fussmann@gmx.de");
+//	    createUser(em, "Lotta", "Sottong", Date.valueOf("2009-01-27"), true, "Fussmann@gmx.de");
+//	    createUser(em, "Nuria", "Schwarz", Date.valueOf("2006-02-24"), true, "silvana.schwarz@web.de");
+//	    createUser(em, "Moritz", "Freund", Date.valueOf("2006-01-12"), true, "dfreund@arcor.de");
+//	    createUser(em, "Janek", "Freund", Date.valueOf("2007-01-02"), true, "dfreund@arcor.de");
+//	    createUser(em, "Leo", "Scholz", Date.valueOf("2007-07-31"), true, "dr.scholz-bonn@gmx.net");
+//	    createUser(em, "Johanna", "Kulowig", Date.valueOf("2005-08-31"), true, "uschi.doering@gmx.de");
+//
+//	    final JPAMitbringsel kaffee = createMitbringsel(em, "Kaffee");
+//	    final JPAMitbringsel kuchen = createMitbringsel(em, "Kuchen");
+//	    final List<JPAMitbringsel> mitbringsel = new ArrayList<JPAMitbringsel>();
+//	    mitbringsel.add(kaffee);
+//	    mitbringsel.add(kuchen);
+//	    createTermin(em, Date.valueOf("2013-05-05"), "Bla", "Viel Bla Bla", false);
+//	    final JPATermin termin2 = createTermin(em, Date.valueOf("2013-05-06"), "Bla", "Viel Bla Bla", true);
+//	    createMitbringsel(em, termin2, mitbringsel);
+//	} catch (final Exception e) {
+//	    log.fine(e.getMessage());
+//	} finally {
+//	    em.close();
+//	}
     }
 
     public static JPAAdapter getInstance() {
@@ -74,6 +51,42 @@ public class JPAAdapter implements IJPAAdapter {
 	    INSTANCE = new JPAAdapter();
 	return INSTANCE;
     }
+
+//    private JPAUser createUser(final EntityManager em, final String vorname, final String name, final java.util.Date birthday, final boolean admin,
+//	    final String email) {
+//	final JPAUser user = FakeAdapter.createUser(null, vorname, name, birthday, admin, email);
+//	em.getTransaction().begin();
+//	em.persist(user);
+//	em.getTransaction().commit();
+//	return user;
+//    }
+
+//    private JPAMitbringsel createMitbringsel(final EntityManager em, final String bezeichnung) {
+//	final JPAMitbringsel mitbringsel = FakeAdapter.createMitbringsel(null, bezeichnung);
+//	em.getTransaction().begin();
+//	em.persist(mitbringsel);
+//	em.getTransaction().commit();
+//	return mitbringsel;
+//    }
+
+//    private JPATermin createTermin(final EntityManager em, final java.util.Date terminDatum, final String kurz, final String beschreibung,
+//	    final boolean heimspiel) {
+//	final JPATermin termin = FakeAdapter.createTermin(null, terminDatum, kurz, beschreibung, heimspiel, null);
+//	em.getTransaction().begin();
+//	em.persist(termin);
+//	em.getTransaction().commit();
+//	return termin;
+//    }
+
+//    private List<JPATerminMitbringsel> createMitbringsel(final EntityManager em, final JPATermin termin, final List<JPAMitbringsel> mitbringsel) {
+//	final List<JPATerminMitbringsel> list = FakeAdapter.createTerminMitbringsel(mitbringsel, termin);
+//	for (final JPATerminMitbringsel item : list) {
+//	    em.getTransaction().begin();
+//	    em.persist(item);
+//	    em.getTransaction().commit();
+//	}
+//	return list;
+//    }
 
     @Override
     public JPAUser findUser(final String vorname, final String email) {
