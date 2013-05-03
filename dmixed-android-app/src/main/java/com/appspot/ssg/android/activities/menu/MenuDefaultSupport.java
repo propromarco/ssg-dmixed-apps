@@ -14,8 +14,8 @@ import com.appspot.ssg.android.data.AndroidConstants;
 import com.appspot.ssg.android.server.ServerRequestException;
 import com.appspot.ssg.android.server.ServerRequestUtil;
 
-public class MenuActrivitySupport {
-	private final ServerRequestUtil sru = new ServerRequestUtil();
+public class MenuDefaultSupport {
+	protected final ServerRequestUtil sru = new ServerRequestUtil();
 
 	public boolean onCreateOptionsMenu(Activity activity, Menu menu) {
 		MenuInflater inflater = activity.getMenuInflater();
