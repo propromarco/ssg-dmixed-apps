@@ -54,7 +54,7 @@ public class LoginActivity extends MGWTAbstractActivity {
 		    public void onSuccess(final IUserData t) {
 			if (t != null) {
 			    model.setUser(t);
-			    _clientFactory.getPlaceController().goTo(new TerminePlace());
+			    _clientFactory.getPlaceController().goTo(new TerminePlace(t.getId()));
 			} else {
 			    loginView.showMessage(messages.errorOnLogin());
 			}
