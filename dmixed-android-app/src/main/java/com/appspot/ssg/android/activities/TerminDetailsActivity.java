@@ -25,6 +25,7 @@ import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 
 public class TerminDetailsActivity extends Activity {
+	private final ServerRequestUtil sru = new ServerRequestUtil();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +65,8 @@ public class TerminDetailsActivity extends Activity {
 			try {
 				final long userId = AndroidConstants.getUserId(this);
 				final Long terminId = termin.getTerminId();
-				final ITerminDetails details = ServerRequestUtil
-						.getTerminDetails(userId, terminId);
+				final ITerminDetails details = sru.getTerminDetails(userId,
+						terminId);
 				TextView terminInfo = (TextView) findViewById(R.id.TerminDetailsInfo);
 				terminInfo.setText(AndroidConstants.formatDate(details
 						.getTermineDatum())
@@ -99,8 +100,8 @@ public class TerminDetailsActivity extends Activity {
 										final ETeilnahmeStatus oldTeilnahme = t
 												.getTeilnahme();
 										ETeilnahmeStatus newTeilnahme = nextTeilnahme(oldTeilnahme);
-										ServerRequestUtil.setTeilnahme(
-												newTeilnahme, terminId, userId);
+										sru.setTeilnahme(newTeilnahme,
+												terminId, userId);
 										t.setTeilnahme(newTeilnahme);
 										imageView
 												.setImageDrawable(newTeilnahme == ETeilnahmeStatus.NimmtTeil ? dabei
@@ -154,9 +155,8 @@ public class TerminDetailsActivity extends Activity {
 									try {
 										final boolean mitbringen = m
 												.getMitbringer() == null;
-										ServerRequestUtil.addMitbringsel(
-												userId, terminId, true,
-												m.getId(), mitbringen);
+										sru.addMitbringsel(userId, terminId,
+												true, m.getId(), mitbringen);
 										onResume();
 									} catch (ServerRequestException e) {
 										final Intent intent = new Intent(v

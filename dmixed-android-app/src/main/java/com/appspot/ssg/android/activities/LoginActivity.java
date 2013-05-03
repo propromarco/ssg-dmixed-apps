@@ -16,6 +16,8 @@ import com.appspot.ssg.dmixed.shared.IUserData;
 
 public class LoginActivity extends Activity {
 
+	private final ServerRequestUtil sru = new ServerRequestUtil();
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,8 +39,7 @@ public class LoginActivity extends Activity {
 					final String mailString = getString(R.id.LoginMail);
 					final String vornameString = getString(R.id.LoginVorname);
 					try {
-						IUserData result = ServerRequestUtil.login(
-								vornameString, mailString);
+						IUserData result = sru.login(vornameString, mailString);
 						final Long usrId = result.getId();
 						AndroidConstants.setUserId(LoginActivity.this, usrId);
 						AndroidConstants.setAdmin(LoginActivity.this,
