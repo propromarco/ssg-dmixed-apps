@@ -4,37 +4,57 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/TerminDetailsBearbeitenIntro"
+    <DatePicker
+        android:id="@+id/TerminDetailsDatumAuswahl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <CheckBox
-        android:id="@+id/TerminDetailsBearbeitenHeimspielCheckbox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/Heimspiel" />
-
-    <TextView
-        android:id="@+id/ErrorText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/TerminDetailsBearbeitenBeschreibung"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/TerminDetailsBearbeitenBeschreibungEingabe"
+        android:id="@+id/TerminDetailsKurzbeschreibung"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textMultiLine" >
+        android:hint="@string/TerminDetailsKurzbeschreibungHint" />
+    <EditText
+        android:id="@+id/TerminDetailsBeschreibung"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/TerminDetailsBeschreibungHint" />
 
-        <requestFocus />
-    </EditText>
+    <CheckBox
+        android:id="@+id/TerminDetailsHeimspielCheckbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Heimspiel" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Teilnehmer"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <LinearLayout
+        android:id="@+id/TerminDetailsTeilnehmerListe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Mitbringsel"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <LinearLayout
+        android:id="@+id/TerminDetailsMitbringselListe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/TerminDetailsBearbeitenAendernButton"
