@@ -4,7 +4,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -16,7 +15,6 @@ public class AndroidConstants {
 	private static final String ADMIN_ID = "adminId";
 	public static final String ERROR_KEY = "ErrorMessage";
 
-	@SuppressLint("SimpleDateFormat")
 	private static final SimpleDateFormat format = new SimpleDateFormat(
 			"dd.MM.yyyy");
 
