@@ -37,7 +37,7 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
 	final IAsync<JSONObject> newAnswer = new IAsync<JSONObject>() {
 	    @Override
 	    public void onSuccess(final JSONObject object) {
-		final UserData userData = new UserData(object);
+		final UserData userData = object != null ? new UserData(object) : null;
 		answer.onSuccess(userData);
 	    }
 

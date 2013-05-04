@@ -3,7 +3,6 @@ package com.appspot.ssg.dmixed.client.activities;
 import java.util.Date;
 
 import com.appspot.ssg.dmixed.client.ClientFactory;
-import com.appspot.ssg.dmixed.client.DMixedModel;
 import com.appspot.ssg.dmixed.client.places.TerminMitbringPlace;
 import com.appspot.ssg.dmixed.client.places.TerminTeilnahmePlace;
 import com.appspot.ssg.dmixed.shared.IAsync;
@@ -34,20 +33,20 @@ public class TerminActivity extends MGWTAbstractActivity {
     }
 
     private final ClientFactory _clientFactory;
-    private final Long _terminId;
+    private final Long userId;
+    private final Long terminId;
 
-    public TerminActivity(final ClientFactory clientFactory, final Long terminId) {
+    public TerminActivity(final ClientFactory clientFactory, final Long userId, final Long terminId) {
 	_clientFactory = clientFactory;
-	_terminId = terminId;
+	this.userId = userId;
+	this.terminId = terminId;
     }
 
     @Override
     public void start(final AcceptsOneWidget panel, final EventBus eventBus) {
 	final TerminView terminView = _clientFactory.getTerminView();
-	final DMixedModel model = _clientFactory.getModel();
 	final IDMixedUsecase service = _clientFactory.getService();
 	panel.setWidget(terminView);
-	final Long userId = model.getUser().getId();
 	final IAsync<ITerminDetails> answer = new IAsync<ITerminDetails>() {
 	    @Override
 	    public void onSuccess(final ITerminDetails termin) {
@@ -86,6 +85,6 @@ public class TerminActivity extends MGWTAbstractActivity {
 		terminView.showError(exception);
 	    }
 	};
-	service.getTermin(userId, _terminId, answer);
+	service.getTermin(userId, terminId, answer);
     }
 }

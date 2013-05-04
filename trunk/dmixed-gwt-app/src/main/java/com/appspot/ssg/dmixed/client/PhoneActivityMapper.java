@@ -27,16 +27,17 @@ public class PhoneActivityMapper implements ActivityMapper {
 	if (place instanceof LoginPlace) {
 	    return new LoginActivity(_clientFactory);
 	} else if (place instanceof TerminePlace) {
-	    return new TermineActivity(_clientFactory);
+	    final TerminePlace terminePlace = (TerminePlace) place;
+	    return new TermineActivity(_clientFactory, terminePlace.getUserId());
 	} else if (place instanceof TerminPlace) {
 	    final TerminPlace terminPlace = (TerminPlace) place;
-	    return new TerminActivity(_clientFactory, terminPlace.getTerminId());
+	    return new TerminActivity(_clientFactory, terminPlace.getUserId(), terminPlace.getTerminId());
 	} else if (place instanceof TerminMitbringPlace) {
 	    final TerminMitbringPlace mitbringPlace = (TerminMitbringPlace) place;
-	    return new TerminMitbringActivity(_clientFactory, mitbringPlace.getTerminId());
+	    return new TerminMitbringActivity(_clientFactory, mitbringPlace.getUserId(), mitbringPlace.getTerminId());
 	} else if (place instanceof TerminTeilnahmePlace) {
 	    final TerminTeilnahmePlace teilnahmePlace = (TerminTeilnahmePlace) place;
-	    return new TerminTeilnahmeActivity(_clientFactory, teilnahmePlace.getTerminId());
+	    return new TerminTeilnahmeActivity(_clientFactory, teilnahmePlace.getUserId(), teilnahmePlace.getTerminId());
 	}
 	return null;
     }

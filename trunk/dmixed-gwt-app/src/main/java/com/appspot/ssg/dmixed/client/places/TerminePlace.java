@@ -2,11 +2,13 @@ package com.appspot.ssg.dmixed.client.places;
 
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceTokenizer;
+import com.google.gwt.place.shared.Prefix;
 
 public class TerminePlace extends Place {
 
     private final Long userId;
 
+    @Prefix("Termine")
     public static class TerminePlaceTokenizer implements PlaceTokenizer<TerminePlace> {
 
 	@Override

@@ -23,10 +23,8 @@ public class ClientFactoryImpl implements ClientFactory {
     private final SimpleEventBus eventBus;
     private final PlaceController placeController;
     private final IDMixedMessages messages = GWT.create(IDMixedMessages.class);
-    private final String baseUrl = GWT.getHostPageBaseURL();
-    private final DMixedUrlCreator urlCreator = new DMixedUrlCreator(baseUrl);
-    private final IDMixedUsecase service = new DMixedUsecaseConnector(urlCreator);
-    private final DMixedModel model = new DMixedModel(messages);
+    private final DMixedUrlCreator urlCreator;
+    private final IDMixedUsecase service;
     private final LoginViewImpl _loginViewImpl;
     private final TermineViewImpl _termineViewImpl;
     private final TerminViewImpl _terminView;
@@ -34,6 +32,9 @@ public class ClientFactoryImpl implements ClientFactory {
     private final TerminMitbringViewImpl _terminMitbringView;
 
     public ClientFactoryImpl() {
+	final String baseUrl = GWT.getHostPageBaseURL();
+	urlCreator = new DMixedUrlCreator(baseUrl);
+	service = new DMixedUsecaseConnector(urlCreator);
 	eventBus = new SimpleEventBus();
 	placeController = new PlaceController(eventBus);
 	_loginViewImpl = new LoginViewImpl(messages, true);
@@ -59,18 +60,8 @@ public class ClientFactoryImpl implements ClientFactory {
     }
 
     @Override
-    public final String getBaseUrl() {
-	return baseUrl;
-    }
-
-    @Override
     public final IDMixedUsecase getService() {
 	return service;
-    }
-
-    @Override
-    public final DMixedModel getModel() {
-	return model;
     }
 
     @Override

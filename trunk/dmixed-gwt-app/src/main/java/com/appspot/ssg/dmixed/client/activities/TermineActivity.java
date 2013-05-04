@@ -3,7 +3,6 @@ package com.appspot.ssg.dmixed.client.activities;
 import java.util.List;
 
 import com.appspot.ssg.dmixed.client.ClientFactory;
-import com.appspot.ssg.dmixed.client.DMixedModel;
 import com.appspot.ssg.dmixed.client.places.TerminPlace;
 import com.appspot.ssg.dmixed.shared.IAsync;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
@@ -25,62 +24,53 @@ public class TermineActivity extends MGWTAbstractActivity {
     }
 
     private final ClientFactory _clientFactory;
+    private final Long userId;
 
-    public TermineActivity(final ClientFactory clientFactory) {
+    public TermineActivity(final ClientFactory clientFactory, final Long userId) {
 	_clientFactory = clientFactory;
+	this.userId = userId;
     }
 
     @Override
     public void start(final AcceptsOneWidget panel, final EventBus eventBus) {
 	final TermineView termineView = _clientFactory.getTermineView();
 	final IDMixedUsecase service = _clientFactory.getService();
-	final DMixedModel model = _clientFactory.getModel();
 	panel.setWidget(termineView);
-	if (model.getTermine() == null) {
-	    final Long userId = model.getUser().getId();
-	    termineView.setProgress(true);
-	    final IAsync<ITermine> answer = new IAsync<ITermine>() {
-
-		@Override
-		public void onSuccess(final ITermine t) {
-		    if (t != null) {
-			model.setTermine(t);
-			loadTermine();
-		    } else {
-			// TODO Error oder Nicht erlaubt
-		    }
-		    termineView.setProgress(false);
-		}
-
-		@Override
-		public void onError(final Throwable exception) {
-		    termineView.showError(exception);
-		}
-	    };
-	    service.getTermine(userId, answer);
-	} else {
-	    loadTermine();
-	}
-	addHandlerRegistration(termineView.getCellSelectedHandler().addCellSelectedHandler(new CellSelectedHandler() {
+	termineView.setProgress(true);
+	final IAsync<ITermine> answer = new IAsync<ITermine>() {
 
 	    @Override
-	    public void onCellSelected(final CellSelectedEvent event) {
-		final int index = event.getIndex();
-		final ITermine termine = model.getTermine();
-		final List<ITermin> all = termine.getAll();
-		final ITermin iTermin = all.get(index);
-		final Long terminId = iTermin.getTerminId();
-		final Long userId = model.getUser().getId();
-		_clientFactory.getPlaceController().goTo(new TerminPlace(userId, terminId));
+	    public void onSuccess(final ITermine t) {
+		if (t != null) {
+		    loadTermine(t);
+		    addHandlerRegistration(termineView.getCellSelectedHandler().addCellSelectedHandler(new CellSelectedHandler() {
+			
+			@Override
+			public void onCellSelected(final CellSelectedEvent event) {
+			    final int index = event.getIndex();
+			    final List<ITermin> all = t.getAll();
+			    final ITermin iTermin = all.get(index);
+			    final Long terminId = iTermin.getTerminId();
+			    _clientFactory.getPlaceController().goTo(new TerminPlace(userId, terminId));
+			}
+		    }));
+		} else {
+		    // TODO Error oder Nicht erlaubt
+		}
+		termineView.setProgress(false);
 	    }
-	}));
+
+	    @Override
+	    public void onError(final Throwable exception) {
+		termineView.showError(exception);
+	    }
+	};
+	service.getTermine(userId, answer);
 
     }
 
-    protected void loadTermine() {
+    protected void loadTermine(final ITermine termine) {
 	final TermineView termineView = _clientFactory.getTermineView();
-	final DMixedModel model = _clientFactory.getModel();
-	final ITermine termine = model.getTermine();
 	termineView.updateList(termine.getAll());
     }
 
