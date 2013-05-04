@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import com.appspot.ssg.dmixed.client.ClientFactory;
-import com.appspot.ssg.dmixed.client.DMixedModel;
 import com.appspot.ssg.dmixed.client.activities.TerminTeilnahmeActivity.TerminView.IListCreator;
 import com.appspot.ssg.dmixed.client.activities.TerminTeilnahmeActivity.TerminView.IListItem;
 import com.appspot.ssg.dmixed.client.model.TeilnahmeData;
@@ -43,20 +42,20 @@ public class TerminTeilnahmeActivity extends MGWTAbstractActivity {
     }
 
     private final ClientFactory _clientFactory;
-    private final Long _terminId;
+    private final Long terminId;
+    private final Long userId;
 
-    public TerminTeilnahmeActivity(final ClientFactory clientFactory, final Long terminId) {
+    public TerminTeilnahmeActivity(final ClientFactory clientFactory, final Long userId, final Long terminId) {
 	_clientFactory = clientFactory;
-	_terminId = terminId;
+	this.userId = userId;
+	this.terminId = terminId;
     }
 
     @Override
     public void start(final AcceptsOneWidget panel, final EventBus eventBus) {
 	final TerminView terminView = _clientFactory.getTerminTeilnahmeView();
-	final DMixedModel model = _clientFactory.getModel();
 	final IDMixedUsecase service = _clientFactory.getService();
 	panel.setWidget(terminView);
-	final Long userId = model.getUser().getId();
 	final IAsync<ITerminDetails> answer = new IAsync<ITerminDetails>() {
 	    @Override
 	    public void onSuccess(final ITerminDetails termin) {
@@ -94,23 +93,21 @@ public class TerminTeilnahmeActivity extends MGWTAbstractActivity {
 		terminView.showError(exception);
 	    }
 	};
-	service.getTermin(userId, _terminId, answer);
+	service.getTermin(userId, terminId, answer);
     }
 
     protected boolean isAngemeldeterUser(final ITerminTeilnehmer terminTeilnehmer) {
 	final Long id = terminTeilnehmer.getId();
-	final Long id2 = _clientFactory.getModel().getUser().getId();
-	return id.equals(id2);
+	return id.equals(userId);
     }
 
     private boolean checkTeilnehmer(final ITerminTeilnehmer terminTeilnehmer, final Long terminId, final ETeilnahmeStatus status) {
 	if (!isAngemeldeterUser(terminTeilnehmer))
 	    return false;
-	final Long id = _clientFactory.getModel().getUser().getId();
 	terminTeilnehmer.setTeilnahme(status);
 	final IDMixedUsecase service = _clientFactory.getService();
 	final TeilnahmeData teilnahmeData = new TeilnahmeData();
-	teilnahmeData.setUserId(id);
+	teilnahmeData.setUserId(userId);
 	teilnahmeData.setTerminId(terminId);
 	teilnahmeData.setTeilnahme(status);
 	final IAsync<Void> answer = new IAsync<Void>() {

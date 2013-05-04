@@ -2,12 +2,14 @@ package com.appspot.ssg.dmixed.client.places;
 
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceTokenizer;
+import com.google.gwt.place.shared.Prefix;
 
 public class TerminMitbringPlace extends Place {
 
     private final Long _terminId;
     private final Long userId;
 
+    @Prefix("TerminMitbringen")
     public static class TerminMitbringPlaceTokenizer implements PlaceTokenizer<TerminMitbringPlace> {
 
 	@Override

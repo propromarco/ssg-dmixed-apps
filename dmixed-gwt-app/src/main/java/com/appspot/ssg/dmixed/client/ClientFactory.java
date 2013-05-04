@@ -17,11 +17,7 @@ public interface ClientFactory {
 
     IDMixedMessages getMessages();
 
-    String getBaseUrl();
-
     IDMixedUsecase getService();
-
-    DMixedModel getModel();
 
     LoginView getLoginView();
 

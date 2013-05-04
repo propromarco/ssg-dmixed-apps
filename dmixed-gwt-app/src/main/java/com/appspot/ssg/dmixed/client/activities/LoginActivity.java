@@ -1,7 +1,6 @@
 package com.appspot.ssg.dmixed.client.activities;
 
 import com.appspot.ssg.dmixed.client.ClientFactory;
-import com.appspot.ssg.dmixed.client.DMixedModel;
 import com.appspot.ssg.dmixed.client.IDMixedMessages;
 import com.appspot.ssg.dmixed.client.model.LoginData;
 import com.appspot.ssg.dmixed.client.places.TerminePlace;
@@ -39,8 +38,7 @@ public class LoginActivity extends MGWTAbstractActivity {
     public void start(final AcceptsOneWidget panel, final EventBus eventBus) {
 	final LoginView loginView = _clientFactory.getLoginView();
 	final IDMixedUsecase service = _clientFactory.getService();
-	final DMixedModel model = _clientFactory.getModel();
-	final IDMixedMessages messages = model.getMessages();
+	final IDMixedMessages messages = _clientFactory.getMessages();
 	panel.setWidget(loginView);
 	addHandlerRegistration(loginView.getLogin().addTapHandler(new TapHandler() {
 	    @Override
@@ -48,12 +46,13 @@ public class LoginActivity extends MGWTAbstractActivity {
 		loginView.setProgress(true);
 		final String vorname = loginView.getVorname().getText();
 		final String email = loginView.getEmail().getText();
-		final ILoginData data = new LoginData(vorname, email);
+		final String vornameTrimmed = vorname.trim();
+		final String emailTrimmed = email.trim();
+		final ILoginData data = new LoginData(vornameTrimmed, emailTrimmed);
 		final IAsync<IUserData> answer = new IAsync<IUserData>() {
 		    @Override
 		    public void onSuccess(final IUserData t) {
 			if (t != null) {
-			    model.setUser(t);
 			    _clientFactory.getPlaceController().goTo(new TerminePlace(t.getId()));
 			} else {
 			    loginView.showMessage(messages.errorOnLogin());
