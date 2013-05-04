@@ -218,7 +218,7 @@ public class DMixedUsecaseService {
 	    terminTeilnehmer.setTeilnahme(ETeilnahmeStatus.NichtEntschieden);
 	    final List<JPATerminTeilnehmer> teilnehmer = adapter.getTeilnehmer(termin);
 	    for (final JPATerminTeilnehmer jpaTerminTeilnehmer : teilnehmer) {
-		if (jpaTerminTeilnehmer.getUser() == jpaUser.getId())
+		if (jpaTerminTeilnehmer.getUser().equals(jpaUser.getId()))
 		    terminTeilnehmer.setTeilnahme(jpaTerminTeilnehmer.getStatus());
 	    }
 	    list.add(terminTeilnehmer);
