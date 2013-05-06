@@ -52,6 +52,13 @@ public class AbstractData {
 	}
     }
 
+    protected JSONObject getObject(final String key) {
+	final JSONValue jsonValue = _jsonObject.get(key);
+	if (jsonValue == null)
+	    return null;
+	return jsonValue.isObject();
+    }
+
     protected boolean getBoolean(final String key) {
 	final JSONValue jsonValue = _jsonObject.get(key);
 	if (jsonValue == null)

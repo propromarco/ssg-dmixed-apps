@@ -24,7 +24,7 @@ public class LoginViewImpl extends AbstractDmixedView implements LoginView {
 	_vorname = new MTextBox();
 	_email = new MEmailTextBox();
 	if (inititalData) {
-	    _vorname.setValue("Nuria");
+	    _vorname.setValue("Schwarz");
 	    _email.setValue("silvana.schwarz@web.de");
 	}
 	final String login = messages.login();

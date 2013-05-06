@@ -42,7 +42,7 @@ public class ServerRequestUtil {
 		POST, PUT, GET
 	}
 
-	public IUserData login(String username, String mail)
+	public IUserData login(final String username, final String mail)
 			throws ServerRequestException {
 		final LoginData loginData = new LoginData();
 		loginData.setEmail(mail.trim());
@@ -53,14 +53,14 @@ public class ServerRequestUtil {
 		return fromJson;
 	}
 
-	public List<ITermin> getTermine(long userId) throws ServerRequestException {
+	public List<ITermin> getTermine(final long userId) throws ServerRequestException {
 		final String termineUrl = urlCreator.getTermineUrl(userId);
 		final String json = call(null, termineUrl, HTTP_TYPE.GET);
 		final ITermine fromJson = createObject(json, Termine.class);
 		return fromJson.getAll();
 	}
 
-	public ITerminDetails getTerminDetails(long userId, long terminId)
+	public ITerminDetails getTerminDetails(final long userId, final long terminId)
 			throws ServerRequestException {
 		final String terminUrl = urlCreator.getTerminUrl(userId, terminId);
 		final String json = call(null, terminUrl, HTTP_TYPE.GET);
@@ -73,14 +73,14 @@ public class ServerRequestUtil {
 		try {
 			final T fromJson = new Gson().fromJson(json, clazz);
 			return fromJson;
-		} catch (Throwable e) {
+		} catch (final Throwable e) {
 			throw new ServerRequestException(
 					"Fehler beim Konvertieren der Daten vom Server\n" + json
 							+ "\n" + e.getMessage());
 		}
 	}
 
-	public ITerminDetails createTermin(long userId, boolean heimspiel)
+	public ITerminDetails createTermin(final long userId, final boolean heimspiel)
 			throws ServerRequestException {
 		final String createTerminUrl = urlCreator.getCreateTerminUrl(userId,
 				heimspiel);
@@ -89,25 +89,25 @@ public class ServerRequestUtil {
 		return details;
 	}
 
-	public long createUser(boolean admin, String name, String vorname,
-			String mail, Long birthday) throws ServerRequestException {
+	public long createUser(final boolean admin, final String name, final String vorname,
+			final String mail, final Long birthday) throws ServerRequestException {
 		final String newUserUrl = urlCreator.getNewUserUrl();
-		UserData data = new UserData();
+		final UserData data = new UserData();
 		data.setAdmin(admin);
 		data.setName(name);
-		data.setVorname(vorname);
+//		data.setVorname(vorname);
 		data.setEmail(mail);
-		data.setBirthday(birthday);
+//		data.setBirthday(birthday);
 		final String result = call(data, newUserUrl, HTTP_TYPE.POST);
 		try {
 			return Long.getLong(result);
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			throw new ServerRequestException(result);
 		}
 	}
 
-	public void setTeilnahme(ETeilnahmeStatus teilnahme, long terminId,
-			long userId) throws ServerRequestException {
+	public void setTeilnahme(final ETeilnahmeStatus teilnahme, final long terminId,
+			final long userId) throws ServerRequestException {
 		final TeilnahmeData teilnahmeData = new TeilnahmeData();
 		teilnahmeData.setTeilnahme(teilnahme);
 		teilnahmeData.setTerminId(terminId);
@@ -116,8 +116,8 @@ public class ServerRequestUtil {
 		call(teilnahmeData, onTeilnahmeUrl, HTTP_TYPE.PUT);
 	}
 
-	public void addMitbringsel(long userId, long terminId, boolean teilnahme,
-			long mitbringselId, boolean mitbringen)
+	public void addMitbringsel(final long userId, final long terminId, final boolean teilnahme,
+			final long mitbringselId, final boolean mitbringen)
 			throws ServerRequestException {
 		final MitbringData mitbringData = new MitbringData();
 		mitbringData.setMitbringen(mitbringen);
@@ -128,35 +128,35 @@ public class ServerRequestUtil {
 		call(mitbringData, onMitringenUrl, HTTP_TYPE.PUT);
 	}
 
-	public void deleteUser(long userId) throws ServerRequestException {
+	public void deleteUser(final long userId) throws ServerRequestException {
 		final String deleteUserUrl = urlCreator.getDeleteUserUrl();
 		call(userId, deleteUserUrl, HTTP_TYPE.PUT);
 	}
 
-	public void updateTermin(long userId, ITerminDetails terminDetails) throws ServerRequestException {
+	public void updateTermin(final long userId, final ITerminDetails terminDetails) throws ServerRequestException {
 		final String saveTerminUrl = urlCreator.getSaveTerminUrl(userId);
 		call(terminDetails, saveTerminUrl, HTTP_TYPE.PUT);
 	}
 
-	private String call(Object postObject, String url, HTTP_TYPE type)
+	private String call(final Object postObject, final String url, final HTTP_TYPE type)
 			throws ServerRequestException {
-		HttpParams p = new BasicHttpParams();
+		final HttpParams p = new BasicHttpParams();
 		// p.setParameter("name", pvo.getName());
 
 		// Instantiate an HttpClient
-		HttpClient client = new DefaultHttpClient(p);
+		final HttpClient client = new DefaultHttpClient(p);
 
-		ObjectInputStream ois = null;
+		final ObjectInputStream ois = null;
 		// Instantiate a GET HTTP method
 		try {
 			HttpResponse response;
 			switch (type) {
 			case GET:
-				HttpGet get = new HttpGet(url);
+				final HttpGet get = new HttpGet(url);
 				response = client.execute(get);
 				break;
 			case POST: {
-				HttpPost post = new HttpPost(url);
+				final HttpPost post = new HttpPost(url);
 				post.setHeader("Content-Type", "application/json");
 				final String json = new Gson().toJson(postObject);
 				final StringEntity stringEntity = new StringEntity(json);
@@ -165,7 +165,7 @@ public class ServerRequestUtil {
 				break;
 			}
 			case PUT: {
-				HttpPut put = new HttpPut(url);
+				final HttpPut put = new HttpPut(url);
 				put.setHeader("Content-Type", "application/json");
 				final String json = new Gson().toJson(postObject);
 				final StringEntity stringEntity = new StringEntity(json);
@@ -179,11 +179,11 @@ public class ServerRequestUtil {
 			if (response.getStatusLine().getStatusCode() != 200)
 				throw new ServerRequestException(response.getStatusLine()
 						.getReasonPhrase());
-			InputStream is = response.getEntity().getContent();
+			final InputStream is = response.getEntity().getContent();
 			final InputStreamReader isr = new InputStreamReader(is);
 			final StringBuilder result = new StringBuilder();
 			int read;
-			char[] buff = new char[1024];
+			final char[] buff = new char[1024];
 			while ((read = isr.read(buff)) != -1) {
 				result.append(buff, 0, read);
 			}
@@ -191,13 +191,13 @@ public class ServerRequestUtil {
 			return result.toString();
 			// You can convert inputstream to a string with:
 			// http://senior.ceng.metu.edu.tr/2009/praeda/2009/01/11/a-simple-restful-client-at-android/
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			throw new ServerRequestException(e.getMessage());
 		} finally {
 			if (ois != null)
 				try {
 					ois.close();
-				} catch (IOException e) {
+				} catch (final IOException e) {
 					e.printStackTrace();
 				}
 		}

@@ -9,6 +9,7 @@ public class TerminTeilnehmer implements ITerminTeilnehmer {
     private String vorname;
     private String name;
     private ETeilnahmeStatus teilnahme;
+    private boolean changeAllowed;
 
     public TerminTeilnehmer() {
     }
@@ -48,6 +49,15 @@ public class TerminTeilnehmer implements ITerminTeilnehmer {
     @Override
     public void setTeilnahme(final ETeilnahmeStatus teilnahme) {
 	this.teilnahme = teilnahme;
+    }
+
+    @Override
+    public boolean isChangeAllowed() {
+	return changeAllowed;
+    }
+
+    public void setChangeAllowed(final boolean changeAllowed) {
+	this.changeAllowed = changeAllowed;
     }
 
 }

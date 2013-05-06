@@ -12,6 +12,8 @@
 		<class>com.appspot.ssg.dmixed.server.jpa.JPATerminTeilnehmer</class>
 		<class>com.appspot.ssg.dmixed.server.jpa.JPAMitbringsel</class>
 		<class>com.appspot.ssg.dmixed.server.jpa.JPAUser</class>
+		<class>com.appspot.ssg.dmixed.server.jpa.JPAKind</class>
+		<class>com.appspot.ssg.dmixed.server.jpa.JPALiga</class>
 		<properties>
 			<property name="datanucleus.NontransactionalRead" value="true" />
 			<property name="datanucleus.NontransactionalWrite" value="true" />

@@ -17,6 +17,8 @@ public class JPATermin {
     @GeneratedValue
     private Long terminId;
     @Column
+    private Long liga;
+    @Column
     private boolean heimspiel;
     @Column
     private Long termineDatum;
@@ -66,6 +68,14 @@ public class JPATermin {
 
     public final void setTerminBeschreibung(final String terminBeschreibung) {
 	this.terminBeschreibung = terminBeschreibung;
+    }
+
+    public Long getLiga() {
+	return liga;
+    }
+
+    public void setLiga(final Long liga) {
+	this.liga = liga;
     }
 
 }

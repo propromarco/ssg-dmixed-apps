@@ -2,6 +2,8 @@ package com.appspot.ssg.dmixed.server;
 
 import java.util.List;
 
+import com.appspot.ssg.dmixed.server.jpa.JPAKind;
+import com.appspot.ssg.dmixed.server.jpa.JPALiga;
 import com.appspot.ssg.dmixed.server.jpa.JPAMitbringsel;
 import com.appspot.ssg.dmixed.server.jpa.JPATermin;
 import com.appspot.ssg.dmixed.server.jpa.JPATerminMitbringsel;
@@ -42,5 +44,13 @@ public interface IJPAAdapter {
     JPAMitbringsel getMitbringsel(JPATerminMitbringsel jpaTerminMitbringsel);
 
     JPAUser getUser(JPATerminMitbringsel jpaTerminMitbringsel);
+
+    List<JPAKind> getKinder(JPAUser user);
+
+    JPALiga getLiga(Long liga);
+
+    List<JPAKind> getKinder(JPATermin termin);
+
+    JPAUser getUser(JPAKind jpaKind);
 
 }

@@ -1,8 +1,10 @@
 package com.appspot.ssg.dmixed.client.model;
 
-import java.util.Date;
+import java.util.List;
 
+import com.appspot.ssg.dmixed.shared.IKind;
 import com.appspot.ssg.dmixed.shared.IUserData;
+import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
 
 public class UserData extends AbstractData implements IUserData {
@@ -19,18 +21,8 @@ public class UserData extends AbstractData implements IUserData {
     }
 
     @Override
-    public String getVorname() {
-	return getString("vorname");
-    }
-
-    @Override
     public String getName() {
 	return getString("name");
-    }
-
-    @Override
-    public Date getBirthday() {
-	return getDate("birthday");
     }
 
     @Override
@@ -41,6 +33,17 @@ public class UserData extends AbstractData implements IUserData {
     @Override
     public String getEmail() {
 	return getString("email");
+    }
+
+    @Override
+    public List<IKind> getKinder() {
+	final JSONArray array = getArray("kinder");
+	return new Mapping<IKind>(array) {
+	    @Override
+	    protected IKind create(final JSONObject object) {
+		return new Kind(object);
+	    }
+	};
     }
 
 }

@@ -54,4 +54,9 @@ public class TerminTeilnehmer extends AbstractData implements ITerminTeilnehmer 
 	setString("teilnahme", teilnahme.name());
     }
 
+    @Override
+    public boolean isChangeAllowed() {
+	return getBoolean("changeAllowed");
+    }
+
 }
