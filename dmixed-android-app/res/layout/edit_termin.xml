@@ -37,8 +37,9 @@
     <LinearLayout
         android:id="@+id/TerminDetailsTeilnehmerListe"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:layout_height="110dp"
+        android:orientation="vertical"
+        android:scrollbars="vertical" >
 
     </LinearLayout>
 
@@ -51,8 +52,9 @@
     <LinearLayout
         android:id="@+id/TerminDetailsMitbringselListe"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:layout_height="110dp"
+        android:orientation="vertical"
+        android:scrollbars="vertical" >
 
     </LinearLayout>
 
