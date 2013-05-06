@@ -33,7 +33,7 @@ import com.google.gson.Gson;
 public class ServerRequestUtil {
 
 	private final DMixedUrlCreator urlCreator = new DMixedUrlCreator(
-			"http://ssg-dmixed.appspot.com/");
+			"http://ssg-hockey.appspot.com/");
 
 	public ServerRequestUtil() {
 	}
