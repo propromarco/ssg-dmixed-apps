@@ -60,9 +60,9 @@ public class TerminDetailsActivity extends Activity {
 		final Drawable heimspielBitmap = resources.getDrawable(R.drawable.heim);
 		final Drawable auswaertsBitmap = resources
 				.getDrawable(R.drawable.auswaerts);
-		final Drawable dabei = resources.getDrawable(R.drawable.dabei);
-		final Drawable nichtDabei = resources
-				.getDrawable(R.drawable.nicht_dabei);
+		final Drawable dabei = resources.getDrawable(R.drawable.gruen);
+		final Drawable vielleicht = resources.getDrawable(R.drawable.gelb);
+		final Drawable nichtDabei = resources.getDrawable(R.drawable.rot);
 
 		ITermin termin = (ITermin) getIntent().getExtras().get(
 				AndroidConstants.TERMIN_KEY);
@@ -94,7 +94,8 @@ public class TerminDetailsActivity extends Activity {
 						// imageView.setLayoutParams(layoutParams);
 						final ETeilnahmeStatus teilnahme = t.getTeilnahme();
 						final Drawable drawable = teilnahme == ETeilnahmeStatus.NimmtTeil ? dabei
-								: nichtDabei;
+								: teilnahme == ETeilnahmeStatus.Vielleicht ? vielleicht
+										: nichtDabei;
 						imageView.setImageDrawable(drawable);
 						if (t.getId() == userId) {
 							imageView.setOnClickListener(new OnClickListener() {
@@ -110,7 +111,8 @@ public class TerminDetailsActivity extends Activity {
 										t.setTeilnahme(newTeilnahme);
 										imageView
 												.setImageDrawable(newTeilnahme == ETeilnahmeStatus.NimmtTeil ? dabei
-														: nichtDabei);
+														: newTeilnahme == ETeilnahmeStatus.Vielleicht ? vielleicht
+																: nichtDabei);
 									} catch (ServerRequestException e) {
 										final Intent intent = new Intent(v
 												.getContext(),
