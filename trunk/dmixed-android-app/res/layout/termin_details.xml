@@ -19,8 +19,8 @@
             android:id="@+id/TerminDetailsSpielTyp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleType="fitXY"
             android:contentDescription="@string/Heimspiel"
+            android:scaleType="fitXY"
             android:src="@drawable/auswaerts" />
 
         <TextView
@@ -46,7 +46,9 @@
     <TableLayout
         android:id="@+id/TerminDetailsTeilnehmerTabelle"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="130dp"
+        android:layout_weight="3.19"
+        android:scrollbars="vertical" >
 
     </TableLayout>
 
@@ -60,8 +62,9 @@
     <TableLayout
         android:id="@+id/TerminDetailsMitbringselTable"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="130dp"
+        android:scrollbars="vertical" >
 
     </TableLayout>
-    
+
 </LinearLayout>
