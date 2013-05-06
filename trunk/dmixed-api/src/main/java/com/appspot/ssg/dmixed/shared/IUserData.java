@@ -1,19 +1,17 @@
 package com.appspot.ssg.dmixed.shared;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
 
 public interface IUserData extends Serializable {
 
     Long getId();
 
-    String getVorname();
-
     String getName();
 
     String getEmail();
 
-    Date getBirthday();
+    List<IKind> getKinder();
 
     boolean isAdmin();
 

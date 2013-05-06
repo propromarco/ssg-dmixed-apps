@@ -14,6 +14,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.appspot.ssg.dmixed.server.beans.Kind;
+import com.appspot.ssg.dmixed.server.beans.Liga;
 import com.appspot.ssg.dmixed.server.beans.LoginData;
 import com.appspot.ssg.dmixed.server.beans.MitbringData;
 import com.appspot.ssg.dmixed.server.beans.TeilnahmeData;
@@ -25,12 +27,15 @@ import com.appspot.ssg.dmixed.server.beans.Termine;
 import com.appspot.ssg.dmixed.server.beans.UserData;
 import com.appspot.ssg.dmixed.server.beans.Users;
 import com.appspot.ssg.dmixed.server.jpa.JPAAdapter;
+import com.appspot.ssg.dmixed.server.jpa.JPAKind;
+import com.appspot.ssg.dmixed.server.jpa.JPALiga;
 import com.appspot.ssg.dmixed.server.jpa.JPAMitbringsel;
 import com.appspot.ssg.dmixed.server.jpa.JPATermin;
 import com.appspot.ssg.dmixed.server.jpa.JPATerminMitbringsel;
 import com.appspot.ssg.dmixed.server.jpa.JPATerminTeilnehmer;
 import com.appspot.ssg.dmixed.server.jpa.JPAUser;
 import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
+import com.appspot.ssg.dmixed.shared.ILiga;
 import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 
@@ -55,10 +60,13 @@ public class DMixedUsecaseService {
 	} else {
 	    final UserData userData = new UserData();
 	    userData.setAdmin(user.isAdmin());
-	    userData.setBirthday(new Date(user.getBirthday()));
 	    userData.setId(user.getId());
 	    userData.setName(user.getName());
-	    userData.setVorname(user.getVorname());
+	    final List<JPAKind> kinder = adapter.getKinder(user);
+	    for (final JPAKind jpaKind : kinder) {
+		final Kind kind = createFrom(jpaKind);
+		userData.getKinder().add(kind);
+	    }
 	    return userData;
 	}
     }
@@ -88,7 +96,7 @@ public class DMixedUsecaseService {
 	if (user == null)
 	    return null;
 	final JPATermin termin = adapter.getTermin(terminId);
-	final TerminDetails terminDetails = copyToDetails(termin);
+	final TerminDetails terminDetails = copyToDetails(user, termin);
 	return terminDetails;
     }
 
@@ -125,8 +133,8 @@ public class DMixedUsecaseService {
 	    final UserData userData = new UserData();
 	    userData.setId(jpaUser.getId());
 	    userData.setAdmin(jpaUser.isAdmin());
-	    userData.setBirthday(new Date(jpaUser.getBirthday()));
-	    userData.setVorname(jpaUser.getVorname());
+	    // userData.setBirthday(new Date(jpaUser.getBirthday()));
+	    // userData.setVorname(jpaUser.getVorname());
 	    userData.setName(jpaUser.getName());
 	    newUsers.getAll().add(userData);
 	}
@@ -184,22 +192,38 @@ public class DMixedUsecaseService {
 	return null;
     }
 
+    private Kind createFrom(final JPAKind jpaKind) {
+	final Kind kind = new Kind();
+	kind.setId(jpaKind.getId());
+	kind.setVorname(jpaKind.getVorname());
+	kind.setBirthday(new Date(jpaKind.getBirthday()));
+	kind.setLiga(createFrom(adapter.getLiga(jpaKind.getLiga())));
+	return kind;
+    }
+
+    private ILiga createFrom(final JPALiga jpaLiga) {
+	final Liga liga = new Liga();
+	liga.setId(jpaLiga.getId());
+	liga.setBezeichnung(jpaLiga.getBezeichnung());
+	return liga;
+    }
+
     private JPAUser createFrom(final UserData userData) {
 	final JPAUser jpaUser = new JPAUser();
 	jpaUser.setId(userData.getId());
 	jpaUser.setAdmin(userData.isAdmin());
-	jpaUser.setBirthday(userData.getBirthday().getTime());
-	jpaUser.setVorname(userData.getVorname());
+	// jpaUser.setBirthday(userData.getBirthday().getTime());
+	// jpaUser.setVorname(userData.getVorname());
 	jpaUser.setName(userData.getName());
 	jpaUser.setEmail(userData.getEmail());
 	return jpaUser;
     }
 
-    private TerminDetails copyToDetails(final JPATermin termin) {
+    private TerminDetails copyToDetails(final JPAUser user, final JPATermin termin) {
 	final TerminDetails terminDetails = new TerminDetails();
 	terminDetails.setHeimspiel(termin.isHeimspiel());
 	terminDetails.setMitbringsel(createMitbringsel(termin));
-	terminDetails.setTeilnehmer(createTeilnehmer(termin));
+	terminDetails.setTeilnehmer(createTeilnehmer(user, termin));
 	terminDetails.setTerminBeschreibung(termin.getTerminBeschreibung());
 	terminDetails.setTermineDatum(new Date(termin.getTermineDatum()));
 	terminDetails.setTerminId(termin.getTerminId());
@@ -207,18 +231,21 @@ public class DMixedUsecaseService {
 	return terminDetails;
     }
 
-    private List<ITerminTeilnehmer> createTeilnehmer(final JPATermin termin) {
+    private List<ITerminTeilnehmer> createTeilnehmer(final JPAUser user, final JPATermin termin) {
 	final List<ITerminTeilnehmer> list = new ArrayList<ITerminTeilnehmer>();
-	final List<JPAUser> users = this.adapter.getUsers();
-	for (final JPAUser jpaUser : users) {
+	final List<JPAKind> kinder = this.adapter.getKinder(termin);
+	for (final JPAKind jpaKind : kinder) {
 	    final TerminTeilnehmer terminTeilnehmer = new TerminTeilnehmer();
-	    terminTeilnehmer.setId(jpaUser.getId());
-	    terminTeilnehmer.setVorname(jpaUser.getVorname());
+	    terminTeilnehmer.setId(jpaKind.getId());
+	    terminTeilnehmer.setVorname(jpaKind.getVorname());
+	    final JPAUser jpaUser = adapter.getUser(jpaKind);
+	    final boolean changeAllowed = jpaUser.getId().equals(user.getId());
+	    terminTeilnehmer.setChangeAllowed(changeAllowed);
 	    terminTeilnehmer.setName(jpaUser.getName());
 	    terminTeilnehmer.setTeilnahme(ETeilnahmeStatus.NichtEntschieden);
 	    final List<JPATerminTeilnehmer> teilnehmer = adapter.getTeilnehmer(termin);
 	    for (final JPATerminTeilnehmer jpaTerminTeilnehmer : teilnehmer) {
-		if (jpaTerminTeilnehmer.getUser().equals(jpaUser.getId()))
+		if (jpaTerminTeilnehmer.getUser().equals(jpaKind.getId()))
 		    terminTeilnehmer.setTeilnahme(jpaTerminTeilnehmer.getStatus());
 	    }
 	    list.add(terminTeilnehmer);
@@ -245,7 +272,7 @@ public class DMixedUsecaseService {
 	    return null;
 	final TerminTeilnehmer t = new TerminTeilnehmer();
 	t.setId(user.getId());
-	t.setVorname(user.getVorname());
+	// t.setVorname(user.getVorname());
 	t.setName(user.getName());
 	return t;
     }

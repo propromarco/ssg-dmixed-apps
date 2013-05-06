@@ -70,7 +70,7 @@ public class TerminTeilnahmeActivity extends MGWTAbstractActivity {
 		    final IListCreator<ITerminTeilnehmer> teilnehmerCreator = terminView.fillTeilnehmer();
 		    for (final ITerminTeilnehmer terminTeilnehmer : teilnehmer) {
 			final IListItem item = teilnehmerCreator.create(terminTeilnehmer);
-			if (!isAngemeldeterUser(terminTeilnehmer)) {
+			if (!terminTeilnehmer.isChangeAllowed()) {
 			    item.setEnabled(false);
 			}
 			addHandlerRegistration(item.addValueChangeHandler(new ValueChangeHandler<ETeilnahmeStatus>() {
@@ -96,13 +96,8 @@ public class TerminTeilnahmeActivity extends MGWTAbstractActivity {
 	service.getTermin(userId, terminId, answer);
     }
 
-    protected boolean isAngemeldeterUser(final ITerminTeilnehmer terminTeilnehmer) {
-	final Long id = terminTeilnehmer.getId();
-	return id.equals(userId);
-    }
-
     private boolean checkTeilnehmer(final ITerminTeilnehmer terminTeilnehmer, final Long terminId, final ETeilnahmeStatus status) {
-	if (!isAngemeldeterUser(terminTeilnehmer))
+	if (!terminTeilnehmer.isChangeAllowed())
 	    return false;
 	terminTeilnehmer.setTeilnahme(status);
 	final IDMixedUsecase service = _clientFactory.getService();

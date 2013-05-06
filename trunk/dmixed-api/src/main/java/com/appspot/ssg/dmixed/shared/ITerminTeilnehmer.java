@@ -5,6 +5,8 @@ import java.io.Serializable;
 public interface ITerminTeilnehmer extends Serializable {
 
     Long getId();
+    
+    boolean isChangeAllowed();
 
     String getVorname();
 

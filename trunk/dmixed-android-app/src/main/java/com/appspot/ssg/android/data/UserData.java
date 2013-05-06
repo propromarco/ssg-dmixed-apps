@@ -1,71 +1,58 @@
 package com.appspot.ssg.android.data;
 
-import java.util.Date;
+import java.util.List;
 
+import com.appspot.ssg.dmixed.shared.IKind;
 import com.appspot.ssg.dmixed.shared.IUserData;
 
 public class UserData implements IUserData {
 
-	private static final long serialVersionUID = 4128088292403122593L;
-	private Long id;
-	private String vorname;
-	private String name;
-	private String email;
-	private Long birthday;
-	private boolean admin;
+    private static final long serialVersionUID = 4128088292403122593L;
+    private Long id;
+    private String name;
+    private String email;
+    private boolean admin;
 
-	@Override
-	public Long getId() {
-		return id;
-	}
+    @Override
+    public Long getId() {
+	return id;
+    }
 
-	@Override
-	public String getVorname() {
-		return vorname;
-	}
+    @Override
+    public String getName() {
+	return name;
+    }
 
-	@Override
-	public String getName() {
-		return name;
-	}
+    @Override
+    public String getEmail() {
+	return email;
+    }
 
-	@Override
-	public String getEmail() {
-		return email;
-	}
+    @Override
+    public boolean isAdmin() {
+	return admin;
+    }
 
-	@Override
-	public Date getBirthday() {
-		return new Date(birthday);
-	}
+    public void setId(final Long id) {
+	this.id = id;
+    }
 
-	@Override
-	public boolean isAdmin() {
-		return admin;
-	}
+    public void setName(final String name) {
+	this.name = name;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setEmail(final String email) {
+	this.email = email;
+    }
 
-	public void setVorname(String vorname) {
-		this.vorname = vorname;
-	}
+    public void setAdmin(final boolean admin) {
+	this.admin = admin;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public void setBirthday(Long birthday) {
-		this.birthday = birthday;
-	}
-
-	public void setAdmin(boolean admin) {
-		this.admin = admin;
-	}
+    @Override
+    public List<IKind> getKinder() {
+	// TODO Auto-generated method stub
+	return null;
+    }
 
 }
