@@ -20,7 +20,7 @@ public class TerminDetails implements ITerminDetails {
 	private List<TerminMitbringsel> mitbringsel;
 
 	@Override
-	public Long getTerminId() {
+	public Long getId() {
 		return terminId;
 	}
 
@@ -54,31 +54,31 @@ public class TerminDetails implements ITerminDetails {
 		return mitbringsel != null ? new ArrayList<ITerminMitbringsel>(mitbringsel) : new ArrayList<ITerminMitbringsel>();
 	}
 
-	public void setTerminId(Long terminId) {
+	public void setTerminId(final Long terminId) {
 		this.terminId = terminId;
 	}
 
-	public void setTermineDatum(Long termineDatum) {
+	public void setTermineDatum(final Long termineDatum) {
 		this.termineDatum = termineDatum;
 	}
 
-	public void setTerminKurzbeschreibung(String terminKurzbeschreibung) {
+	public void setTerminKurzbeschreibung(final String terminKurzbeschreibung) {
 		this.terminKurzbeschreibung = terminKurzbeschreibung;
 	}
 
-	public void setHeimspiel(boolean heimspiel) {
+	public void setHeimspiel(final boolean heimspiel) {
 		this.heimspiel = heimspiel;
 	}
 
-	public void setTerminBeschreibung(String terminBeschreibung) {
+	public void setTerminBeschreibung(final String terminBeschreibung) {
 		this.terminBeschreibung = terminBeschreibung;
 	}
 
-	public void setTeilnehmer(List<TerminTeilnehmer> teilnehmer) {
+	public void setTeilnehmer(final List<TerminTeilnehmer> teilnehmer) {
 		this.teilnehmer = teilnehmer;
 	}
 
-	public void setMitbringsel(List<TerminMitbringsel> mitbringsel) {
+	public void setMitbringsel(final List<TerminMitbringsel> mitbringsel) {
 		this.mitbringsel = mitbringsel;
 	}
 

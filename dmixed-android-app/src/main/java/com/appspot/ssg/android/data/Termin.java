@@ -12,7 +12,7 @@ public class Termin implements ITermin {
 	private String terminKurzbeschreibung;
 
 	@Override
-	public Long getTerminId() {
+	public Long getId() {
 		return terminId;
 	}
 
@@ -26,15 +26,15 @@ public class Termin implements ITermin {
 		return terminKurzbeschreibung;
 	}
 
-	public void setTerminId(Long terminId) {
+	public void setTerminId(final Long terminId) {
 		this.terminId = terminId;
 	}
 
-	public void setTermineDatum(Long termineDatum) {
+	public void setTermineDatum(final Long termineDatum) {
 		this.termineDatum = termineDatum;
 	}
 
-	public void setTerminKurzbeschreibung(String terminKurzbeschreibung) {
+	public void setTerminKurzbeschreibung(final String terminKurzbeschreibung) {
 		this.terminKurzbeschreibung = terminKurzbeschreibung;
 	}
 }

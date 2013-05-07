@@ -11,12 +11,12 @@ public class TeilnahmeData implements ITeilnahmeData {
 	private ETeilnahmeStatus teilnahme;
 
 	@Override
-	public Long getUserId() {
+	public Long getId() {
 		return userId;
 	}
 
 	@Override
-	public void setUserId(Long userId) {
+	public void setId(final Long userId) {
 		this.userId = userId;
 	}
 
@@ -26,7 +26,7 @@ public class TeilnahmeData implements ITeilnahmeData {
 	}
 
 	@Override
-	public void setTerminId(Long terminId) {
+	public void setTerminId(final Long terminId) {
 		this.terminId = terminId;
 	}
 
@@ -36,7 +36,7 @@ public class TeilnahmeData implements ITeilnahmeData {
 	}
 
 	@Override
-	public void setTeilnahme(ETeilnahmeStatus teilnahme) {
+	public void setTeilnahme(final ETeilnahmeStatus teilnahme) {
 		this.teilnahme = teilnahme;
 	}
 
