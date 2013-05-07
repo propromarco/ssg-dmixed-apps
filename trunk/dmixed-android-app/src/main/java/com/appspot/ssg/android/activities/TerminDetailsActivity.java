@@ -32,18 +32,18 @@ public class TerminDetailsActivity extends Activity {
 	private MenuDefaultSupport ms;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.termin_details);
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+	public boolean onCreateOptionsMenu(final Menu menu) {
 		return ms.onCreateOptionsMenu(this, menu);
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
+	public boolean onOptionsItemSelected(final MenuItem item) {
 		return ms.onOptionsItemSelected(this, item);
 	}
 
@@ -64,31 +64,31 @@ public class TerminDetailsActivity extends Activity {
 		final Drawable vielleicht = resources.getDrawable(R.drawable.gelb);
 		final Drawable nichtDabei = resources.getDrawable(R.drawable.rot);
 
-		ITermin termin = (ITermin) getIntent().getExtras().get(
+		final ITermin termin = (ITermin) getIntent().getExtras().get(
 				AndroidConstants.TERMIN_KEY);
 		if (termin != null) {
 			try {
 				final long userId = AndroidConstants.getUserId(this);
-				final Long terminId = termin.getTerminId();
+				final Long terminId = termin.getId();
 				final ITerminDetails details = sru.getTerminDetails(userId,
 						terminId);
-				TextView terminInfo = (TextView) findViewById(R.id.TerminDetailsInfo);
+				final TextView terminInfo = (TextView) findViewById(R.id.TerminDetailsInfo);
 				terminInfo.setText(AndroidConstants.formatDate(details
 						.getTermineDatum())
 						+ " "
 						+ details.getTerminKurzbeschreibung());
-				ImageView spielTyp = (ImageView) findViewById(R.id.TerminDetailsSpielTyp);
+				final ImageView spielTyp = (ImageView) findViewById(R.id.TerminDetailsSpielTyp);
 				spielTyp.setImageDrawable(details.isHeimspiel() ? heimspielBitmap
 						: auswaertsBitmap);
-				TextView beschreibung = (TextView) findViewById(R.id.TerminDetailsBeschreibung);
+				final TextView beschreibung = (TextView) findViewById(R.id.TerminDetailsBeschreibung);
 				beschreibung.setText(details.getTerminBeschreibung());
 				{// Teilnehmer
-					TableLayout teilnehmerTabelle = (TableLayout) findViewById(R.id.TerminDetailsTeilnehmerTabelle);
+					final TableLayout teilnehmerTabelle = (TableLayout) findViewById(R.id.TerminDetailsTeilnehmerTabelle);
 					teilnehmerTabelle.removeAllViews();
-					List<ITerminTeilnehmer> teilnehmer = details
+					final List<ITerminTeilnehmer> teilnehmer = details
 							.getTeilnehmer();
 					for (final ITerminTeilnehmer t : teilnehmer) {
-						TableRow row = new TableRow(this);
+						final TableRow row = new TableRow(this);
 						final ImageView imageView = new ImageView(this);
 						// LayoutParams layoutParams = new LayoutParams(30, 30);
 						// imageView.setLayoutParams(layoutParams);
@@ -101,11 +101,11 @@ public class TerminDetailsActivity extends Activity {
 							imageView.setOnClickListener(new OnClickListener() {
 
 								@Override
-								public void onClick(View v) {
+								public void onClick(final View v) {
 									try {
 										final ETeilnahmeStatus oldTeilnahme = t
 												.getTeilnahme();
-										ETeilnahmeStatus newTeilnahme = nextTeilnahme(oldTeilnahme);
+										final ETeilnahmeStatus newTeilnahme = nextTeilnahme(oldTeilnahme);
 										sru.setTeilnahme(newTeilnahme,
 												terminId, userId);
 										t.setTeilnahme(newTeilnahme);
@@ -113,7 +113,7 @@ public class TerminDetailsActivity extends Activity {
 												.setImageDrawable(newTeilnahme == ETeilnahmeStatus.NimmtTeil ? dabei
 														: newTeilnahme == ETeilnahmeStatus.Vielleicht ? vielleicht
 																: nichtDabei);
-									} catch (ServerRequestException e) {
+									} catch (final ServerRequestException e) {
 										final Intent intent = new Intent(v
 												.getContext(),
 												ExceptionOccuredActivity.class);
@@ -125,7 +125,7 @@ public class TerminDetailsActivity extends Activity {
 								}
 
 								private ETeilnahmeStatus nextTeilnahme(
-										ETeilnahmeStatus oldTeilnahme) {
+										final ETeilnahmeStatus oldTeilnahme) {
 									switch (oldTeilnahme) {
 									case NimmtTeil:
 										return ETeilnahmeStatus.Vielleicht;
@@ -138,7 +138,7 @@ public class TerminDetailsActivity extends Activity {
 							});
 						}
 						row.addView(imageView);
-						TextView teilnehmerView = new TextView(this);
+						final TextView teilnehmerView = new TextView(this);
 						teilnehmerView.setText(t.getVorname() + " "
 								+ t.getName());
 						row.addView(teilnehmerView);
@@ -146,26 +146,26 @@ public class TerminDetailsActivity extends Activity {
 					}
 				}
 				{// Mitbringsel
-					TableLayout mitbringselTabelle = (TableLayout) findViewById(R.id.TerminDetailsMitbringselTable);
+					final TableLayout mitbringselTabelle = (TableLayout) findViewById(R.id.TerminDetailsMitbringselTable);
 					mitbringselTabelle.removeAllViews();
-					List<ITerminMitbringsel> mitbringsel = details
+					final List<ITerminMitbringsel> mitbringsel = details
 							.getMitbringsel();
 					for (final ITerminMitbringsel m : mitbringsel) {
-						ITerminTeilnehmer mitbringer = m.getMitbringer();
+						final ITerminTeilnehmer mitbringer = m.getMitbringer();
 						final StringBuilder sb = createStringBuilder(m);
-						TextView textView = new TextView(this);
+						final TextView textView = new TextView(this);
 						if (mitbringer == null || mitbringer.getId() == userId) {
 							textView.setOnClickListener(new OnClickListener() {
 
 								@Override
-								public void onClick(View v) {
+								public void onClick(final View v) {
 									try {
 										final boolean mitbringen = m
 												.getMitbringer() == null;
 										sru.addMitbringsel(userId, terminId,
 												true, m.getId(), mitbringen);
 										onResume();
-									} catch (ServerRequestException e) {
+									} catch (final ServerRequestException e) {
 										final Intent intent = new Intent(v
 												.getContext(),
 												ExceptionOccuredActivity.class);
@@ -185,7 +185,7 @@ public class TerminDetailsActivity extends Activity {
 					}
 
 				}
-			} catch (ServerRequestException e) {
+			} catch (final ServerRequestException e) {
 				final Intent intent = new Intent(getApplicationContext(),
 						ExceptionOccuredActivity.class);
 				intent.putExtra(AndroidConstants.ERROR_KEY, e.getMessage());

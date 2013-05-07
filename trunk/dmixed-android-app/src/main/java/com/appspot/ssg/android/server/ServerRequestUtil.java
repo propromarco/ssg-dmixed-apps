@@ -111,7 +111,7 @@ public class ServerRequestUtil {
 		final TeilnahmeData teilnahmeData = new TeilnahmeData();
 		teilnahmeData.setTeilnahme(teilnahme);
 		teilnahmeData.setTerminId(terminId);
-		teilnahmeData.setUserId(userId);
+		teilnahmeData.setId(userId);
 		final String onTeilnahmeUrl = urlCreator.getOnTeilnahmeUrl();
 		call(teilnahmeData, onTeilnahmeUrl, HTTP_TYPE.PUT);
 	}
@@ -123,7 +123,7 @@ public class ServerRequestUtil {
 		mitbringData.setMitbringen(mitbringen);
 		mitbringData.setMitbringselId(mitbringselId);
 		mitbringData.setTerminId(terminId);
-		mitbringData.setUserId(userId);
+		mitbringData.setId(userId);
 		final String onMitringenUrl = urlCreator.getOnMitringenUrl();
 		call(mitbringData, onMitringenUrl, HTTP_TYPE.PUT);
 	}

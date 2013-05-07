@@ -14,12 +14,12 @@ public class MitbringData implements IMitbringData {
 	private Boolean mitbringen;
 
 	@Override
-	public Long getUserId() {
+	public Long getId() {
 		return userId;
 	}
 
 	@Override
-	public void setUserId(Long userId) {
+	public void setId(final Long userId) {
 		this.userId = userId;
 	}
 
@@ -29,7 +29,7 @@ public class MitbringData implements IMitbringData {
 	}
 
 	@Override
-	public void setTerminId(Long terminId) {
+	public void setTerminId(final Long terminId) {
 		this.terminId = terminId;
 	}
 
@@ -39,7 +39,7 @@ public class MitbringData implements IMitbringData {
 	}
 
 	@Override
-	public void setMitbringselId(Long mitbringselId) {
+	public void setMitbringselId(final Long mitbringselId) {
 		this.mitbringselId = mitbringselId;
 	}
 
@@ -49,7 +49,7 @@ public class MitbringData implements IMitbringData {
 	}
 
 	@Override
-	public void setMitbringen(Boolean mitbringen) {
+	public void setMitbringen(final Boolean mitbringen) {
 		this.mitbringen = mitbringen;
 	}
 
