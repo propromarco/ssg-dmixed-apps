@@ -1,9 +1,6 @@
 package com.appspot.ssg.dmixed.shared;
 
-import java.io.Serializable;
-
-public interface ITerminMitbringsel extends Serializable {
-    Long getId();
+public interface ITerminMitbringsel extends WithId {
 
     String getBeschreibung();
 

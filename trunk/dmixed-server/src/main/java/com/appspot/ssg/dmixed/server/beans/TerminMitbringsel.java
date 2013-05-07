@@ -6,24 +6,14 @@ import com.appspot.ssg.dmixed.server.adapter.TerminTeilnehmerAdapter;
 import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 
-public class TerminMitbringsel implements ITerminMitbringsel {
+public class TerminMitbringsel extends HasId implements ITerminMitbringsel {
 
     private static final long serialVersionUID = -2262927574869400873L;
 
-    private Long id;
     private String beschreibung;
     private ITerminTeilnehmer mitbringer;
 
     public TerminMitbringsel() {
-    }
-
-    @Override
-    public Long getId() {
-	return id;
-    }
-
-    public void setId(final Long id) {
-	this.id = id;
     }
 
     @Override
@@ -41,6 +31,7 @@ public class TerminMitbringsel implements ITerminMitbringsel {
 	return mitbringer;
     }
 
+    @Override
     public void setMitbringer(final ITerminTeilnehmer mitbringer) {
 	this.mitbringer = mitbringer;
     }

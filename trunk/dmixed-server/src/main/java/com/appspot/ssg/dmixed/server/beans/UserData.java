@@ -11,25 +11,15 @@ import com.appspot.ssg.dmixed.shared.IKind;
 import com.appspot.ssg.dmixed.shared.IUserData;
 
 @XmlRootElement
-public class UserData implements IUserData {
+public class UserData extends HasId implements IUserData {
     private static final long serialVersionUID = 6162582455766509261L;
 
-    private Long id;
     private String name;
     private boolean admin;
     private String email;
     private List<IKind> kinder = new ArrayList<IKind>();
 
     public UserData() {
-    }
-
-    @Override
-    public Long getId() {
-	return this.id;
-    }
-
-    public void setId(final Long id) {
-	this.id = id;
     }
 
     @Override

@@ -14,20 +14,20 @@ import com.appspot.ssg.dmixed.shared.ITermine;
 public class Termine implements ITermine {
     private static final long serialVersionUID = 7954238446675965910L;
 
-    private List<ITermin> _all;
+    private List<ITermin> all;
 
     public Termine() {
-	_all = new ArrayList<ITermin>();
+	all = new ArrayList<ITermin>();
     }
 
     @Override
     @XmlJavaTypeAdapter(TerminAdapter.class)
     public List<ITermin> getAll() {
-	return _all;
+	return all;
     }
 
     public void setAll(final List<ITermin> all) {
-	_all = all;
+	this.all = all;
     }
 
 }

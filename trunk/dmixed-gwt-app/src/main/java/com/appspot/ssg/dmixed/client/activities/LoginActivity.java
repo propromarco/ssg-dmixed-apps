@@ -8,6 +8,7 @@ import com.appspot.ssg.dmixed.shared.IAsync;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
 import com.appspot.ssg.dmixed.shared.ILoginData;
 import com.appspot.ssg.dmixed.shared.IUserData;
+import com.google.gwt.storage.client.Storage;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.web.bindery.event.shared.EventBus;
@@ -27,6 +28,8 @@ public class LoginActivity extends MGWTAbstractActivity {
 	HasTapHandlers getLogin();
 
     }
+
+    public static final String USER_ID = "USER_ID";
 
     private final ClientFactory _clientFactory;
 
@@ -53,7 +56,12 @@ public class LoginActivity extends MGWTAbstractActivity {
 		    @Override
 		    public void onSuccess(final IUserData t) {
 			if (t != null) {
-			    _clientFactory.getPlaceController().goTo(new TerminePlace(t.getId()));
+			    final Long userId = t.getId();
+			    final Storage storage = _clientFactory.getStorage();
+			    if (storage != null) {
+				storage.setItem(USER_ID, userId.toString());
+			    }
+			    _clientFactory.getPlaceController().goTo(new TerminePlace(userId));
 			} else {
 			    loginView.showMessage(messages.errorOnLogin());
 			}

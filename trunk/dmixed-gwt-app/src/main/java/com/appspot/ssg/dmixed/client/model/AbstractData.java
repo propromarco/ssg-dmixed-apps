@@ -9,7 +9,7 @@ import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONString;
 import com.google.gwt.json.client.JSONValue;
 
-public class AbstractData {
+public abstract class AbstractData {
     protected final JSONObject _jsonObject;
 
     public AbstractData() {

@@ -14,7 +14,7 @@ import com.appspot.ssg.dmixed.shared.IUsers;
 public class Users implements IUsers {
 
     private static final long serialVersionUID = 5088845540647481994L;
-    private List<IUserData> _all = new ArrayList<IUserData>();
+    private List<IUserData> all = new ArrayList<IUserData>();
 
     public Users() {
     }
@@ -22,11 +22,11 @@ public class Users implements IUsers {
     @Override
     @XmlJavaTypeAdapter(UserDataAdapter.class)
     public List<IUserData> getAll() {
-	return _all;
+	return all;
     }
 
     public void setAll(final List<IUserData> all) {
-	_all = all;
+	this.all = all;
     }
 
 }

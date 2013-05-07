@@ -3,24 +3,14 @@ package com.appspot.ssg.dmixed.server.beans;
 import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 
-public class TerminTeilnehmer implements ITerminTeilnehmer {
+public class TerminTeilnehmer extends HasId implements ITerminTeilnehmer {
     private static final long serialVersionUID = -7880403326312006230L;
-    private Long id;
     private String vorname;
     private String name;
     private ETeilnahmeStatus teilnahme;
     private boolean changeAllowed;
 
     public TerminTeilnehmer() {
-    }
-
-    @Override
-    public final Long getId() {
-	return id;
-    }
-
-    public final void setId(final Long id) {
-	this.id = id;
     }
 
     @Override

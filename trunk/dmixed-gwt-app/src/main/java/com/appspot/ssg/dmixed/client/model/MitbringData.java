@@ -2,19 +2,9 @@ package com.appspot.ssg.dmixed.client.model;
 
 import com.appspot.ssg.dmixed.shared.IMitbringData;
 
-public class MitbringData extends AbstractData implements IMitbringData {
+public class MitbringData extends HasId implements IMitbringData {
 
     private static final long serialVersionUID = -8062983896652043376L;
-
-    @Override
-    public Long getUserId() {
-	return getLong("userId");
-    }
-
-    @Override
-    public void setUserId(final Long userId) {
-	setLong("userId", userId);
-    }
 
     @Override
     public Long getTerminId() {

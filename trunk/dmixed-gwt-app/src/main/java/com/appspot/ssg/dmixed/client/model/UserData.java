@@ -7,17 +7,12 @@ import com.appspot.ssg.dmixed.shared.IUserData;
 import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
 
-public class UserData extends AbstractData implements IUserData {
+public class UserData extends HasId implements IUserData {
 
     private static final long serialVersionUID = 8113909811709789110L;
 
     public UserData(final JSONObject object) {
 	super(object);
-    }
-
-    @Override
-    public Long getId() {
-	return getLong("id");
     }
 
     @Override

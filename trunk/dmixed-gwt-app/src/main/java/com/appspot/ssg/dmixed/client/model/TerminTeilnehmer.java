@@ -4,7 +4,7 @@ import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 import com.google.gwt.json.client.JSONObject;
 
-public class TerminTeilnehmer extends AbstractData implements ITerminTeilnehmer {
+public class TerminTeilnehmer extends HasId implements ITerminTeilnehmer {
 
     private static final long serialVersionUID = -7582905882242579846L;
 
@@ -14,15 +14,6 @@ public class TerminTeilnehmer extends AbstractData implements ITerminTeilnehmer 
 
     public TerminTeilnehmer(final JSONObject obj) {
 	super(obj);
-    }
-
-    @Override
-    public Long getId() {
-	return getLong("id");
-    }
-
-    public void setId(final Long id) {
-	setLong("id", id);
     }
 
     @Override

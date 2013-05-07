@@ -2,67 +2,75 @@ package com.appspot.ssg.dmixed.shared;
 
 public final class DMixedUrlCreator {
 
-	private final String _baseUrl;
+    public static final String SERVICE_URL = "rest";
+    public static final String NORMAL_CLIENT_URL = "dmixed";
+    public static final String TERMINE_URL = "termine";
+    public static final String TERMIN_URL = "termin";
+    public static final String TEILNAHME_URL = "teilnahme";
+    public static final String MITBRINGEN_URL = "mitbringen";
+    public static final String USERS_URL = "users";
+    public static final String USER_URL = "user";
+    public static final String TERMINADMIN_URL = "terminadmin";
 
-	public DMixedUrlCreator(final String baseUrl) {
-		this._baseUrl = baseUrl;
-	}
+    private final String _baseUrl;
 
-	protected String getServiceUrl() {
-		final String url = _baseUrl + "rest/dmixed";
-		return url;
-	}
+    public DMixedUrlCreator(final String baseUrl) {
+	this._baseUrl = baseUrl;
+    }
 
-	public String getLoginUrl() {
-		final String url = getServiceUrl();
-		return url;
-	}
+    protected String getServiceUrl() {
+	final String url = _baseUrl + SERVICE_URL + "/" + NORMAL_CLIENT_URL;
+	return url;
+    }
 
-	public String getTermineUrl(final Long userId) {
-		final String url = getServiceUrl() + "/termine/" + userId;
-		return url;
-	}
+    public String getLoginUrl() {
+	final String url = getServiceUrl();
+	return url;
+    }
 
-	public String getTerminUrl(final Long userId, final Long terminId) {
-		final String url = getServiceUrl() + "/termin/" + userId + "/"
-				+ terminId;
-		return url;
-	}
+    public String getTermineUrl(final Long userId) {
+	final String url = getServiceUrl() + "/" + TERMINE_URL + "/" + userId;
+	return url;
+    }
 
-	public String getOnTeilnahmeUrl() {
-		final String url = getServiceUrl() + "/teilnahme";
-		return url;
-	}
+    public String getTerminUrl(final Long userId, final Long terminId) {
+	final String url = getServiceUrl() + "/" + TERMIN_URL + "/" + userId + "/" + terminId;
+	return url;
+    }
 
-	public String getOnMitringenUrl() {
-		final String url = getServiceUrl() + "/mitbringen";
-		return url;
-	}
+    public String getOnTeilnahmeUrl() {
+	final String url = getServiceUrl() + "/" + TEILNAHME_URL;
+	return url;
+    }
 
-	public String getUsersUrl(final Long userId) {
-		final String url = getServiceUrl() + "/users/" + userId;
-		return url;
-	}
+    public String getOnMitringenUrl() {
+	final String url = getServiceUrl() + "/" + MITBRINGEN_URL;
+	return url;
+    }
 
-	public String getNewUserUrl() {
-		final String url = getServiceUrl() + "/user";
-		return url;
-	}
+    public String getUsersUrl(final Long userId) {
+	final String url = getServiceUrl() + "/" + USERS_URL + "/" + userId;
+	return url;
+    }
 
-	public String getDeleteUserUrl() {
-		final String url = getServiceUrl() + "/user";
-		return url;
-	}
+    public String getNewUserUrl() {
+	final String url = getServiceUrl() + "/" + USER_URL;
+	return url;
+    }
 
-	public String getCreateTerminUrl(long userid, boolean heimspiel) {
-		final String url = getServiceUrl() + "/terminadmin/" + userid + "/"
-				+ heimspiel;
-		return url;
-	}
+    public String getDeleteUserUrl() {
+	final String url = getServiceUrl() + "/" + USER_URL;
+	return url;
+    }
 
-	public String getSaveTerminUrl(final Long userId) {
-		return getServiceUrl() + "/terminadmin/" + userId;
+    public String getCreateTerminUrl(final long userid, final boolean heimspiel) {
+	final String url = getServiceUrl() + "/" + TERMINADMIN_URL + "/" + userid + "/" + heimspiel;
+	return url;
+    }
 
-	}
+    public String getSaveTerminUrl(final Long userId) {
+	final String url = getServiceUrl() + "/" + TERMINADMIN_URL + "/" + userId;
+	return url;
+    }
 
 }

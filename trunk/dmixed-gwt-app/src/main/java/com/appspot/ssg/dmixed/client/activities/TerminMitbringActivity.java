@@ -106,7 +106,7 @@ public class TerminMitbringActivity extends MGWTAbstractActivity {
 	    final MitbringData mitbringData = new MitbringData();
 	    mitbringData.setMitbringselId(terminMitbringsel.getId());
 	    mitbringData.setTerminId(terminId);
-	    mitbringData.setUserId(userId);
+	    mitbringData.setId(userId);
 	    mitbringData.setMitbringen(true);
 	    final IAsync<Void> answer = new IAsync<Void>() {
 		@Override
@@ -131,7 +131,7 @@ public class TerminMitbringActivity extends MGWTAbstractActivity {
 		final MitbringData mitbringData = new MitbringData();
 		mitbringData.setMitbringselId(terminMitbringsel.getId());
 		mitbringData.setTerminId(terminId);
-		mitbringData.setUserId(userId);
+		mitbringData.setId(userId);
 		mitbringData.setMitbringen(false);
 		final IAsync<Void> answer = new IAsync<Void>() {
 		    @Override

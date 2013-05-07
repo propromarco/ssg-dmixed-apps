@@ -50,7 +50,7 @@ public class TermineActivity extends MGWTAbstractActivity {
 			    final int index = event.getIndex();
 			    final List<ITermin> all = t.getAll();
 			    final ITermin iTermin = all.get(index);
-			    final Long terminId = iTermin.getTerminId();
+			    final Long terminId = iTermin.getId();
 			    _clientFactory.getPlaceController().goTo(new TerminPlace(userId, terminId));
 			}
 		    }));

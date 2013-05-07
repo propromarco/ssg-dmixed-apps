@@ -1,9 +1,6 @@
 package com.appspot.ssg.dmixed.server.jpa;
 
-import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,73 +12,75 @@ import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 
 public class JPAAdapter implements IJPAAdapter {
 
-    private final Logger log = Logger.getLogger(getClass().getName());
+    // private final Logger log = Logger.getLogger(getClass().getName());
     private static JPAAdapter INSTANCE = null;
 
     private final EntityManagerFactory emf;
 
     private JPAAdapter() {
 	emf = EMFService.get();
-	final EntityManager em = emf.createEntityManager();
-	try {
-	    final JPALiga liga = createLiga(em, "D-Mixed");
-	    final JPAUser u1 = createUser(em, "Hansen", false, "carola.hansen78@googlemail.com");
-	    final JPAKind k1 = new JPAKind("Annika", Date.valueOf("2006-08-18"));
-	    JPAUser.addKind(em, u1, k1);
-	    JPALiga.addKind(em, liga, k1);
-	    final JPAKind k2 = new JPAKind("Moritz", Date.valueOf("2006-08-18"));
-	    JPAUser.addKind(em, u1, k2);
-	    JPALiga.addKind(em, liga, k2);
-	    final JPAUser u2 = createUser(em, "Sottong", false, "Fussmann@gmx.de");
-	    final JPAKind k3 = new JPAKind("Paula", Date.valueOf("2006-01-14"));
-	    JPAUser.addKind(em, u2, k3);
-	    JPALiga.addKind(em, liga, k3);
-	    final JPAKind k4 = new JPAKind("Lotta", Date.valueOf("2009-01-27"));
-	    JPAUser.addKind(em, u2, k4);
-	    JPALiga.addKind(em, liga, k4);
-	    final JPAUser u3 = createUser(em, "Schwarz", true, "silvana.schwarz@web.de");
-	    final JPAKind k5 = new JPAKind("Nuria", Date.valueOf("2006-02-24"));
-	    JPAUser.addKind(em, u3, k5);
-	    JPALiga.addKind(em, liga, k5);
-	    final JPAUser u4 = createUser(em, "Freund", false, "dfreund@arcor.de");
-	    final JPAKind k6 = new JPAKind("Moritz", Date.valueOf("2006-01-12"));
-	    JPAUser.addKind(em, u4, k6);
-	    JPALiga.addKind(em, liga, k6);
-	    final JPAKind k7 = new JPAKind("Janek", Date.valueOf("2007-01-02"));
-	    JPAUser.addKind(em, u4, k7);
-	    JPALiga.addKind(em, liga, k7);
-	    final JPAUser u5 = createUser(em, "Scholz", false, "dr.scholz-bonn@gmx.net");
-	    final JPAKind k8 = new JPAKind("Leo", Date.valueOf("2007-07-31"));
-	    JPAUser.addKind(em, u5, k8);
-	    JPALiga.addKind(em, liga, k8);
-	    final JPAUser u6 = createUser(em, "Kulowig", false, "uschi.doering@gmx.de");
-	    final JPAKind k9 = new JPAKind("Johanna", Date.valueOf("2005-08-31"));
-	    JPAUser.addKind(em, u6, k9);
-	    JPALiga.addKind(em, liga, k9);
-
-	    final JPAMitbringsel kaffee = createMitbringsel(em, "Kaffee");
-	    final JPAMitbringsel kuchen = createMitbringsel(em, "Kuchen");
-	    final List<JPAMitbringsel> mitbringsel = new ArrayList<JPAMitbringsel>();
-	    mitbringsel.add(kaffee);
-	    mitbringsel.add(kuchen);
-	    final JPATermin t1 = createTermin(em, Date.valueOf("2013-05-05"), "Bla", "Viel Bla Bla", false);
-	    JPALiga.addTermin(em, liga, t1);
-	    final JPATermin t2 = createTermin(em, Date.valueOf("2013-05-06"), "Bla", "Viel Bla Bla", true);
-	    createMitbringsel(em, t2, mitbringsel);
-	    JPALiga.addTermin(em, liga, t2);
-	} catch (final Exception e) {
-	    log.fine(e.getMessage());
-	} finally {
-	    em.close();
-	}
-    }
-
-    private JPALiga createLiga(final EntityManager em, final String bezeichnung) {
-	final JPALiga liga = new JPALiga(bezeichnung);
-	em.getTransaction().begin();
-	em.persist(liga);
-	em.getTransaction().commit();
-	return liga;
+	// final EntityManager em = emf.createEntityManager();
+	// try {
+	// final JPALiga liga = createLiga(em, "D-Mixed");
+	// final JPAUser u1 = createUser(em, "Hansen", false,
+	// "carola.hansen78@googlemail.com");
+	// final JPAKind k1 = new JPAKind("Annika", Date.valueOf("2006-08-18"));
+	// JPAUser.addKind(em, u1, k1);
+	// JPALiga.addKind(em, liga, k1);
+	// final JPAKind k2 = new JPAKind("Moritz", Date.valueOf("2006-08-18"));
+	// JPAUser.addKind(em, u1, k2);
+	// JPALiga.addKind(em, liga, k2);
+	// final JPAUser u2 = createUser(em, "Sottong", false,
+	// "Fussmann@gmx.de");
+	// final JPAKind k3 = new JPAKind("Paula", Date.valueOf("2006-01-14"));
+	// JPAUser.addKind(em, u2, k3);
+	// JPALiga.addKind(em, liga, k3);
+	// final JPAKind k4 = new JPAKind("Lotta", Date.valueOf("2009-01-27"));
+	// JPAUser.addKind(em, u2, k4);
+	// JPALiga.addKind(em, liga, k4);
+	// final JPAUser u3 = createUser(em, "Schwarz", true,
+	// "silvana.schwarz@web.de");
+	// final JPAKind k5 = new JPAKind("Nuria", Date.valueOf("2006-02-24"));
+	// JPAUser.addKind(em, u3, k5);
+	// JPALiga.addKind(em, liga, k5);
+	// final JPAUser u4 = createUser(em, "Freund", false,
+	// "dfreund@arcor.de");
+	// final JPAKind k6 = new JPAKind("Moritz", Date.valueOf("2006-01-12"));
+	// JPAUser.addKind(em, u4, k6);
+	// JPALiga.addKind(em, liga, k6);
+	// final JPAKind k7 = new JPAKind("Janek", Date.valueOf("2007-01-02"));
+	// JPAUser.addKind(em, u4, k7);
+	// JPALiga.addKind(em, liga, k7);
+	// final JPAUser u5 = createUser(em, "Scholz", false,
+	// "dr.scholz-bonn@gmx.net");
+	// final JPAKind k8 = new JPAKind("Leo", Date.valueOf("2007-07-31"));
+	// JPAUser.addKind(em, u5, k8);
+	// JPALiga.addKind(em, liga, k8);
+	// final JPAUser u6 = createUser(em, "Kulowig", false,
+	// "uschi.doering@gmx.de");
+	// final JPAKind k9 = new JPAKind("Johanna",
+	// Date.valueOf("2005-08-31"));
+	// JPAUser.addKind(em, u6, k9);
+	// JPALiga.addKind(em, liga, k9);
+	//
+	// final JPAMitbringsel kaffee = createMitbringsel(em, "Kaffee");
+	// final JPAMitbringsel kuchen = createMitbringsel(em, "Kuchen");
+	// final List<JPAMitbringsel> mitbringsel = new
+	// ArrayList<JPAMitbringsel>();
+	// mitbringsel.add(kaffee);
+	// mitbringsel.add(kuchen);
+	// final JPATermin t1 = createTermin(em, Date.valueOf("2013-05-05"),
+	// "Bla", "Viel Bla Bla", false);
+	// JPALiga.addTermin(em, liga, t1);
+	// final JPATermin t2 = createTermin(em, Date.valueOf("2013-05-06"),
+	// "Bla", "Viel Bla Bla", true);
+	// createMitbringsel(em, t2, mitbringsel);
+	// JPALiga.addTermin(em, liga, t2);
+	// } catch (final Exception e) {
+	// log.fine(e.getMessage());
+	// } finally {
+	// em.close();
+	// }
     }
 
     public static JPAAdapter getInstance() {
@@ -90,7 +89,15 @@ public class JPAAdapter implements IJPAAdapter {
 	return INSTANCE;
     }
 
-    private JPAUser createUser(final EntityManager em, final String name, final boolean admin, final String email) {
+    JPALiga createLiga(final EntityManager em, final String bezeichnung) {
+	final JPALiga liga = new JPALiga(bezeichnung);
+	em.getTransaction().begin();
+	em.persist(liga);
+	em.getTransaction().commit();
+	return liga;
+    }
+
+    JPAUser createUser(final EntityManager em, final String name, final boolean admin, final String email) {
 	final JPAUser user = FakeAdapter.createUser(null, name, admin, email);
 	em.getTransaction().begin();
 	em.persist(user);
@@ -98,7 +105,7 @@ public class JPAAdapter implements IJPAAdapter {
 	return user;
     }
 
-    private JPAMitbringsel createMitbringsel(final EntityManager em, final String bezeichnung) {
+    JPAMitbringsel createMitbringsel(final EntityManager em, final String bezeichnung) {
 	final JPAMitbringsel mitbringsel = FakeAdapter.createMitbringsel(null, bezeichnung);
 	em.getTransaction().begin();
 	em.persist(mitbringsel);
@@ -106,7 +113,7 @@ public class JPAAdapter implements IJPAAdapter {
 	return mitbringsel;
     }
 
-    private JPATermin createTermin(final EntityManager em, final java.util.Date terminDatum, final String kurz, final String beschreibung,
+    JPATermin createTermin(final EntityManager em, final java.util.Date terminDatum, final String kurz, final String beschreibung,
 	    final boolean heimspiel) {
 	final JPATermin termin = FakeAdapter.createTermin(null, terminDatum, kurz, beschreibung, heimspiel);
 	em.getTransaction().begin();
@@ -115,7 +122,7 @@ public class JPAAdapter implements IJPAAdapter {
 	return termin;
     }
 
-    private List<JPATerminMitbringsel> createMitbringsel(final EntityManager em, final JPATermin termin, final List<JPAMitbringsel> mitbringsel) {
+    List<JPATerminMitbringsel> createMitbringsel(final EntityManager em, final JPATermin termin, final List<JPAMitbringsel> mitbringsel) {
 	final List<JPATerminMitbringsel> list = FakeAdapter.createTerminMitbringsel(mitbringsel, termin);
 	for (final JPATerminMitbringsel item : list) {
 	    em.getTransaction().begin();

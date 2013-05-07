@@ -9,24 +9,14 @@ import com.appspot.ssg.dmixed.server.adapter.LigaAdapter;
 import com.appspot.ssg.dmixed.shared.IKind;
 import com.appspot.ssg.dmixed.shared.ILiga;
 
-public class Kind implements IKind {
+public class Kind extends HasId implements IKind {
 
     private static final long serialVersionUID = 5449070923594844203L;
-    private Long id;
     private String vorname;
     private Date birthday;
     private ILiga liga;
 
     public Kind() {
-    }
-
-    @Override
-    public Long getId() {
-	return id;
-    }
-
-    public void setId(final Long id) {
-	this.id = id;
     }
 
     @Override

@@ -6,17 +6,12 @@ import com.appspot.ssg.dmixed.shared.IKind;
 import com.appspot.ssg.dmixed.shared.ILiga;
 import com.google.gwt.json.client.JSONObject;
 
-public class Kind extends AbstractData implements IKind {
+public class Kind extends HasId implements IKind {
 
     private static final long serialVersionUID = 2547346106975267577L;
 
     public Kind(final JSONObject jsonObject) {
 	super(jsonObject);
-    }
-
-    @Override
-    public Long getId() {
-	return getLong("id");
     }
 
     @Override
