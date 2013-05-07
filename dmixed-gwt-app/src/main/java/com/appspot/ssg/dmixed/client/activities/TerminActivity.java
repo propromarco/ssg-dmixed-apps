@@ -63,7 +63,7 @@ public class TerminActivity extends MGWTAbstractActivity {
 		    addHandlerRegistration(terminView.getMitkommen().addTapHandler(new TapHandler() {
 			@Override
 			public void onTap(final TapEvent event) {
-			    final Long terminId = termin.getTerminId();
+			    final Long terminId = termin.getId();
 			    _clientFactory.getPlaceController().goTo(new TerminTeilnahmePlace(userId, terminId));
 			}
 		    }));
@@ -71,7 +71,7 @@ public class TerminActivity extends MGWTAbstractActivity {
 		    addHandlerRegistration(terminView.getMitbringen().addTapHandler(new TapHandler() {
 			@Override
 			public void onTap(final TapEvent event) {
-			    final Long terminId = termin.getTerminId();
+			    final Long terminId = termin.getId();
 			    _clientFactory.getPlaceController().goTo(new TerminMitbringPlace(userId, terminId));
 			}
 		    }));

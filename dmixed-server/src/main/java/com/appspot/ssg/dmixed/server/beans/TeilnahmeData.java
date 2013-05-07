@@ -6,42 +6,31 @@ import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 import com.appspot.ssg.dmixed.shared.ITeilnahmeData;
 
 @XmlRootElement
-public class TeilnahmeData implements ITeilnahmeData {
+public class TeilnahmeData extends HasId implements ITeilnahmeData {
 
     private static final long serialVersionUID = 3284373595974774682L;
 
-    private Long _userId;
-    private Long _terminId;
-    private ETeilnahmeStatus _teilnahme;
-
-    @Override
-    public Long getUserId() {
-	return _userId;
-    }
-
-    @Override
-    public void setUserId(final Long userId) {
-	_userId = userId;
-    }
+    private Long terminId;
+    private ETeilnahmeStatus teilnahme;
 
     @Override
     public Long getTerminId() {
-	return _terminId;
+	return terminId;
     }
 
     @Override
     public void setTerminId(final Long terminId) {
-	_terminId = terminId;
+	this.terminId = terminId;
     }
 
     @Override
     public ETeilnahmeStatus getTeilnahme() {
-	return _teilnahme;
+	return teilnahme;
     }
 
     @Override
     public void setTeilnahme(final ETeilnahmeStatus teilnahme) {
-	_teilnahme = teilnahme;
+	this.teilnahme = teilnahme;
     }
 
 }

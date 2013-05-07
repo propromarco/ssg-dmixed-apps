@@ -1,5 +1,14 @@
 package com.appspot.ssg.dmixed.server;
 
+import static com.appspot.ssg.dmixed.shared.DMixedUrlCreator.MITBRINGEN_URL;
+import static com.appspot.ssg.dmixed.shared.DMixedUrlCreator.NORMAL_CLIENT_URL;
+import static com.appspot.ssg.dmixed.shared.DMixedUrlCreator.TEILNAHME_URL;
+import static com.appspot.ssg.dmixed.shared.DMixedUrlCreator.TERMINADMIN_URL;
+import static com.appspot.ssg.dmixed.shared.DMixedUrlCreator.TERMINE_URL;
+import static com.appspot.ssg.dmixed.shared.DMixedUrlCreator.TERMIN_URL;
+import static com.appspot.ssg.dmixed.shared.DMixedUrlCreator.USERS_URL;
+import static com.appspot.ssg.dmixed.shared.DMixedUrlCreator.USER_URL;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -39,7 +48,7 @@ import com.appspot.ssg.dmixed.shared.ILiga;
 import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 
-@Path("dmixed")
+@Path(NORMAL_CLIENT_URL)
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class DMixedUsecaseService {
@@ -72,7 +81,7 @@ public class DMixedUsecaseService {
     }
 
     @GET
-    @Path("termine/{userid}")
+    @Path(TERMINE_URL + "/{userid}")
     public Termine getTermine(@PathParam("userid") final Long userId) {
 	final JPAUser user = adapter.findUser(userId);
 	if (user == null)
@@ -81,7 +90,7 @@ public class DMixedUsecaseService {
 	final Termine termine = new Termine();
 	for (final JPATermin jpaTermin : jpaTermine) {
 	    final Termin termin = new Termin();
-	    termin.setTerminId(jpaTermin.getTerminId());
+	    termin.setId(jpaTermin.getTerminId());
 	    termin.setTermineDatum(new Date(jpaTermin.getTermineDatum()));
 	    termin.setTerminKurzbeschreibung(jpaTermin.getTerminKurzbeschreibung());
 	    termine.getAll().add(termin);
@@ -90,7 +99,7 @@ public class DMixedUsecaseService {
     }
 
     @GET
-    @Path("termin/{userid}/{terminId}")
+    @Path(TERMIN_URL + "/{userid}/{terminId}")
     public TerminDetails getTermin(@PathParam("userid") final Long userId, @PathParam("terminId") final Long terminId) {
 	final JPAUser user = adapter.findUser(userId);
 	if (user == null)
@@ -101,9 +110,9 @@ public class DMixedUsecaseService {
     }
 
     @PUT
-    @Path("teilnahme")
+    @Path(TEILNAHME_URL)
     public void onTeilnahme(final TeilnahmeData teilnahmeData) {
-	final JPAUser user = adapter.findUser(teilnahmeData.getUserId());
+	final JPAUser user = adapter.findUser(teilnahmeData.getId());
 	if (user == null)
 	    return;
 	final JPATermin termin = adapter.getTermin(teilnahmeData.getTerminId());
@@ -111,9 +120,9 @@ public class DMixedUsecaseService {
     }
 
     @PUT
-    @Path("mitbringen")
+    @Path(MITBRINGEN_URL)
     public void onMitringen(final MitbringData mitbringData) {
-	final JPAUser user = adapter.findUser(mitbringData.getUserId());
+	final JPAUser user = adapter.findUser(mitbringData.getId());
 	if (user == null)
 	    return;
 	final JPATermin termin = adapter.getTermin(mitbringData.getTerminId());
@@ -122,7 +131,7 @@ public class DMixedUsecaseService {
     }
 
     @GET
-    @Path("users/{userid}")
+    @Path(USERS_URL + "/{userid}")
     public Users getUsers(@PathParam("userId") final Long userId) {
 	final JPAUser user = adapter.findUser(userId);
 	if (user == null || !user.isAdmin())
@@ -133,8 +142,6 @@ public class DMixedUsecaseService {
 	    final UserData userData = new UserData();
 	    userData.setId(jpaUser.getId());
 	    userData.setAdmin(jpaUser.isAdmin());
-	    // userData.setBirthday(new Date(jpaUser.getBirthday()));
-	    // userData.setVorname(jpaUser.getVorname());
 	    userData.setName(jpaUser.getName());
 	    newUsers.getAll().add(userData);
 	}
@@ -142,7 +149,7 @@ public class DMixedUsecaseService {
     }
 
     @PUT
-    @Path("user/{userid}")
+    @Path(USER_URL + "/{userid}")
     public void newUser(@PathParam("userId") final Long userId, final UserData userData) {
 	final JPAUser user = adapter.findUser(userId);
 	if (user == null || !user.isAdmin())
@@ -152,7 +159,7 @@ public class DMixedUsecaseService {
     }
 
     @DELETE
-    @Path("user/{userid}")
+    @Path(USER_URL + "/{userid}")
     public void deleteUser(@PathParam("userId") final Long userId, final UserData userData) {
 	final JPAUser user = adapter.findUser(userId);
 	if (user == null || !user.isAdmin())
@@ -162,7 +169,7 @@ public class DMixedUsecaseService {
     }
 
     @GET
-    @Path("terminadmin/{userid}/{heimspiel}")
+    @Path(TERMINADMIN_URL + "/{userid}/{heimspiel}")
     public TerminDetails createTermin(@PathParam("userId") final Long userId, @PathParam("heimspiel") final Boolean heimspiel) {
 	final JPAUser user = adapter.findUser(userId);
 	if (user == null || !user.isAdmin())
@@ -173,7 +180,7 @@ public class DMixedUsecaseService {
     }
 
     @PUT
-    @Path("terminadmin/{userid}")
+    @Path(TERMINADMIN_URL + "/{userid}")
     public void saveTermin(@PathParam("userId") final Long userId, final TerminDetails terminDetails) {
 	final JPAUser user = adapter.findUser(userId);
 	if (user == null || !user.isAdmin())
@@ -221,12 +228,14 @@ public class DMixedUsecaseService {
 
     private TerminDetails copyToDetails(final JPAUser user, final JPATermin termin) {
 	final TerminDetails terminDetails = new TerminDetails();
-	terminDetails.setHeimspiel(termin.isHeimspiel());
-	terminDetails.setMitbringsel(createMitbringsel(termin));
+	final boolean heimspiel = termin.isHeimspiel();
+	terminDetails.setHeimspiel(heimspiel);
+	if (heimspiel)
+	    terminDetails.setMitbringsel(createMitbringsel(termin));
 	terminDetails.setTeilnehmer(createTeilnehmer(user, termin));
 	terminDetails.setTerminBeschreibung(termin.getTerminBeschreibung());
 	terminDetails.setTermineDatum(new Date(termin.getTermineDatum()));
-	terminDetails.setTerminId(termin.getTerminId());
+	terminDetails.setId(termin.getTerminId());
 	terminDetails.setTerminKurzbeschreibung(termin.getTerminKurzbeschreibung());
 	return terminDetails;
     }

@@ -77,7 +77,7 @@ public class TerminTeilnahmeActivity extends MGWTAbstractActivity {
 			    @Override
 			    public void onValueChange(final ValueChangeEvent<ETeilnahmeStatus> event) {
 				final ETeilnahmeStatus newValue = event.getValue();
-				if (checkTeilnehmer(terminTeilnehmer, termin.getTerminId(), newValue))
+				if (checkTeilnehmer(terminTeilnehmer, termin.getId(), newValue))
 				    item.setValue(newValue);
 			    }
 			}));
@@ -102,7 +102,7 @@ public class TerminTeilnahmeActivity extends MGWTAbstractActivity {
 	terminTeilnehmer.setTeilnahme(status);
 	final IDMixedUsecase service = _clientFactory.getService();
 	final TeilnahmeData teilnahmeData = new TeilnahmeData();
-	teilnahmeData.setUserId(userId);
+	teilnahmeData.setId(userId);
 	teilnahmeData.setTerminId(terminId);
 	teilnahmeData.setTeilnahme(status);
 	final IAsync<Void> answer = new IAsync<Void>() {

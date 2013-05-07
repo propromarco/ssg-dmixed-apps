@@ -1,8 +1,12 @@
 package com.appspot.ssg.dmixed.client;
 
+import com.appspot.ssg.dmixed.client.activities.LoginActivity;
 import com.appspot.ssg.dmixed.client.places.LoginPlace;
+import com.appspot.ssg.dmixed.client.places.TerminePlace;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.place.shared.Place;
+import com.google.gwt.storage.client.Storage;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.googlecode.mgwt.mvp.client.AnimatableDisplay;
 import com.googlecode.mgwt.mvp.client.AnimatingActivityManager;
@@ -44,7 +48,21 @@ public class DMixedApp implements EntryPoint {
 
 	final MGWTPlaceHistoryHandler historyHandler = new MGWTPlaceHistoryHandler(historyMapper, historyObserver);
 
-	historyHandler.register(clientFactory.getPlaceController(), clientFactory.getEventBus(), new LoginPlace());
+	final Storage storage = clientFactory.getStorage();
+	final Place startPlace;
+	if (storage != null) {
+	    final String userIdAsString = storage.getItem(LoginActivity.USER_ID);
+	    if (userIdAsString != null) {
+		final Long userId = Long.valueOf(userIdAsString);
+		startPlace = new TerminePlace(userId);
+	    } else {
+		startPlace = new LoginPlace();
+	    }
+	} else {
+	    startPlace = new LoginPlace();
+	}
+
+	historyHandler.register(clientFactory.getPlaceController(), clientFactory.getEventBus(), startPlace);
 	historyHandler.handleCurrentHistory();
 
     }

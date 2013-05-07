@@ -228,7 +228,7 @@ public class FakeAdapter implements IJPAAdapter {
     @Override
     public List<JPAKind> getKinder(final JPAUser user) {
 	// TODO Auto-generated method stub
-	return null;
+	return new ArrayList<JPAKind>();
     }
 
     @Override

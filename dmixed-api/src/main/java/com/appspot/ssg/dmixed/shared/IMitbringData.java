@@ -1,12 +1,9 @@
 package com.appspot.ssg.dmixed.shared;
 
-import java.io.Serializable;
 
-public interface IMitbringData extends Serializable {
+public interface IMitbringData extends WithId {
 
-    Long getUserId();
-
-    void setUserId(Long userId);
+    void setId(Long id);
 
     Long getTerminId();
 
