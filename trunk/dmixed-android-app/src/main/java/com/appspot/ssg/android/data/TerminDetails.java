@@ -12,17 +12,18 @@ import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 public class TerminDetails implements ITerminDetails {
 
 	private static final long serialVersionUID = 8925126053355907173L;
-	private Long terminId;
+	private Long id;
 	private Long termineDatum;
 	private String terminKurzbeschreibung;
 	private boolean heimspiel;
 	private String terminBeschreibung;
 	private List<TerminTeilnehmer> teilnehmer;
 	private List<TerminMitbringsel> mitbringsel;
+	private Liga liga;
 
 	@Override
 	public Long getId() {
-		return terminId;
+		return id;
 	}
 
 	@Override
@@ -47,16 +48,18 @@ public class TerminDetails implements ITerminDetails {
 
 	@Override
 	public List<ITerminTeilnehmer> getTeilnehmer() {
-		return teilnehmer != null ? new ArrayList<ITerminTeilnehmer>(teilnehmer) : new ArrayList<ITerminTeilnehmer>();
+		return teilnehmer != null ? new ArrayList<ITerminTeilnehmer>(teilnehmer)
+				: new ArrayList<ITerminTeilnehmer>();
 	}
 
 	@Override
 	public List<ITerminMitbringsel> getMitbringsel() {
-		return mitbringsel != null ? new ArrayList<ITerminMitbringsel>(mitbringsel) : new ArrayList<ITerminMitbringsel>();
+		return mitbringsel != null ? new ArrayList<ITerminMitbringsel>(
+				mitbringsel) : new ArrayList<ITerminMitbringsel>();
 	}
 
-	public void setTerminId(final Long terminId) {
-		this.terminId = terminId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public void setTermineDatum(final Long termineDatum) {
@@ -85,8 +88,11 @@ public class TerminDetails implements ITerminDetails {
 
 	@Override
 	public ILiga getLiga() {
-	    // TODO Auto-generated method stub
-	    return null;
+		return liga;
+	}
+
+	public void setLiga(Liga liga) {
+		this.liga = liga;
 	}
 
 }
