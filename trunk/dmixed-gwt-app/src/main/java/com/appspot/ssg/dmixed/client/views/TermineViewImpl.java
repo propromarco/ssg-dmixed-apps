@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.appspot.ssg.dmixed.client.IDMixedMessages;
 import com.appspot.ssg.dmixed.client.activities.TermineActivity.TermineView;
+import com.appspot.ssg.dmixed.shared.ILiga;
 import com.appspot.ssg.dmixed.shared.ITermin;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.googlecode.mgwt.ui.client.widget.ScrollPanel;
@@ -25,9 +26,11 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
 	    public String getDisplayString(final ITermin termin) {
 		final Date termineDatum = termin.getTermineDatum();
 		final String terminKurzbeschreibung = termin.getTerminKurzbeschreibung();
+		final ILiga liga = termin.getLiga();
+		final String bezeichnung = liga.getBezeichnung();
 		final DateTimeFormat formatter = DateTimeFormat.getFormat("dd.MM.yyyy");
 		final String d = formatter.format(termineDatum);
-		final String title = terminKurzbeschreibung + " - " + d;
+		final String title = terminKurzbeschreibung + "-" + bezeichnung + " - " + d;
 		return title;
 	    }
 

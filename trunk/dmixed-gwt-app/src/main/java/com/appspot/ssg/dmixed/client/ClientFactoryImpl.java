@@ -15,7 +15,6 @@ import com.appspot.ssg.dmixed.shared.DMixedUrlCreator;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.place.shared.PlaceController;
-import com.google.gwt.storage.client.Storage;
 import com.google.web.bindery.event.shared.EventBus;
 import com.google.web.bindery.event.shared.SimpleEventBus;
 
@@ -31,7 +30,6 @@ public class ClientFactoryImpl implements ClientFactory {
     private final TerminViewImpl _terminView;
     private final TerminTeilnahmeViewImpl _terminTeilnahmeView;
     private final TerminMitbringViewImpl _terminMitbringView;
-    private final Storage storage;
 
     public ClientFactoryImpl() {
 	final String baseUrl = GWT.getHostPageBaseURL();
@@ -39,17 +37,11 @@ public class ClientFactoryImpl implements ClientFactory {
 	service = new DMixedUsecaseConnector(urlCreator);
 	eventBus = new SimpleEventBus();
 	placeController = new PlaceController(eventBus);
-	storage = Storage.getLocalStorageIfSupported();
 	_loginViewImpl = new LoginViewImpl(messages, true);
 	_termineViewImpl = new TermineViewImpl(messages);
 	_terminView = new TerminViewImpl(messages);
 	_terminTeilnahmeView = new TerminTeilnahmeViewImpl(messages);
 	_terminMitbringView = new TerminMitbringViewImpl(messages);
-    }
-
-    @Override
-    public Storage getStorage() {
-	return storage;
     }
 
     @Override

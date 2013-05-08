@@ -7,4 +7,6 @@ public interface ITermin extends WithId {
 
     String getTerminKurzbeschreibung();
 
+    ILiga getLiga();
+
 }

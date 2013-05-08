@@ -7,12 +7,9 @@ import com.appspot.ssg.dmixed.client.activities.TerminTeilnahmeActivity;
 import com.appspot.ssg.dmixed.client.activities.TermineActivity.TermineView;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
 import com.google.gwt.place.shared.PlaceController;
-import com.google.gwt.storage.client.Storage;
 import com.google.web.bindery.event.shared.EventBus;
 
 public interface ClientFactory {
-
-    Storage getStorage();
 
     EventBus getEventBus();
 

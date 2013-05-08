@@ -17,7 +17,7 @@ public class FakeAdapter implements IJPAAdapter {
     private final List<JPATerminMitbringsel> terminMitbringsels = new ArrayList<JPATerminMitbringsel>();
 
     private FakeAdapter() {
-	final JPAUser u1 = createUser(1l, "Schwarz", true, "123@456.com");
+	final JPAUser u1 = createUser(3000l, "Schwarz", true, "123@456.com");
 	final JPAKind k1 = new JPAKind("Nuria", Date.valueOf("2006-02-24"));
 	k1.setFamilie(u1.getId());
 	kinder.add(k1);
@@ -58,7 +58,7 @@ public class FakeAdapter implements IJPAAdapter {
     }
 
     @Override
-    public List<JPATermin> getTermine() {
+    public List<JPATermin> getTermine(final JPAUser user) {
 	return termine;
     }
 

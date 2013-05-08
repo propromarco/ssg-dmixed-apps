@@ -7,6 +7,7 @@ import com.appspot.ssg.dmixed.client.places.TerminMitbringPlace;
 import com.appspot.ssg.dmixed.client.places.TerminTeilnahmePlace;
 import com.appspot.ssg.dmixed.shared.IAsync;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
+import com.appspot.ssg.dmixed.shared.ILiga;
 import com.appspot.ssg.dmixed.shared.ITerminDetails;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
@@ -53,10 +54,11 @@ public class TerminActivity extends MGWTAbstractActivity {
 		if (termin != null) {
 		    final boolean heimspiel = termin.isHeimspiel();
 		    final Date termineDatum = termin.getTermineDatum();
-		    final String terminKurzbeschreibung = termin.getTerminKurzbeschreibung();
+		    final ILiga liga = termin.getLiga();
+		    final String bezeichnung = liga.getBezeichnung();
 		    final DateTimeFormat formatter = DateTimeFormat.getFormat("dd.MM.yyyy");
 		    final String d = formatter.format(termineDatum);
-		    final String title = terminKurzbeschreibung + " - " + d;
+		    final String title = bezeichnung + " - " + d;
 		    terminView.setHeaderText(title);
 		    final String terminBeschreibung = termin.getTerminBeschreibung();
 		    terminView.setTerminBeschreibung(terminBeschreibung);

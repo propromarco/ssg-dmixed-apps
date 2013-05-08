@@ -5,8 +5,10 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import com.appspot.ssg.dmixed.server.adapter.LigaAdapter;
 import com.appspot.ssg.dmixed.server.adapter.TerminMitbringselAdapter;
 import com.appspot.ssg.dmixed.server.adapter.TerminTeilnehmerAdapter;
+import com.appspot.ssg.dmixed.shared.ILiga;
 import com.appspot.ssg.dmixed.shared.ITerminDetails;
 import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
@@ -19,6 +21,7 @@ public class TerminDetails extends Termin implements ITerminDetails {
     private boolean heimspiel;
     private List<ITerminTeilnehmer> teilnehmer;
     private List<ITerminMitbringsel> mitbringsel;
+    private ILiga liga;
 
     public TerminDetails() {
     }
@@ -39,6 +42,16 @@ public class TerminDetails extends Termin implements ITerminDetails {
 
     public void setHeimspiel(final boolean heimspiel) {
 	this.heimspiel = heimspiel;
+    }
+
+    @Override
+    @XmlJavaTypeAdapter(LigaAdapter.class)
+    public ILiga getLiga() {
+	return liga;
+    }
+
+    public void setLiga(final ILiga liga) {
+	this.liga = liga;
     }
 
     @Override

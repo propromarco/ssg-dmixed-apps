@@ -4,15 +4,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "termin")
-@NamedQuery(name = JPATermin.ALLE_TERMINE, query = "SELECT termin FROM JPATermin termin")
 public class JPATermin {
 
-    public static final String ALLE_TERMINE = "ALLE_TERMINE";
     @Id
     @GeneratedValue
     private Long terminId;
