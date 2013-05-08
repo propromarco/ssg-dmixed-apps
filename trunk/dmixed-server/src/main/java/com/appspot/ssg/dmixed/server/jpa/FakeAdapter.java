@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.appspot.ssg.dmixed.server.IJPAAdapter;
+import com.appspot.ssg.dmixed.server.beans.TerminCreate;
 import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 
 public class FakeAdapter implements IJPAAdapter {
@@ -22,7 +23,7 @@ public class FakeAdapter implements IJPAAdapter {
 	k1.setFamilie(u1.getId());
 	kinder.add(k1);
 	users.add(u1);
-	final JPAKind k2 = new JPAKind("Kiara",Date.valueOf("2003-02-04"));
+	final JPAKind k2 = new JPAKind("Kiara", Date.valueOf("2003-02-04"));
 	k2.setFamilie(u1.getId());
 	kinder.add(k2);
 	mitbringsel.add(createMitbringsel(1l, "Kaffee"));
@@ -173,12 +174,6 @@ public class FakeAdapter implements IJPAAdapter {
     }
 
     @Override
-    public JPATermin createTermin(final Boolean heimspiel) {
-//	final List<JPATerminMitbringsel> t = createTerminMitbringsel(mitbringsel, null);
-	return createTermin((long) termine.size(), new Date(System.currentTimeMillis()), "", "", heimspiel);
-    }
-
-    @Override
     public void saveTermin(final JPATermin jpaTermin) {
 	this.termine.add(jpaTermin);
     }
@@ -245,6 +240,18 @@ public class FakeAdapter implements IJPAAdapter {
 
     @Override
     public JPAUser getUser(final JPAKind jpaKind) {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+    @Override
+    public List<JPAMitbringsel> getMitbringsel() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+    @Override
+    public JPATermin createTermin(final TerminCreate terminCreate) {
 	// TODO Auto-generated method stub
 	return null;
     }

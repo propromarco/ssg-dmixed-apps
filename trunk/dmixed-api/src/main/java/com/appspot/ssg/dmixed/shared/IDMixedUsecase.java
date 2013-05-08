@@ -17,7 +17,7 @@ public interface IDMixedUsecase {
 
     void deleteUser(Long userId, IUserData userData, IAsync<Void> answer);
 
-    void createTermin(Long userId, IAsync<ITerminDetails> answer);
+    void createTermin(Long userId, ITerminCreate termineCreate, IAsync<ITerminDetails> answer);
 
     void saveTermin(Long userId, ITerminDetails terminDetails, IAsync<Void> answer);
 

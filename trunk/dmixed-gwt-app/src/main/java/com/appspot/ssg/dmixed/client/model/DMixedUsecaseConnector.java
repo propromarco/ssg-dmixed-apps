@@ -6,6 +6,7 @@ import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
 import com.appspot.ssg.dmixed.shared.ILoginData;
 import com.appspot.ssg.dmixed.shared.IMitbringData;
 import com.appspot.ssg.dmixed.shared.ITeilnahmeData;
+import com.appspot.ssg.dmixed.shared.ITerminCreate;
 import com.appspot.ssg.dmixed.shared.ITerminDetails;
 import com.appspot.ssg.dmixed.shared.ITermine;
 import com.appspot.ssg.dmixed.shared.IUserData;
@@ -139,9 +140,23 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
     }
 
     @Override
-    public void createTermin(final Long userId, final IAsync<ITerminDetails> answer) {
-	// TODO Auto-generated method stub
+    public void createTermin(final Long userId, final ITerminCreate data, final IAsync<ITerminDetails> answer) {
+	final String url = _urlCreator.getCreateTerminUrl(userId);
+	final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.POST);
+	final String requestData = data.toString();
+	final IAsync<JSONObject> newAnswer = new IAsync<JSONObject>() {
+	    @Override
+	    public void onSuccess(final JSONObject object) {
+		final TerminDetails userData = new TerminDetails(object);
+		answer.onSuccess(userData);
+	    }
 
+	    @Override
+	    public void onError(final Throwable exception) {
+		answer.onError(exception);
+	    }
+	};
+	executePost(requestBuilder, requestData, newAnswer);
     }
 
     @Override
