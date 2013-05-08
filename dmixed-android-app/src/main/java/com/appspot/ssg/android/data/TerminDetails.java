@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.appspot.ssg.dmixed.shared.ILiga;
 import com.appspot.ssg.dmixed.shared.ITerminDetails;
 import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
@@ -80,6 +81,12 @@ public class TerminDetails implements ITerminDetails {
 
 	public void setMitbringsel(final List<TerminMitbringsel> mitbringsel) {
 		this.mitbringsel = mitbringsel;
+	}
+
+	@Override
+	public ILiga getLiga() {
+	    // TODO Auto-generated method stub
+	    return null;
 	}
 
 }

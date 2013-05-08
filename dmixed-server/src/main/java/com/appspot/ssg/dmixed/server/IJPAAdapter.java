@@ -17,7 +17,7 @@ public interface IJPAAdapter {
 
     JPAUser findUser(Long userId);
 
-    List<JPATermin> getTermine();
+    List<JPATermin> getTermine(JPAUser user);
 
     JPATermin getTermin(Long terminId);
 

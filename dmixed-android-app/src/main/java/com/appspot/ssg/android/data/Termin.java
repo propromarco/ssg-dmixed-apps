@@ -2,6 +2,7 @@ package com.appspot.ssg.android.data;
 
 import java.util.Date;
 
+import com.appspot.ssg.dmixed.shared.ILiga;
 import com.appspot.ssg.dmixed.shared.ITermin;
 
 public class Termin implements ITermin {
@@ -36,5 +37,11 @@ public class Termin implements ITermin {
 
 	public void setTerminKurzbeschreibung(final String terminKurzbeschreibung) {
 		this.terminKurzbeschreibung = terminKurzbeschreibung;
+	}
+
+	@Override
+	public ILiga getLiga() {
+	    // TODO Auto-generated method stub
+	    return null;
 	}
 }

@@ -1,86 +1,93 @@
 package com.appspot.ssg.dmixed.server.jpa;
 
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.TreeSet;
+import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import com.appspot.ssg.dmixed.server.IJPAAdapter;
 import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 
 public class JPAAdapter implements IJPAAdapter {
 
-    // private final Logger log = Logger.getLogger(getClass().getName());
+    private final Logger log = Logger.getLogger(getClass().getName());
     private static JPAAdapter INSTANCE = null;
 
     private final EntityManagerFactory emf;
 
     private JPAAdapter() {
 	emf = EMFService.get();
-	// final EntityManager em = emf.createEntityManager();
-	// try {
-	// final JPALiga liga = createLiga(em, "D-Mixed");
-	// final JPAUser u1 = createUser(em, "Hansen", false,
-	// "carola.hansen78@googlemail.com");
-	// final JPAKind k1 = new JPAKind("Annika", Date.valueOf("2006-08-18"));
-	// JPAUser.addKind(em, u1, k1);
-	// JPALiga.addKind(em, liga, k1);
-	// final JPAKind k2 = new JPAKind("Moritz", Date.valueOf("2006-08-18"));
-	// JPAUser.addKind(em, u1, k2);
-	// JPALiga.addKind(em, liga, k2);
-	// final JPAUser u2 = createUser(em, "Sottong", false,
-	// "Fussmann@gmx.de");
-	// final JPAKind k3 = new JPAKind("Paula", Date.valueOf("2006-01-14"));
-	// JPAUser.addKind(em, u2, k3);
-	// JPALiga.addKind(em, liga, k3);
-	// final JPAKind k4 = new JPAKind("Lotta", Date.valueOf("2009-01-27"));
-	// JPAUser.addKind(em, u2, k4);
-	// JPALiga.addKind(em, liga, k4);
-	// final JPAUser u3 = createUser(em, "Schwarz", true,
-	// "silvana.schwarz@web.de");
-	// final JPAKind k5 = new JPAKind("Nuria", Date.valueOf("2006-02-24"));
-	// JPAUser.addKind(em, u3, k5);
-	// JPALiga.addKind(em, liga, k5);
-	// final JPAUser u4 = createUser(em, "Freund", false,
-	// "dfreund@arcor.de");
-	// final JPAKind k6 = new JPAKind("Moritz", Date.valueOf("2006-01-12"));
-	// JPAUser.addKind(em, u4, k6);
-	// JPALiga.addKind(em, liga, k6);
-	// final JPAKind k7 = new JPAKind("Janek", Date.valueOf("2007-01-02"));
-	// JPAUser.addKind(em, u4, k7);
-	// JPALiga.addKind(em, liga, k7);
-	// final JPAUser u5 = createUser(em, "Scholz", false,
-	// "dr.scholz-bonn@gmx.net");
-	// final JPAKind k8 = new JPAKind("Leo", Date.valueOf("2007-07-31"));
-	// JPAUser.addKind(em, u5, k8);
-	// JPALiga.addKind(em, liga, k8);
-	// final JPAUser u6 = createUser(em, "Kulowig", false,
-	// "uschi.doering@gmx.de");
-	// final JPAKind k9 = new JPAKind("Johanna",
-	// Date.valueOf("2005-08-31"));
-	// JPAUser.addKind(em, u6, k9);
-	// JPALiga.addKind(em, liga, k9);
-	//
-	// final JPAMitbringsel kaffee = createMitbringsel(em, "Kaffee");
-	// final JPAMitbringsel kuchen = createMitbringsel(em, "Kuchen");
-	// final List<JPAMitbringsel> mitbringsel = new
-	// ArrayList<JPAMitbringsel>();
-	// mitbringsel.add(kaffee);
-	// mitbringsel.add(kuchen);
-	// final JPATermin t1 = createTermin(em, Date.valueOf("2013-05-05"),
-	// "Bla", "Viel Bla Bla", false);
-	// JPALiga.addTermin(em, liga, t1);
-	// final JPATermin t2 = createTermin(em, Date.valueOf("2013-05-06"),
-	// "Bla", "Viel Bla Bla", true);
-	// createMitbringsel(em, t2, mitbringsel);
-	// JPALiga.addTermin(em, liga, t2);
-	// } catch (final Exception e) {
-	// log.fine(e.getMessage());
-	// } finally {
-	// em.close();
-	// }
+	final EntityManager em = emf.createEntityManager();
+	try {
+	    final JPALiga dMixedliga = createLiga(em, "D-Mixed");
+	    final JPALiga cMaedchenliga = createLiga(em, "C-Mädchen");
+	    final JPAUser u1 = createUser(em, "Hansen", false, "carola.hansen78@googlemail.com");
+	    final JPAKind k1 = new JPAKind("Annika", Date.valueOf("2006-08-18"));
+	    JPAUser.addKind(em, u1, k1);
+	    JPALiga.addKind(em, dMixedliga, k1);
+	    final JPAKind k2 = new JPAKind("Moritz", Date.valueOf("2006-08-18"));
+	    JPAUser.addKind(em, u1, k2);
+	    JPALiga.addKind(em, dMixedliga, k2);
+	    final JPAUser u2 = createUser(em, "Sottong", false, "Fussmann@gmx.de");
+	    final JPAKind k3 = new JPAKind("Paula", Date.valueOf("2006-01-14"));
+	    JPAUser.addKind(em, u2, k3);
+	    JPALiga.addKind(em, dMixedliga, k3);
+	    final JPAKind k4 = new JPAKind("Lotta", Date.valueOf("2009-01-27"));
+	    JPAUser.addKind(em, u2, k4);
+	    JPALiga.addKind(em, dMixedliga, k4);
+	    final JPAKind k5 = new JPAKind("Antoinia", Date.valueOf("2004-01-16"));
+	    JPAUser.addKind(em, u2, k5);
+	    JPALiga.addKind(em, cMaedchenliga, k5);
+	    final JPAUser u3 = createUser(em, "Schwarz", true, "silvana.schwarz@web.de");
+	    final JPAKind k6 = new JPAKind("Nuria", Date.valueOf("2006-02-24"));
+	    JPAUser.addKind(em, u3, k6);
+	    JPALiga.addKind(em, dMixedliga, k6);
+	    final JPAKind k7 = new JPAKind("Kiara", Date.valueOf("2003-02-04"));
+	    JPAUser.addKind(em, u3, k7);
+	    JPALiga.addKind(em, cMaedchenliga, k7);
+	    final JPAUser u4 = createUser(em, "Freund", false, "dfreund@arcor.de");
+	    final JPAKind k8 = new JPAKind("Moritz", Date.valueOf("2006-01-12"));
+	    JPAUser.addKind(em, u4, k8);
+	    JPALiga.addKind(em, dMixedliga, k8);
+	    final JPAKind k9 = new JPAKind("Janek", Date.valueOf("2007-01-02"));
+	    JPAUser.addKind(em, u4, k9);
+	    JPALiga.addKind(em, dMixedliga, k9);
+	    final JPAUser u5 = createUser(em, "Scholz", false, "dr.scholz-bonn@gmx.net");
+	    final JPAKind k10 = new JPAKind("Leo", Date.valueOf("2007-07-31"));
+	    JPAUser.addKind(em, u5, k10);
+	    JPALiga.addKind(em, dMixedliga, k10);
+	    final JPAUser u6 = createUser(em, "Kulowig", false, "uschi.doering@gmx.de");
+	    final JPAKind k11 = new JPAKind("Johanna", Date.valueOf("2005-08-31"));
+	    JPAUser.addKind(em, u6, k11);
+	    JPALiga.addKind(em, dMixedliga, k11);
+
+	    final JPAMitbringsel kaffee = createMitbringsel(em, "Kaffee");
+	    final JPAMitbringsel kuchen = createMitbringsel(em, "Kuchen");
+	    final List<JPAMitbringsel> mitbringsel = new ArrayList<JPAMitbringsel>();
+	    mitbringsel.add(kaffee);
+	    mitbringsel.add(kuchen);
+	    final JPATermin t1 = createTermin(em, Date.valueOf("2013-05-05"), "Bla", "Viel Bla Bla", false);
+	    JPALiga.addTermin(em, dMixedliga, t1);
+	    final JPATermin t2 = createTermin(em, Date.valueOf("2013-05-05"), "Bla", "Viel Bla Bla", true);
+	    createMitbringsel(em, t2, mitbringsel);
+	    JPALiga.addTermin(em, cMaedchenliga, t2);
+	} catch (final Exception e) {
+	    log.fine(e.getMessage());
+	} finally {
+	    em.close();
+	}
     }
 
     public static JPAAdapter getInstance() {
@@ -133,18 +140,10 @@ public class JPAAdapter implements IJPAAdapter {
     }
 
     @Override
-    public JPAUser findUser(final String vorname, final String email) {
+    public JPAUser findUser(final String name, final String email) {
 	final EntityManager em = emf.createEntityManager();
-	// final CriteriaBuilder cb =
-	// _entityManagerFactory.getCriteriaBuilder();
-	// final CriteriaQuery<JPAUser> q = cb.createQuery(JPAUser.class);
-	// final Root<JPAUser> from = q.from(JPAUser.class);
-	// final Predicate equalVorname = cb.equal(from.get("vorname"),
-	// vorname);
-	// q.where(equalVorname);
-	// final TypedQuery<JPAUser> query = em.createQuery(q);
 	final Query query = em.createNamedQuery(JPAUser.FINDUSER);
-	query.setParameter("name", vorname);
+	query.setParameter("name", name);
 	query.setParameter("email", email);
 	try {
 	    final JPAUser user = (JPAUser) query.getSingleResult();
@@ -172,11 +171,26 @@ public class JPAAdapter implements IJPAAdapter {
     }
 
     @Override
-    public List<JPATermin> getTermine() {
+    public List<JPATermin> getTermine(final JPAUser jpaUser) {
+	final Collection<Long> ligas = new TreeSet<Long>();
+	final List<JPAKind> kinder = getKinder(jpaUser);
+	for (final JPAKind jpaKind : kinder) {
+	    final Long liga = jpaKind.getLiga();
+	    ligas.add(liga);
+	}
 	final EntityManager em = emf.createEntityManager();
 	try {
-	    final Query query = em.createNamedQuery(JPATermin.ALLE_TERMINE);
-	    @SuppressWarnings("unchecked")
+	    final CriteriaBuilder cb = em.getCriteriaBuilder();
+	    final CriteriaQuery<JPATermin> q = cb.createQuery(JPATermin.class);
+	    final Root<JPATermin> from = q.from(JPATermin.class);
+	    final List<Predicate> ll = new ArrayList<Predicate>();
+	    for (final Long liga : ligas) {
+		final Predicate equalLiga = cb.equal(from.get("liga"), liga);
+		ll.add(equalLiga);
+	    }
+	    final Predicate or = cb.or(ll.toArray(new Predicate[0]));
+	    q.where(or);
+	    final TypedQuery<JPATermin> query = em.createQuery(q);
 	    final List<JPATermin> termine = query.getResultList();
 	    // Match
 	    return termine;

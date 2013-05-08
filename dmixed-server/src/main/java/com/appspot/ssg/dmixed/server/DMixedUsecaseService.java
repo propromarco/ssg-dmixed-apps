@@ -86,13 +86,14 @@ public class DMixedUsecaseService {
 	final JPAUser user = adapter.findUser(userId);
 	if (user == null)
 	    return null;
-	final List<JPATermin> jpaTermine = adapter.getTermine();
+	final List<JPATermin> jpaTermine = adapter.getTermine(user);
 	final Termine termine = new Termine();
 	for (final JPATermin jpaTermin : jpaTermine) {
 	    final Termin termin = new Termin();
 	    termin.setId(jpaTermin.getTerminId());
 	    termin.setTermineDatum(new Date(jpaTermin.getTermineDatum()));
 	    termin.setTerminKurzbeschreibung(jpaTermin.getTerminKurzbeschreibung());
+	    termin.setLiga(createFrom(adapter.getLiga(jpaTermin.getLiga())));
 	    termine.getAll().add(termin);
 	}
 	return termine;
@@ -219,8 +220,6 @@ public class DMixedUsecaseService {
 	final JPAUser jpaUser = new JPAUser();
 	jpaUser.setId(userData.getId());
 	jpaUser.setAdmin(userData.isAdmin());
-	// jpaUser.setBirthday(userData.getBirthday().getTime());
-	// jpaUser.setVorname(userData.getVorname());
 	jpaUser.setName(userData.getName());
 	jpaUser.setEmail(userData.getEmail());
 	return jpaUser;
@@ -232,12 +231,21 @@ public class DMixedUsecaseService {
 	terminDetails.setHeimspiel(heimspiel);
 	if (heimspiel)
 	    terminDetails.setMitbringsel(createMitbringsel(termin));
+	terminDetails.setLiga(createLiga(termin));
 	terminDetails.setTeilnehmer(createTeilnehmer(user, termin));
 	terminDetails.setTerminBeschreibung(termin.getTerminBeschreibung());
 	terminDetails.setTermineDatum(new Date(termin.getTermineDatum()));
 	terminDetails.setId(termin.getTerminId());
 	terminDetails.setTerminKurzbeschreibung(termin.getTerminKurzbeschreibung());
 	return terminDetails;
+    }
+
+    private ILiga createLiga(final JPATermin termin) {
+	final Liga liga = new Liga();
+	final JPALiga jpaLiga = adapter.getLiga(termin.getLiga());
+	liga.setId(jpaLiga.getId());
+	liga.setBezeichnung(jpaLiga.getBezeichnung());
+	return liga;
     }
 
     private List<ITerminTeilnehmer> createTeilnehmer(final JPAUser user, final JPATermin termin) {
@@ -281,7 +289,6 @@ public class DMixedUsecaseService {
 	    return null;
 	final TerminTeilnehmer t = new TerminTeilnehmer();
 	t.setId(user.getId());
-	// t.setVorname(user.getVorname());
 	t.setName(user.getName());
 	return t;
     }

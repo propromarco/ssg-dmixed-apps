@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.appspot.ssg.dmixed.server.adapter.DateAdapter;
+import com.appspot.ssg.dmixed.server.adapter.LigaAdapter;
+import com.appspot.ssg.dmixed.shared.ILiga;
 import com.appspot.ssg.dmixed.shared.ITermin;
 
 public class Termin extends HasId implements ITermin {
@@ -13,6 +15,8 @@ public class Termin extends HasId implements ITermin {
 
     private Date termineDatum;
     private String terminKurzbeschreibung;
+
+    private ILiga liga;
 
     public Termin() {
     }
@@ -34,6 +38,16 @@ public class Termin extends HasId implements ITermin {
 
     public void setTerminKurzbeschreibung(final String terminKurzbeschreibung) {
 	this.terminKurzbeschreibung = terminKurzbeschreibung;
+    }
+
+    @Override
+    @XmlJavaTypeAdapter(LigaAdapter.class)
+    public ILiga getLiga() {
+	return liga;
+    }
+
+    public void setLiga(final ILiga liga) {
+	this.liga = liga;
     }
 
 }

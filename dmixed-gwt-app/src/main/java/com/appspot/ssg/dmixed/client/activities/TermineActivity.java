@@ -25,10 +25,12 @@ public class TermineActivity extends MGWTAbstractActivity {
 
     private final ClientFactory _clientFactory;
     private final Long userId;
+    private final boolean admin;
 
-    public TermineActivity(final ClientFactory clientFactory, final Long userId) {
+    public TermineActivity(final ClientFactory clientFactory, final Long userId, final boolean admin) {
 	_clientFactory = clientFactory;
 	this.userId = userId;
+	this.admin = admin;
     }
 
     @Override

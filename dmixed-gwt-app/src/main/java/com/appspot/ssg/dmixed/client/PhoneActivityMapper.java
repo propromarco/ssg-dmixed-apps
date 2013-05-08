@@ -28,7 +28,9 @@ public class PhoneActivityMapper implements ActivityMapper {
 	    return new LoginActivity(_clientFactory);
 	} else if (place instanceof TerminePlace) {
 	    final TerminePlace terminePlace = (TerminePlace) place;
-	    return new TermineActivity(_clientFactory, terminePlace.getUserId());
+	    final Long userId = terminePlace.getUserId();
+	    final boolean admin = terminePlace.isAdmin();
+	    return new TermineActivity(_clientFactory, userId, admin);
 	} else if (place instanceof TerminPlace) {
 	    final TerminPlace terminPlace = (TerminPlace) place;
 	    return new TerminActivity(_clientFactory, terminPlace.getUserId(), terminPlace.getTerminId());
