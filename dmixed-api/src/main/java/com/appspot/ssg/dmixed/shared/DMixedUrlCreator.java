@@ -63,8 +63,8 @@ public final class DMixedUrlCreator {
 	return url;
     }
 
-    public String getCreateTerminUrl(final long userid, final boolean heimspiel) {
-	final String url = getServiceUrl() + "/" + TERMINADMIN_URL + "/" + userid + "/" + heimspiel;
+    public String getCreateTerminUrl(final long userid) {
+	final String url = getServiceUrl() + "/" + TERMINADMIN_URL + "/" + userid;
 	return url;
     }
 

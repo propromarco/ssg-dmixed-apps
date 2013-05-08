@@ -18,6 +18,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import com.appspot.ssg.dmixed.server.IJPAAdapter;
+import com.appspot.ssg.dmixed.server.beans.TerminCreate;
 import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 
 public class JPAAdapter implements IJPAAdapter {
@@ -305,9 +306,19 @@ public class JPAAdapter implements IJPAAdapter {
     }
 
     @Override
-    public JPATermin createTermin(final Boolean heimspiel) {
-	// TODO Auto-generated method stub
-	return null;
+    public JPATermin createTermin(final TerminCreate terminCreate) {
+	final JPATermin termin = new JPATermin();
+	termin.setTermineDatum(terminCreate.getTerminDatum().getTime());
+	termin.setTerminKurzbeschreibung(terminCreate.getTerminKurzbeschreibung());
+	termin.setHeimspiel(terminCreate.isHeimspiel());
+	termin.setLiga(terminCreate.getLiga().getId());
+	final EntityManager em = emf.createEntityManager();
+	try {
+	    em.persist(termin);
+	    return termin;
+	} finally {
+	    em.close();
+	}
     }
 
     @Override
@@ -326,6 +337,20 @@ public class JPAAdapter implements IJPAAdapter {
 	    final List<JPATerminTeilnehmer> teilnehmers = query.getResultList();
 	    // Match
 	    return teilnehmers;
+	} finally {
+	    em.close();
+	}
+    }
+
+    @Override
+    public List<JPAMitbringsel> getMitbringsel() {
+	final EntityManager em = emf.createEntityManager();
+	final Query query = em.createQuery("SELECT m FROM JPAMitbringsel m", JPAMitbringsel.class);
+	try {
+	    @SuppressWarnings("unchecked")
+	    final List<JPAMitbringsel> mitbringsels = query.getResultList();
+	    // Match
+	    return mitbringsels;
 	} finally {
 	    em.close();
 	}

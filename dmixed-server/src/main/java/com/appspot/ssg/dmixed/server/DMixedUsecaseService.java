@@ -29,6 +29,7 @@ import com.appspot.ssg.dmixed.server.beans.LoginData;
 import com.appspot.ssg.dmixed.server.beans.MitbringData;
 import com.appspot.ssg.dmixed.server.beans.TeilnahmeData;
 import com.appspot.ssg.dmixed.server.beans.Termin;
+import com.appspot.ssg.dmixed.server.beans.TerminCreate;
 import com.appspot.ssg.dmixed.server.beans.TerminDetails;
 import com.appspot.ssg.dmixed.server.beans.TerminMitbringsel;
 import com.appspot.ssg.dmixed.server.beans.TerminTeilnehmer;
@@ -106,7 +107,7 @@ public class DMixedUsecaseService {
 	if (user == null)
 	    return null;
 	final JPATermin termin = adapter.getTermin(terminId);
-	final TerminDetails terminDetails = copyToDetails(user, termin);
+	final TerminDetails terminDetails = copyToDetails(user, termin, false);
 	return terminDetails;
     }
 
@@ -169,14 +170,14 @@ public class DMixedUsecaseService {
 	this.adapter.delUser(jpaUser);
     }
 
-    @GET
-    @Path(TERMINADMIN_URL + "/{userid}/{heimspiel}")
-    public TerminDetails createTermin(@PathParam("userId") final Long userId, @PathParam("heimspiel") final Boolean heimspiel) {
+    @POST
+    @Path(TERMINADMIN_URL + "/{userid}")
+    public TerminDetails createTermin(@PathParam("userId") final Long userId, final TerminCreate terminCreate) {
 	final JPAUser user = adapter.findUser(userId);
 	if (user == null || !user.isAdmin())
 	    return null;
-	final JPATermin jpaTermin = adapter.createTermin(heimspiel);
-	final TerminDetails terminDetails = copyFrom(jpaTermin);
+	final JPATermin jpaTermin = adapter.createTermin(terminCreate);
+	final TerminDetails terminDetails = copyToDetails(user, jpaTermin, true);
 	return terminDetails;
     }
 
@@ -191,11 +192,6 @@ public class DMixedUsecaseService {
     }
 
     private JPATermin copyFrom(final TerminDetails terminDetails) {
-	// TODO Auto-generated method stub
-	return null;
-    }
-
-    private TerminDetails copyFrom(final JPATermin jpaTermin) {
 	// TODO Auto-generated method stub
 	return null;
     }
@@ -225,12 +221,12 @@ public class DMixedUsecaseService {
 	return jpaUser;
     }
 
-    private TerminDetails copyToDetails(final JPAUser user, final JPATermin termin) {
+    private TerminDetails copyToDetails(final JPAUser user, final JPATermin termin, final boolean onCreate) {
 	final TerminDetails terminDetails = new TerminDetails();
 	final boolean heimspiel = termin.isHeimspiel();
 	terminDetails.setHeimspiel(heimspiel);
 	if (heimspiel)
-	    terminDetails.setMitbringsel(createMitbringsel(termin));
+	    terminDetails.setMitbringsel(createMitbringsel(termin, onCreate));
 	terminDetails.setLiga(createLiga(termin));
 	terminDetails.setTeilnehmer(createTeilnehmer(user, termin));
 	terminDetails.setTerminBeschreibung(termin.getTerminBeschreibung());
@@ -270,16 +266,27 @@ public class DMixedUsecaseService {
 	return list;
     }
 
-    private List<ITerminMitbringsel> createMitbringsel(final JPATermin termin) {
+    private List<ITerminMitbringsel> createMitbringsel(final JPATermin termin, final boolean onCreate) {
 	final List<ITerminMitbringsel> list = new ArrayList<ITerminMitbringsel>();
-	final List<JPATerminMitbringsel> mitbringsel = adapter.getMitbringsel(termin);
-	for (final JPATerminMitbringsel jpaTerminMitbringsel : mitbringsel) {
-	    final TerminMitbringsel m = new TerminMitbringsel();
-	    m.setId(jpaTerminMitbringsel.getMitbringselId());
-	    final JPAMitbringsel jpaMitbringsel = adapter.getMitbringsel(jpaTerminMitbringsel);
-	    m.setBeschreibung(jpaMitbringsel.getBezeichnung());
-	    m.setMitbringer(createMitbringer(adapter.getUser(jpaTerminMitbringsel)));
-	    list.add(m);
+	if (onCreate) {
+	    final List<JPAMitbringsel> mitbringsel = adapter.getMitbringsel();
+	    for (final JPAMitbringsel jpaMitbringsel : mitbringsel) {
+		final TerminMitbringsel m = new TerminMitbringsel();
+		m.setId(jpaMitbringsel.getMitbringselId());
+		m.setBeschreibung(jpaMitbringsel.getBezeichnung());
+		list.add(m);
+		
+	    }
+	} else {
+	    final List<JPATerminMitbringsel> mitbringsel = adapter.getMitbringsel(termin);
+	    for (final JPATerminMitbringsel jpaTerminMitbringsel : mitbringsel) {
+		final TerminMitbringsel m = new TerminMitbringsel();
+		m.setId(jpaTerminMitbringsel.getMitbringselId());
+		final JPAMitbringsel jpaMitbringsel = adapter.getMitbringsel(jpaTerminMitbringsel);
+		m.setBeschreibung(jpaMitbringsel.getBezeichnung());
+		m.setMitbringer(createMitbringer(adapter.getUser(jpaTerminMitbringsel)));
+		list.add(m);
+	    }
 	}
 	return list;
     }
