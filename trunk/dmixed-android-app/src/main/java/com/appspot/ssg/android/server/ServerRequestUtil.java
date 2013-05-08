@@ -16,6 +16,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpParams;
 
+import com.appspot.ssg.android.data.CreateTermin;
 import com.appspot.ssg.android.data.LoginData;
 import com.appspot.ssg.android.data.MitbringData;
 import com.appspot.ssg.android.data.TeilnahmeData;
@@ -82,9 +83,10 @@ public class ServerRequestUtil {
 
 	public ITerminDetails createTermin(final long userId, final boolean heimspiel)
 			throws ServerRequestException {
-		final String createTerminUrl = urlCreator.getCreateTerminUrl(userId,
-				heimspiel);
-		final String json = call(null, createTerminUrl, HTTP_TYPE.GET);
+		final String createTerminUrl = urlCreator.getCreateTerminUrl(userId);
+		CreateTermin postData = new CreateTermin();
+		// TODO fiull
+		final String json = call(postData, createTerminUrl, HTTP_TYPE.POST);
 		final TerminDetails details = createObject(json, TerminDetails.class);
 		return details;
 	}
