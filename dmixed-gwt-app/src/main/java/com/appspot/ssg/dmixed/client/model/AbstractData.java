@@ -22,6 +22,8 @@ public abstract class AbstractData {
 
     protected String getString(final String key) {
 	final JSONValue jsonValue = _jsonObject.get(key);
+	if (jsonValue == null)
+	    return null;
 	final JSONString string = jsonValue.isString();
 	return string.stringValue();
     }

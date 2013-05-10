@@ -3,7 +3,9 @@ package com.appspot.ssg.dmixed.server.beans;
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import com.appspot.ssg.dmixed.server.adapter.DateAdapter;
 import com.appspot.ssg.dmixed.shared.ITerminCreate;
 
 @XmlRootElement
@@ -19,6 +21,7 @@ public class TerminCreate extends HasId implements ITerminCreate {
     }
 
     @Override
+    @XmlJavaTypeAdapter(DateAdapter.class)
     public Date getTerminDatum() {
 	return terminDatum;
     }
