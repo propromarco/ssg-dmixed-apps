@@ -259,4 +259,10 @@ public class FakeAdapter implements IJPAAdapter {
 	return null;
     }
 
+    @Override
+    public List<JPALiga> getLigen() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
 }

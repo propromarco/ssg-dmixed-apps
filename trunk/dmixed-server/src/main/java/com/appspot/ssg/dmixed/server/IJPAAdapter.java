@@ -56,4 +56,6 @@ public interface IJPAAdapter {
 
     JPATermin createTermin(TerminCreate terminCreate);
 
+    List<JPALiga> getLigen();
+
 }

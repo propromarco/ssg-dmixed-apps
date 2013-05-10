@@ -3,6 +3,7 @@ package com.appspot.ssg.dmixed.client.model;
 import com.appspot.ssg.dmixed.shared.DMixedUrlCreator;
 import com.appspot.ssg.dmixed.shared.IAsync;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
+import com.appspot.ssg.dmixed.shared.ILigen;
 import com.appspot.ssg.dmixed.shared.ILoginData;
 import com.appspot.ssg.dmixed.shared.IMitbringData;
 import com.appspot.ssg.dmixed.shared.ITeilnahmeData;
@@ -163,6 +164,25 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
     public void saveTermin(final Long userId, final ITerminDetails terminDetails, final IAsync<Void> answer) {
 	// TODO Auto-generated method stub
 
+    }
+
+    @Override
+    public void getLigen(final Long userId, final IAsync<ILigen> answer) {
+	final String url = _urlCreator.getLiegenUrl(userId);
+	final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.GET);
+	final IAsync<JSONObject> newAnswer = new IAsync<JSONObject>() {
+	    @Override
+	    public void onSuccess(final JSONObject object) {
+		final Ligen userData = new Ligen(object);
+		answer.onSuccess(userData);
+	    }
+
+	    @Override
+	    public void onError(final Throwable exception) {
+		answer.onError(exception);
+	    }
+	};
+	executeGet(requestBuilder, newAnswer);
     }
 
     protected RequestBuilder createRequestBuilder(final String url, final Method method) {

@@ -7,12 +7,17 @@ import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Query;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "liga")
+@NamedQueries(@NamedQuery(name = JPALiga.ALLE_LIGEN, query = "SELECT liga FROM JPALiga liga"))
 public class JPALiga {
+
+    public static final String ALLE_LIGEN = "ALLE_LIGEN";
 
     @Id
     @GeneratedValue
