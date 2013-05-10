@@ -229,7 +229,10 @@ public class FakeAdapter implements IJPAAdapter {
     @Override
     public JPALiga getLiga(final Long liga) {
 	// TODO Auto-generated method stub
-	return null;
+	final JPALiga l = new JPALiga();
+	l.setId(1l);
+	l.setBezeichnung("D-MIXED");
+	return l;
     }
 
     @Override
