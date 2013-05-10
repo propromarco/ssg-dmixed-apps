@@ -275,7 +275,7 @@ public class DMixedUsecaseService {
 		m.setId(jpaMitbringsel.getMitbringselId());
 		m.setBeschreibung(jpaMitbringsel.getBezeichnung());
 		list.add(m);
-		
+
 	    }
 	} else {
 	    final List<JPATerminMitbringsel> mitbringsel = adapter.getMitbringsel(termin);
