@@ -7,7 +7,7 @@ public interface ITerminCreate extends WithId {
 
     String getTerminKurzbeschreibung();
 
-    ILiga getLiga();
+    Long getLiga();
 
     boolean isHeimspiel();
 

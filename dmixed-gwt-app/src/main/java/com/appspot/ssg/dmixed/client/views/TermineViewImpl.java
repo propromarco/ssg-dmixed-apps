@@ -27,6 +27,11 @@ import com.googlecode.mgwt.ui.client.widget.tabbar.TabPanel;
 public class TermineViewImpl extends AbstractDmixedView implements TermineView {
 
     private final CellListWithHeader<ITermin> _cellList;
+    private final MDateBox terminDatum;
+    private final MTextBox kurzbeschreibung;
+    private final MCheckBox heimspiel;
+    private final MListBox liga;
+    private Button newTerminButton;
 
     public TermineViewImpl(final IDMixedMessages messages) {
 	super(messages);
@@ -63,27 +68,31 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
 	tabPanel.add(termine, scrollPanel);
 	final MostRecentTabBarButton neuerTermin = new MostRecentTabBarButton();
 	neuerTermin.setText("neuer Termin");
-	tabPanel.add(neuerTermin, createNeuerTerminPanel());
-	_layoutPanel.add(tabPanel);
-    }
 
-    private FlowPanel createNeuerTerminPanel() {
 	final FlowPanel container = new FlowPanel();
+	{
+	    final WidgetList widgetList = new WidgetList();
+	    widgetList.setRound(true);
 
-	final WidgetList widgetList = new WidgetList();
-	widgetList.setRound(true);
+	    // lets put in some widgets
+	    this.terminDatum = new MDateBox();
+	    terminDatum.setFormat("dd.MM.yyyy");
+	    terminDatum.setValue(new Date());
+	    widgetList.add(new FormListEntry("Datum", terminDatum));
+	    this.kurzbeschreibung = new MTextBox();
+	    widgetList.add(new FormListEntry("Kurzbeschreibung", kurzbeschreibung));
+	    this.heimspiel = new MCheckBox();
+	    widgetList.add(new FormListEntry("Heimspiel", heimspiel));
+	    this.liga = new MListBox();
+	    widgetList.add(new FormListEntry("Liga", liga));
+	    container.add(widgetList);
 
-	// lets put in some widgets
-	final MDateBox w = new MDateBox();
-	w.setValue(new Date());
-	widgetList.add(new FormListEntry("Datum", w));
-	widgetList.add(new FormListEntry("Kurzbeschreibung", new MTextBox()));
-	widgetList.add(new FormListEntry("Heimspiel", new MCheckBox()));
-	widgetList.add(new FormListEntry("Liga", new MListBox()));
-	container.add(widgetList);
+	    this.newTerminButton = new Button("weiter");
+	    container.add(newTerminButton);
+	}
+	tabPanel.add(neuerTermin, container);
+	_layoutPanel.add(tabPanel);
 
-	container.add(new Button("weiter"));
-	return container;
     }
 
     @Override
@@ -94,6 +103,30 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
     @Override
     public void updateList(final List<ITermin> termine) {
 	_cellList.getCellList().render(termine);
+    }
+
+    @Override
+    public MDateBox getTerminDatum() {
+	return terminDatum;
+    }
+
+    @Override
+    public MTextBox getKurzbeschreibung() {
+	return kurzbeschreibung;
+    }
+
+    @Override
+    public MCheckBox getHeimspiel() {
+	return heimspiel;
+    }
+
+    @Override
+    public MListBox getLiga() {
+	return liga;
+    }
+
+    public Button getNewTerminButton() {
+	return newTerminButton;
     }
 
 }

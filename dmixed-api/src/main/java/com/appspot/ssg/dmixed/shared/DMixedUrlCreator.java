@@ -11,6 +11,7 @@ public final class DMixedUrlCreator {
     public static final String USERS_URL = "users";
     public static final String USER_URL = "user";
     public static final String TERMINADMIN_URL = "terminadmin";
+    public static final String LIGEN_URL = "ligen";
 
     private final String _baseUrl;
 
@@ -70,6 +71,11 @@ public final class DMixedUrlCreator {
 
     public String getSaveTerminUrl(final Long userId) {
 	final String url = getServiceUrl() + "/" + TERMINADMIN_URL + "/" + userId;
+	return url;
+    }
+
+    public String getLiegenUrl(final Long userId) {
+	final String url = getServiceUrl() + "/" + LIGEN_URL + "/" + userId;
 	return url;
     }
 

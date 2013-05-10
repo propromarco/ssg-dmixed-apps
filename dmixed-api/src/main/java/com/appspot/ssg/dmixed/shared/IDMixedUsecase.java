@@ -21,4 +21,6 @@ public interface IDMixedUsecase {
 
     void saveTermin(Long userId, ITerminDetails terminDetails, IAsync<Void> answer);
 
+    void getLigen(Long userId, IAsync<ILigen> answer);
+
 }

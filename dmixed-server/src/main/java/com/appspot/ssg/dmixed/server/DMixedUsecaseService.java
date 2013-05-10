@@ -1,5 +1,6 @@
 package com.appspot.ssg.dmixed.server;
 
+import static com.appspot.ssg.dmixed.shared.DMixedUrlCreator.LIGEN_URL;
 import static com.appspot.ssg.dmixed.shared.DMixedUrlCreator.MITBRINGEN_URL;
 import static com.appspot.ssg.dmixed.shared.DMixedUrlCreator.NORMAL_CLIENT_URL;
 import static com.appspot.ssg.dmixed.shared.DMixedUrlCreator.TEILNAHME_URL;
@@ -25,6 +26,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.appspot.ssg.dmixed.server.beans.Kind;
 import com.appspot.ssg.dmixed.server.beans.Liga;
+import com.appspot.ssg.dmixed.server.beans.Ligen;
 import com.appspot.ssg.dmixed.server.beans.LoginData;
 import com.appspot.ssg.dmixed.server.beans.MitbringData;
 import com.appspot.ssg.dmixed.server.beans.TeilnahmeData;
@@ -134,7 +136,7 @@ public class DMixedUsecaseService {
 
     @GET
     @Path(USERS_URL + "/{userid}")
-    public Users getUsers(@PathParam("userId") final Long userId) {
+    public Users getUsers(@PathParam("userid") final Long userId) {
 	final JPAUser user = adapter.findUser(userId);
 	if (user == null || !user.isAdmin())
 	    return null;
@@ -152,7 +154,7 @@ public class DMixedUsecaseService {
 
     @PUT
     @Path(USER_URL + "/{userid}")
-    public void newUser(@PathParam("userId") final Long userId, final UserData userData) {
+    public void newUser(@PathParam("userid") final Long userId, final UserData userData) {
 	final JPAUser user = adapter.findUser(userId);
 	if (user == null || !user.isAdmin())
 	    return;
@@ -162,7 +164,7 @@ public class DMixedUsecaseService {
 
     @DELETE
     @Path(USER_URL + "/{userid}")
-    public void deleteUser(@PathParam("userId") final Long userId, final UserData userData) {
+    public void deleteUser(@PathParam("userid") final Long userId, final UserData userData) {
 	final JPAUser user = adapter.findUser(userId);
 	if (user == null || !user.isAdmin())
 	    return;
@@ -172,7 +174,7 @@ public class DMixedUsecaseService {
 
     @POST
     @Path(TERMINADMIN_URL + "/{userid}")
-    public TerminDetails createTermin(@PathParam("userId") final Long userId, final TerminCreate terminCreate) {
+    public TerminDetails createTermin(@PathParam("userid") final Long userId, final TerminCreate terminCreate) {
 	final JPAUser user = adapter.findUser(userId);
 	if (user == null || !user.isAdmin())
 	    return null;
@@ -183,12 +185,27 @@ public class DMixedUsecaseService {
 
     @PUT
     @Path(TERMINADMIN_URL + "/{userid}")
-    public void saveTermin(@PathParam("userId") final Long userId, final TerminDetails terminDetails) {
+    public void saveTermin(@PathParam("userid") final Long userId, final TerminDetails terminDetails) {
 	final JPAUser user = adapter.findUser(userId);
 	if (user == null || !user.isAdmin())
 	    return;
 	final JPATermin jpaTermin = copyFrom(terminDetails);
 	adapter.saveTermin(jpaTermin);
+    }
+
+    @GET
+    @Path(LIGEN_URL + "/{userid}")
+    public Ligen getLigen(@PathParam("userid") final Long userId) {
+	final JPAUser user = adapter.findUser(userId);
+	if (user == null || !user.isAdmin())
+	    return null;
+	final List<JPALiga> ligen = adapter.getLigen();
+	final Ligen alle = new Ligen();
+	for (final JPALiga jpaLiga : ligen) {
+	    final ILiga liga = createFrom(jpaLiga);
+	    alle.getAll().add(liga);
+	}
+	return alle;
     }
 
     private JPATermin copyFrom(final TerminDetails terminDetails) {
