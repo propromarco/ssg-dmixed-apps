@@ -2,13 +2,9 @@ package com.appspot.ssg.dmixed.client;
 
 import com.appspot.ssg.dmixed.client.activities.LoginActivity.LoginView;
 import com.appspot.ssg.dmixed.client.activities.TerminActivity;
-import com.appspot.ssg.dmixed.client.activities.TerminMitbringActivity;
-import com.appspot.ssg.dmixed.client.activities.TerminTeilnahmeActivity;
 import com.appspot.ssg.dmixed.client.activities.TermineActivity.TermineView;
 import com.appspot.ssg.dmixed.client.model.DMixedUsecaseConnector;
 import com.appspot.ssg.dmixed.client.views.LoginViewImpl;
-import com.appspot.ssg.dmixed.client.views.TerminMitbringViewImpl;
-import com.appspot.ssg.dmixed.client.views.TerminTeilnahmeViewImpl;
 import com.appspot.ssg.dmixed.client.views.TerminViewImpl;
 import com.appspot.ssg.dmixed.client.views.TermineViewImpl;
 import com.appspot.ssg.dmixed.shared.DMixedUrlCreator;
@@ -27,9 +23,6 @@ public class ClientFactoryImpl implements ClientFactory {
     private final IDMixedUsecase service;
     private final LoginViewImpl _loginViewImpl;
     private final TermineViewImpl _termineViewImpl;
-    private final TerminViewImpl _terminView;
-    private final TerminTeilnahmeViewImpl _terminTeilnahmeView;
-    private final TerminMitbringViewImpl _terminMitbringView;
 
     public ClientFactoryImpl() {
 	final String baseUrl = GWT.getHostPageBaseURL();
@@ -39,9 +32,6 @@ public class ClientFactoryImpl implements ClientFactory {
 	placeController = new PlaceController(eventBus);
 	_loginViewImpl = new LoginViewImpl(messages, true);
 	_termineViewImpl = new TermineViewImpl(messages);
-	_terminView = new TerminViewImpl(messages);
-	_terminTeilnahmeView = new TerminTeilnahmeViewImpl(messages);
-	_terminMitbringView = new TerminMitbringViewImpl(messages);
     }
 
     @Override
@@ -76,17 +66,8 @@ public class ClientFactoryImpl implements ClientFactory {
 
     @Override
     public TerminActivity.TerminView getTerminView() {
+	final TerminViewImpl _terminView = new TerminViewImpl(messages);
 	return _terminView;
-    }
-
-    @Override
-    public TerminTeilnahmeActivity.TerminView getTerminTeilnahmeView() {
-	return _terminTeilnahmeView;
-    }
-
-    @Override
-    public TerminMitbringActivity.TerminView getTerminMitbringView() {
-	return _terminMitbringView;
     }
 
 }

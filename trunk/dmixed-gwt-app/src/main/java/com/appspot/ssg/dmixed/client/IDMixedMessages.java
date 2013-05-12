@@ -28,4 +28,16 @@ public interface IDMixedMessages extends Messages {
     String nichtEntschieden();
 
     String mitkommen();
+
+    String terminCreateDatum();
+
+    String terminCreateKurzbeschreibung();
+
+    String terminCreateHeimspiel();
+
+    String terminCreateLiga();
+
+    String createTermin();
+
+    String neuerTermin();
 }

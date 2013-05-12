@@ -64,10 +64,10 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
 
 	final TabPanel tabPanel = new TabPanel();
 	final HistoryTabBarButton termine = new HistoryTabBarButton();
-	termine.setText("Termine");
+	termine.setText(messages.termine());
 	tabPanel.add(termine, scrollPanel);
 	final MostRecentTabBarButton neuerTermin = new MostRecentTabBarButton();
-	neuerTermin.setText("neuer Termin");
+	neuerTermin.setText(messages.neuerTermin());
 
 	final FlowPanel container = new FlowPanel();
 	{
@@ -78,16 +78,16 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
 	    this.terminDatum = new MDateBox();
 	    terminDatum.setFormat("dd.MM.yyyy");
 	    terminDatum.setValue(new Date());
-	    widgetList.add(new FormListEntry("Datum", terminDatum));
+	    widgetList.add(new FormListEntry(messages.terminCreateDatum(), terminDatum));
 	    this.kurzbeschreibung = new MTextBox();
-	    widgetList.add(new FormListEntry("Kurzbeschreibung", kurzbeschreibung));
+	    widgetList.add(new FormListEntry(messages.terminCreateKurzbeschreibung(), kurzbeschreibung));
 	    this.heimspiel = new MCheckBox();
-	    widgetList.add(new FormListEntry("Heimspiel", heimspiel));
+	    widgetList.add(new FormListEntry(messages.terminCreateHeimspiel(), heimspiel));
 	    this.liga = new MListBox();
-	    widgetList.add(new FormListEntry("Liga", liga));
+	    widgetList.add(new FormListEntry(messages.terminCreateLiga(), liga));
 	    container.add(widgetList);
 
-	    this.newTerminButton = new Button("weiter");
+	    this.newTerminButton = new Button(messages.createTermin());
 	    container.add(newTerminButton);
 	}
 	tabPanel.add(neuerTermin, container);
@@ -125,6 +125,7 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
 	return liga;
     }
 
+    @Override
     public Button getNewTerminButton() {
 	return newTerminButton;
     }
