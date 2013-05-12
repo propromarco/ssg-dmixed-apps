@@ -1,9 +1,7 @@
 package com.appspot.ssg.dmixed.client;
 
 import com.appspot.ssg.dmixed.client.activities.LoginActivity.LoginView;
-import com.appspot.ssg.dmixed.client.activities.TerminActivity;
-import com.appspot.ssg.dmixed.client.activities.TerminMitbringActivity;
-import com.appspot.ssg.dmixed.client.activities.TerminTeilnahmeActivity;
+import com.appspot.ssg.dmixed.client.activities.TerminActivity.TerminView;
 import com.appspot.ssg.dmixed.client.activities.TermineActivity.TermineView;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
 import com.google.gwt.place.shared.PlaceController;
@@ -23,9 +21,6 @@ public interface ClientFactory {
 
     TermineView getTermineView();
 
-    TerminActivity.TerminView getTerminView();
+    TerminView getTerminView();
 
-    TerminTeilnahmeActivity.TerminView getTerminTeilnahmeView();
-
-    TerminMitbringActivity.TerminView getTerminMitbringView();
 }

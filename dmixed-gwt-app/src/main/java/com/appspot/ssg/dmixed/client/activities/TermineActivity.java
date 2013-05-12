@@ -118,7 +118,10 @@ public class TermineActivity extends MGWTAbstractActivity {
 		final IAsync<ITerminDetails> myAnswer = new IAsync<ITerminDetails>() {
 		    @Override
 		    public void onSuccess(final ITerminDetails t) {
-			// TODO Auto-generated method stub
+			if (t != null) {
+			    final Long terminId = t.getId();
+			    _clientFactory.getPlaceController().goTo(new TerminPlace(userId, terminId));
+			}
 		    }
 
 		    @Override
