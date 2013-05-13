@@ -43,14 +43,18 @@
         android:text="@string/Teilnehmer"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <ScrollView 
+        android:layout_width="fill_parent"
+		android:layout_height="130dp"
+        >
     <TableLayout
         android:id="@+id/TerminDetailsTeilnehmerTabelle"
         android:layout_width="fill_parent"
-        android:layout_height="130dp"
-        android:layout_weight="3.19"
-        android:scrollbars="vertical" >
+        android:layout_height="wrap_content"
+        >
 
     </TableLayout>
+    </ScrollView>
 
     <TextView
         android:layout_width="fill_parent"
@@ -59,12 +63,15 @@
         android:text="@string/Mitbringsel"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
+    <ScrollView android:layout_width="fill_parent"
+       android:layout_height="130dp"
+        >
     <TableLayout
         android:id="@+id/TerminDetailsMitbringselTable"
         android:layout_width="fill_parent"
-        android:layout_height="130dp"
-        android:scrollbars="vertical" >
+        android:layout_height="wrap_content">
 
     </TableLayout>
+    </ScrollView>
 
 </LinearLayout>

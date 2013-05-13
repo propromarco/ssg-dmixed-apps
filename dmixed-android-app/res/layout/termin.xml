@@ -38,12 +38,17 @@
 
     </TableLayout>
 
-    <TableLayout
-        android:id="@+id/TerminUebersichtTabelle"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical" >
+        android:layout_height="match_parent" >
 
-    </TableLayout>
+	    <TableLayout
+	        android:id="@+id/TerminUebersichtTabelle"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:scrollbars="vertical" >
+	
+	    </TableLayout>
+    </ScrollView>
 
 </LinearLayout>
