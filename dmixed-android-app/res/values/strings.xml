@@ -26,6 +26,7 @@
     <!-- Termin anlegen Seite -->
     <string name="TerminErstellungIntro">Neuen Termin erstellen</string>
     <string name="TerminErstellungErstellenButton">Erstellen</string>
+    <string name="TerminErstellenKurzbeschreibungHint">Kurzbeschreibung</string>
     <!-- Error Activity -->
     <string name="ErrorSchliessenButton">OK</string>
     <!-- neuen Benutzer anlegen -->

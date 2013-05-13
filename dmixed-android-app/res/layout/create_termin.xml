@@ -10,12 +10,33 @@
         android:text="@string/TerminErstellungIntro"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <DatePicker
+        android:id="@+id/TerminErstellenDatum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <CheckBox
         android:id="@+id/TerminErstellenHeimspielCheckbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/Heimspiel" />
 
+    <EditText
+        android:id="@+id/TerminErstellenKurzbeschreibung"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/TerminErstellenKurzbeschreibungHint" >
+
+        <requestFocus />
+    </EditText>
+
+    <Spinner 
+        android:id="@+id/TerminErstellungLigaAuswahl"
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    />
+    
     <Button
         android:id="@+id/TerminErstellungErstellenButton"
         android:layout_width="wrap_content"

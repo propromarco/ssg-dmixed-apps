@@ -17,6 +17,7 @@ import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpParams;
 
 import com.appspot.ssg.android.data.CreateTermin;
+import com.appspot.ssg.android.data.Ligen;
 import com.appspot.ssg.android.data.LoginData;
 import com.appspot.ssg.android.data.MitbringData;
 import com.appspot.ssg.android.data.TeilnahmeData;
@@ -81,11 +82,15 @@ public class ServerRequestUtil {
 		}
 	}
 
-	public ITerminDetails createTermin(final long userId, final boolean heimspiel)
+	public ITerminDetails createTermin(final long userId, final boolean heimspiel, final Long liga, final long terminDatum, final String terminKurzbeschreibung)
 			throws ServerRequestException {
 		final String createTerminUrl = urlCreator.getCreateTerminUrl(userId);
 		CreateTermin postData = new CreateTermin();
-		// TODO fiull
+		postData.setHeimspiel(heimspiel);
+		postData.setId(userId);
+		postData.setLiga(liga);
+		postData.setTerminDatum(terminDatum);
+		postData.setTerminKurzbeschreibung(terminKurzbeschreibung);
 		final String json = call(postData, createTerminUrl, HTTP_TYPE.POST);
 		final TerminDetails details = createObject(json, TerminDetails.class);
 		return details;
@@ -140,6 +145,11 @@ public class ServerRequestUtil {
 		call(terminDetails, saveTerminUrl, HTTP_TYPE.PUT);
 	}
 
+	public Ligen getLigen(long userId) throws ServerRequestException {
+		final String liegenUrl = urlCreator.getLiegenUrl(userId);
+		final String json = call(null, liegenUrl, HTTP_TYPE.GET);
+		return createObject(json, Ligen.class);
+	}
 	private String call(final Object postObject, final String url, final HTTP_TYPE type)
 			throws ServerRequestException {
 		final HttpParams p = new BasicHttpParams();

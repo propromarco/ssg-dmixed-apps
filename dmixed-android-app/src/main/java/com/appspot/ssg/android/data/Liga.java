@@ -28,5 +28,10 @@ public class Liga implements ILiga {
 	public String getBezeichnung() {
 		return bezeichnung;
 	}
+	
+	@Override
+	public String toString() {
+		return getBezeichnung();
+	}
 
 }
