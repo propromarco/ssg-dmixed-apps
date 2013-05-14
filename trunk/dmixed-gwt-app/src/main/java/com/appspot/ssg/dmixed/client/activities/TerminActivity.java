@@ -6,9 +6,7 @@ import java.util.List;
 import com.appspot.ssg.dmixed.client.ClientFactory;
 import com.appspot.ssg.dmixed.client.activities.TerminActivity.TerminView.IListCreator;
 import com.appspot.ssg.dmixed.client.activities.TerminActivity.TerminView.IListItem;
-import com.appspot.ssg.dmixed.client.model.MitbringData;
-import com.appspot.ssg.dmixed.client.model.TeilnahmeData;
-import com.appspot.ssg.dmixed.client.model.TerminTeilnehmer;
+import com.appspot.ssg.dmixed.client.util.CheckUtil;
 import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 import com.appspot.ssg.dmixed.shared.IAsync;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
@@ -35,12 +33,11 @@ public class TerminActivity extends MGWTAbstractActivity {
 	    void setMitbringer(String string);
 
 	    void setEnabled(boolean enabled);
+
 	}
 
 	public interface IListCreator<T, B> {
-	    IListItem<B> create(T t);
-
-	    void onFinish(boolean hasItems);
+	    IListItem<B> create(T t, boolean loggedUser);
 	}
 
 	void setTerminBeschreibung(String terminBeschreibung);
@@ -69,7 +66,7 @@ public class TerminActivity extends MGWTAbstractActivity {
 	    @Override
 	    public void onSuccess(final ITerminDetails termin) {
 		if (termin != null) {
-		    final boolean heimspiel = termin.isHeimspiel();
+		    // final boolean heimspiel = termin.isHeimspiel();
 		    final Date termineDatum = termin.getTermineDatum();
 		    final ILiga liga = termin.getLiga();
 		    final String bezeichnung = liga.getBezeichnung();
@@ -83,7 +80,7 @@ public class TerminActivity extends MGWTAbstractActivity {
 		    final List<ITerminTeilnehmer> teilnehmer = termin.getTeilnehmer();
 		    final IListCreator<ITerminTeilnehmer, ETeilnahmeStatus> teilnehmerCreator = terminView.fillTeilnehmer();
 		    for (final ITerminTeilnehmer terminTeilnehmer : teilnehmer) {
-			final IListItem<ETeilnahmeStatus> item = teilnehmerCreator.create(terminTeilnehmer);
+			final IListItem<ETeilnahmeStatus> item = teilnehmerCreator.create(terminTeilnehmer, terminTeilnehmer.isChangeAllowed());
 			if (!terminTeilnehmer.isChangeAllowed()) {
 			    item.setEnabled(false);
 			}
@@ -91,29 +88,28 @@ public class TerminActivity extends MGWTAbstractActivity {
 			    @Override
 			    public void onValueChange(final ValueChangeEvent<ETeilnahmeStatus> event) {
 				final ETeilnahmeStatus newValue = event.getValue();
-				if (checkTeilnehmer(terminTeilnehmer, termin.getId(), newValue))
+				if (CheckUtil.checkTeilnehmer(_clientFactory.getService(), userId, terminTeilnehmer, termin.getId(), newValue))
 				    item.setValue(newValue);
 			    }
 			}));
 		    }
-		    teilnehmerCreator.onFinish(teilnehmer.size() > 0);
 		    // Mitbringen
 		    final IListCreator<ITerminMitbringsel, Boolean> mitbringselCreator = terminView.fillMitbringsel();
 		    final List<ITerminMitbringsel> mitbringsel = termin.getMitbringsel();
 		    if (mitbringsel != null) {
 			for (final ITerminMitbringsel terminMitbringsel : mitbringsel) {
-			    final IListItem<Boolean> item = mitbringselCreator.create(terminMitbringsel);
+			    final IListItem<Boolean> item = mitbringselCreator.create(terminMitbringsel, true);
 			    addHandlerRegistration(item.addTapHandler(new TapHandler() {
 				@Override
 				public void onTap(final TapEvent event) {
-				    final boolean checked = checkMitbringsel(item, terminMitbringsel);
+				    final boolean checked = CheckUtil.checkMitbringsel(_clientFactory.getService(), userId, terminId, item,
+					    terminMitbringsel);
 				    item.setValue(checked);
 				}
 
 			    }));
 			}
 		    }
-		    mitbringselCreator.onFinish(mitbringsel != null && mitbringsel.size() > 0);
 		} else {
 		    // TODO Error oder nicht erlaubt
 		}
@@ -127,88 +123,4 @@ public class TerminActivity extends MGWTAbstractActivity {
 	service.getTermin(userId, terminId, answer);
     }
 
-    private boolean checkTeilnehmer(final ITerminTeilnehmer terminTeilnehmer, final Long terminId, final ETeilnahmeStatus status) {
-	if (!terminTeilnehmer.isChangeAllowed())
-	    return false;
-	terminTeilnehmer.setTeilnahme(status);
-	final IDMixedUsecase service = _clientFactory.getService();
-	final TeilnahmeData teilnahmeData = new TeilnahmeData();
-	teilnahmeData.setId(userId);
-	teilnahmeData.setTerminId(terminId);
-	teilnahmeData.setTeilnahme(status);
-	final IAsync<Void> answer = new IAsync<Void>() {
-	    @Override
-	    public void onSuccess(final Void t) {
-	    }
-
-	    @Override
-	    public void onError(final Throwable exception) {
-		exception.printStackTrace();
-	    }
-	};
-	service.onTeilnahme(teilnahmeData, answer);
-	// Fire newValue to server
-	return true;
-    }
-
-    private boolean checkMitbringsel(final IListItem<Boolean> item, final ITerminMitbringsel terminMitbringsel) {
-	final ITerminTeilnehmer mitbringer = terminMitbringsel.getMitbringer();
-	final IDMixedUsecase service = _clientFactory.getService();
-	if (mitbringer == null) {
-	    // Es bringt noch keiner mit
-	    final TerminTeilnehmer ich = new TerminTeilnehmer();
-	    ich.setId(userId);
-	    // ich.setVorname(user.getVorname());
-	    // ich.setName(user.getName());
-	    terminMitbringsel.setMitbringer(ich);
-	    final MitbringData mitbringData = new MitbringData();
-	    mitbringData.setMitbringselId(terminMitbringsel.getId());
-	    mitbringData.setTerminId(terminId);
-	    mitbringData.setId(userId);
-	    mitbringData.setMitbringen(true);
-	    final IAsync<Void> answer = new IAsync<Void>() {
-		@Override
-		public void onSuccess(final Void t) {
-		    item.setMitbringer("*");
-		}
-
-		@Override
-		public void onError(final Throwable exception) {
-		    exception.printStackTrace();
-		}
-	    };
-	    service.onMitbringen(mitbringData, answer);
-	    // Fire ich brings mit
-	    return true;
-	} else {
-	    // Es bringt schon einer mit
-	    final Long id = mitbringer.getId();
-	    if (id.equals(userId)) {
-		// Ich war eingetragen
-		terminMitbringsel.setMitbringer(null);
-		final MitbringData mitbringData = new MitbringData();
-		mitbringData.setMitbringselId(terminMitbringsel.getId());
-		mitbringData.setTerminId(terminId);
-		mitbringData.setId(userId);
-		mitbringData.setMitbringen(false);
-		final IAsync<Void> answer = new IAsync<Void>() {
-		    @Override
-		    public void onSuccess(final Void t) {
-			item.setMitbringer(null);
-		    }
-
-		    @Override
-		    public void onError(final Throwable exception) {
-			exception.printStackTrace();
-		    }
-		};
-		service.onMitbringen(mitbringData, answer);
-		// Fire ich brings nicht mehr mit
-		return false;
-	    } else {
-		// Ich darf das nicht
-		return true;
-	    }
-	}
-    }
 }

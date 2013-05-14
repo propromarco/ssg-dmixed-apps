@@ -32,8 +32,8 @@
   
 <!--
 -->
-  <set-property name="mgwt.os" value="android" />
 <!--
+  <set-property name="mgwt.os" value="android" />
   <set-property name="mgwt.os" value="android_tablet" />
   <set-property name="mgwt.os" value="ipad_retina" />
   <set-property name="mgwt.os" value="ipad" />
