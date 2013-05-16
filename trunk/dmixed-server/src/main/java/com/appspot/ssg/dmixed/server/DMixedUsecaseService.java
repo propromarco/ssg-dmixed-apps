@@ -120,7 +120,8 @@ public class DMixedUsecaseService {
 	if (user == null)
 	    return;
 	final JPATermin termin = adapter.getTermin(teilnahmeData.getTerminId());
-	adapter.userOnTermin(user, termin, teilnahmeData.getTeilnahme());
+	final JPAKind kind = adapter.getKinder(teilnahmeData.getKindId());
+	adapter.userOnTermin(termin, kind, teilnahmeData.getTeilnahme());
     }
 
     @PUT

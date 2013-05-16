@@ -8,6 +8,10 @@ public interface ITeilnahmeData extends WithId {
 
     void setTerminId(Long terminId);
 
+    Long getKindId();
+    
+    void setKindId(Long kindId);
+    
     ETeilnahmeStatus getTeilnahme();
 
     void setTeilnahme(ETeilnahmeStatus teilnahme);

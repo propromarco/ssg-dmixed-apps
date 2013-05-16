@@ -24,7 +24,7 @@ public interface IJPAAdapter {
 
     JPATerminMitbringsel getTerminMitbringsel(Long terminId, Long mitbringId);
 
-    void userOnTermin(JPAUser user, JPATermin termin, ETeilnahmeStatus teilnahme);
+    void userOnTermin(JPATermin termin, JPAKind kind, ETeilnahmeStatus teilnahme);
 
     void onUserToTerminMitbringen(JPAUser user, JPATermin termin, JPATerminMitbringsel terminMitbringsel, Boolean mitbringen);
 
@@ -57,5 +57,7 @@ public interface IJPAAdapter {
     JPATermin createTermin(TerminCreate terminCreate);
 
     List<JPALiga> getLigen();
+
+    JPAKind getKinder(Long kindId);
 
 }

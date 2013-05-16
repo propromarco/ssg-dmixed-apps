@@ -19,6 +19,7 @@ public class CheckUtil {
 	final TeilnahmeData teilnahmeData = new TeilnahmeData();
 	teilnahmeData.setId(userId);
 	teilnahmeData.setTerminId(terminId);
+	teilnahmeData.setKindId(terminTeilnehmer.getId());
 	teilnahmeData.setTeilnahme(status);
 	final IAsync<Void> answer = new IAsync<Void>() {
 	    @Override

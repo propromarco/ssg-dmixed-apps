@@ -84,14 +84,14 @@ public class FakeAdapter implements IJPAAdapter {
     }
 
     @Override
-    public void userOnTermin(final JPAUser user, final JPATermin termin, final ETeilnahmeStatus teilnahme) {
+    public void userOnTermin(final JPATermin termin, final JPAKind kind, final ETeilnahmeStatus teilnahme) {
 	final List<JPATerminTeilnehmer> teilnehmer = getTeilnehmer(termin);
-	JPATerminTeilnehmer tt = findTeilnehmer(teilnehmer, user);
+	JPATerminTeilnehmer tt = findTeilnehmer(teilnehmer, kind);
 	if (tt == null && !teilnahme.equals(ETeilnahmeStatus.NichtEntschieden)) {
 	    tt = new JPATerminTeilnehmer();
 	    tt.setId(1l);
 	    tt.setTermin(termin.getTerminId());
-	    tt.setUser(user.getId());
+	    tt.setUser(kind.getId());
 	    tt.setStatus(teilnahme);
 	    teilnehmer.add(tt);
 	} else if (tt != null && teilnahme.equals(ETeilnahmeStatus.NichtEntschieden)) {
@@ -99,7 +99,7 @@ public class FakeAdapter implements IJPAAdapter {
 	}
     }
 
-    private JPATerminTeilnehmer findTeilnehmer(final List<JPATerminTeilnehmer> teilnehmer, final JPAUser user) {
+    private JPATerminTeilnehmer findTeilnehmer(final List<JPATerminTeilnehmer> teilnehmer, final JPAKind user) {
 	for (final JPATerminTeilnehmer terminTeilnehmer : teilnehmer) {
 	    if (terminTeilnehmer.getUser() == user.getId())
 		return terminTeilnehmer;
@@ -261,6 +261,12 @@ public class FakeAdapter implements IJPAAdapter {
 
     @Override
     public List<JPALiga> getLigen() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+    @Override
+    public JPAKind getKinder(final Long kindId) {
 	// TODO Auto-generated method stub
 	return null;
     }
