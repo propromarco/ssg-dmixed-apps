@@ -18,6 +18,16 @@ public class TeilnahmeData extends HasId implements ITeilnahmeData {
     }
 
     @Override
+    public Long getKindId() {
+	return getLong("kindId");
+    }
+
+    @Override
+    public void setKindId(final Long kindId) {
+	setLong("kindId", kindId);
+    }
+
+    @Override
     public ETeilnahmeStatus getTeilnahme() {
 	final String s = getString("teilnahme");
 	return ETeilnahmeStatus.valueOf(s);

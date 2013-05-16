@@ -13,6 +13,8 @@ public class TeilnahmeData extends HasId implements ITeilnahmeData {
     private Long terminId;
     private ETeilnahmeStatus teilnahme;
 
+    private Long kindId;
+
     @Override
     public Long getTerminId() {
 	return terminId;
@@ -21,6 +23,16 @@ public class TeilnahmeData extends HasId implements ITeilnahmeData {
     @Override
     public void setTerminId(final Long terminId) {
 	this.terminId = terminId;
+    }
+
+    @Override
+    public Long getKindId() {
+	return kindId;
+    }
+
+    @Override
+    public void setKindId(final Long kindId) {
+	this.kindId = kindId;
     }
 
     @Override

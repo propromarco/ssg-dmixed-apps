@@ -30,7 +30,7 @@ public class JPAAdapter implements IJPAAdapter {
 
     private JPAAdapter() {
 	emf = EMFService.get();
-	if (true) {
+	if (false) {
 	    final EntityManager em = emf.createEntityManager();
 	    try {
 		final JPALiga dMixedliga = createLiga(em, "D-Mixed");
@@ -236,18 +236,18 @@ public class JPAAdapter implements IJPAAdapter {
     }
 
     @Override
-    public void userOnTermin(final JPAUser user, final JPATermin termin, final ETeilnahmeStatus teilnahme) {
+    public void userOnTermin(final JPATermin termin, final JPAKind kind, final ETeilnahmeStatus teilnahme) {
 	final EntityManager em = emf.createEntityManager();
 	try {
 	    final Query query = em.createNamedQuery(JPATerminTeilnehmer.EIN_TEILNEHMER_EINES_TERMINS);
 	    query.setParameter("termin", termin.getTerminId());
-	    query.setParameter("user", user.getId());
+	    query.setParameter("user", kind.getId());
 	    final JPATerminTeilnehmer terminTeilnehmer = (JPATerminTeilnehmer) query.getSingleResult();
 	    terminTeilnehmer.setStatus(teilnahme);
 	    em.persist(terminTeilnehmer);
 	} catch (final NoResultException e) {
 	    // No Match
-	    final JPATerminTeilnehmer terminTeilnehmer = new JPATerminTeilnehmer(termin.getTerminId(), user.getId());
+	    final JPATerminTeilnehmer terminTeilnehmer = new JPATerminTeilnehmer(termin.getTerminId(), kind.getId());
 	    terminTeilnehmer.setStatus(teilnahme);
 	    em.persist(terminTeilnehmer);
 	} finally {
@@ -480,6 +480,21 @@ public class JPAAdapter implements IJPAAdapter {
 	    final Query namedQuery = em.createNamedQuery(JPALiga.ALLE_LIGEN);
 	    final List<JPALiga> list = namedQuery.getResultList();
 	    return list;
+	} finally {
+	    em.close();
+	}
+    }
+
+    @Override
+    public JPAKind getKinder(final Long kindId) {
+	final EntityManager em = emf.createEntityManager();
+	try {
+	    final JPAKind jpaKind = em.find(JPAKind.class, kindId);
+	    // Match
+	    return jpaKind;
+	} catch (final NoResultException e) {
+	    // No Match
+	    return null;
 	} finally {
 	    em.close();
 	}
