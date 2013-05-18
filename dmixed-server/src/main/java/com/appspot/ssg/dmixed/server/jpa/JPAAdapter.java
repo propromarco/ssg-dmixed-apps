@@ -315,6 +315,7 @@ public class JPAAdapter implements IJPAAdapter {
 	termin.setTerminKurzbeschreibung(terminCreate.getTerminKurzbeschreibung());
 	termin.setHeimspiel(terminCreate.isHeimspiel());
 	termin.setLiga(terminCreate.getLiga());
+	termin.setTerminBeschreibung(terminCreate.getTerminBeschreibung());
 	final EntityManager em = emf.createEntityManager();
 	try {
 	    em.getTransaction().begin();
@@ -328,12 +329,6 @@ public class JPAAdapter implements IJPAAdapter {
 	} finally {
 	    em.close();
 	}
-    }
-
-    @Override
-    public void saveTermin(final JPATermin jpaTermin) {
-	// TODO Auto-generated method stub
-
     }
 
     @Override

@@ -174,11 +174,6 @@ public class FakeAdapter implements IJPAAdapter {
     }
 
     @Override
-    public void saveTermin(final JPATermin jpaTermin) {
-	this.termine.add(jpaTermin);
-    }
-
-    @Override
     public List<JPATerminTeilnehmer> getTeilnehmer(final JPATermin termin) {
 	final List<JPATerminTeilnehmer> list = new ArrayList<JPATerminTeilnehmer>();
 	for (final JPAUser user : users) {

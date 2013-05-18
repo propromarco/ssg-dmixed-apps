@@ -7,9 +7,9 @@ public interface IDMixedUsecase {
 
     void getTermin(Long userId, Long terminId, IAsync<ITerminDetails> answer);
 
-    void onTeilnahme(ITeilnahmeData teilnahmeData, IAsync<Void> answer);
+    void onTeilnahme(ITeilnahmeData teilnahmeData, IAsync<ITerminDetails> answer);
 
-    void onMitbringen(IMitbringData mitbringData, IAsync<Void> answer);
+    void onMitbringen(IMitbringData mitbringData, IAsync<ITerminDetails> answer);
 
     void getUsers(Long userId, IAsync<IUsers> answer);
 
@@ -18,8 +18,6 @@ public interface IDMixedUsecase {
     void deleteUser(Long userId, IUserData userData, IAsync<Void> answer);
 
     void createTermin(Long userId, ITerminCreate termineCreate, IAsync<ITerminDetails> answer);
-
-    void saveTermin(Long userId, ITerminDetails terminDetails, IAsync<Void> answer);
 
     void getLigen(Long userId, IAsync<ILigen> answer);
 

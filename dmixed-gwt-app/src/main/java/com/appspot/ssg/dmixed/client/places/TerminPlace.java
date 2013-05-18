@@ -1,5 +1,7 @@
 package com.appspot.ssg.dmixed.client.places;
 
+import java.util.List;
+
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceTokenizer;
 import com.google.gwt.place.shared.Prefix;
@@ -14,9 +16,9 @@ public class TerminPlace extends Place {
 
 	@Override
 	public TerminPlace getPlace(final String token) {
-	    final String[] ids = token.split(":");
-	    final Long userId = Long.valueOf(ids[0]);
-	    final Long terminId = Long.valueOf(ids[1]);
+	    final List<Long> ids = PLaceStringEncoderDecoder.decode(token);
+	    final Long userId = ids.get(0);
+	    final Long terminId = ids.get(1);
 	    return new TerminPlace(userId, terminId);
 	}
 
@@ -24,7 +26,7 @@ public class TerminPlace extends Place {
 	public String getToken(final TerminPlace place) {
 	    final Long userId = place.getUserId();
 	    final Long terminId = place.getTerminId();
-	    return userId + ":" + terminId;
+	    return PLaceStringEncoderDecoder.encode(userId, terminId);
 	}
 
     }

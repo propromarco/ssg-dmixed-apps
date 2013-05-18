@@ -69,11 +69,6 @@ public final class DMixedUrlCreator {
 	return url;
     }
 
-    public String getSaveTerminUrl(final Long userId) {
-	final String url = getServiceUrl() + "/" + TERMINADMIN_URL + "/" + userId;
-	return url;
-    }
-
     public String getLiegenUrl(final Long userId) {
 	final String url = getServiceUrl() + "/" + LIGEN_URL + "/" + userId;
 	return url;

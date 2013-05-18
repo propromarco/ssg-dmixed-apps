@@ -16,6 +16,7 @@ public class TerminCreate extends HasId implements ITerminCreate {
     private String terminKurzbeschreibung;
     private Long liga;
     private boolean heimspiel;
+    private String terminBeschreibung;
 
     public TerminCreate() {
     }
@@ -55,6 +56,15 @@ public class TerminCreate extends HasId implements ITerminCreate {
 
     public void setHeimspiel(final boolean heimspiel) {
 	this.heimspiel = heimspiel;
+    }
+
+    @Override
+    public String getTerminBeschreibung() {
+	return this.terminBeschreibung;
+    }
+
+    public void setTerminBeschreibung(final String terminBeschreibung) {
+	this.terminBeschreibung = terminBeschreibung;
     }
 
 }

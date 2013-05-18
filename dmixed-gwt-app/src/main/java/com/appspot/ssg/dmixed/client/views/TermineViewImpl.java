@@ -4,16 +4,18 @@ import java.util.Date;
 import java.util.List;
 
 import com.appspot.ssg.dmixed.client.IDMixedMessages;
+import com.appspot.ssg.dmixed.client.activities.LoginActivity.WithTapHandlers;
 import com.appspot.ssg.dmixed.client.activities.TermineActivity.TermineView;
+import com.appspot.ssg.dmixed.client.views.components.ButtonWithWait;
 import com.appspot.ssg.dmixed.shared.ILiga;
 import com.appspot.ssg.dmixed.shared.ITermin;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.googlecode.mgwt.ui.client.widget.Button;
 import com.googlecode.mgwt.ui.client.widget.FormListEntry;
 import com.googlecode.mgwt.ui.client.widget.MCheckBox;
 import com.googlecode.mgwt.ui.client.widget.MDateBox;
 import com.googlecode.mgwt.ui.client.widget.MListBox;
+import com.googlecode.mgwt.ui.client.widget.MTextArea;
 import com.googlecode.mgwt.ui.client.widget.MTextBox;
 import com.googlecode.mgwt.ui.client.widget.ScrollPanel;
 import com.googlecode.mgwt.ui.client.widget.WidgetList;
@@ -31,7 +33,8 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
     private final MTextBox kurzbeschreibung;
     private final MCheckBox heimspiel;
     private final MListBox liga;
-    private Button newTerminButton;
+    private ButtonWithWait newTerminButton;
+    private MTextArea beschreibung;
 
     public TermineViewImpl(final IDMixedMessages messages) {
 	super(messages);
@@ -85,9 +88,11 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
 	    widgetList.add(new FormListEntry(messages.terminCreateHeimspiel(), heimspiel));
 	    this.liga = new MListBox();
 	    widgetList.add(new FormListEntry(messages.terminCreateLiga(), liga));
+	    this.beschreibung = new MTextArea();
+	    beschreibung.setVisibleLines(5);
+	    widgetList.add(new FormListEntry(messages.terminCreateBeschreibung(), beschreibung));
 	    container.add(widgetList);
-
-	    this.newTerminButton = new Button(messages.createTermin());
+	    this.newTerminButton = new ButtonWithWait(messages.createTermin());
 	    container.add(newTerminButton);
 	}
 	tabPanel.add(neuerTermin, container);
@@ -116,6 +121,11 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
     }
 
     @Override
+    public MTextArea getBeschreibung() {
+	return beschreibung;
+    }
+
+    @Override
     public MCheckBox getHeimspiel() {
 	return heimspiel;
     }
@@ -126,7 +136,7 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
     }
 
     @Override
-    public Button getNewTerminButton() {
+    public WithTapHandlers getNewTerminButton() {
 	return newTerminButton;
     }
 

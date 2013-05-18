@@ -34,8 +34,6 @@ public interface IJPAAdapter {
 
     void delUser(JPAUser jpaUser);
 
-    void saveTermin(JPATermin jpaTermin);
-
     List<JPATerminTeilnehmer> getTeilnehmer(JPATermin termin);
 
     List<JPATerminMitbringsel> getMitbringsel(JPATermin termin);

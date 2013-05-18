@@ -12,12 +12,14 @@ public class TerminCreate extends HasId implements ITerminCreate {
 	super();
     }
 
-    public TerminCreate(final Date terminDatum, final String terminKurzbeschreibung, final Long liga, final Boolean heimSpiel) {
+    public TerminCreate(final Date terminDatum, final String terminKurzbeschreibung, final Long liga, final Boolean heimSpiel,
+	    final String beschreibung) {
 	super();
 	setTerminDatum(terminDatum);
 	setTerminKurzbeschreibung(terminKurzbeschreibung);
 	setLiga(liga);
 	setHeimspiel(heimSpiel);
+	setTerminBeschreibung(beschreibung);
     }
 
     @Override
@@ -38,6 +40,15 @@ public class TerminCreate extends HasId implements ITerminCreate {
 	setString("terminKurzbeschreibung", terminKurzbeschreibung);
     }
 
+    @Override
+    public String getTerminBeschreibung() {
+	return getString("terminBeschreibung");
+    }
+    
+    public void setTerminBeschreibung(final String terminBeschreibung) {
+	setString("terminBeschreibung", terminBeschreibung);
+    }
+    
     @Override
     public Long getLiga() {
 	return getLong("liga");

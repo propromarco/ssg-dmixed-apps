@@ -2,12 +2,12 @@ package com.appspot.ssg.dmixed.client.views;
 
 import com.appspot.ssg.dmixed.client.IDMixedMessages;
 import com.appspot.ssg.dmixed.client.activities.LoginActivity.LoginView;
+import com.appspot.ssg.dmixed.client.activities.LoginActivity.WithTapHandlers;
+import com.appspot.ssg.dmixed.client.views.components.ButtonWithWait;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasText;
-import com.googlecode.mgwt.dom.client.event.tap.HasTapHandlers;
 import com.googlecode.mgwt.ui.client.MGWTStyle;
-import com.googlecode.mgwt.ui.client.widget.Button;
 import com.googlecode.mgwt.ui.client.widget.FormListEntry;
 import com.googlecode.mgwt.ui.client.widget.MEmailTextBox;
 import com.googlecode.mgwt.ui.client.widget.MTextBox;
@@ -17,7 +17,7 @@ public class LoginViewImpl extends AbstractDmixedView implements LoginView {
 
     private final MTextBox _vorname;
     private final MEmailTextBox _email;
-    private final Button _loginButton;
+    private final ButtonWithWait _loginButton;
 
     public LoginViewImpl(final IDMixedMessages messages, final boolean inititalData) {
 	super(messages);
@@ -28,7 +28,7 @@ public class LoginViewImpl extends AbstractDmixedView implements LoginView {
 	    _email.setValue("silvana.schwarz@web.de");
 	}
 	final String login = messages.login();
-	_loginButton = new Button(login);
+	_loginButton = new ButtonWithWait(login);
 	_layoutPanel.add(createEingabePanel());
 	_layoutPanel.add(_loginButton);
     }
@@ -63,7 +63,7 @@ public class LoginViewImpl extends AbstractDmixedView implements LoginView {
     }
 
     @Override
-    public HasTapHandlers getLogin() {
+    public WithTapHandlers getLogin() {
 	return _loginButton;
     }
 

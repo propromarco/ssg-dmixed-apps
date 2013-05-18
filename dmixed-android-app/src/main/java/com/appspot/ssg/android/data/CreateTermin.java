@@ -61,4 +61,10 @@ public class CreateTermin implements ITerminCreate {
 	return heimspiel;
     }
 
+    @Override
+    public String getTerminBeschreibung() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
 }
