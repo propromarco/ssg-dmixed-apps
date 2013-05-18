@@ -11,6 +11,7 @@ import static com.appspot.ssg.dmixed.shared.DMixedUrlCreator.USERS_URL;
 import static com.appspot.ssg.dmixed.shared.DMixedUrlCreator.USER_URL;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -46,6 +47,9 @@ import com.appspot.ssg.dmixed.server.jpa.JPATermin;
 import com.appspot.ssg.dmixed.server.jpa.JPATerminMitbringsel;
 import com.appspot.ssg.dmixed.server.jpa.JPATerminTeilnehmer;
 import com.appspot.ssg.dmixed.server.jpa.JPAUser;
+import com.appspot.ssg.dmixed.server.utils.MitbringselComparator;
+import com.appspot.ssg.dmixed.server.utils.TeilnehmerComparator;
+import com.appspot.ssg.dmixed.server.utils.TerminComparator;
 import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 import com.appspot.ssg.dmixed.shared.ILiga;
 import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
@@ -99,6 +103,7 @@ public class DMixedUsecaseService {
 	    termin.setLiga(createFrom(adapter.getLiga(jpaTermin.getLiga())));
 	    termine.getAll().add(termin);
 	}
+	Collections.sort(termine.getAll(), new TerminComparator());
 	return termine;
     }
 
@@ -113,26 +118,28 @@ public class DMixedUsecaseService {
 	return terminDetails;
     }
 
-    @PUT
+    @POST
     @Path(TEILNAHME_URL)
-    public void onTeilnahme(final TeilnahmeData teilnahmeData) {
+    public TerminDetails onTeilnahme(final TeilnahmeData teilnahmeData) {
 	final JPAUser user = adapter.findUser(teilnahmeData.getId());
 	if (user == null)
-	    return;
+	    return null;
 	final JPATermin termin = adapter.getTermin(teilnahmeData.getTerminId());
 	final JPAKind kind = adapter.getKinder(teilnahmeData.getKindId());
 	adapter.userOnTermin(termin, kind, teilnahmeData.getTeilnahme());
+	return getTermin(teilnahmeData.getId(), teilnahmeData.getTerminId());
     }
 
-    @PUT
+    @POST
     @Path(MITBRINGEN_URL)
-    public void onMitringen(final MitbringData mitbringData) {
+    public TerminDetails onMitringen(final MitbringData mitbringData) {
 	final JPAUser user = adapter.findUser(mitbringData.getId());
 	if (user == null)
-	    return;
+	    return null;
 	final JPATermin termin = adapter.getTermin(mitbringData.getTerminId());
 	final JPATerminMitbringsel terminMitbringsel = adapter.getTerminMitbringsel(mitbringData.getTerminId(), mitbringData.getMitbringselId());
 	adapter.onUserToTerminMitbringen(user, termin, terminMitbringsel, mitbringData.getMitbringen());
+	return getTermin(mitbringData.getId(), mitbringData.getTerminId());
     }
 
     @GET
@@ -184,16 +191,6 @@ public class DMixedUsecaseService {
 	return terminDetails;
     }
 
-    @PUT
-    @Path(TERMINADMIN_URL + "/{userid}")
-    public void saveTermin(@PathParam("userid") final Long userId, final TerminDetails terminDetails) {
-	final JPAUser user = adapter.findUser(userId);
-	if (user == null || !user.isAdmin())
-	    return;
-	final JPATermin jpaTermin = copyFrom(terminDetails);
-	adapter.saveTermin(jpaTermin);
-    }
-
     @GET
     @Path(LIGEN_URL + "/{userid}")
     public Ligen getLigen(@PathParam("userid") final Long userId) {
@@ -207,11 +204,6 @@ public class DMixedUsecaseService {
 	    alle.getAll().add(liga);
 	}
 	return alle;
-    }
-
-    private JPATermin copyFrom(final TerminDetails terminDetails) {
-	// TODO Auto-generated method stub
-	return null;
     }
 
     private Kind createFrom(final JPAKind jpaKind) {
@@ -281,6 +273,7 @@ public class DMixedUsecaseService {
 	    }
 	    list.add(terminTeilnehmer);
 	}
+	Collections.sort(list, new TeilnehmerComparator());
 	return list;
     }
 
@@ -306,6 +299,7 @@ public class DMixedUsecaseService {
 		list.add(m);
 	    }
 	}
+	Collections.sort(list, new MitbringselComparator());
 	return list;
     }
 

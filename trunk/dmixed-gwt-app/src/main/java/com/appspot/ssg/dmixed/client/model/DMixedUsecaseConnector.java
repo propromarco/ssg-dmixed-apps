@@ -90,19 +90,43 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
     }
 
     @Override
-    public void onTeilnahme(final ITeilnahmeData data, final IAsync<Void> answer) {
+    public void onTeilnahme(final ITeilnahmeData data, final IAsync<ITerminDetails> answer) {
 	final String url = _urlCreator.getOnTeilnahmeUrl();
-	final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.PUT);
+	final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.POST);
 	final String requestData = data.toString();
-	executePut(requestBuilder, requestData, answer);
+	final IAsync<JSONObject> newAnswer = new IAsync<JSONObject>() {
+	    @Override
+	    public void onSuccess(final JSONObject object) {
+		final TerminDetails userData = new TerminDetails(object);
+		answer.onSuccess(userData);
+	    }
+
+	    @Override
+	    public void onError(final Throwable exception) {
+		answer.onError(exception);
+	    }
+	};
+	executePost(requestBuilder, requestData, newAnswer);
     }
 
     @Override
-    public void onMitbringen(final IMitbringData data, final IAsync<Void> answer) {
+    public void onMitbringen(final IMitbringData data, final IAsync<ITerminDetails> answer) {
 	final String url = _urlCreator.getOnMitringenUrl();
-	final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.PUT);
+	final RequestBuilder requestBuilder = createRequestBuilder(url, RequestBuilder.POST);
 	final String requestData = data.toString();
-	executePut(requestBuilder, requestData, answer);
+	final IAsync<JSONObject> newAnswer = new IAsync<JSONObject>() {
+	    @Override
+	    public void onSuccess(final JSONObject object) {
+		final TerminDetails userData = new TerminDetails(object);
+		answer.onSuccess(userData);
+	    }
+
+	    @Override
+	    public void onError(final Throwable exception) {
+		answer.onError(exception);
+	    }
+	};
+	executePost(requestBuilder, requestData, newAnswer);
     }
 
     @Override
@@ -158,12 +182,6 @@ public class DMixedUsecaseConnector implements IDMixedUsecase {
 	    }
 	};
 	executePost(requestBuilder, requestData, newAnswer);
-    }
-
-    @Override
-    public void saveTermin(final Long userId, final ITerminDetails terminDetails, final IAsync<Void> answer) {
-	// TODO Auto-generated method stub
-
     }
 
     @Override

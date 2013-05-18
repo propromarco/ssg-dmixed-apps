@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.appspot.ssg.dmixed.client.ClientFactory;
+import com.appspot.ssg.dmixed.client.activities.LoginActivity.WithTapHandlers;
 import com.appspot.ssg.dmixed.client.model.TerminCreate;
 import com.appspot.ssg.dmixed.client.places.TerminPlace;
 import com.appspot.ssg.dmixed.shared.IAsync;
@@ -18,10 +19,10 @@ import com.google.web.bindery.event.shared.EventBus;
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
 import com.googlecode.mgwt.dom.client.event.tap.TapHandler;
 import com.googlecode.mgwt.mvp.client.MGWTAbstractActivity;
-import com.googlecode.mgwt.ui.client.widget.Button;
 import com.googlecode.mgwt.ui.client.widget.MCheckBox;
 import com.googlecode.mgwt.ui.client.widget.MDateBox;
 import com.googlecode.mgwt.ui.client.widget.MListBox;
+import com.googlecode.mgwt.ui.client.widget.MTextArea;
 import com.googlecode.mgwt.ui.client.widget.MTextBox;
 import com.googlecode.mgwt.ui.client.widget.celllist.CellSelectedEvent;
 import com.googlecode.mgwt.ui.client.widget.celllist.CellSelectedHandler;
@@ -30,19 +31,22 @@ import com.googlecode.mgwt.ui.client.widget.celllist.HasCellSelectedHandler;
 public class TermineActivity extends MGWTAbstractActivity {
 
     public interface TermineView extends IDMixedView {
-	public HasCellSelectedHandler getCellSelectedHandler();
+	HasCellSelectedHandler getCellSelectedHandler();
 
-	public MDateBox getTerminDatum();
+	MDateBox getTerminDatum();
 
-	public MTextBox getKurzbeschreibung();
+	MTextArea getBeschreibung();
 
-	public MCheckBox getHeimspiel();
+	MTextBox getKurzbeschreibung();
 
-	public MListBox getLiga();
+	MCheckBox getHeimspiel();
 
-	public Button getNewTerminButton();
+	MListBox getLiga();
+
+	WithTapHandlers getNewTerminButton();
 
 	void updateList(List<ITermin> termine);
+
     }
 
     private final ClientFactory _clientFactory;
@@ -106,15 +110,18 @@ public class TermineActivity extends MGWTAbstractActivity {
 	    }
 	};
 	service.getLigen(userId, answer2);
-	addHandlerRegistration(termineView.getNewTerminButton().addTapHandler(new TapHandler() {
+	final WithTapHandlers newTerminButton = termineView.getNewTerminButton();
+	addHandlerRegistration(newTerminButton.addTapHandler(new TapHandler() {
 
 	    @Override
 	    public void onTap(final TapEvent event) {
+		newTerminButton.setProgress(true);
 		final Date termindatum = termineView.getTerminDatum().getValue();
 		final String kurzbeschreibung = termineView.getKurzbeschreibung().getValue();
 		final Long liga = Long.valueOf(termineView.getLiga().getValue(termineView.getLiga().getSelectedIndex()));
 		final Boolean heimSpiel = termineView.getHeimspiel().getValue();
-		final TerminCreate termineCreate = new TerminCreate(termindatum, kurzbeschreibung, liga, heimSpiel);
+		final String beschreibung = termineView.getBeschreibung().getValue();
+		final TerminCreate termineCreate = new TerminCreate(termindatum, kurzbeschreibung, liga, heimSpiel, beschreibung);
 		final IAsync<ITerminDetails> myAnswer = new IAsync<ITerminDetails>() {
 		    @Override
 		    public void onSuccess(final ITerminDetails t) {
@@ -122,11 +129,13 @@ public class TermineActivity extends MGWTAbstractActivity {
 			    final Long terminId = t.getId();
 			    _clientFactory.getPlaceController().goTo(new TerminPlace(userId, terminId));
 			}
+			newTerminButton.setProgress(false);
 		    }
 
 		    @Override
 		    public void onError(final Throwable exception) {
 			termineView.showError(exception);
+			newTerminButton.setProgress(false);
 		    }
 		};
 		service.createTermin(userId, termineCreate, myAnswer);

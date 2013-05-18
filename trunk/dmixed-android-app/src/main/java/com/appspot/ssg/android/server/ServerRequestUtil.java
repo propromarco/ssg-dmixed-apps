@@ -85,7 +85,7 @@ public class ServerRequestUtil {
 	public ITerminDetails createTermin(final long userId, final boolean heimspiel, final Long liga, final long terminDatum, final String terminKurzbeschreibung)
 			throws ServerRequestException {
 		final String createTerminUrl = urlCreator.getCreateTerminUrl(userId);
-		CreateTermin postData = new CreateTermin();
+		final CreateTermin postData = new CreateTermin();
 		postData.setHeimspiel(heimspiel);
 		postData.setId(userId);
 		postData.setLiga(liga);
@@ -140,12 +140,7 @@ public class ServerRequestUtil {
 		call(userId, deleteUserUrl, HTTP_TYPE.PUT);
 	}
 
-	public void updateTermin(final long userId, final ITerminDetails terminDetails) throws ServerRequestException {
-		final String saveTerminUrl = urlCreator.getSaveTerminUrl(userId);
-		call(terminDetails, saveTerminUrl, HTTP_TYPE.PUT);
-	}
-
-	public Ligen getLigen(long userId) throws ServerRequestException {
+	public Ligen getLigen(final long userId) throws ServerRequestException {
 		final String liegenUrl = urlCreator.getLiegenUrl(userId);
 		final String json = call(null, liegenUrl, HTTP_TYPE.GET);
 		return createObject(json, Ligen.class);

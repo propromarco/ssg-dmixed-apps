@@ -7,6 +7,7 @@ import com.appspot.ssg.dmixed.client.model.TerminTeilnehmer;
 import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 import com.appspot.ssg.dmixed.shared.IAsync;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
+import com.appspot.ssg.dmixed.shared.ITerminDetails;
 import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 
@@ -21,9 +22,10 @@ public class CheckUtil {
 	teilnahmeData.setTerminId(terminId);
 	teilnahmeData.setKindId(terminTeilnehmer.getId());
 	teilnahmeData.setTeilnahme(status);
-	final IAsync<Void> answer = new IAsync<Void>() {
+	final IAsync<ITerminDetails> answer = new IAsync<ITerminDetails>() {
 	    @Override
-	    public void onSuccess(final Void t) {
+	    public void onSuccess(final ITerminDetails t) {
+		System.out.println(t);
 	    }
 
 	    @Override
@@ -51,9 +53,9 @@ public class CheckUtil {
 	    mitbringData.setTerminId(terminId);
 	    mitbringData.setId(userId);
 	    mitbringData.setMitbringen(true);
-	    final IAsync<Void> answer = new IAsync<Void>() {
+	    final IAsync<ITerminDetails> answer = new IAsync<ITerminDetails>() {
 		@Override
-		public void onSuccess(final Void t) {
+		public void onSuccess(final ITerminDetails t) {
 		    item.setMitbringer("*");
 		}
 
@@ -76,9 +78,9 @@ public class CheckUtil {
 		mitbringData.setTerminId(terminId);
 		mitbringData.setId(userId);
 		mitbringData.setMitbringen(false);
-		final IAsync<Void> answer = new IAsync<Void>() {
+		final IAsync<ITerminDetails> answer = new IAsync<ITerminDetails>() {
 		    @Override
-		    public void onSuccess(final Void t) {
+		    public void onSuccess(final ITerminDetails t) {
 			item.setMitbringer(null);
 		    }
 

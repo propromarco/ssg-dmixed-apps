@@ -31,6 +31,8 @@ public interface IDMixedMessages extends Messages {
 
     String terminCreateDatum();
 
+    String terminCreateBeschreibung();
+
     String terminCreateKurzbeschreibung();
 
     String terminCreateHeimspiel();
@@ -40,4 +42,5 @@ public interface IDMixedMessages extends Messages {
     String createTermin();
 
     String neuerTermin();
+
 }

@@ -18,13 +18,17 @@ import com.googlecode.mgwt.mvp.client.MGWTAbstractActivity;
 
 public class LoginActivity extends MGWTAbstractActivity {
 
+    public interface WithTapHandlers extends HasTapHandlers {
+	void setProgress(boolean Progress);
+    }
+
     public interface LoginView extends IDMixedView {
 
 	HasText getVorname();
 
 	HasText getEmail();
 
-	HasTapHandlers getLogin();
+	WithTapHandlers getLogin();
 
     }
 
@@ -40,10 +44,11 @@ public class LoginActivity extends MGWTAbstractActivity {
 	final IDMixedUsecase service = _clientFactory.getService();
 	final IDMixedMessages messages = _clientFactory.getMessages();
 	panel.setWidget(loginView);
-	addHandlerRegistration(loginView.getLogin().addTapHandler(new TapHandler() {
+	final WithTapHandlers login = loginView.getLogin();
+	addHandlerRegistration(login.addTapHandler(new TapHandler() {
 	    @Override
 	    public void onTap(final TapEvent event) {
-		loginView.setProgress(true);
+		login.setProgress(true);
 		final String vorname = loginView.getVorname().getText();
 		final String email = loginView.getEmail().getText();
 		final String vornameTrimmed = vorname.trim();
@@ -59,11 +64,12 @@ public class LoginActivity extends MGWTAbstractActivity {
 			} else {
 			    loginView.showMessage(messages.errorOnLogin());
 			}
-			loginView.setProgress(false);
+			login.setProgress(false);
 		    }
 
 		    @Override
 		    public void onError(final Throwable exception) {
+			login.setProgress(false);
 			loginView.showError(exception);
 		    }
 		};
