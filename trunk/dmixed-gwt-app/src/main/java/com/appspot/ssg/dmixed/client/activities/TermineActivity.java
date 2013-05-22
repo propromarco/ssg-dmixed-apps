@@ -7,6 +7,9 @@ import com.appspot.ssg.dmixed.client.ClientFactory;
 import com.appspot.ssg.dmixed.client.activities.LoginActivity.WithTapHandlers;
 import com.appspot.ssg.dmixed.client.model.TerminCreate;
 import com.appspot.ssg.dmixed.client.places.TerminPlace;
+import com.appspot.ssg.dmixed.client.views.components.HasCellSelectedHandler;
+import com.appspot.ssg.dmixed.client.views.components.SelectionHandler;
+import com.appspot.ssg.dmixed.client.views.SelectionEvent;
 import com.appspot.ssg.dmixed.shared.IAsync;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
 import com.appspot.ssg.dmixed.shared.ILiga;
@@ -14,34 +17,31 @@ import com.appspot.ssg.dmixed.shared.ILigen;
 import com.appspot.ssg.dmixed.shared.ITermin;
 import com.appspot.ssg.dmixed.shared.ITerminDetails;
 import com.appspot.ssg.dmixed.shared.ITermine;
+import com.google.gwt.activity.shared.AbstractActivity;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
-import com.google.web.bindery.event.shared.EventBus;
-import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
-import com.googlecode.mgwt.dom.client.event.tap.TapHandler;
-import com.googlecode.mgwt.mvp.client.MGWTAbstractActivity;
-import com.googlecode.mgwt.ui.client.widget.MCheckBox;
-import com.googlecode.mgwt.ui.client.widget.MDateBox;
-import com.googlecode.mgwt.ui.client.widget.MListBox;
-import com.googlecode.mgwt.ui.client.widget.MTextArea;
-import com.googlecode.mgwt.ui.client.widget.MTextBox;
-import com.googlecode.mgwt.ui.client.widget.celllist.CellSelectedEvent;
-import com.googlecode.mgwt.ui.client.widget.celllist.CellSelectedHandler;
-import com.googlecode.mgwt.ui.client.widget.celllist.HasCellSelectedHandler;
+import com.google.gwt.user.client.ui.CheckBox;
+import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.TextArea;
+import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.datepicker.client.DateBox;
 
-public class TermineActivity extends MGWTAbstractActivity {
+public class TermineActivity extends AbstractActivity {
 
     public interface TermineView extends IDMixedView {
-	HasCellSelectedHandler getCellSelectedHandler();
+	HasCellSelectedHandler<ITermin> getCellSelectedHandler();
 
-	MDateBox getTerminDatum();
+	DateBox getTerminDatum();
 
-	MTextArea getBeschreibung();
+	TextArea getBeschreibung();
 
-	MTextBox getKurzbeschreibung();
+	TextBox getKurzbeschreibung();
 
-	MCheckBox getHeimspiel();
+	CheckBox getHeimspiel();
 
-	MListBox getLiga();
+	ListBox getLiga();
 
 	WithTapHandlers getNewTerminButton();
 
@@ -71,17 +71,15 @@ public class TermineActivity extends MGWTAbstractActivity {
 	    public void onSuccess(final ITermine t) {
 		if (t != null) {
 		    loadTermine(t);
-		    addHandlerRegistration(termineView.getCellSelectedHandler().addCellSelectedHandler(new CellSelectedHandler() {
+		    termineView.getCellSelectedHandler().addSelectionHandler(new SelectionHandler<ITermin>() {
 
 			@Override
-			public void onCellSelected(final CellSelectedEvent event) {
-			    final int index = event.getIndex();
-			    final List<ITermin> all = t.getAll();
-			    final ITermin iTermin = all.get(index);
-			    final Long terminId = iTermin.getId();
+			public void onSelect(final SelectionEvent<ITermin> event) {
+			    final ITermin termin = event.getSelected();
+			    final Long terminId = termin.getId();
 			    _clientFactory.getPlaceController().goTo(new TerminPlace(userId, terminId));
 			}
-		    }));
+		    });
 		} else {
 		    // TODO Error oder Nicht erlaubt
 		}
@@ -111,10 +109,9 @@ public class TermineActivity extends MGWTAbstractActivity {
 	};
 	service.getLigen(userId, answer2);
 	final WithTapHandlers newTerminButton = termineView.getNewTerminButton();
-	addHandlerRegistration(newTerminButton.addTapHandler(new TapHandler() {
-
+	newTerminButton.addClickHandler(new ClickHandler() {
 	    @Override
-	    public void onTap(final TapEvent event) {
+	    public void onClick(final ClickEvent event) {
 		newTerminButton.setProgress(true);
 		final Date termindatum = termineView.getTerminDatum().getValue();
 		final String kurzbeschreibung = termineView.getKurzbeschreibung().getValue();
@@ -140,11 +137,11 @@ public class TermineActivity extends MGWTAbstractActivity {
 		};
 		service.createTermin(userId, termineCreate, myAnswer);
 	    }
-	}));
+	});
     }
 
     protected void initNewTermin(final TermineView termineView, final List<ILiga> ligen) {
-	final MListBox liga = termineView.getLiga();
+	final ListBox liga = termineView.getLiga();
 	liga.clear();
 	for (final ILiga iLiga : ligen) {
 	    liga.addItem(iLiga.getBezeichnung(), iLiga.getId().toString());

@@ -1,9 +1,9 @@
 package com.appspot.ssg.dmixed.client.views.components;
 
 import com.appspot.ssg.dmixed.client.activities.TerminActivity.TerminView.IListItem;
-import com.googlecode.mgwt.ui.client.widget.MRadioButton;
+import com.google.gwt.user.client.ui.RadioButton;
 
-public class MitbringRadioButton extends MRadioButton implements IListItem<Boolean> {
+public class MitbringRadioButton extends RadioButton implements IListItem<Boolean> {
 
     private final String _text;
 

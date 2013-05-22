@@ -1,62 +1,65 @@
 package com.appspot.ssg.dmixed.client.views;
 
+import com.appspot.ssg.dmixed.client.IDMixedCss;
 import com.appspot.ssg.dmixed.client.IDMixedMessages;
 import com.appspot.ssg.dmixed.client.activities.IDMixedView;
+import com.appspot.ssg.dmixed.client.views.components.Header;
+import com.appspot.ssg.dmixed.client.views.components.LayoutPanel;
 import com.google.gwt.user.client.ui.Composite;
-import com.googlecode.mgwt.ui.client.dialog.Dialogs;
-import com.googlecode.mgwt.ui.client.dialog.Dialogs.AlertCallback;
-import com.googlecode.mgwt.ui.client.widget.HeaderPanel;
-import com.googlecode.mgwt.ui.client.widget.LayoutPanel;
-import com.googlecode.mgwt.ui.client.widget.ProgressBar;
+import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.HTML;
 
 public abstract class AbstractDmixedView extends Composite implements IDMixedView {
 
     protected final IDMixedMessages _messages;
-    protected final LayoutPanel _layoutPanel;
-    private final HeaderPanel _headerPanel;
-    private final ProgressBar _progressBar;
+    protected final IDMixedCss css;
+    protected final FlowPanel _layoutPanel;
+    private final HTML _headerPanel;
 
-    public AbstractDmixedView(final IDMixedMessages messages) {
+    // private final ProgressBar _progressBar;
+
+    public AbstractDmixedView(final IDMixedMessages messages, final IDMixedCss css) {
 	_messages = messages;
-	_layoutPanel = new LayoutPanel();
+	this.css = css;
+	_layoutPanel = new LayoutPanel(css);
 	initWidget(_layoutPanel);
-	_headerPanel = new HeaderPanel();
+	_headerPanel = new Header(css);
 	_layoutPanel.add(_headerPanel);
-	_progressBar = new ProgressBar();
-	_progressBar.setVisible(false);
-	_headerPanel.setRightWidget(_progressBar);
+	// _progressBar = new ProgressBar();
+	// _progressBar.setVisible(false);
+	// _headerPanel.setRightWidget(_progressBar);
     }
 
     @Override
     public void setHeaderText(final String headerText) {
-	_headerPanel.setCenter(headerText);
+	_headerPanel.setHTML(headerText);
     }
 
     @Override
     public void setProgress(final boolean visible) {
-	_progressBar.setVisible(visible);
+	// _progressBar.setVisible(visible);
     }
 
     @Override
-    public void showMessage(String message) {
-	AlertCallback callback = new AlertCallback() {
-	    @Override
-	    public void onButtonPressed() {
-		// TODO Auto-generated method stub
-	    }
-	};
-	Dialogs.alert("Info", message, callback);
+    public void showMessage(final String message) {
+	// final AlertCallback callback = new AlertCallback() {
+	// @Override
+	// public void onButtonPressed() {
+	// // TODO Auto-generated method stub
+	// }
+	// };
+	// Dialogs.alert("Info", message, callback);
     }
 
     @Override
-    public void showError(Throwable exception) {
-	AlertCallback callback = new AlertCallback() {
-	    @Override
-	    public void onButtonPressed() {
-		// TODO Auto-generated method stub
-	    }
-	};
-	Dialogs.alert("Error", exception.getMessage(), callback);
+    public void showError(final Throwable exception) {
+	// final AlertCallback callback = new AlertCallback() {
+	// @Override
+	// public void onButtonPressed() {
+	// // TODO Auto-generated method stub
+	// }
+	// };
+	// Dialogs.alert("Error", exception.getMessage(), callback);
     }
 
 }

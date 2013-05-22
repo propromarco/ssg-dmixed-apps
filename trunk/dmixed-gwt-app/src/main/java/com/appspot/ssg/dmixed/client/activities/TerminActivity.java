@@ -14,22 +14,22 @@ import com.appspot.ssg.dmixed.shared.ILiga;
 import com.appspot.ssg.dmixed.shared.ITerminDetails;
 import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
+import com.google.gwt.activity.shared.AbstractActivity;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.HasValue;
-import com.google.web.bindery.event.shared.EventBus;
-import com.googlecode.mgwt.dom.client.event.tap.HasTapHandlers;
-import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
-import com.googlecode.mgwt.dom.client.event.tap.TapHandler;
-import com.googlecode.mgwt.mvp.client.MGWTAbstractActivity;
 
-public class TerminActivity extends MGWTAbstractActivity {
+public class TerminActivity extends AbstractActivity {
 
     public interface TerminView extends IDMixedView {
 
-	public interface IListItem<T> extends HasValue<T>, HasTapHandlers {
+	public interface IListItem<T> extends HasValue<T>, HasClickHandlers {
 	    void setMitbringer(String string);
 
 	    void setEnabled(boolean enabled);
@@ -84,14 +84,14 @@ public class TerminActivity extends MGWTAbstractActivity {
 			if (!terminTeilnehmer.isChangeAllowed()) {
 			    item.setEnabled(false);
 			}
-			addHandlerRegistration(item.addValueChangeHandler(new ValueChangeHandler<ETeilnahmeStatus>() {
+			item.addValueChangeHandler(new ValueChangeHandler<ETeilnahmeStatus>() {
 			    @Override
 			    public void onValueChange(final ValueChangeEvent<ETeilnahmeStatus> event) {
 				final ETeilnahmeStatus newValue = event.getValue();
 				if (CheckUtil.checkTeilnehmer(_clientFactory.getService(), userId, terminTeilnehmer, termin.getId(), newValue))
 				    item.setValue(newValue);
 			    }
-			}));
+			});
 		    }
 		    // Mitbringen
 		    final IListCreator<ITerminMitbringsel, Boolean> mitbringselCreator = terminView.fillMitbringsel();
@@ -99,15 +99,15 @@ public class TerminActivity extends MGWTAbstractActivity {
 		    if (mitbringsel != null) {
 			for (final ITerminMitbringsel terminMitbringsel : mitbringsel) {
 			    final IListItem<Boolean> item = mitbringselCreator.create(terminMitbringsel, true);
-			    addHandlerRegistration(item.addTapHandler(new TapHandler() {
+			    item.addClickHandler(new ClickHandler() {
 				@Override
-				public void onTap(final TapEvent event) {
+				public void onClick(final ClickEvent event) {
 				    final boolean checked = CheckUtil.checkMitbringsel(_clientFactory.getService(), userId, terminId, item,
 					    terminMitbringsel);
 				    item.setValue(checked);
 				}
 
-			    }));
+			    });
 			}
 		    }
 		} else {
