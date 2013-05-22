@@ -6,6 +6,7 @@ import com.appspot.ssg.dmixed.client.activities.IDMixedView;
 import com.appspot.ssg.dmixed.client.views.components.Header;
 import com.appspot.ssg.dmixed.client.views.components.LayoutPanel;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
 
@@ -42,24 +43,16 @@ public abstract class AbstractDmixedView extends Composite implements IDMixedVie
 
     @Override
     public void showMessage(final String message) {
-	// final AlertCallback callback = new AlertCallback() {
-	// @Override
-	// public void onButtonPressed() {
-	// // TODO Auto-generated method stub
-	// }
-	// };
-	// Dialogs.alert("Info", message, callback);
+	final DialogBox dialogBox = new DialogBox(true, true);
+	dialogBox.add(new HTML(message));
+	dialogBox.center();
     }
 
     @Override
     public void showError(final Throwable exception) {
-	// final AlertCallback callback = new AlertCallback() {
-	// @Override
-	// public void onButtonPressed() {
-	// // TODO Auto-generated method stub
-	// }
-	// };
-	// Dialogs.alert("Error", exception.getMessage(), callback);
+	final DialogBox dialogBox = new DialogBox(true, true);
+	dialogBox.add(new HTML(exception.getMessage()));
+	dialogBox.center();
     }
 
 }
