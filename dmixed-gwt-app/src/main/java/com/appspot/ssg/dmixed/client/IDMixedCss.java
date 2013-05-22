@@ -3,7 +3,7 @@ package com.appspot.ssg.dmixed.client;
 import com.google.gwt.resources.client.CssResource;
 
 public interface IDMixedCss extends CssResource {
-    
+
     String body();
 
     String formlistentry();
@@ -35,5 +35,13 @@ public interface IDMixedCss extends CssResource {
     String tabpanelbody();
 
     String selected();
+
+    String textarea();
+
+    String listbox();
+
+    String datebox();
+
+    String checkbox();
 
 }

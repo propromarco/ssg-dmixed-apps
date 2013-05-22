@@ -10,6 +10,10 @@ import com.appspot.ssg.dmixed.client.activities.TermineActivity.TermineView;
 import com.appspot.ssg.dmixed.client.views.components.ButtonWithWait;
 import com.appspot.ssg.dmixed.client.views.components.CellListWithHeader;
 import com.appspot.ssg.dmixed.client.views.components.CellListWithHeader.BasicCell;
+import com.appspot.ssg.dmixed.client.views.components.CssCheckBox;
+import com.appspot.ssg.dmixed.client.views.components.CssDateBox;
+import com.appspot.ssg.dmixed.client.views.components.CssListBox;
+import com.appspot.ssg.dmixed.client.views.components.CssTextArea;
 import com.appspot.ssg.dmixed.client.views.components.CssTextBox;
 import com.appspot.ssg.dmixed.client.views.components.FormListEntry;
 import com.appspot.ssg.dmixed.client.views.components.HasCellSelectedHandler;
@@ -26,7 +30,6 @@ import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.datepicker.client.DateBox;
-import com.google.gwt.user.datepicker.client.DateBox.DefaultFormat;
 
 public class TermineViewImpl extends AbstractDmixedView implements TermineView {
 
@@ -80,17 +83,15 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
 	    final WidgetList widgetList = new WidgetList(css);
 
 	    // lets put in some widgets
-	    this.terminDatum = new DateBox();
-	    terminDatum.setFormat(new DefaultFormat(DateTimeFormat.getFormat("dd.MM.yyyy")));
-	    terminDatum.setValue(new Date());
+	    this.terminDatum = new CssDateBox(css);
 	    widgetList.add(new FormListEntry(css, messages.terminCreateDatum(), terminDatum));
 	    this.kurzbeschreibung = new CssTextBox(css);
 	    widgetList.add(new FormListEntry(css, messages.terminCreateKurzbeschreibung(), kurzbeschreibung));
-	    this.heimspiel = new CheckBox();
+	    this.heimspiel = new CssCheckBox(css);
 	    widgetList.add(new FormListEntry(css, messages.terminCreateHeimspiel(), heimspiel));
-	    this.liga = new ListBox();
+	    this.liga = new CssListBox(css);
 	    widgetList.add(new FormListEntry(css, messages.terminCreateLiga(), liga));
-	    this.beschreibung = new TextArea();
+	    this.beschreibung = new CssTextArea(css);
 	    beschreibung.setVisibleLines(5);
 	    widgetList.add(new FormListEntry(css, messages.terminCreateBeschreibung(), beschreibung));
 	    container.add(widgetList);
