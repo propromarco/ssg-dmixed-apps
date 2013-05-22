@@ -38,7 +38,14 @@ public class TerminViewImpl extends AbstractDmixedView implements TerminView {
 	{
 	    // Page 2
 	    _teilnehmerList = new WidgetList(css);
-	    this.teilnehmerScrollPanel = new ScrollPanel();
+	    this.teilnehmerScrollPanel = new ScrollPanel() {
+		@Override
+		protected void onAttach() {
+		    super.onAttach();
+		    final int offsetHeight = getParent().getOffsetHeight() - 20;
+		    setHeight(offsetHeight + "px");
+		}
+	    };
 	    teilnehmerScrollPanel.setWidget(_teilnehmerList);
 	    // teilnehmerScrollPanel.setScrollingEnabledX(false);
 	    final String mitkommen = messages.mitkommen();
@@ -49,7 +56,14 @@ public class TerminViewImpl extends AbstractDmixedView implements TerminView {
 	{
 	    // Page 3
 	    _mitbrinselList = new WidgetList(css);
-	    this.mitbringselScrollPanel = new ScrollPanel();
+	    this.mitbringselScrollPanel = new ScrollPanel() {
+		@Override
+		protected void onAttach() {
+		    super.onAttach();
+		    final int offsetHeight = getParent().getOffsetHeight() - 20;
+		    setHeight(offsetHeight + "px");
+		}
+	    };
 	    mitbringselScrollPanel.setWidget(_mitbrinselList);
 	    // mitbringselScrollPanel.setScrollingEnabledX(false);
 	    final String mitbringen = messages.mitbringen();
