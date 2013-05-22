@@ -16,15 +16,21 @@ public class FakeAdapter implements IJPAAdapter {
     private final List<JPATermin> termine = new ArrayList<JPATermin>();
     private final List<JPAMitbringsel> mitbringsel = new ArrayList<JPAMitbringsel>();
     private final List<JPATerminMitbringsel> terminMitbringsels = new ArrayList<JPATerminMitbringsel>();
+    private final List<JPALiga> liegen = new ArrayList<JPALiga>();
 
     private FakeAdapter() {
+	final JPALiga liga = new JPALiga("DMixed");
+	liga.setId(1l);
+	liegen.add(liga);
 	final JPAUser u1 = createUser(3000l, "Schwarz", true, "123@456.com");
 	final JPAKind k1 = new JPAKind("Nuria", Date.valueOf("2006-02-24"));
+	k1.setLiga(1l);
 	k1.setFamilie(u1.getId());
 	kinder.add(k1);
 	users.add(u1);
 	final JPAKind k2 = new JPAKind("Kiara", Date.valueOf("2003-02-04"));
 	k2.setFamilie(u1.getId());
+	k2.setLiga(1l);
 	kinder.add(k2);
 	mitbringsel.add(createMitbringsel(1l, "Kaffee"));
 	mitbringsel.add(createMitbringsel(2l, "Kuchen"));
@@ -217,8 +223,7 @@ public class FakeAdapter implements IJPAAdapter {
 
     @Override
     public List<JPAKind> getKinder(final JPAUser user) {
-	// TODO Auto-generated method stub
-	return new ArrayList<JPAKind>();
+	return kinder;
     }
 
     @Override
@@ -232,14 +237,12 @@ public class FakeAdapter implements IJPAAdapter {
 
     @Override
     public List<JPAKind> getKinder(final JPATermin termin) {
-	// TODO Auto-generated method stub
-	return null;
+	return kinder;
     }
 
     @Override
     public JPAUser getUser(final JPAKind jpaKind) {
-	// TODO Auto-generated method stub
-	return null;
+	return users.get(0);
     }
 
     @Override
@@ -256,8 +259,7 @@ public class FakeAdapter implements IJPAAdapter {
 
     @Override
     public List<JPALiga> getLigen() {
-	// TODO Auto-generated method stub
-	return null;
+	return liegen;
     }
 
     @Override
