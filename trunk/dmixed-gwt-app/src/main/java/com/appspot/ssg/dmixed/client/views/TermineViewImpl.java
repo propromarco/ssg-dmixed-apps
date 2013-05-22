@@ -10,6 +10,7 @@ import com.appspot.ssg.dmixed.client.activities.TermineActivity.TermineView;
 import com.appspot.ssg.dmixed.client.views.components.ButtonWithWait;
 import com.appspot.ssg.dmixed.client.views.components.CellListWithHeader;
 import com.appspot.ssg.dmixed.client.views.components.CellListWithHeader.BasicCell;
+import com.appspot.ssg.dmixed.client.views.components.CssTextBox;
 import com.appspot.ssg.dmixed.client.views.components.FormListEntry;
 import com.appspot.ssg.dmixed.client.views.components.HasCellSelectedHandler;
 import com.appspot.ssg.dmixed.client.views.components.TabPanel;
@@ -74,16 +75,16 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
 	neuerTermin.setText(messages.neuerTermin());
 
 	final FlowPanel container = new FlowPanel();
+	container.setStyleName(css.form());
 	{
 	    final WidgetList widgetList = new WidgetList(css);
-	    // widgetList.setRound(true);
 
 	    // lets put in some widgets
 	    this.terminDatum = new DateBox();
 	    terminDatum.setFormat(new DefaultFormat(DateTimeFormat.getFormat("dd.MM.yyyy")));
 	    terminDatum.setValue(new Date());
 	    widgetList.add(new FormListEntry(css, messages.terminCreateDatum(), terminDatum));
-	    this.kurzbeschreibung = new TextBox();
+	    this.kurzbeschreibung = new CssTextBox(css);
 	    widgetList.add(new FormListEntry(css, messages.terminCreateKurzbeschreibung(), kurzbeschreibung));
 	    this.heimspiel = new CheckBox();
 	    widgetList.add(new FormListEntry(css, messages.terminCreateHeimspiel(), heimspiel));
