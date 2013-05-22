@@ -3,7 +3,7 @@ package com.appspot.ssg.dmixed.client;
 import com.google.gwt.resources.client.CssResource;
 
 public interface IDMixedCss extends CssResource {
-
+    
     String body();
 
     String formlistentry();

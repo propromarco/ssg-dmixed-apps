@@ -1,3 +1,5 @@
+@eval rest com.appspot.ssg.dmixed.client.DMixedApp.getHeigth(78)+"px";
+
 @sprite .body {
 	gwt-image: 'gras';
 	background-repeat: repeat;
@@ -8,15 +10,15 @@
 }
 
 .main {
-	
+	height: 100%;
 }
 
 .layoutpanel {
-	
+	height: 100%;
 }
 
 .header {
-	height: 2em;
+	height: 38px;
 	width: 100%;
 	text-align: center;
 	font-size: 1.2em;
@@ -28,11 +30,6 @@
 }
 
 .widgetlist {
-	border: 1px solid #dedede;
-	-webkit-border-radius: 0.5em;
-	-moz-border-radius: 0.5em;
-	-o-border-radius: 0.5em;
-	border-radius: 0.5em;
 	padding: 0.5em;
 }
 
@@ -109,13 +106,14 @@
 }
 
 .tabpanel {
-	
+	height: 100%;
 }
 
 .tabpanelheader {
 	display: -moz-box;
 	display: -webkit-box;
 	display: box;
+	height: 38px;
 }
 
 .tabpanelheader>a {
@@ -133,5 +131,12 @@
 }
 
 .tabpanelbody {
-	margin-top: 0.1em;
+	border: 1px solid #dedede;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+	padding: 5px;
+	margin-top: 5px;
+	height: rest;
 }
