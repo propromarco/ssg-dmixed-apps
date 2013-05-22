@@ -8,17 +8,17 @@ import com.appspot.ssg.dmixed.shared.IAsync;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
 import com.appspot.ssg.dmixed.shared.ILoginData;
 import com.appspot.ssg.dmixed.shared.IUserData;
+import com.google.gwt.activity.shared.AbstractActivity;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.HasText;
-import com.google.web.bindery.event.shared.EventBus;
-import com.googlecode.mgwt.dom.client.event.tap.HasTapHandlers;
-import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
-import com.googlecode.mgwt.dom.client.event.tap.TapHandler;
-import com.googlecode.mgwt.mvp.client.MGWTAbstractActivity;
 
-public class LoginActivity extends MGWTAbstractActivity {
+public class LoginActivity extends AbstractActivity {
 
-    public interface WithTapHandlers extends HasTapHandlers {
+    public interface WithTapHandlers extends HasClickHandlers {
 	void setProgress(boolean Progress);
     }
 
@@ -45,9 +45,10 @@ public class LoginActivity extends MGWTAbstractActivity {
 	final IDMixedMessages messages = _clientFactory.getMessages();
 	panel.setWidget(loginView);
 	final WithTapHandlers login = loginView.getLogin();
-	addHandlerRegistration(login.addTapHandler(new TapHandler() {
+	login.addClickHandler(new ClickHandler() {
+
 	    @Override
-	    public void onTap(final TapEvent event) {
+	    public void onClick(final ClickEvent event) {
 		login.setProgress(true);
 		final String vorname = loginView.getVorname().getText();
 		final String email = loginView.getEmail().getText();
@@ -75,7 +76,7 @@ public class LoginActivity extends MGWTAbstractActivity {
 		};
 		service.login(data, answer);
 	    }
-	}));
+	});
     }
 
 }

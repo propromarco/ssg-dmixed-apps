@@ -3,43 +3,44 @@ package com.appspot.ssg.dmixed.client.views;
 import java.util.Date;
 import java.util.List;
 
+import com.appspot.ssg.dmixed.client.IDMixedCss;
 import com.appspot.ssg.dmixed.client.IDMixedMessages;
 import com.appspot.ssg.dmixed.client.activities.LoginActivity.WithTapHandlers;
 import com.appspot.ssg.dmixed.client.activities.TermineActivity.TermineView;
 import com.appspot.ssg.dmixed.client.views.components.ButtonWithWait;
+import com.appspot.ssg.dmixed.client.views.components.CellListWithHeader;
+import com.appspot.ssg.dmixed.client.views.components.CellListWithHeader.BasicCell;
+import com.appspot.ssg.dmixed.client.views.components.FormListEntry;
+import com.appspot.ssg.dmixed.client.views.components.HasCellSelectedHandler;
+import com.appspot.ssg.dmixed.client.views.components.TabPanel;
+import com.appspot.ssg.dmixed.client.views.components.WidgetList;
 import com.appspot.ssg.dmixed.shared.ILiga;
 import com.appspot.ssg.dmixed.shared.ITermin;
 import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.user.client.ui.Anchor;
+import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.googlecode.mgwt.ui.client.widget.FormListEntry;
-import com.googlecode.mgwt.ui.client.widget.MCheckBox;
-import com.googlecode.mgwt.ui.client.widget.MDateBox;
-import com.googlecode.mgwt.ui.client.widget.MListBox;
-import com.googlecode.mgwt.ui.client.widget.MTextArea;
-import com.googlecode.mgwt.ui.client.widget.MTextBox;
-import com.googlecode.mgwt.ui.client.widget.ScrollPanel;
-import com.googlecode.mgwt.ui.client.widget.WidgetList;
-import com.googlecode.mgwt.ui.client.widget.celllist.BasicCell;
-import com.googlecode.mgwt.ui.client.widget.celllist.CellListWithHeader;
-import com.googlecode.mgwt.ui.client.widget.celllist.HasCellSelectedHandler;
-import com.googlecode.mgwt.ui.client.widget.tabbar.HistoryTabBarButton;
-import com.googlecode.mgwt.ui.client.widget.tabbar.MostRecentTabBarButton;
-import com.googlecode.mgwt.ui.client.widget.tabbar.TabPanel;
+import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.ScrollPanel;
+import com.google.gwt.user.client.ui.TextArea;
+import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.datepicker.client.DateBox;
+import com.google.gwt.user.datepicker.client.DateBox.DefaultFormat;
 
 public class TermineViewImpl extends AbstractDmixedView implements TermineView {
 
     private final CellListWithHeader<ITermin> _cellList;
-    private final MDateBox terminDatum;
-    private final MTextBox kurzbeschreibung;
-    private final MCheckBox heimspiel;
-    private final MListBox liga;
+    private final DateBox terminDatum;
+    private final TextBox kurzbeschreibung;
+    private final CheckBox heimspiel;
+    private final ListBox liga;
     private ButtonWithWait newTerminButton;
-    private MTextArea beschreibung;
+    private TextArea beschreibung;
 
-    public TermineViewImpl(final IDMixedMessages messages) {
-	super(messages);
+    public TermineViewImpl(final IDMixedMessages messages, final IDMixedCss css) {
+	super(messages, css);
 	setHeaderText("Termine");
-	_cellList = new CellListWithHeader<ITermin>(new BasicCell<ITermin>() {
+	_cellList = new CellListWithHeader<ITermin>(css, new BasicCell<ITermin>(css) {
 
 	    @Override
 	    public String getDisplayString(final ITermin termin) {
@@ -59,40 +60,40 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
 	    }
 	});
 
-	_cellList.getCellList().setRound(true);
+	// _cellList.getCellList().setRound(true);
 
 	final ScrollPanel scrollPanel = new ScrollPanel();
 	scrollPanel.setWidget(_cellList);
-	scrollPanel.setScrollingEnabledX(false);
+	// scrollPanel.setScrollingEnabledX(false);
 
-	final TabPanel tabPanel = new TabPanel();
-	final HistoryTabBarButton termine = new HistoryTabBarButton();
+	final TabPanel tabPanel = new TabPanel(css);
+	final Anchor termine = new Anchor();
 	termine.setText(messages.termine());
 	tabPanel.add(termine, scrollPanel);
-	final MostRecentTabBarButton neuerTermin = new MostRecentTabBarButton();
+	final Anchor neuerTermin = new Anchor();
 	neuerTermin.setText(messages.neuerTermin());
 
 	final FlowPanel container = new FlowPanel();
 	{
-	    final WidgetList widgetList = new WidgetList();
-	    widgetList.setRound(true);
+	    final WidgetList widgetList = new WidgetList(css);
+	    // widgetList.setRound(true);
 
 	    // lets put in some widgets
-	    this.terminDatum = new MDateBox();
-	    terminDatum.setFormat("dd.MM.yyyy");
+	    this.terminDatum = new DateBox();
+	    terminDatum.setFormat(new DefaultFormat(DateTimeFormat.getFormat("dd.MM.yyyy")));
 	    terminDatum.setValue(new Date());
-	    widgetList.add(new FormListEntry(messages.terminCreateDatum(), terminDatum));
-	    this.kurzbeschreibung = new MTextBox();
-	    widgetList.add(new FormListEntry(messages.terminCreateKurzbeschreibung(), kurzbeschreibung));
-	    this.heimspiel = new MCheckBox();
-	    widgetList.add(new FormListEntry(messages.terminCreateHeimspiel(), heimspiel));
-	    this.liga = new MListBox();
-	    widgetList.add(new FormListEntry(messages.terminCreateLiga(), liga));
-	    this.beschreibung = new MTextArea();
+	    widgetList.add(new FormListEntry(css, messages.terminCreateDatum(), terminDatum));
+	    this.kurzbeschreibung = new TextBox();
+	    widgetList.add(new FormListEntry(css, messages.terminCreateKurzbeschreibung(), kurzbeschreibung));
+	    this.heimspiel = new CheckBox();
+	    widgetList.add(new FormListEntry(css, messages.terminCreateHeimspiel(), heimspiel));
+	    this.liga = new ListBox();
+	    widgetList.add(new FormListEntry(css, messages.terminCreateLiga(), liga));
+	    this.beschreibung = new TextArea();
 	    beschreibung.setVisibleLines(5);
-	    widgetList.add(new FormListEntry(messages.terminCreateBeschreibung(), beschreibung));
+	    widgetList.add(new FormListEntry(css, messages.terminCreateBeschreibung(), beschreibung));
 	    container.add(widgetList);
-	    this.newTerminButton = new ButtonWithWait(messages.createTermin());
+	    this.newTerminButton = new ButtonWithWait(css, messages.createTermin());
 	    container.add(newTerminButton);
 	}
 	tabPanel.add(neuerTermin, container);
@@ -101,7 +102,7 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
     }
 
     @Override
-    public HasCellSelectedHandler getCellSelectedHandler() {
+    public HasCellSelectedHandler<ITermin> getCellSelectedHandler() {
 	return _cellList.getCellList();
     }
 
@@ -111,27 +112,27 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
     }
 
     @Override
-    public MDateBox getTerminDatum() {
+    public DateBox getTerminDatum() {
 	return terminDatum;
     }
 
     @Override
-    public MTextBox getKurzbeschreibung() {
+    public TextBox getKurzbeschreibung() {
 	return kurzbeschreibung;
     }
 
     @Override
-    public MTextArea getBeschreibung() {
+    public TextArea getBeschreibung() {
 	return beschreibung;
     }
 
     @Override
-    public MCheckBox getHeimspiel() {
+    public CheckBox getHeimspiel() {
 	return heimspiel;
     }
 
     @Override
-    public MListBox getLiga() {
+    public ListBox getLiga() {
 	return liga;
     }
 

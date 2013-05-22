@@ -8,10 +8,9 @@ import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.googlecode.mgwt.dom.client.event.tap.TapHandler;
-import com.googlecode.mgwt.ui.client.widget.MListBox;
+import com.google.gwt.user.client.ui.ListBox;
 
-public class TeilnehmerListBox extends MListBox implements IListItem<ETeilnahmeStatus> {
+public class TeilnehmerListBox extends ListBox implements IListItem<ETeilnahmeStatus> {
 
     private final IDMixedMessages messages;
     private final boolean loggedUser;
@@ -72,12 +71,6 @@ public class TeilnehmerListBox extends MListBox implements IListItem<ETeilnahmeS
 		handler.onValueChange(evt);
 	    }
 	});
-    }
-
-    @Override
-    public HandlerRegistration addTapHandler(final TapHandler handler) {
-	// TODO Auto-generated method stub
-	return null;
     }
 
     @Override

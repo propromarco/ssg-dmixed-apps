@@ -18,7 +18,9 @@
   <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
   <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
 <!--   <inherits name='com.sksamuel.Jqm4gwt'/> -->
-  <inherits name='com.googlecode.mgwt.MGWT'/>
+<!--   <inherits name='com.googlecode.mgwt.MGWT'/> -->
+  <inherits name='com.google.gwt.place.Place'/>
+  <inherits name='com.google.gwt.activity.Activity'/>
   <inherits name='com.google.gwt.json.JSON'/>
 
   <!-- Other module inherits                                      -->
@@ -42,5 +44,5 @@
   <set-property name="mgwt.os" value="blackberry" />
   <set-property name="mgwt.os" value="desktop" />
 -->
-  
+  <set-configuration-property name="CssResource.style" value="pretty" />
 </module>

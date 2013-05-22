@@ -23,15 +23,19 @@ public class ClientFactoryImpl implements ClientFactory {
     private final IDMixedUsecase service;
     private final LoginViewImpl _loginViewImpl;
     private final TermineViewImpl _termineViewImpl;
+    private final IDMixedCss styles;
 
     public ClientFactoryImpl() {
 	final String baseUrl = GWT.getHostPageBaseURL();
+	final IDMixedDesign design = GWT.create(IDMixedDesign.class);
+	styles = design.getCss();
+	styles.ensureInjected();
 	urlCreator = new DMixedUrlCreator(baseUrl);
 	service = new DMixedUsecaseConnector(urlCreator);
 	eventBus = new SimpleEventBus();
 	placeController = new PlaceController(eventBus);
-	_loginViewImpl = new LoginViewImpl(messages, true);
-	_termineViewImpl = new TermineViewImpl(messages);
+	_loginViewImpl = new LoginViewImpl(messages, styles, true);
+	_termineViewImpl = new TermineViewImpl(messages, styles);
     }
 
     @Override
@@ -66,8 +70,13 @@ public class ClientFactoryImpl implements ClientFactory {
 
     @Override
     public TerminActivity.TerminView getTerminView() {
-	final TerminViewImpl _terminView = new TerminViewImpl(messages);
+	final TerminViewImpl _terminView = new TerminViewImpl(messages, styles);
 	return _terminView;
+    }
+
+    @Override
+    public IDMixedCss getStyles() {
+	return styles;
     }
 
 }

@@ -1,63 +1,59 @@
 package com.appspot.ssg.dmixed.client.views;
 
+import com.appspot.ssg.dmixed.client.IDMixedCss;
 import com.appspot.ssg.dmixed.client.IDMixedMessages;
 import com.appspot.ssg.dmixed.client.activities.TerminActivity.TerminView;
+import com.appspot.ssg.dmixed.client.views.components.FormListEntry;
 import com.appspot.ssg.dmixed.client.views.components.MitbringRadioButton;
+import com.appspot.ssg.dmixed.client.views.components.TabPanel;
 import com.appspot.ssg.dmixed.client.views.components.TeilnehmerListBox;
+import com.appspot.ssg.dmixed.client.views.components.WidgetList;
 import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 import com.appspot.ssg.dmixed.shared.ITerminMitbringsel;
 import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
-import com.google.gwt.event.logical.shared.SelectionEvent;
-import com.google.gwt.event.logical.shared.SelectionHandler;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
-import com.googlecode.mgwt.ui.client.widget.FormListEntry;
-import com.googlecode.mgwt.ui.client.widget.ScrollPanel;
-import com.googlecode.mgwt.ui.client.widget.WidgetList;
-import com.googlecode.mgwt.ui.client.widget.tabbar.BookmarkTabBarButton;
-import com.googlecode.mgwt.ui.client.widget.tabbar.DownloadsTabBarButton;
-import com.googlecode.mgwt.ui.client.widget.tabbar.MostViewedTabBarButton;
-import com.googlecode.mgwt.ui.client.widget.tabbar.TabPanel;
+import com.google.gwt.user.client.ui.ScrollPanel;
 
-public class TerminViewImpl extends AbstractDmixedView implements TerminView, SelectionHandler<Integer> {
+public class TerminViewImpl extends AbstractDmixedView implements TerminView {
 
     private final HTML _beschreibung;
     private final WidgetList _teilnehmerList, _mitbrinselList;
     private ScrollPanel teilnehmerScrollPanel, mitbringselScrollPanel;
 
-    public TerminViewImpl(final IDMixedMessages messages) {
-	super(messages);
-	final TabPanel tabPanel = new TabPanel();
-	tabPanel.addSelectionHandler(this);
+    public TerminViewImpl(final IDMixedMessages messages, final IDMixedCss css) {
+	super(messages, css);
+	final TabPanel tabPanel = new TabPanel(css);
 	{
 	    // Page 1
 	    final FlowPanel container = new FlowPanel();
 	    _beschreibung = new HTML();
 	    _beschreibung.setStyleName("terminBeschreibung");
 	    container.add(_beschreibung);
-	    final BookmarkTabBarButton allgemein = new BookmarkTabBarButton();
+	    final Anchor allgemein = new Anchor();
 	    allgemein.setText("Übersicht");
 	    tabPanel.add(allgemein, container);
 	}
 	{
 	    // Page 2
-	    _teilnehmerList = new WidgetList();
+	    _teilnehmerList = new WidgetList(css);
 	    this.teilnehmerScrollPanel = new ScrollPanel();
 	    teilnehmerScrollPanel.setWidget(_teilnehmerList);
-	    teilnehmerScrollPanel.setScrollingEnabledX(false);
+	    // teilnehmerScrollPanel.setScrollingEnabledX(false);
 	    final String mitkommen = messages.mitkommen();
-	    final MostViewedTabBarButton teilnehmer = new MostViewedTabBarButton();
+	    final Anchor teilnehmer = new Anchor();
 	    teilnehmer.setText(mitkommen);
 	    tabPanel.add(teilnehmer, teilnehmerScrollPanel);
 	}
 	{
 	    // Page 3
-	    _mitbrinselList = new WidgetList();
+	    _mitbrinselList = new WidgetList(css);
 	    this.mitbringselScrollPanel = new ScrollPanel();
 	    mitbringselScrollPanel.setWidget(_mitbrinselList);
-	    mitbringselScrollPanel.setScrollingEnabledX(false);
+	    // mitbringselScrollPanel.setScrollingEnabledX(false);
 	    final String mitbringen = messages.mitbringen();
-	    final DownloadsTabBarButton teilnehmer = new DownloadsTabBarButton();
+	    final Anchor teilnehmer = new Anchor();
 	    teilnehmer.setText(mitbringen);
 	    tabPanel.add(teilnehmer, mitbringselScrollPanel);
 	}
@@ -82,7 +78,7 @@ public class TerminViewImpl extends AbstractDmixedView implements TerminView, Se
 		final ETeilnahmeStatus teilnahme = terminTeilnehmer.getTeilnahme();
 		final TeilnehmerListBox androidRadioButton = new TeilnehmerListBox(_messages, loggedUser);
 		androidRadioButton.setValue(teilnahme);
-		final FormListEntry entry = new FormListEntry(komplett, androidRadioButton);
+		final FormListEntry entry = new FormListEntry(css, komplett, androidRadioButton);
 		_teilnehmerList.add(entry);
 		return androidRadioButton;
 	    }
@@ -109,9 +105,4 @@ public class TerminViewImpl extends AbstractDmixedView implements TerminView, Se
 	};
     }
 
-    @Override
-    public void onSelection(final SelectionEvent<Integer> event) {
-	teilnehmerScrollPanel.refresh();
-	mitbringselScrollPanel.refresh();
-    }
 }
