@@ -1,0 +1,30 @@
+.container {
+	width: 8.5em;
+	float: left;
+}
+
+.uebernehmen, .abbrechen {
+	height: 2em;
+	width: 6em;
+	color: white;
+	background: #1e5799; /* Old browsers */
+	background: -moz-linear-gradient(top,  #1e5799 5%, #2989d8 10%, #207cca 90%, #7db9e8 95%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#1e5799), color-stop(10%,#2989d8), color-stop(90%,#207cca), color-stop(95%,#7db9e8)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #1e5799 5%,#2989d8 10%,#207cca 90%,#7db9e8 95%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #1e5799 5%,#2989d8 10%,#207cca 90%,#7db9e8 95%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #1e5799 5%,#2989d8 10%,#207cca 90%,#7db9e8 95%); /* IE10+ */
+	background: linear-gradient(to bottom,  #1e5799 5%,#2989d8 10%,#207cca 90%,#7db9e8 95%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+}
+
+.uebernehmen {
+	margin-top: 1em;
+	float: left;
+	margin-left: 1em;
+}
+
+.abbrechen {
+	margin-top: 1em;
+	float: right;
+	margin-right: 0.5em;
+}

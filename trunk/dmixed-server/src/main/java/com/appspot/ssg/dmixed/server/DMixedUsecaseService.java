@@ -60,10 +60,14 @@ import com.appspot.ssg.dmixed.shared.ITerminTeilnehmer;
 @Consumes(MediaType.APPLICATION_JSON)
 public class DMixedUsecaseService {
 
+    public static final String JPA_ADAPTER = "jpa.adapter";
     private final IJPAAdapter adapter;
 
-    public DMixedUsecaseService() {
-	adapter = JPAAdapter.getInstance();
+    @SuppressWarnings("unchecked")
+    public DMixedUsecaseService() throws Exception {
+	final String className = System.getProperty(JPA_ADAPTER, JPAAdapter.class.getName());
+	final Class<IJPAAdapter> adapterClass = (Class<IJPAAdapter>) Class.forName(className);
+	adapter = adapterClass.newInstance();
     }
 
     @POST

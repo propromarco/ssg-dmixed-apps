@@ -1,0 +1,63 @@
+.container {
+	width: 2.5em;
+	float: left;
+	margin-left: 0.5em;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+
+.container a {
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	width: 2.5em;
+	height: 1em;
+	line-height: 1em;
+	font-size: 1em;
+	
+	background: #1e5799; /* Old browsers */
+	background: -moz-linear-gradient(top,  #1e5799 5%, #2989d8 10%, #207cca 90%, #7db9e8 95%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#1e5799), color-stop(10%,#2989d8), color-stop(90%,#207cca), color-stop(95%,#7db9e8)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #1e5799 5%,#2989d8 10%,#207cca 90%,#7db9e8 95%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #1e5799 5%,#2989d8 10%,#207cca 90%,#7db9e8 95%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #1e5799 5%,#2989d8 10%,#207cca 90%,#7db9e8 95%); /* IE10+ */
+	background: linear-gradient(to bottom,  #1e5799 5%,#2989d8 10%,#207cca 90%,#7db9e8 95%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+}
+
+.container a span {
+	font-size: 0.5em;
+	display: block;
+	color: white;
+}
+
+.upbutton {
+	
+}
+
+.intholder {
+	width: 2.5em;
+	height: 1em;
+	overflow: hidden;
+	position: relative;
+}
+
+.intcontainer {
+	width: 2.5em;
+	position: relative;
+	transition: top 0.75s ease 0s;
+	-webkit-transition: top 0.75s ease 0s;
+	-moz-transition: top 0.75s ease 0s;
+	-o-transition: top 0.75s ease 0s;
+}
+
+.intitem {
+	width: 2.5em;
+	height: 1em;
+	line-height: 1em;
+	text-align: center;
+}
+
+.downbutton {
+	
+}

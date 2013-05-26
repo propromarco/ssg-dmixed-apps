@@ -7,6 +7,7 @@ import com.appspot.ssg.dmixed.client.IDMixedCss;
 import com.appspot.ssg.dmixed.client.IDMixedMessages;
 import com.appspot.ssg.dmixed.client.activities.LoginActivity.WithTapHandlers;
 import com.appspot.ssg.dmixed.client.activities.TermineActivity.TermineView;
+import com.appspot.ssg.dmixed.client.components.IDatePickerDesign;
 import com.appspot.ssg.dmixed.client.views.components.ButtonWithWait;
 import com.appspot.ssg.dmixed.client.views.components.CellListWithHeader;
 import com.appspot.ssg.dmixed.client.views.components.CellListWithHeader.BasicCell;
@@ -17,6 +18,7 @@ import com.appspot.ssg.dmixed.client.views.components.CssTextArea;
 import com.appspot.ssg.dmixed.client.views.components.CssTextBox;
 import com.appspot.ssg.dmixed.client.views.components.FormListEntry;
 import com.appspot.ssg.dmixed.client.views.components.HasCellSelectedHandler;
+import com.appspot.ssg.dmixed.client.views.components.HasValues;
 import com.appspot.ssg.dmixed.client.views.components.TabPanel;
 import com.appspot.ssg.dmixed.client.views.components.WidgetList;
 import com.appspot.ssg.dmixed.shared.ILiga;
@@ -25,23 +27,22 @@ import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.datepicker.client.DateBox;
 
 public class TermineViewImpl extends AbstractDmixedView implements TermineView {
 
     private final CellListWithHeader<ITermin> _cellList;
-    private final DateBox terminDatum;
+    private final CssDateBox terminDatum;
     private final TextBox kurzbeschreibung;
     private final CheckBox heimspiel;
-    private final ListBox liga;
+    private final CssListBox liga;
     private ButtonWithWait newTerminButton;
     private TextArea beschreibung;
 
-    public TermineViewImpl(final IDMixedMessages messages, final IDMixedCss css) {
+    public TermineViewImpl(final IDMixedMessages messages, final IDMixedCss css, final IDatePickerDesign iDatePickerDesign) {
 	super(messages, css);
 	setHeaderText("Termine");
 	_cellList = new CellListWithHeader<ITermin>(css, new BasicCell<ITermin>(css) {
@@ -83,7 +84,8 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
 	    final WidgetList widgetList = new WidgetList(css);
 
 	    // lets put in some widgets
-	    this.terminDatum = new CssDateBox(css);
+	    this.terminDatum = new CssDateBox(css, iDatePickerDesign);
+	    terminDatum.setValue(new Date());
 	    widgetList.add(new FormListEntry(css, messages.terminCreateDatum(), terminDatum));
 	    this.kurzbeschreibung = new CssTextBox(css);
 	    widgetList.add(new FormListEntry(css, messages.terminCreateKurzbeschreibung(), kurzbeschreibung));
@@ -114,27 +116,27 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
     }
 
     @Override
-    public DateBox getTerminDatum() {
+    public HasValue<Date> getTerminDatum() {
 	return terminDatum;
     }
 
     @Override
-    public TextBox getKurzbeschreibung() {
+    public HasValue<String> getKurzbeschreibung() {
 	return kurzbeschreibung;
     }
 
     @Override
-    public TextArea getBeschreibung() {
+    public HasValue<String> getBeschreibung() {
 	return beschreibung;
     }
 
     @Override
-    public CheckBox getHeimspiel() {
+    public HasValue<Boolean> getHeimspiel() {
 	return heimspiel;
     }
 
     @Override
-    public ListBox getLiga() {
+    public HasValues<ILiga> getLiga() {
 	return liga;
     }
 

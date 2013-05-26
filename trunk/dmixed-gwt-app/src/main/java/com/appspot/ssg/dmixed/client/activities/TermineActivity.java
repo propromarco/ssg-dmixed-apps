@@ -7,9 +7,10 @@ import com.appspot.ssg.dmixed.client.ClientFactory;
 import com.appspot.ssg.dmixed.client.activities.LoginActivity.WithTapHandlers;
 import com.appspot.ssg.dmixed.client.model.TerminCreate;
 import com.appspot.ssg.dmixed.client.places.TerminPlace;
-import com.appspot.ssg.dmixed.client.views.components.HasCellSelectedHandler;
-import com.appspot.ssg.dmixed.client.views.components.SelectionHandler;
 import com.appspot.ssg.dmixed.client.views.SelectionEvent;
+import com.appspot.ssg.dmixed.client.views.components.HasCellSelectedHandler;
+import com.appspot.ssg.dmixed.client.views.components.HasValues;
+import com.appspot.ssg.dmixed.client.views.components.SelectionHandler;
 import com.appspot.ssg.dmixed.shared.IAsync;
 import com.appspot.ssg.dmixed.shared.IDMixedUsecase;
 import com.appspot.ssg.dmixed.shared.ILiga;
@@ -22,26 +23,22 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
-import com.google.gwt.user.client.ui.CheckBox;
-import com.google.gwt.user.client.ui.ListBox;
-import com.google.gwt.user.client.ui.TextArea;
-import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.datepicker.client.DateBox;
+import com.google.gwt.user.client.ui.HasValue;
 
 public class TermineActivity extends AbstractActivity {
 
     public interface TermineView extends IDMixedView {
 	HasCellSelectedHandler<ITermin> getCellSelectedHandler();
 
-	DateBox getTerminDatum();
+	HasValue<Date> getTerminDatum();
 
-	TextArea getBeschreibung();
+	HasValue<String> getBeschreibung();
 
-	TextBox getKurzbeschreibung();
+	HasValue<String> getKurzbeschreibung();
 
-	CheckBox getHeimspiel();
+	HasValue<Boolean> getHeimspiel();
 
-	ListBox getLiga();
+	HasValues<ILiga> getLiga();
 
 	WithTapHandlers getNewTerminButton();
 
@@ -115,7 +112,7 @@ public class TermineActivity extends AbstractActivity {
 		newTerminButton.setProgress(true);
 		final Date termindatum = termineView.getTerminDatum().getValue();
 		final String kurzbeschreibung = termineView.getKurzbeschreibung().getValue();
-		final Long liga = Long.valueOf(termineView.getLiga().getValue(termineView.getLiga().getSelectedIndex()));
+		final Long liga = termineView.getLiga().getValue().getId();
 		final Boolean heimSpiel = termineView.getHeimspiel().getValue();
 		final String beschreibung = termineView.getBeschreibung().getValue();
 		final TerminCreate termineCreate = new TerminCreate(termindatum, kurzbeschreibung, liga, heimSpiel, beschreibung);
@@ -141,10 +138,10 @@ public class TermineActivity extends AbstractActivity {
     }
 
     protected void initNewTermin(final TermineView termineView, final List<ILiga> ligen) {
-	final ListBox liga = termineView.getLiga();
+	final HasValues<ILiga> liga = termineView.getLiga();
 	liga.clear();
 	for (final ILiga iLiga : ligen) {
-	    liga.addItem(iLiga.getBezeichnung(), iLiga.getId().toString());
+	    liga.addItem(iLiga.getBezeichnung(), iLiga);
 	}
     }
 

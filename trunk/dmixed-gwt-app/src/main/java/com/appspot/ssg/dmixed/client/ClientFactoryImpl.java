@@ -3,6 +3,10 @@ package com.appspot.ssg.dmixed.client;
 import com.appspot.ssg.dmixed.client.activities.LoginActivity.LoginView;
 import com.appspot.ssg.dmixed.client.activities.TerminActivity;
 import com.appspot.ssg.dmixed.client.activities.TermineActivity.TermineView;
+import com.appspot.ssg.dmixed.client.components.IDatePickerCss;
+import com.appspot.ssg.dmixed.client.components.IDatePickerDesign;
+import com.appspot.ssg.dmixed.client.components.IDatePickerDesign.IFourIntegerPickerCss;
+import com.appspot.ssg.dmixed.client.components.IDatePickerDesign.ITwoIntegerPickerCss;
 import com.appspot.ssg.dmixed.client.model.DMixedUsecaseConnector;
 import com.appspot.ssg.dmixed.client.views.LoginViewImpl;
 import com.appspot.ssg.dmixed.client.views.TerminViewImpl;
@@ -30,12 +34,19 @@ public class ClientFactoryImpl implements ClientFactory {
 	final IDMixedDesign design = GWT.create(IDMixedDesign.class);
 	styles = design.getCss();
 	styles.ensureInjected();
+	final IDatePickerDesign datePickerDesign = GWT.create(IDatePickerDesign.class);
+	final IDatePickerCss datePickerCss = datePickerDesign.getDatePickerCss();
+	final IFourIntegerPickerCss fourIntegerPickerCss = datePickerDesign.getFourIntegerPickerCss();
+	final ITwoIntegerPickerCss twoIntegerPickerCss = datePickerDesign.getTwoIntegerPickerCss();
+	datePickerCss.ensureInjected();
+	twoIntegerPickerCss.ensureInjected();
+	fourIntegerPickerCss.ensureInjected();
 	urlCreator = new DMixedUrlCreator(baseUrl);
 	service = new DMixedUsecaseConnector(urlCreator);
 	eventBus = new SimpleEventBus();
 	placeController = new PlaceController(eventBus);
 	_loginViewImpl = new LoginViewImpl(messages, styles, true);
-	_termineViewImpl = new TermineViewImpl(messages, styles);
+	_termineViewImpl = new TermineViewImpl(messages, styles, datePickerDesign);
     }
 
     @Override

@@ -24,11 +24,10 @@ import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 public class JPAAdapter implements IJPAAdapter {
 
     private final Logger log = Logger.getLogger(getClass().getName());
-    private static JPAAdapter INSTANCE = null;
 
     private final EntityManagerFactory emf;
 
-    private JPAAdapter() {
+    public JPAAdapter() {
 	emf = EMFService.get();
 	if (false) {
 	    final EntityManager em = emf.createEntityManager();
@@ -91,12 +90,6 @@ public class JPAAdapter implements IJPAAdapter {
 		em.close();
 	    }
 	}
-    }
-
-    public static JPAAdapter getInstance() {
-	if (INSTANCE == null)
-	    INSTANCE = new JPAAdapter();
-	return INSTANCE;
     }
 
     JPALiga createLiga(final EntityManager em, final String bezeichnung) {

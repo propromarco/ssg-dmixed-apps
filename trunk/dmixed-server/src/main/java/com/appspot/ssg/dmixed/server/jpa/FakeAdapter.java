@@ -10,7 +10,6 @@ import com.appspot.ssg.dmixed.shared.ETeilnahmeStatus;
 
 public class FakeAdapter implements IJPAAdapter {
 
-    private static FakeAdapter instance;
     private final List<JPAUser> users = new ArrayList<JPAUser>();
     private final List<JPAKind> kinder = new ArrayList<JPAKind>();
     private final List<JPATermin> termine = new ArrayList<JPATermin>();
@@ -18,7 +17,7 @@ public class FakeAdapter implements IJPAAdapter {
     private final List<JPATerminMitbringsel> terminMitbringsels = new ArrayList<JPATerminMitbringsel>();
     private final List<JPALiga> liegen = new ArrayList<JPALiga>();
 
-    private FakeAdapter() {
+    public FakeAdapter() {
 	final JPALiga liga = new JPALiga("DMixed");
 	liga.setId(1l);
 	liegen.add(liga);
@@ -38,12 +37,6 @@ public class FakeAdapter implements IJPAAdapter {
 	terminMitbringsels.addAll(t);
 	termine.add(createTermin(1l, Date.valueOf("2013-04-25"), "neuer Termin 1", "Das ist die Beschreibung von Termin 1", false));
 	termine.add(createTermin(2l, Date.valueOf("2013-04-30"), "neuer Termin 2", "Das ist die Beschreibung von Termin 2", true));
-    }
-
-    public static FakeAdapter getInstance() {
-	if (instance == null)
-	    instance = new FakeAdapter();
-	return instance;
     }
 
     @Override
