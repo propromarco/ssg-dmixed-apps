@@ -22,7 +22,6 @@ public interface ClientFactory {
     TermineView getTermineView();
 
     TerminView getTerminView();
-    
-    IDMixedCss getStyles();
 
+    IDMixedCss getStyles();
 }
