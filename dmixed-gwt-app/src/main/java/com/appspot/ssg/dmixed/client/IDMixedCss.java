@@ -1,9 +1,11 @@
+/* Copyright, (c) 2013 Suretec GmbH  */
+
 package com.appspot.ssg.dmixed.client;
 
 import com.google.gwt.resources.client.CssResource;
 
-public interface IDMixedCss extends CssResource {
-
+public interface IDMixedCss extends CssResource
+{
     String body();
 
     String formlistentry();
@@ -44,4 +46,5 @@ public interface IDMixedCss extends CssResource {
 
     String checkbox();
 
+    String form_header_label();
 }

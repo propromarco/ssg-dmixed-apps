@@ -1,6 +1,9 @@
+/* Copyright, (c) 2013 Suretec GmbH  */
+
 package com.appspot.ssg.dmixed.client;
 
 import com.appspot.ssg.dmixed.client.places.LoginPlace;
+
 import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -10,46 +13,45 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
 
-public class DMixedApp implements EntryPoint {
+public class DMixedApp implements EntryPoint
+{
+    @Override public void onModuleLoad()
+    {
+        final ClientFactory clientFactory = new ClientFactoryImpl();
+        final IDMixedCss styles = clientFactory.getStyles();
 
-    @Override
-    public void onModuleLoad() {
+        // instanciate your activitymapper
+        final PhoneActivityMapper appActivityMapper = new PhoneActivityMapper(clientFactory);
 
-	final ClientFactory clientFactory = new ClientFactoryImpl();
-	final IDMixedCss styles = clientFactory.getStyles();
+        // setup an activitymanager for the display
+        final ActivityManager activityManager = new ActivityManager(appActivityMapper, clientFactory.getEventBus());
 
-	// instanciate your activitymapper
-	final PhoneActivityMapper appActivityMapper = new PhoneActivityMapper(clientFactory);
+        // pass the display to the activity manager
+        final SimplePanel display = new SimplePanel();
+        display.setStyleName(styles.main());
+        activityManager.setDisplay(display);
 
-	// setup an activitymanager for the display
-	final ActivityManager activityManager = new ActivityManager(appActivityMapper, clientFactory.getEventBus());
+        // add the display to the DOM
+        final RootPanel rootPanel = RootPanel.get();
+        rootPanel.setStyleName(styles.body());
+        rootPanel.add(display);
+        final int clientHeight = Window.getClientHeight();
+        final int clientWidth = Window.getClientWidth();
+        rootPanel.setPixelSize(clientWidth, clientHeight);
 
-	// pass the display to the activity manager
-	final SimplePanel display = new SimplePanel();
-	display.setStyleName(styles.main());
-	activityManager.setDisplay(display);
+        final AppPlaceHistoryMapper historyMapper = GWT.create(AppPlaceHistoryMapper.class);
 
-	// add the display to the DOM
-	final RootPanel rootPanel = RootPanel.get();
-	rootPanel.setStyleName(styles.body());
-	rootPanel.add(display);
-	final int clientHeight = Window.getClientHeight();
-	final int clientWidth = Window.getClientWidth();
-	rootPanel.setPixelSize(clientWidth, clientHeight);
+        final PlaceHistoryHandler historyHandler = new PlaceHistoryHandler(historyMapper);
 
-	final AppPlaceHistoryMapper historyMapper = GWT.create(AppPlaceHistoryMapper.class);
+        final Place startPlace = new LoginPlace();
 
-	final PlaceHistoryHandler historyHandler = new PlaceHistoryHandler(historyMapper);
-
-	final Place startPlace = new LoginPlace();
-
-	historyHandler.register(clientFactory.getPlaceController(), clientFactory.getEventBus(), startPlace);
-	historyHandler.handleCurrentHistory();
+        historyHandler.register(clientFactory.getPlaceController(), clientFactory.getEventBus(), startPlace);
+        historyHandler.handleCurrentHistory();
 
     }
 
-    public static int getHeigth(final int offset) {
-	return Window.getClientHeight() - offset - 18;
+    public static int getHeigth( final int offset )
+    {
+        return Window.getClientHeight() - offset - 18;
     }
-
 }
