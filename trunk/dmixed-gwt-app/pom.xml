@@ -194,7 +194,7 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.ixmid</groupId>
+			<groupId>com.appspot.ssg-dmixed</groupId>
 			<artifactId>gwt-starter</artifactId>
 			<version>1-SNAPSHOT</version>
 			<scope>test</scope>
