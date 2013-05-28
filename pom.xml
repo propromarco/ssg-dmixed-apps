@@ -6,28 +6,34 @@
   <artifactId>parent</artifactId>
   <version>1-SNAPSHOT</version>
   <packaging>pom</packaging>
+  <properties>
+    <gwt.version>2.5.1</gwt.version>
+    <jersey.version>1.8</jersey.version>
+    <junit.version>4.8.1</junit.version>
+  </properties>
   <modules>
     <module>dmixed-api</module>
     <module>dmixed-server</module>
     <module>dmixed-gwt-app</module>
     <module>dmixed-android-app</module>
+    <module>gwt-starter</module>
   </modules>
   <dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
-        <version>4.8.1</version>
+        <version>${junit.version}</version>
       </dependency>
       <dependency>
         <groupId>com.sun.jersey</groupId>
         <artifactId>jersey-server</artifactId>
-        <version>1.8</version>
+        <version>${jersey.version}</version>
       </dependency>
       <dependency>
         <groupId>com.sun.jersey</groupId>
         <artifactId>jersey-json</artifactId>
-        <version>1.8</version>
+        <version>${jersey.version}</version>
       </dependency>
       <dependency>
         <groupId>org.json</groupId>
@@ -35,30 +41,19 @@
         <version>20090211</version>
       </dependency>
       <dependency>
-        <groupId>com.sksamuel.jqm4gwt</groupId>
-        <artifactId>jqm4gwt</artifactId>
-        <version>1.2.1</version>
-      </dependency>
-      <dependency>
-        <groupId>com.sksamuel.jqm4gwt</groupId>
-        <artifactId>jqm4gwt</artifactId>
-        <version>1.2.1</version>
-        <classifier>sources</classifier>
-      </dependency>
-      <dependency>
         <groupId>com.google.gwt</groupId>
         <artifactId>gwt-user</artifactId>
-        <version>2.5.1</version>
+        <version>${gwt.version}</version>
       </dependency>
       <dependency>
         <groupId>com.google.gwt</groupId>
         <artifactId>gwt-dev</artifactId>
-        <version>2.5.1</version>
+        <version>${gwt.version}</version>
       </dependency>
       <dependency>
         <groupId>com.google.gwt</groupId>
         <artifactId>gwt-servlet</artifactId>
-        <version>2.5.1</version>
+        <version>${gwt.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
