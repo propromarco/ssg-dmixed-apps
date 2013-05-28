@@ -5,8 +5,8 @@ import com.google.gwt.resources.client.ImageResource;
 
 public interface IDMixedDesign extends ClientBundle {
 
-    @Source("dmixed.css")
-    IDMixedCss getCss();
+//    @Source("dmixed.css")
+//    IDMixedCss getCss();
 
     @Source("gras.jpg")
     ImageResource gras();

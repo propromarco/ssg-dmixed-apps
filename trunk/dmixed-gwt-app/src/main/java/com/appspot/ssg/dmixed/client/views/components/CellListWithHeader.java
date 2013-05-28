@@ -3,7 +3,6 @@ package com.appspot.ssg.dmixed.client.views.components;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.appspot.ssg.dmixed.client.IDMixedCss;
 import com.appspot.ssg.dmixed.client.views.SelectionEvent;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -18,8 +17,8 @@ public class CellListWithHeader<T> extends FlowPanel {
 
 	private final List<SelectionHandler<T>> selectionHandlers = new ArrayList<SelectionHandler<T>>();
 	
-	public BasicCell(final IDMixedCss css) {
-	    setStyleName(css.basiccell());
+	public BasicCell() {
+	    setStyleName("basiccell");
 	}
 
 	public abstract String getDisplayString(final T termin);
@@ -55,8 +54,8 @@ public class CellListWithHeader<T> extends FlowPanel {
 	}
     }
 
-    public CellListWithHeader(final IDMixedCss css, final BasicCell<T> basicCell) {
-	setStyleName(css.celllistwithheader());
+    public CellListWithHeader(final BasicCell<T> basicCell) {
+	setStyleName("celllistwithheader");
 	this.basicCell = basicCell;
 	add(basicCell);
     }

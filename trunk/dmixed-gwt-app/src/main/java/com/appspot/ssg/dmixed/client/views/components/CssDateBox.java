@@ -2,7 +2,6 @@ package com.appspot.ssg.dmixed.client.views.components;
 
 import java.util.Date;
 
-import com.appspot.ssg.dmixed.client.IDMixedCss;
 import com.appspot.ssg.dmixed.client.components.DatePicker;
 import com.appspot.ssg.dmixed.client.components.IDatePickerDesign;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -24,12 +23,12 @@ public class CssDateBox extends Composite implements HasValue<Date>, ClickHandle
     private DefaultFormat format;
     private final IDatePickerDesign dateboxcss;
 
-    public CssDateBox(final IDMixedCss css, final IDatePickerDesign dateboxcss) {
+    public CssDateBox( final IDatePickerDesign dateboxcss) {
 	this.dateboxcss = dateboxcss;
 	container.setReadOnly(true);
 	container.addClickHandler(this);
 	initWidget(container);
-	setStyleName(css.datebox());
+	setStyleName("datebox");
 	setFormat(new DefaultFormat(DateTimeFormat.getFormat("dd.MM.yyyy")));
 	setValue(new Date());
     }

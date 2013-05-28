@@ -27,13 +27,14 @@ public class ClientFactoryImpl implements ClientFactory {
     private final IDMixedUsecase service;
     private final LoginViewImpl _loginViewImpl;
     private final TermineViewImpl _termineViewImpl;
-    private final IDMixedCss styles;
+
+    // private final IDMixedCss styles;
 
     public ClientFactoryImpl() {
 	final String baseUrl = GWT.getHostPageBaseURL();
-	final IDMixedDesign design = GWT.create(IDMixedDesign.class);
-	styles = design.getCss();
-	styles.ensureInjected();
+	// final IDMixedDesign design = GWT.create(IDMixedDesign.class);
+	// styles = design.getCss();
+	// styles.ensureInjected();
 	final IDatePickerDesign datePickerDesign = GWT.create(IDatePickerDesign.class);
 	final IDatePickerCss datePickerCss = datePickerDesign.getDatePickerCss();
 	final IFourIntegerPickerCss fourIntegerPickerCss = datePickerDesign.getFourIntegerPickerCss();
@@ -45,8 +46,8 @@ public class ClientFactoryImpl implements ClientFactory {
 	service = new DMixedUsecaseConnector(urlCreator);
 	eventBus = new SimpleEventBus();
 	placeController = new PlaceController(eventBus);
-	_loginViewImpl = new LoginViewImpl(messages, styles, true);
-	_termineViewImpl = new TermineViewImpl(messages, styles, datePickerDesign);
+	_loginViewImpl = new LoginViewImpl(messages/* , styles */, true);
+	_termineViewImpl = new TermineViewImpl(messages/* , styles */, datePickerDesign);
     }
 
     @Override
@@ -81,13 +82,8 @@ public class ClientFactoryImpl implements ClientFactory {
 
     @Override
     public TerminActivity.TerminView getTerminView() {
-	final TerminViewImpl _terminView = new TerminViewImpl(messages, styles);
+	final TerminViewImpl _terminView = new TerminViewImpl(messages);
 	return _terminView;
-    }
-
-    @Override
-    public IDMixedCss getStyles() {
-	return styles;
     }
 
 }

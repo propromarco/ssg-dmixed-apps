@@ -1,6 +1,5 @@
 package com.appspot.ssg.dmixed.client.views.components;
 
-import com.appspot.ssg.dmixed.client.IDMixedCss;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Anchor;
@@ -12,16 +11,14 @@ public class TabPanel extends FlowPanel {
     private final FlowPanel header;
     private final FlowPanel body;
     private boolean isStart = true;
-    private final IDMixedCss css;
 
-    public TabPanel(final IDMixedCss css) {
-	this.css = css;
-	setStyleName(css.tabpanel());
+    public TabPanel() {
+	setStyleName("tabpanel");
 	this.header = new FlowPanel();
-	header.setStyleName(css.tabpanelheader());
+	header.setStyleName("tabpanelheader");
 	add(header);
 	this.body = new FlowPanel();
-	body.setStyleName(css.tabpanelbody());
+	body.setStyleName("tabpanelbody");
 	add(body);
     }
 
@@ -45,14 +42,14 @@ public class TabPanel extends FlowPanel {
     }
 
     private void select(final Anchor menu) {
-	menu.addStyleName(css.selected());
+	menu.addStyleName("selected");
     }
 
     private void clearSelectStyles() {
 	final int widgetCount = header.getWidgetCount();
 	for (int i = 0; i < widgetCount; i++) {
 	    final Widget widget = header.getWidget(i);
-	    widget.removeStyleName(css.selected());
+	    widget.removeStyleName("selected");
 	}
     }
 

@@ -3,7 +3,6 @@
 package com.appspot.ssg.dmixed.client;
 
 import com.appspot.ssg.dmixed.client.places.LoginPlace;
-
 import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -18,7 +17,7 @@ public class DMixedApp implements EntryPoint
     @Override public void onModuleLoad()
     {
         final ClientFactory clientFactory = new ClientFactoryImpl();
-        final IDMixedCss styles = clientFactory.getStyles();
+//        final IDMixedCss styles = clientFactory.getStyles();
 
         // instanciate your activitymapper
         final PhoneActivityMapper appActivityMapper = new PhoneActivityMapper(clientFactory);
@@ -28,12 +27,12 @@ public class DMixedApp implements EntryPoint
 
         // pass the display to the activity manager
         final SimplePanel display = new SimplePanel();
-        display.setStyleName(styles.main());
+        display.setStyleName("main");
         activityManager.setDisplay(display);
 
         // add the display to the DOM
         final RootPanel rootPanel = RootPanel.get();
-        rootPanel.setStyleName(styles.body());
+        rootPanel.setStyleName("body");
         rootPanel.add(display);
         final int clientHeight = Window.getClientHeight();
         final int clientWidth = Window.getClientWidth();
