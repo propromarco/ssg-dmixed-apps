@@ -1,6 +1,5 @@
 package com.appspot.ssg.dmixed.client.views;
 
-import com.appspot.ssg.dmixed.client.IDMixedCss;
 import com.appspot.ssg.dmixed.client.IDMixedMessages;
 import com.appspot.ssg.dmixed.client.activities.LoginActivity.LoginView;
 import com.appspot.ssg.dmixed.client.activities.LoginActivity.WithTapHandlers;
@@ -19,33 +18,33 @@ public class LoginViewImpl extends AbstractDmixedView implements LoginView {
     private final TextBox _email;
     private final ButtonWithWait _loginButton;
 
-    public LoginViewImpl(final IDMixedMessages messages, final IDMixedCss css, final boolean inititalData) {
-	super(messages, css);
-	_vorname = new CssTextBox(css);
-	_email = new CssTextBox(css);
+    public LoginViewImpl(final IDMixedMessages messages, final boolean inititalData) {
+	super(messages);
+	_vorname = new CssTextBox();
+	_email = new CssTextBox();
 	if (inititalData) {
 	    _vorname.setValue("Schwarz");
 	    _email.setValue("silvana.schwarz@web.de");
 	}
 	final String login = messages.login();
-	_loginButton = new ButtonWithWait(css, login);
+	_loginButton = new ButtonWithWait(login);
 	_layoutPanel.add(createEingabePanel());
 	_layoutPanel.add(_loginButton);
     }
 
     private FlowPanel createEingabePanel() {
 	final FlowPanel container = new FlowPanel();
-	container.setStyleName(css.form());
+	container.setStyleName("form");
 
 	final HTML header = new HTML(_messages.loginData());
 
 	container.add(header);
 
-	final WidgetList widgetList = new WidgetList(css);
+	final WidgetList widgetList = new WidgetList();
 
 	// lets put in some widgets
-	widgetList.add(new FormListEntry(css, _messages.nameOfChild(), _vorname));
-	widgetList.add(new FormListEntry(css, _messages.emailAdress(), _email));
+	widgetList.add(new FormListEntry(_messages.nameOfChild(), _vorname));
+	widgetList.add(new FormListEntry(_messages.emailAdress(), _email));
 
 	container.add(widgetList);
 	return container;

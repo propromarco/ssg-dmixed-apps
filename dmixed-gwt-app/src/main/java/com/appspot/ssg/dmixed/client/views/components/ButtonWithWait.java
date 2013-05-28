@@ -1,6 +1,5 @@
 package com.appspot.ssg.dmixed.client.views.components;
 
-import com.appspot.ssg.dmixed.client.IDMixedCss;
 import com.appspot.ssg.dmixed.client.activities.LoginActivity.WithTapHandlers;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
@@ -15,9 +14,9 @@ public class ButtonWithWait extends Composite implements WithTapHandlers {
 
     private final HTML progressBar;
 
-    public ButtonWithWait(final IDMixedCss css, final String text) {
+    public ButtonWithWait(final String text) {
 	final FlowPanel panel = new FlowPanel();
-	panel.setStyleName(css.button());
+	panel.setStyleName("button");
 	button = new Button(text);
 	panel.add(button);
 	progressBar = new HTML("Bitte warten...");

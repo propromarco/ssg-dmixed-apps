@@ -3,7 +3,6 @@ package com.appspot.ssg.dmixed.client.views.components;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.appspot.ssg.dmixed.client.IDMixedCss;
 import com.appspot.ssg.dmixed.shared.ILiga;
 import com.google.gwt.user.client.ui.ListBox;
 
@@ -11,8 +10,8 @@ public class CssListBox extends ListBox implements HasValues<ILiga> {
 
     private final Map<Integer, ILiga> positionsToItem = new HashMap<Integer, ILiga>();
 
-    public CssListBox(final IDMixedCss css) {
-	setStyleName(css.listbox());
+    public CssListBox() {
+	setStyleName("listbox");
     }
 
     @Override

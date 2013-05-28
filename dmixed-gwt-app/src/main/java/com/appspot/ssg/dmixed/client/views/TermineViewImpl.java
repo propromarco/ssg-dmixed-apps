@@ -3,7 +3,6 @@ package com.appspot.ssg.dmixed.client.views;
 import java.util.Date;
 import java.util.List;
 
-import com.appspot.ssg.dmixed.client.IDMixedCss;
 import com.appspot.ssg.dmixed.client.IDMixedMessages;
 import com.appspot.ssg.dmixed.client.activities.LoginActivity.WithTapHandlers;
 import com.appspot.ssg.dmixed.client.activities.TermineActivity.TermineView;
@@ -42,10 +41,10 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
     private ButtonWithWait newTerminButton;
     private TextArea beschreibung;
 
-    public TermineViewImpl(final IDMixedMessages messages, final IDMixedCss css, final IDatePickerDesign iDatePickerDesign) {
-	super(messages, css);
+    public TermineViewImpl(final IDMixedMessages messages, final IDatePickerDesign iDatePickerDesign) {
+	super(messages);
 	setHeaderText("Termine");
-	_cellList = new CellListWithHeader<ITermin>(css, new BasicCell<ITermin>(css) {
+	_cellList = new CellListWithHeader<ITermin>(new BasicCell<ITermin>() {
 
 	    @Override
 	    public String getDisplayString(final ITermin termin) {
@@ -71,7 +70,7 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
 	scrollPanel.setWidget(_cellList);
 	// scrollPanel.setScrollingEnabledX(false);
 
-	final TabPanel tabPanel = new TabPanel(css);
+	final TabPanel tabPanel = new TabPanel();
 	final Anchor termine = new Anchor();
 	termine.setText(messages.termine());
 	tabPanel.add(termine, scrollPanel);
@@ -79,25 +78,25 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView {
 	neuerTermin.setText(messages.neuerTermin());
 
 	final FlowPanel container = new FlowPanel();
-	container.setStyleName(css.form());
+	container.setStyleName("form");
 	{
-	    final WidgetList widgetList = new WidgetList(css);
+	    final WidgetList widgetList = new WidgetList();
 
 	    // lets put in some widgets
-	    this.terminDatum = new CssDateBox(css, iDatePickerDesign);
+	    this.terminDatum = new CssDateBox(iDatePickerDesign);
 	    terminDatum.setValue(new Date());
-	    widgetList.add(new FormListEntry(css, messages.terminCreateDatum(), terminDatum));
-	    this.kurzbeschreibung = new CssTextBox(css);
-	    widgetList.add(new FormListEntry(css, messages.terminCreateKurzbeschreibung(), kurzbeschreibung));
-	    this.heimspiel = new CssCheckBox(css);
-	    widgetList.add(new FormListEntry(css, messages.terminCreateHeimspiel(), heimspiel));
-	    this.liga = new CssListBox(css);
-	    widgetList.add(new FormListEntry(css, messages.terminCreateLiga(), liga));
-	    this.beschreibung = new CssTextArea(css);
+	    widgetList.add(new FormListEntry(messages.terminCreateDatum(), terminDatum));
+	    this.kurzbeschreibung = new CssTextBox();
+	    widgetList.add(new FormListEntry(messages.terminCreateKurzbeschreibung(), kurzbeschreibung));
+	    this.heimspiel = new CssCheckBox();
+	    widgetList.add(new FormListEntry(messages.terminCreateHeimspiel(), heimspiel));
+	    this.liga = new CssListBox();
+	    widgetList.add(new FormListEntry(messages.terminCreateLiga(), liga));
+	    this.beschreibung = new CssTextArea();
 	    beschreibung.setVisibleLines(5);
-	    widgetList.add(new FormListEntry(css, messages.terminCreateBeschreibung(), beschreibung));
+	    widgetList.add(new FormListEntry(messages.terminCreateBeschreibung(), beschreibung));
 	    container.add(widgetList);
-	    this.newTerminButton = new ButtonWithWait(css, messages.createTermin());
+	    this.newTerminButton = new ButtonWithWait(messages.createTermin());
 	    container.add(newTerminButton);
 	}
 	tabPanel.add(neuerTermin, container);
