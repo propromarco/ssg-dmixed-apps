@@ -3,6 +3,7 @@
 package com.appspot.ssg.dmixed.client;
 
 import com.appspot.ssg.dmixed.client.places.LoginPlace;
+
 import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -36,7 +37,8 @@ public class DMixedApp implements EntryPoint
         rootPanel.add(display);
         final int clientHeight = Window.getClientHeight();
         final int clientWidth = Window.getClientWidth();
-        rootPanel.setPixelSize(clientWidth, clientHeight);
+        //ich mach die Breite und höhe lieber mit css
+        //rootPanel.setPixelSize(clientWidth, clientHeight);
 
         final AppPlaceHistoryMapper historyMapper = GWT.create(AppPlaceHistoryMapper.class);
 

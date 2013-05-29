@@ -6,6 +6,7 @@ import com.appspot.ssg.dmixed.client.IDMixedMessages;
 import com.appspot.ssg.dmixed.client.activities.IDMixedView;
 import com.appspot.ssg.dmixed.client.views.components.Header;
 import com.appspot.ssg.dmixed.client.views.components.LayoutPanel;
+
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -15,7 +16,8 @@ public abstract class AbstractDmixedView extends Composite implements IDMixedVie
 {
     protected final IDMixedMessages _messages;
     protected final FlowPanel _layoutPanel;
-    private final HTML _headerPanel;
+    private final FlowPanel _headerPanel;
+    private final HTML headerLabel;
 
     // private final ProgressBar _progressBar;
 
@@ -24,7 +26,13 @@ public abstract class AbstractDmixedView extends Composite implements IDMixedVie
         _messages = messages;
         _layoutPanel = new LayoutPanel();
         initWidget(_layoutPanel);
-        _headerPanel = new Header();
+        //xxx Hier sollte doch ein richtiges panel rein, wo später auch mal ein Back Button ist, oder? 
+        _headerPanel = new FlowPanel();
+        _headerPanel.setStyleName("header_panel");
+        //Container für Headertext
+        headerLabel = new HTML();
+        headerLabel.setStyleName("header_label");
+        _headerPanel.add(headerLabel);
         _layoutPanel.add(_headerPanel);
         // _progressBar = new ProgressBar();
         // _progressBar.setVisible(false);
@@ -33,8 +41,8 @@ public abstract class AbstractDmixedView extends Composite implements IDMixedVie
 
     @Override public void setHeaderText( final String headerText )
     {
-        _headerPanel.setHTML(headerText);
-        _headerPanel.setStyleName("form_header_label");
+        headerLabel.setHTML(headerText);
+//        _headerPanel.setStyleName("form_header_label");
     }
 
     @Override public void setProgress( final boolean visible )
