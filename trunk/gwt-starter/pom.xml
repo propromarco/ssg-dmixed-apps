@@ -10,6 +10,7 @@
   </parent>
 
   <artifactId>gwt-starter</artifactId>
+  <name>Starter der GWT Anwendung</name>
 
   <packaging>jar</packaging>
 

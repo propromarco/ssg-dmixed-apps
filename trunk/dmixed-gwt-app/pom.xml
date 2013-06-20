@@ -15,7 +15,6 @@
 	<name>DMixed GWT Application</name>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<gae.version>1.7.2</gae.version>
 		<appengine.version>1.7.7</appengine.version>
 	</properties>

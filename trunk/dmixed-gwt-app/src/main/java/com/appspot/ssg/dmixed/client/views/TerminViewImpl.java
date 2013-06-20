@@ -35,7 +35,7 @@ public class TerminViewImpl extends AbstractDmixedView implements TerminView
             _beschreibung.setStyleName("terminBeschreibung");
             container.add(_beschreibung);
             final Anchor allgemein = new Anchor();
-            allgemein.setText("Ãœbersicht");
+            allgemein.setText("\u00DCbersicht");
             tabPanel.add(allgemein, container);
         }
         {
@@ -47,7 +47,7 @@ public class TerminViewImpl extends AbstractDmixedView implements TerminView
                 @Override protected void onAttach()
                 {
                     super.onAttach();
-//                  wieso eigentlich die höhe setzen?
+//                  wieso eigentlich die hoehe setzen?
 //                  final int offsetHeight = getParent().getOffsetHeight() - 20;
 //                  setHeight(offsetHeight + "px");
                 }
@@ -80,7 +80,7 @@ public class TerminViewImpl extends AbstractDmixedView implements TerminView
             tabPanel.add(teilnehmer, mitbringselScrollPanel);
         }
         _layoutPanel.add(tabPanel);
-        //versuch für spezifische names
+        //versuch fuer spezifische names
         _layoutPanel.setStyleName("layoutpanel termindetails_page");
 
     }

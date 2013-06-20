@@ -14,7 +14,6 @@
 	background: -o-linear-gradient(top,  #1e5799 5%,#2989d8 10%,#207cca 90%,#7db9e8 95%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  #1e5799 5%,#2989d8 10%,#207cca 90%,#7db9e8 95%); /* IE10+ */
 	background: linear-gradient(to bottom,  #1e5799 5%,#2989d8 10%,#207cca 90%,#7db9e8 95%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
 }
 
 .uebernehmen {
