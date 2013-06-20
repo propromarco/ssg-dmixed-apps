@@ -105,7 +105,7 @@ public class TermineViewImpl extends AbstractDmixedView implements TermineView
         }
         tabPanel.add(neuerTermin, container);
         _layoutPanel.add(tabPanel);
-        //versuch für spezifische names
+        //versuch fuer spezifische names
         _layoutPanel.setStyleName("layoutpanel terminuebersicht_page");
 
     }

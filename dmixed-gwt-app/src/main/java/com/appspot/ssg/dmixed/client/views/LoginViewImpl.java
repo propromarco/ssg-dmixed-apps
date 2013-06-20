@@ -35,7 +35,7 @@ public class LoginViewImpl extends AbstractDmixedView implements LoginView
         _loginButton = new ButtonWithWait(login);
         _layoutPanel.add(createEingabePanel());
         _layoutPanel.add(_loginButton);
-        //versuch für spezifische names
+        //versuch fuer spezifische names
         _layoutPanel.setStyleName("layoutpanel login_page");
     }
 

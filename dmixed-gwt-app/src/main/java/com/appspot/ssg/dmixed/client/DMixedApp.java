@@ -37,7 +37,7 @@ public class DMixedApp implements EntryPoint
         rootPanel.add(display);
         final int clientHeight = Window.getClientHeight();
         final int clientWidth = Window.getClientWidth();
-        //ich mach die Breite und höhe lieber mit css
+        //ich mach die Breite und hoehe lieber mit css
         //rootPanel.setPixelSize(clientWidth, clientHeight);
 
         final AppPlaceHistoryMapper historyMapper = GWT.create(AppPlaceHistoryMapper.class);

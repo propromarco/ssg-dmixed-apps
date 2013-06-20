@@ -33,7 +33,7 @@ public class JPAAdapter implements IJPAAdapter {
 	    final EntityManager em = emf.createEntityManager();
 	    try {
 		final JPALiga dMixedliga = createLiga(em, "D-Mixed");
-		final JPALiga cMaedchenliga = createLiga(em, "C-Mädchen");
+		final JPALiga cMaedchenliga = createLiga(em, "C-M\u00C4dchen");
 		final JPAUser u1 = createUser(em, "Hansen", false, "carola.hansen78@googlemail.com");
 		final JPAKind k1 = new JPAKind("Annika", Date.valueOf("2006-08-18"));
 		JPAUser.addKind(em, u1, k1);

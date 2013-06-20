@@ -6,7 +6,9 @@
   <artifactId>parent</artifactId>
   <version>1-SNAPSHOT</version>
   <packaging>pom</packaging>
+  <name>parent-pom von der ssg-app</name>
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <gwt.version>2.5.1</gwt.version>
     <jersey.version>1.8</jersey.version>
     <junit.version>4.8.1</junit.version>
@@ -15,7 +17,9 @@
     <module>dmixed-api</module>
     <module>dmixed-server</module>
     <module>dmixed-gwt-app</module>
+<!--
     <module>dmixed-android-app</module>
+-->
     <module>gwt-starter</module>
   </modules>
   <dependencyManagement>

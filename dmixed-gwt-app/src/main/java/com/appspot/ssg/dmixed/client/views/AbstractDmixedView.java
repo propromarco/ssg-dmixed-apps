@@ -26,10 +26,10 @@ public abstract class AbstractDmixedView extends Composite implements IDMixedVie
         _messages = messages;
         _layoutPanel = new LayoutPanel();
         initWidget(_layoutPanel);
-        //xxx Hier sollte doch ein richtiges panel rein, wo später auch mal ein Back Button ist, oder? 
+        //xxx Hier sollte doch ein richtiges panel rein, wo spaeter auch mal ein Back Button ist, oder? 
         _headerPanel = new FlowPanel();
         _headerPanel.setStyleName("header_panel");
-        //Container für Headertext
+        //Container fuer Headertext
         headerLabel = new HTML();
         headerLabel.setStyleName("header_label");
         _headerPanel.add(headerLabel);
