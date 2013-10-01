@@ -40,12 +40,12 @@
       <dependency>
         <groupId>de.clubbiertest</groupId>
         <artifactId>bierliste-commons</artifactId>
-        <version>1.0.4</version>
+        <version>1-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>de.clubbiertest</groupId>
         <artifactId>bierliste-server</artifactId>
-        <version>1.0.11</version>
+        <version>1-SNAPSHOT</version>
       </dependency>
       <!-- Globale Dependencies -->
       <dependency>
