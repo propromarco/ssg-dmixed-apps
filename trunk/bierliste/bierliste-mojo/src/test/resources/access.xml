@@ -1,0 +1,2325 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<liste>
+  <land name='Ägypten'>
+      <Bier name='Stella Export Lager Beer' note='3,7' design='4,3'/>
+  </land>
+  <land name='Argentinien'>
+      <Bier name='Iguazu' note='4,3' design='6,7'/>
+      <Bier name='Quilmes' note='4,7' design='4,7'/>
+  </land>
+  <land name='Aserbeidschan'>
+      <Bier name='Xirdalan Lager Bier' note='4,8' design='5'/>
+  </land>
+  <land name='Australien'>
+      <Bier name='Carlton Cold Bitter' note='5' design='6'/>
+      <Bier name='Carlton Croun Lager' note='6' design='7,5'/>
+      <Bier name='Coopers Stout' note='4' design='5,3'/>
+      <Bier name='Fosters Lager' note='4,3' design='4,7'/>
+      <Bier name='James Boags Tasmanias Lager' note='4,3' design='8,7'/>
+      <Bier name='Two Dogs Lemon Brews' note='6,7' design='5,7'/>
+      <Bier name='Victoria Bitter' note='5,3' design='4,3'/>
+      <Bier name='XXXX Export Lager' note='5' design='6,5'/>
+  </land>
+  <land name='Belgien'>
+      <Bier name='Abbaye d´Aulne Blond' note='6,3' design='6,3'/>
+      <Bier name='Achouffe Special Blond' note='5,3' design='7'/>
+      <Bier name='Affligem Abbaye Blond' note='6,5' design='5'/>
+      <Bier name='Affligem Abbaye Tripel' note='7,7' design='5,7'/>
+      <Bier name='Afflingem Dubbel Brune' note='6' design='6'/>
+      <Bier name='Alexander Rodenbach' note='7,5' design='8,5'/>
+      <Bier name='Angel Sterk Blond Bier' note='6,5' design='6'/>
+      <Bier name='Arduinna Blonde' note='6,5' design='7,8'/>
+      <Bier name='Aubel Blonde' note='4' design='5,7'/>
+      <Bier name='Aubel Brune' note='4,3' design='5,7'/>
+      <Bier name='Augustijn Grand Cru' note='6,7' design='6,3'/>
+      <Bier name='Augustijn Starkbier' note='6,7' design='6,3'/>
+      <Bier name='Barbar Blond Honig Bier' note='6,3' design='5,7'/>
+      <Bier name='Bass Pale Ale' note='4,7' design='5,3'/>
+      <Bier name='Belgian Kriek' note='5' design='4'/>
+      <Bier name='Belle-Vue Extra Kriek' note='6,7' design='4,7'/>
+      <Bier name='Belle-Vue Framboise' note='6' design='5,3'/>
+      <Bier name='Belle-Vue Gueuze' note='7' design='6,7'/>
+      <Bier name='Belle-Vue Kriek' note='7' design='6,5'/>
+      <Bier name='Blanche de Namur' note='6,7' design='6,7'/>
+      <Bier name='Bon Secours Biere Vivante' note='7,8' design='7,4'/>
+      <Bier name='Bourgogne des Flandres' note='4,7' design='5,3'/>
+      <Bier name='Brabant Ambree' note='4,3' design='3,7'/>
+      <Bier name='Brigand' note='5' design='7,5'/>
+      <Bier name='Brugge Tripel (Palm)' note='6,8' design='7,3'/>
+      <Bier name='Brugs Wit Bier' note='5' design='5'/>
+      <Bier name='Brugse Straffe Hendrik' note='6,8' design='7'/>
+      <Bier name='Brugse Straffe Hendrik Bruine' note='8' design='8'/>
+      <Bier name='Brugse Tripel' note='7' design='7'/>
+      <Bier name='Brugse Zot' note='6,3' design='7,5'/>
+      <Bier name='Brugse Zot Dubbel' note='6,5' design='7,5'/>
+      <Bier name='Brunehaut Villages' note='7' design='8'/>
+      <Bier name='Bush Ambree Dubuisson' note='6,7' design='5,3'/>
+      <Bier name='Bush Beer 7%' note='3' design='5,3'/>
+      <Bier name='Campbell´s Scotch Ale (Belgium)' note='5,3' design='5,7'/>
+      <Bier name='Cantillon Kriek 100% Lambic' note='3' design='5,8'/>
+      <Bier name='Celis White Austin Texas Beer (Belgium)' note='4,5' design='7,5'/>
+      <Bier name='Charles Quint Keizer Karel ( Haacht)' note='7,4' design='6,4'/>
+      <Bier name='Chimay Peres Tappistes Grande Reserve' note='7,3' design='7,3'/>
+      <Bier name='Chimay Peres Trappistes Starkbier' note='6' design='6'/>
+      <Bier name='Chimay Peres Trappistes Volbier 1998' note='6,3' design='5,3'/>
+      <Bier name='Ciney Blond' note='7' design='7'/>
+      <Bier name='Ciney Brune' note='7,3' design='6,3'/>
+      <Bier name='Corsendonk' note='3,7' design='6,7'/>
+      <Bier name='Corsendonk Agnus' note='4,3' design='5,5'/>
+      <Bier name='Cristal Alken' note='3,7' design='3,7'/>
+      <Bier name='Cubana 59 John Martins' note='6' design='6,7'/>
+      <Bier name='Cuvee des Trolls' note='6' design='7'/>
+      <Bier name='De Koninck' note='4,3' design='3'/>
+      <Bier name='De Verboden Vrucht' note='6,3' design='8,3'/>
+      <Bier name='Delhaize Framboise Lambic' note='7' design='5'/>
+      <Bier name='Delhaize Premium Pils' note='3,3' design='3,3'/>
+      <Bier name='Delhaize Tafelbier Blond' note='5' design='4'/>
+      <Bier name='Delhaize Tafelbier Bruin' note='2,4' design='3'/>
+      <Bier name='Delirium Tremens' note='5,3' design='8,7'/>
+      <Bier name='Dentergems Wit Bier' note='4,7' design='5'/>
+      <Bier name='Derby Pils' note='4,3' design='2'/>
+      <Bier name='Deugniet Blonde' note='5' design='6'/>
+      <Bier name='Deus Brut de Flandres' note='7' design='9'/>
+      <Bier name='Double Enghien Brune' note='6,7' design='6'/>
+      <Bier name='Duchesse De Bourgogne' note='6,5' design='8'/>
+      <Bier name='Duvel' note='4,5' design='3'/>
+      <Bier name='Ename Blond' note='5' design='3,3'/>
+      <Bier name='Ename Dubbel' note='5,5' design='3,8'/>
+      <Bier name='Ename Tripel' note='7' design='3,5'/>
+      <Bier name='Eupener Pils' note='4' design='4,3'/>
+      <Bier name='Floreffe Blond' note='6' design='6'/>
+      <Bier name='Floreffe Brune Prima' note='5' design='4,7'/>
+      <Bier name='Floreffe Double' note='5,5' design='6,5'/>
+      <Bier name='Florival Blonde' note='6' design='6,8'/>
+      <Bier name='Florival Brune' note='6,5' design='6,3'/>
+      <Bier name='Foudroyante Gueuze' note='7,5' design='6,5'/>
+      <Bier name='Gordon Finest Scotch Highland Ale' note='7,5' design='6'/>
+      <Bier name='Gordon X mas' note='6' design='5,5'/>
+      <Bier name='Gouden Carolus Carolus D´or' note='6,7' design='7,7'/>
+      <Bier name='Grand Cru Rodenbach' note='6' design='5,5'/>
+      <Bier name='Grimbergen Blonde' note='5' design='7'/>
+      <Bier name='Grimbergen Dubbel' note='5,3' design='6,3'/>
+      <Bier name='Grimbergen Optimo Bruno' note='7' design='7'/>
+      <Bier name='Grimbergen Triple' note='7,3' design='6'/>
+      <Bier name='Grottenbier Kanne Brune' note='5,7' design='7,3'/>
+      <Bier name='Gulden Draak' note='4,5' design='9,5'/>
+      <Bier name='Hapkin' note='4' design='5,7'/>
+      <Bier name='Het Kapittel Watou Abt' note='5' design='6'/>
+      <Bier name='Het Kapittel Watou Pater' note='6,5' design='5,5'/>
+      <Bier name='Het Kapittel Watou Prior' note='4,3' design='5,7'/>
+      <Bier name='Hoegaarden Grand Cru' note='7,3' design='5'/>
+      <Bier name='Hoegaarden Witbier' note='4' design='4,5'/>
+      <Bier name='Horse Ale' note='5,7' design='6'/>
+      <Bier name='Hougaerdse DAS' note='4,4' design='5'/>
+      <Bier name='Iki Beer' note='5' design='7,8'/>
+      <Bier name='John Martin´s Original Ale' note='5,3' design='6'/>
+      <Bier name='John Martins' note='5,7' design='5,3'/>
+      <Bier name='Judas' note='7' design='8'/>
+      <Bier name='Julius Hoegaarden' note='6,7' design='7,7'/>
+      <Bier name='Jupiler' note='3,3' design='3,7'/>
+      <Bier name='K ` 8 Beer' note='8,5' design='7'/>
+      <Bier name='Karmeliet Tripel' note='5' design='7,3'/>
+      <Bier name='Kasteel Bier Blonde (Honsebrouck)' note='6,8' design='6'/>
+      <Bier name='Kasteel Bier Bruin' note='8' design='7'/>
+      <Bier name='Kasteel Bier Gouden Triple D´or' note='5,7' design='5,7'/>
+      <Bier name='Kasteel Donker' note='7,3' design='6,5'/>
+      <Bier name='Kwak Premium' note='5' design='6'/>
+      <Bier name='Kwelchouffe Speciale Blonde' note='4' design='6'/>
+      <Bier name='La Becasse Gueuze' note='6,5' design='8'/>
+      <Bier name='La Becasse Kriek' note='7,5' design='7,5'/>
+      <Bier name='La Divine' note='4,5' design='5,8'/>
+      <Bier name='La Gauloise Ambree' note='6' design='6'/>
+      <Bier name='La Gauloise Blonde' note='6' design='7'/>
+      <Bier name='La Gauloise Brune' note='6' design='7'/>
+      <Bier name='La Gueule Noire Koempelbier' note='6' design='4,7'/>
+      <Bier name='La Guillotine' note='7,5' design='8,5'/>
+      <Bier name='La Jamboise de Bister' note='6' design='4,3'/>
+      <Bier name='La Poiluchette Blonde' note='6' design='5,2'/>
+      <Bier name='Leeuwse Witte Blanche du Lion' note='4,7' design='4,3'/>
+      <Bier name='Leffe Blond' note='6,7' design='7,7'/>
+      <Bier name='Leffe Brune' note='6' design='6'/>
+      <Bier name='Leffe Brune Dubbel' note='6' design='5,5'/>
+      <Bier name='Leffe Radieuse' note='5,3' design='5,3'/>
+      <Bier name='Leffe Tripel' note='5,3' design='5,3'/>
+      <Bier name='Lindemans Apple' note='5,3' design='5'/>
+      <Bier name='Lindemans Cassis' note='5,7' design='6,3'/>
+      <Bier name='Lindemans Faro Lambic' note='7,8' design='7,8'/>
+      <Bier name='Lindemans Framboise' note='6' design='6,3'/>
+      <Bier name='Lindemans Kriek' note='5,7' design='6,3'/>
+      <Bier name='Lindemans Peckeresse' note='7' design='8,7'/>
+      <Bier name='Lucifer' note='4' design='5'/>
+      <Bier name='Maes Bier' note='3' design='5,3'/>
+      <Bier name='Maredsous Abdijbier' note='7' design='7'/>
+      <Bier name='Maredsous Brune 8.0' note='5,5' design='4,5'/>
+      <Bier name='Maredsous Triple 10.0' note='7,3' design='6,3'/>
+      <Bier name='Martin`s Pale Ale (John Martins)' note='5,8' design='5,4'/>
+      <Bier name='Moeder Overste' note='5' design='4'/>
+      <Bier name='Moinette Biologique' note='6' design='6,3'/>
+      <Bier name='Mort Subite Gueuze' note='6,7' design='7,7'/>
+      <Bier name='Mort Subite Kriek' note='5,7' design='6'/>
+      <Bier name='Newton Apple Beer' note='3' design='4,5'/>
+      <Bier name='Nounou' note='6,5' design='6,5'/>
+      <Bier name='Op-Ale Speziale' note='4,5' design='6'/>
+      <Bier name='Orval Trappiste' note='5' design='6,5'/>
+      <Bier name='Palm Speciale' note='4,5' design='5,5'/>
+      <Bier name='Passendale Blond' note='6' design='6,5'/>
+      <Bier name='Petrus Oud Bruin Vieille Brune' note='5' design='6'/>
+      <Bier name='Petrus Speciale' note='5,8' design='5,5'/>
+      <Bier name='Petrus Triple' note='5' design='4,7'/>
+      <Bier name='Pharaonen Bier' note='5' design='6,3'/>
+      <Bier name='Piedboeuf Tripel' note='4' design='3,3'/>
+      <Bier name='Piedboeut Foncee Bruin' note='6,3' design='3,5'/>
+      <Bier name='Piraat' note='6,7' design='6,3'/>
+      <Bier name='Queue de Charrue Blonde' note='7,8' design='4,8'/>
+      <Bier name='Ramee Amber' note='6,2' design='6,8'/>
+      <Bier name='Ramee Blond' note='7' design='7,7'/>
+      <Bier name='Rochefort Trappistes Nr.10' note='7,7' design='6'/>
+      <Bier name='Rochefort Trappistes Nr.6' note='6,7' design='6'/>
+      <Bier name='Rochefort Trappistes Nr.8' note='6' design='4,7'/>
+      <Bier name='Rochefortoise Ambree' note='5,3' design='7'/>
+      <Bier name='Rodenbach' note='6' design='6'/>
+      <Bier name='Salitos Beer' note='5,8' design='5,5'/>
+      <Bier name='Satan Gold' note='6,7' design='7'/>
+      <Bier name='Sernia Bock' note='4,3' design='3,5'/>
+      <Bier name='Sernia Brune' note='6' design='3'/>
+      <Bier name='Sernia Pils 1650' note='4' design='2,8'/>
+      <Bier name='St.Bernardus Abt 12' note='4' design='4,7'/>
+      <Bier name='St.Bernardus Pater 6' note='6' design='7'/>
+      <Bier name='St.Bernardus Prior 8' note='4,8' design='6'/>
+      <Bier name='St.Feuilliene Blonde' note='6,5' design='6,8'/>
+      <Bier name='St.Feuilliene Brune' note='6,8' design='7,5'/>
+      <Bier name='St.Louis Premium Kriek' note='6,6' design='5'/>
+      <Bier name='St.Louis Premium Peche' note='7' design='4,8'/>
+      <Bier name='St.Paul Double' note='6' design='6,5'/>
+      <Bier name='St.Paul Special' note='6' design='7'/>
+      <Bier name='St.Paul Triple' note='6' design='6,3'/>
+      <Bier name='St.Sebastiaan Dark' note='3' design='8,8'/>
+      <Bier name='Steenbrugge Dubbel Bruin' note='6,3' design='7,7'/>
+      <Bier name='Stella Artois Premium Lager' note='4,7' design='5,7'/>
+      <Bier name='Streekbier Bosbier' note='6,5' design='6'/>
+      <Bier name='Super des Fagnes Blonde' note='7,5' design='7,5'/>
+      <Bier name='Super des Fagnes Brune' note='6,5' design='6'/>
+      <Bier name='Ter Dolen Blonde' note='6' design='7,3'/>
+      <Bier name='Ter Dolen Double Dark' note='6' design='7'/>
+      <Bier name='Timmermans Framboise' note='5,5' design='5,5'/>
+      <Bier name='Timmermans Gueuze Lambic' note='7,3' design='7,3'/>
+      <Bier name='Timmermans Kriek Lambic' note='6,3' design='7,3'/>
+      <Bier name='Timmermans Lambicus Blanche' note='6,7' design='6,7'/>
+      <Bier name='Timmermans Peche' note='7' design='5'/>
+      <Bier name='Toison Dór Triple' note='4,5' design='4,5'/>
+      <Bier name='Tongerlo Dubbel Blond' note='6' design='6,5'/>
+      <Bier name='Tongerlo Dubbel Bruin' note='5,8' design='5,5'/>
+      <Bier name='Tongerlo Triple Blonde' note='6,8' design='5,8'/>
+      <Bier name='Trappist Achel' note='6,3' design='3,5'/>
+      <Bier name='Triple Moine' note='7' design='6,3'/>
+      <Bier name='Vedett Extra Blond (Duvel)' note='6' design='4,3'/>
+      <Bier name='Vieux Temps' note='5,5' design='5'/>
+      <Bier name='Westelse Tripel ne Flierefluiter' note='6' design='5,5'/>
+      <Bier name='Westmalle Trappist Dubbel' note='5,5' design='6'/>
+      <Bier name='Westmalle Trappist Tripel' note='6' design='5,3'/>
+      <Bier name='Yersekes Mosselbier' note='6' design='6,5'/>
+  </land>
+  <land name='Bolivien'>
+      <Bier name='El Inca  Dunkel' note='7,5' design='8'/>
+      <Bier name='Pacena Bock' note='5' design='3,7'/>
+      <Bier name='Pacena Centenario' note='4,7' design='6,3'/>
+  </land>
+  <land name='Brasilien'>
+      <Bier name='Carioca Classic' note='5' design='4,5'/>
+      <Bier name='Samba do Brasil' note='6' design='7'/>
+  </land>
+  <land name='Bulgarien'>
+      <Bier name='Aruana' note='4' design='4,8'/>
+      <Bier name='Astika Lux' note='3,7' design='6,3'/>
+      <Bier name='Kamenitza 1881' note='4,8' design='4'/>
+      <Bier name='Varna' note='2,8' design='3'/>
+      <Bier name='Wymehcko' note='4,5' design='3,5'/>
+      <Bier name='Zagorka Spezial' note='4,7' design='5,3'/>
+  </land>
+  <land name='Chile'>
+      <Bier name='Patagonia Lager' note='4' design='4,3'/>
+  </land>
+  <land name='China'>
+      <Bier name='Tsingtao Bier' note='5' design='5'/>
+  </land>
+  <land name='Cuba'>
+      <Bier name='Antillana' note='5,7' design='7,7'/>
+      <Bier name='Guama Calidad Superior' note='4,7' design='5,3'/>
+      <Bier name='Palma Cristal' note='3,5' design='5,8'/>
+  </land>
+  <land name='D'>
+    <sorte name='Alt'>
+      <Bier name='Bolten Alt' note='5' design='6'/>
+      <Bier name='Bolten Niederrhein Alt' note='5,3' design='5,5'/>
+      <Bier name='Bolten`s Ur-Alt' note='6,3' design='7'/>
+      <Bier name='Braumeister Alt' note='6' design='6,7'/>
+      <Bier name='Diebels Alt' note='5,7' design='5,3'/>
+      <Bier name='Düssel Alt' note='6,7' design='6,7'/>
+      <Bier name='Fels Krone Alt' note='3' design='3,7'/>
+      <Bier name='Frankenheim 7.0 (Dose)' note='2' design='5'/>
+      <Bier name='Frankenheim Alt' note='7' design='6,5'/>
+      <Bier name='Füchschen Alt' note='6,7' design='7,3'/>
+      <Bier name='Gatz Altbier' note='5,5' design='5,5'/>
+      <Bier name='Gemünder Alt' note='6' design='4'/>
+      <Bier name='Hannen Alt' note='4,5' design='4'/>
+      <Bier name='Hansa Alt' note='3,5' design='4,3'/>
+      <Bier name='Herzog Wilhelm Alt' note='6' design='6,3'/>
+      <Bier name='Moritz Fiege Alt' note='5,4' design='5,6'/>
+      <Bier name='Oettinger Alt' note='3,7' design='4,7'/>
+      <Bier name='Oscar Maxxum Alt' note='4,2' design='5'/>
+      <Bier name='Pinkus Alt Münster' note='5,3' design='6,7'/>
+      <Bier name='Pott`s Alt Landbier' note='6,7' design='7,7'/>
+      <Bier name='Rhenania Alt' note='4,3' design='5'/>
+      <Bier name='Schlösser Alt' note='6,7' design='5,7'/>
+      <Bier name='Schlüssel Original' note='7,3' design='7,5'/>
+      <Bier name='Schumacher Alt' note='8,3' design='8'/>
+      <Bier name='Schwelmer Alt' note='5,3' design='7'/>
+      <Bier name='Steffens Alt' note='5' design='5,5'/>
+      <Bier name='Traugott Simon Alt' note='4' design='4,3'/>
+      <Bier name='Traugott Simon Kellerbier 1798' note='5,4' design='6,4'/>
+      <Bier name='Traugott Simon Mölmsch 1798' note='5,4' design='6,4'/>
+      <Bier name='Uerige Alt' note='7' design='7'/>
+      <Bier name='Urfels Alt' note='4,3' design='3,8'/>
+      <Bier name='Vormann Alt aus Dahl' note='5,5' design='4'/>
+      <Bier name='Waldschloss Alt' note='4' design='3,2'/>
+  </sorte>
+    <sorte name='Dunkles'>
+      <Bier name='Aecht Schlenkerla Rauchbier Märzen' note='5' design='5,7'/>
+      <Bier name='Ahornberger Landbier Dunkel' note='6' design='6,8'/>
+      <Bier name='Aktien Landbier Fränkisch Dunkel' note='6,7' design='7,3'/>
+      <Bier name='Allersheimer Landbier Dunkel' note='7' design='8'/>
+      <Bier name='Allgäuer Urbairisch Dunkel' note='6,3' design='6,5'/>
+      <Bier name='Alt Moosbacher Kellerbier' note='5,3' design='6,8'/>
+      <Bier name='Altenburger Schwarze' note='5,7' design='8'/>
+      <Bier name='Altenmünster Winterbier Dunkel' note='6' design='7'/>
+      <Bier name='Altes Wolfshöher Spezialbier' note='7' design='7,3'/>
+      <Bier name='Ammerndorfer Bier Landbier Dunkel' note='6,8' design='6,6'/>
+      <Bier name='Andechser Dunkel' note='7' design='6,7'/>
+      <Bier name='Arnstädter Ur Typ' note='5,7' design='5,7'/>
+      <Bier name='Aufsesser Premium Dunkel' note='5,8' design='7'/>
+      <Bier name='Augustinerbräu München Dunkel' note='6,3' design='9'/>
+      <Bier name='Autenrieder Urtyp Dunkel' note='5' design='3,7'/>
+      <Bier name='Bischoff Donnersberger Schwarzbier' note='4,6' design='4,4'/>
+      <Bier name='Böhmisch Brauhaus Edel Sünde Schwarzbier' note='5' design='6,3'/>
+      <Bier name='Bosch`s Braunbier' note='5,7' design='6'/>
+      <Bier name='Brauerei Meister Vollbier' note='7,7' design='6,3'/>
+      <Bier name='Brauerei Ott Leinleitertal Obladara' note='6,3' design='5,3'/>
+      <Bier name='Brenzkofer Dunkel Zoller-Hof' note='6,8' design='6,5'/>
+      <Bier name='Classix Dunkles Herborner' note='5,3' design='5,7'/>
+      <Bier name='Darguner Dunkel' note='6' design='6'/>
+      <Bier name='Detmolder Landbier Dunkel' note='5,7' design='6,3'/>
+      <Bier name='Diebels Plato 13' note='5,5' design='7,5'/>
+      <Bier name='Dingslebener Lava Schwarzbier' note='7' design='7,5'/>
+      <Bier name='Dithmarscher Dunkel' note='5,5' design='7'/>
+      <Bier name='Dübels Brücker Dunkel' note='6' design='6,7'/>
+      <Bier name='Eck Wilderer Dunkel' note='5,5' design='8'/>
+      <Bier name='Eibauer Lausitzer Dunkel' note='5,5' design='7'/>
+      <Bier name='Eibauer Premium Schwarzbier' note='4,7' design='7,3'/>
+      <Bier name='Eibauer Schwarzbier' note='5,8' design='6,5'/>
+      <Bier name='Einbecker Dunkel' note='6,5' design='7'/>
+      <Bier name='Engel Keller-Dunkel' note='5,3' design='5,3'/>
+      <Bier name='Ettaler Kloster Dunkel' note='6,3' design='6'/>
+      <Bier name='Fässla Brauerei Zwergla' note='5,5' design='6,3'/>
+      <Bier name='Faust Schwarzviertler' note='4,7' design='5,7'/>
+      <Bier name='Flensburger Dunkel' note='5,3' design='8'/>
+      <Bier name='Franz Joseph Jubel Bier' note='5,5' design='9'/>
+      <Bier name='Friedenfels Zoigle Schwarzer Ritter' note='5,5' design='8'/>
+      <Bier name='Fürst Wallerstein Landsknecht Bier' note='5,3' design='8'/>
+      <Bier name='Georgius Dunkel (Bocholt)' note='7' design='8,5'/>
+      <Bier name='Gessner Alt-Sumbarcher Dunkel' note='4,7' design='8,3'/>
+      <Bier name='Göller Dunkel' note='6,8' design='7,8'/>
+      <Bier name='Haake Beck Dunkel' note='4,3' design='5,7'/>
+      <Bier name='Hachenburger Schwarze' note='6' design='8,5'/>
+      <Bier name='Held Bräu Altfränkisches Bauernb.Dunkel' note='3,5' design='6,5'/>
+      <Bier name='Held Bräu Dunkles Brauerbier' note='4,3' design='3,5'/>
+      <Bier name='Hirschbräu Neuschwansteiner Weihnachts Bier' note='6,3' design='7,5'/>
+      <Bier name='Hofbräu München Dunkel' note='5' design='5,3'/>
+      <Bier name='Hofbräu München Dunkelgold' note='5,7' design='6'/>
+      <Bier name='Innstadt Schwarzbier' note='5,5' design='4,5'/>
+      <Bier name='Jahns Bräu Christoph´s Keller Gold' note='6,7' design='9,3'/>
+      <Bier name='Janka Bräu Janka´s Kupfer' note='6' design='7,5'/>
+      <Bier name='Jever Dark' note='5' design='5,3'/>
+      <Bier name='Kitzmann Jubiläums Erlanger' note='6,2' design='6,2'/>
+      <Bier name='Köhlerschweiß' note='5' design='7,3'/>
+      <Bier name='König Ludwig Dunkel' note='6' design='8'/>
+      <Bier name='Köstritzer Schwarzbier' note='6,7' design='6,7'/>
+      <Bier name='Krug Bräu Festbier' note='6,6' design='7,2'/>
+      <Bier name='Landsberger Schwarzes' note='5,7' design='7'/>
+      <Bier name='Lappmann`s Dunkel' note='5,7' design='7,3'/>
+      <Bier name='Lausitzer Dunkel Art oud Bruin' note='6,4' design='6,4'/>
+      <Bier name='Lausitzer Porter Schwarzes' note='7,7' design='6,7'/>
+      <Bier name='Lech Flösser Dunkel' note='6' design='8'/>
+      <Bier name='Leikeim Schwarzbier' note='6,3' design='7,7'/>
+      <Bier name='Märkischer Landmann Schwarzbier' note='6' design='7'/>
+      <Bier name='Mauritius Schwarzes Gold Zwickau' note='4,7' design='6,3'/>
+      <Bier name='Medardusbräu Schillerbad Schwattes' note='6,3' design='7,8'/>
+      <Bier name='Mittweidaer Löwenbräu Black Lion' note='5,3' design='6,7'/>
+      <Bier name='Mönchshof Premium Schwarzbier' note='6,5' design='8'/>
+      <Bier name='Moritz Fiege Bläck-Mäx' note='6' design='6'/>
+      <Bier name='Münstereifeler Schwarzbier' note='4,7' design='5'/>
+      <Bier name='Neewollah Bier Altenmünster' note='3,7' design='4,7'/>
+      <Bier name='Neumarkter Lammsbräu Dunkel' note='5,5' design='4,8'/>
+      <Bier name='Neuzeller Kloster-Bräu Schwarzer Abt' note='6,7' design='6'/>
+      <Bier name='Nonnensud Schwarzbier' note='5' design='6,7'/>
+      <Bier name='Oberdorfer Weihnachtsbier' note='6,3' design='6,3'/>
+      <Bier name='Oettinger Schwarzbier' note='4,3' design='5'/>
+      <Bier name='Ostfriesenbräu Dunkel' note='5' design='7,4'/>
+      <Bier name='Paulaner Münchner Dunkel' note='5,3' design='7'/>
+      <Bier name='Paulaner Roggen' note='6,7' design='6'/>
+      <Bier name='Pfungstädter 1831 Schwarzbier' note='5,8' design='5,8'/>
+      <Bier name='Pinkus Jubilate' note='4,8' design='6,8'/>
+      <Bier name='Postwirt´s Dunkel Postbr. Nesselwang' note='4' design='6'/>
+      <Bier name='Preussen Schwarzbier Premium' note='5,5' design='7'/>
+      <Bier name='Pupen Schultzes Schwarzer' note='7' design='7'/>
+      <Bier name='Pyraser Jubeltrunk Altfränkisch' note='6,8' design='6'/>
+      <Bier name='Recken Dunkel' note='6,3' design='6,3'/>
+      <Bier name='Reh-Bier (Dunkel)' note='5' design='6'/>
+      <Bier name='Riedl Bräu Zoigle' note='5,5' design='4,5'/>
+      <Bier name='Rosen Schwarzbier' note='7' design='7,7'/>
+      <Bier name='Rosenheimer Auer Bräu Dunkel' note='5,5' design='6,5'/>
+      <Bier name='Rostocker Dunkel' note='6' design='7'/>
+      <Bier name='Saalfelder Dunkel' note='6,3' design='5,3'/>
+      <Bier name='Sauerländer Winterbier' note='6' design='7,7'/>
+      <Bier name='Schmucker Schwarzbier' note='5' design='5,3'/>
+      <Bier name='Schussenrieder Schwarzbier' note='6,3' design='7,3'/>
+      <Bier name='Schussenrieder Schwarzbier No.1' note='5,2' design='7'/>
+      <Bier name='Schwaben Bräu Das Schwarze' note='5' design='8'/>
+      <Bier name='Schwalm Bräu Dunkles Landbier' note='7,3' design='5,3'/>
+      <Bier name='Schwarzer Steiger' note='7,5' design='9,5'/>
+      <Bier name='St.Georgen Bräu Buttenheim Dunkel' note='4,8' design='6,3'/>
+      <Bier name='Steffens Fest Bier' note='4,5' design='6'/>
+      <Bier name='Sternburg Schwarzbier' note='6' design='5,5'/>
+      <Bier name='Sternquell Dunkel' note='5' design='5'/>
+      <Bier name='Störtebeker Schwarzbier' note='6,3' design='7,3'/>
+      <Bier name='Thurn und Taxis Roggen' note='5,8' design='6,3'/>
+      <Bier name='Traugott Simon Schwarz Bier' note='5,3' design='5,8'/>
+      <Bier name='Veldensteiner Landbier' note='5,8' design='6,8'/>
+      <Bier name='Vulkan-Bräu Dunkel' note='6,3' design='6,3'/>
+      <Bier name='Watzdorfer Schwarzbier' note='5,3' design='6,8'/>
+      <Bier name='Weltenburger Kloster Barock Dunkel' note='6' design='6,5'/>
+      <Bier name='Willinger Landbier' note='8' design='9,7'/>
+      <Bier name='WM-Bier Japan Korea 2002 Engel' note='4,3' design='3,8'/>
+  </sorte>
+    <sorte name='Ex-Lag.'>
+      <Bier name='Allgäuer Brauhaus 1394 Lager' note='3,5' design='4'/>
+      <Bier name='Allgäuer Brauhaus Boarders Cool Lager' note='5,5' design='6,5'/>
+      <Bier name='Allgäuer Brauhaus Urtyp Export' note='5' design='3,5'/>
+      <Bier name='Altenburger Lager' note='6' design='6,5'/>
+      <Bier name='Altmühltaler Gold Export' note='6,7' design='7,3'/>
+      <Bier name='Auerhahn Export' note='4' design='5,7'/>
+      <Bier name='Augustiner Bräu Edelstoff Export' note='6,4' design='8'/>
+      <Bier name='Augustinerbräu Lagerbier Hell' note='6,3' design='6'/>
+      <Bier name='Ayinger Jahrhundert-Bier Export' note='5' design='5,7'/>
+      <Bier name='Bayerisch Zunftherrn Export' note='4' design='5,3'/>
+      <Bier name='Binding Export' note='5,7' design='4,7'/>
+      <Bier name='Binding Lager' note='5,5' design='5,5'/>
+      <Bier name='Bischofshof Urhell Premium Lager' note='5' design='7'/>
+      <Bier name='Bosch Lager' note='5,7' design='5,7'/>
+      <Bier name='Brau Stolz Lager' note='5,5' design='4,5'/>
+      <Bier name='Brauerei Fischer Greuth Lagerbier' note='5,8' design='7'/>
+      <Bier name='Brauerei Hönig Lagerbier' note='5,7' design='5,3'/>
+      <Bier name='Brauerei Ott Leinleitertal Export' note='5,5' design='4,5'/>
+      <Bier name='Braumeister Export' note='4,7' design='3,7'/>
+      <Bier name='Bürger Bräu Export Bayreuth' note='6,7' design='5'/>
+      <Bier name='Cheers Golden Lager Bier' note='5' design='2,8'/>
+      <Bier name='Darmstädter Helles Export' note='5,8' design='7'/>
+      <Bier name='Deil Lager' note='6,3' design='7,7'/>
+      <Bier name='Dortmunder Kronen Export' note='4' design='3,7'/>
+      <Bier name='Dortmunder Union Export' note='5,3' design='3,3'/>
+      <Bier name='Drummer Brauerei Helles Lager' note='5,2' design='6,4'/>
+      <Bier name='Eichbaum Export Altgold Premium' note='5,8' design='4,3'/>
+      <Bier name='Eichener Dark Lager' note='5,3' design='6,3'/>
+      <Bier name='Engelbräu Grüntengold Export' note='6,5' design='6'/>
+      <Bier name='Falkenfelser Premium Export' note='5' design='6,3'/>
+      <Bier name='Falter´s Lagerbier' note='4,5' design='4'/>
+      <Bier name='Farny Hofgutsbier Export' note='5,3' design='5,8'/>
+      <Bier name='Fässla Brauerei Lagerbier' note='5' design='6,5'/>
+      <Bier name='Feldschlößchen Export' note='5' design='3,7'/>
+      <Bier name='Felskrone Export' note='4' design='2,5'/>
+      <Bier name='Flötzinger Bräu Export Dunkel' note='1,3' design='3,7'/>
+      <Bier name='Flötzinger Bräu Rosenheim FS Export' note='6,3' design='6,3'/>
+      <Bier name='Fortuna Hell Lager' note='6' design='8,3'/>
+      <Bier name='Fosters (Deutsch)' note='5,5' design='5,5'/>
+      <Bier name='Freibergisch Export Spezial' note='4,8' design='6,3'/>
+      <Bier name='Fürstenberg Export' note='5,3' design='4,3'/>
+      <Bier name='Germania Export' note='4' design='3'/>
+      <Bier name='Gleumes Lager' note='5,5' design='6,5'/>
+      <Bier name='Gögginger Edel Export' note='5' design='4,4'/>
+      <Bier name='Göller Lager' note='6,3' design='7'/>
+      <Bier name='Graf Arco Export Hell' note='4,7' design='3,7'/>
+      <Bier name='Grandauer Urstoff Export' note='4,3' design='5,3'/>
+      <Bier name='Haake Beck Export' note='4,5' design='4'/>
+      <Bier name='Hacker-Pschorr Münchener Gold Export' note='6' design='7'/>
+      <Bier name='Hacker-Pschorr Münchner Lagerbier' note='5' design='6'/>
+      <Bier name='Hebendanz Export Hell' note='6,4' design='6,8'/>
+      <Bier name='Hebendanz Posthalter Lager' note='6,5' design='7'/>
+      <Bier name='Herforder Export' note='4,3' design='2,8'/>
+      <Bier name='Herzog Wilhelm Export' note='5,5' design='6'/>
+      <Bier name='Heylands Export' note='5' design='6'/>
+      <Bier name='Hirsch Gold Allgäuer Export' note='5,7' design='6'/>
+      <Bier name='Hirschbräu Allgäuer Öko Helles Export' note='5,2' design='7'/>
+      <Bier name='Hirschbräu Neuschwansteiner Helles Lager' note='6' design='8'/>
+      <Bier name='Holzkirchner Oberbräu Edel Export' note='5' design='4,5'/>
+      <Bier name='Holzkirchner Oberbräu Laurenzi Dunkel Ex.' note='4,7' design='4,7'/>
+      <Bier name='Irseer Kloster Urtrunk Lager' note='7,3' design='8,3'/>
+      <Bier name='Joe´s Lagerbier Brauerei Zötler' note='4' design='5'/>
+      <Bier name='Kaiserhof Lucas Cranach Lager' note='4,3' design='7,7'/>
+      <Bier name='Karlsberg Export' note='6' design='5'/>
+      <Bier name='Kathi-Bräu Heckenhof' note='7,3' design='7,3'/>
+      <Bier name='Keesmann Sternla Lager' note='5,8' design='4,5'/>
+      <Bier name='Kloster Scherdel`s Lager' note='6,5' design='8'/>
+      <Bier name='Klösterle Export' note='5,3' design='5,8'/>
+      <Bier name='Königsee Export Thüringen' note='6' design='5,7'/>
+      <Bier name='Köthener Export' note='4,5' design='5,5'/>
+      <Bier name='Krug Bräu Lagerbier' note='6,5' design='7'/>
+      <Bier name='Kulmbacher Export' note='5,3' design='6,3'/>
+      <Bier name='Kulmbacher Mönchshof Lager Premium' note='7' design='7,5'/>
+      <Bier name='Kulmbacher Mönchshof Landbier' note='5,3' design='6'/>
+      <Bier name='Landsberger Export Bier' note='6' design='5,7'/>
+      <Bier name='Lindenbräu Export' note='4,8' design='5'/>
+      <Bier name='Lisberger Lager' note='6' design='5,8'/>
+      <Bier name='Lösch-Zwerg (Schimpfle) Lagerbier' note='6,4' design='7,2'/>
+      <Bier name='Löwenbräu Buttenheim Lagerbier' note='6' design='6'/>
+      <Bier name='Lübzer Export' note='6' design='4,5'/>
+      <Bier name='Mammut Export' note='3,7' design='5,3'/>
+      <Bier name='Markgrafenbräu Export' note='4,3' design='3,8'/>
+      <Bier name='Märkisches Landbräu Export' note='4,7' design='4,3'/>
+      <Bier name='Maxlrainer Lager Bier' note='5,7' design='6'/>
+      <Bier name='Maxlrainer Schloss Gold' note='6,6' design='6,6'/>
+      <Bier name='Meckatzer Rudel Lager' note='3' design='5,3'/>
+      <Bier name='Meister Bräu Export' note='5,7' design='4,7'/>
+      <Bier name='Mittenwalder Berg Gold Export' note='6,8' design='6,5'/>
+      <Bier name='Mönchsambacher Export' note='5' design='6'/>
+      <Bier name='Mönchsambacher Lagerbier' note='5,3' design='5,5'/>
+      <Bier name='Münz Edel Export' note='6' design='7,5'/>
+      <Bier name='Oettinger Export' note='5,3' design='3,7'/>
+      <Bier name='Oettinger Urtyp Exportbier' note='7' design='6,3'/>
+      <Bier name='Oscar Maxxum Export' note='6' design='4,5'/>
+      <Bier name='OXX Lager' note='5' design='7'/>
+      <Bier name='Paderborner Export' note='4,8' design='2,2'/>
+      <Bier name='Park Export' note='5' design='4,8'/>
+      <Bier name='Pfungstädter Export' note='3,3' design='2,3'/>
+      <Bier name='Posthorn Gold Postbrauerei Nesselwang' note='5,3' design='5'/>
+      <Bier name='Pott`s Paddy Lagerbier' note='5' design='6,5'/>
+      <Bier name='Pyraser Landbier Export Hell' note='5,3' design='4,8'/>
+      <Bier name='Rats Krone Export' note='2,8' design='2,8'/>
+      <Bier name='Räuber Heine Klemens Export' note='6,8' design='7,5'/>
+      <Bier name='Reichold Hochstahl Lager' note='5,5' design='5,5'/>
+      <Bier name='Reuther Lager' note='5,3' design='4,3'/>
+      <Bier name='Ritter Export' note='4,3' design='3,3'/>
+      <Bier name='Rosenheimer Auer Bräu Export' note='6,8' design='6'/>
+      <Bier name='Rostocker Export Premium' note='5,8' design='6'/>
+      <Bier name='Rothaus Märzen Export' note='6,7' design='4,3'/>
+      <Bier name='Rothaus Märzen Export Eis Zäpfle' note='6' design='5,4'/>
+      <Bier name='Ruppaner Spezial-Export' note='5,3' design='3,3'/>
+      <Bier name='Saalfelder Jubiläumsbier Export' note='5,7' design='5'/>
+      <Bier name='Schäffler Premium Gold Export' note='5,5' design='4'/>
+      <Bier name='Scheyern Gold Exportbier' note='6,5' design='8'/>
+      <Bier name='Scheyern Kloster -Export Dunkel' note='6,7' design='6,7'/>
+      <Bier name='Schlenkerla Helles Lagerbier' note='6' design='4'/>
+      <Bier name='Schloss Export' note='3' design='2,3'/>
+      <Bier name='Schmucker Privat Export' note='6' design='5,8'/>
+      <Bier name='Schönberger Classic Export' note='6' design='5'/>
+      <Bier name='Schweiger Helles Export' note='4,5' design='5'/>
+      <Bier name='Schweriner Export' note='4,5' design='6,5'/>
+      <Bier name='Severins Export' note='3,4' design='2,8'/>
+      <Bier name='Spalter Edel Export Hell' note='4,5' design='4,3'/>
+      <Bier name='St.Gothardus Spezial' note='5' design='4'/>
+      <Bier name='Stauder Spezial Export' note='5' design='3,7'/>
+      <Bier name='Stern Export' note='4,3' design='4,5'/>
+      <Bier name='Sternburg Export' note='5,3' design='4'/>
+      <Bier name='Thüringer Waldbräu Export' note='3,3' design='3,7'/>
+      <Bier name='Traders Lager American Style' note='4,4' design='2,8'/>
+      <Bier name='Traugott Simon Export' note='4' design='4'/>
+      <Bier name='Treiber Export' note='4,2' design='2,4'/>
+      <Bier name='Ulmer Export' note='5,7' design='3,3'/>
+      <Bier name='Ulmer Münster Lager' note='4' design='5,3'/>
+      <Bier name='Veldenstein Kaiser Export' note='4,5' design='4'/>
+      <Bier name='Veldensteiner Original Lager' note='5' design='6,5'/>
+      <Bier name='Vierzehnheiligener Lager' note='5,5' design='6,7'/>
+      <Bier name='Vierzehnheiligener Trunk Export Dunkel' note='7,3' design='7,3'/>
+      <Bier name='Von Hier Feneberg Export' note='4,3' design='4,7'/>
+      <Bier name='Vormann`s Vorder Dahler Urbräu' note='6' design='3,3'/>
+      <Bier name='Wallersteiner Classic Export' note='5,3' design='7,7'/>
+      <Bier name='Watzdorfer Burg Export' note='5,3' design='7,7'/>
+      <Bier name='Weissenoher Klosterbrauerei Classic Export' note='6' design='6,8'/>
+      <Bier name='Wieninger Bräufaß Export' note='4,5' design='4,3'/>
+      <Bier name='Wieninger Helles Lager' note='5,8' design='6,5'/>
+      <Bier name='Wochinger Bräu Export-Hell' note='7' design='7'/>
+      <Bier name='Wolf Export' note='3,4' design='5,2'/>
+      <Bier name='Würzburger Hofbräu 1643' note='5,8' design='6,2'/>
+      <Bier name='Zoller Hof Spezial Export' note='5,5' design='4,5'/>
+      <Bier name='Zötler Bier Gold Export' note='4,5' design='4'/>
+      <Bier name='Zweygart Export' note='3,7' design='2,3'/>
+  </sorte>
+    <sorte name='Helles'>
+      <Bier name='Adam Smith Pur' note='4,3' design='4'/>
+      <Bier name='Adler Edel Hell' note='3,3' design='4,7'/>
+      <Bier name='Ahornberger Landbier Würzig Mild' note='6' design='6,8'/>
+      <Bier name='Aktien Brauerei Kaufbeuren Kaufb. Hell' note='5' design='5,8'/>
+      <Bier name='Aktien Brauerei Kaufbeuren Pemium Edel' note='6,3' design='5'/>
+      <Bier name='Aldersbacher Klosterhell' note='5,3' design='4'/>
+      <Bier name='Allgäuer Brauhaus Büble Bier' note='5' design='7'/>
+      <Bier name='Alpen Stoff' note='6,7' design='8'/>
+      <Bier name='Alte Dessauer Castor' note='6,3' design='6,7'/>
+      <Bier name='Alte Dessauer Edelhell' note='5,8' design='5'/>
+      <Bier name='Alte Dessauer Original' note='5,8' design='6'/>
+      <Bier name='Altenburger Privileg' note='6,7' design='7'/>
+      <Bier name='Altenmünster Brauer Bier' note='7,5' design='9'/>
+      <Bier name='Altenmünster Hopfig-Herb' note='8' design='8,5'/>
+      <Bier name='Altenmünster Original Metzgerbier' note='5,5' design='8,5'/>
+      <Bier name='Altenmünster Urig Würzig' note='6,5' design='7,5'/>
+      <Bier name='Ammerndorfer Dorn-Bräu Hell' note='6' design='6,4'/>
+      <Bier name='Andechser Hell' note='4' design='3,5'/>
+      <Bier name='Andechser Spezial Hell' note='6,3' design='5,3'/>
+      <Bier name='Apoldaer 1806 Jubiläumsbier' note='3,5' design='4'/>
+      <Bier name='Apoldaer Special Dominator' note='5,5' design='6,5'/>
+      <Bier name='Astra Rotlicht' note='6,3' design='5'/>
+      <Bier name='Aufsesser Premium Festbier' note='6,3' design='6,7'/>
+      <Bier name='Augustinerbräu Oktoberfestbier' note='5,8' design='5,5'/>
+      <Bier name='Autenrieder Festbier' note='5,3' design='4,3'/>
+      <Bier name='Autenrieder Urtyp Hell' note='5' design='4,5'/>
+      <Bier name='Bad Homburger Graf Zeppelin' note='8,5' design='8,5'/>
+      <Bier name='Bayerisch Märzen' note='6' design='6,3'/>
+      <Bier name='Bayerisch Zunftherrn Hell' note='4' design='4,8'/>
+      <Bier name='Beck Bräu "Das Würzige Hell"' note='3,4' design='3,6'/>
+      <Bier name='Beck´s Gold' note='5,5' design='3,5'/>
+      <Bier name='Berchtesgadener Hell' note='5,7' design='5,7'/>
+      <Bier name='Berg Brauerei Ulrichsbier' note='7,7' design='9'/>
+      <Bier name='Berg Original' note='5' design='6,7'/>
+      <Bier name='Berg Weihnachtsbier' note='5,3' design='5,7'/>
+      <Bier name='Berliner Bürgerbräu Rotkehlchen' note='5,7' design='5,7'/>
+      <Bier name='Bitterfelder Festbier Landsberger' note='6,3' design='6'/>
+      <Bier name='Böhmisch Brauhaus Eisbier' note='4,5' design='6,8'/>
+      <Bier name='Boltens Rubin' note='4,7' design='6'/>
+      <Bier name='Borbecker Helles Dampfbier' note='6' design='6,3'/>
+      <Bier name='Brauerei Wagner Merkendorf Märzen' note='6,3' design='6,3'/>
+      <Bier name='Brauhaus Füssen Schloß Hell' note='5,3' design='8,3'/>
+      <Bier name='Braumeister Urhell' note='5,3' design='4'/>
+      <Bier name='Bruch Landbier' note='5,5' design='4,3'/>
+      <Bier name='Burg Bier Bad Münstereifel Landbier' note='5,2' design='5,2'/>
+      <Bier name='Burg Bier Bad Münstereifel Ritter Bräu' note='5,8' design='5,8'/>
+      <Bier name='Cannabia Der Hanftrunk' note='3,3' design='4'/>
+      <Bier name='Chiemseer Braustoff' note='5,4' design='6,8'/>
+      <Bier name='Coburger Jubiläumsbier 950' note='4,8' design='7'/>
+      <Bier name='Commerzienrat Riegele Privat' note='6,7' design='9'/>
+      <Bier name='Dampfbier Zwiesel' note='8' design='8'/>
+      <Bier name='Detmolder Thusnelda Bier' note='4,8' design='6'/>
+      <Bier name='Distelhäuser Dinkel' note='6,4' design='6,8'/>
+      <Bier name='Dithmarscher Urtyp' note='6' design='6'/>
+      <Bier name='Dresdner Felsenkeller Urhell' note='4,8' design='4'/>
+      <Bier name='Duckstein Rotblondes Oberbräu' note='8' design='9,5'/>
+      <Bier name='Ehringsdorfer Urbräu' note='5,3' design='5,3'/>
+      <Bier name='Eichbaum Festbier' note='4,8' design='4,3'/>
+      <Bier name='Eick Bräu Aria' note='5' design='3,7'/>
+      <Bier name='Eine Bayern Halbe Urhell' note='4,3' design='3,7'/>
+      <Bier name='Einsiedler Landbier Würzig' note='6,3' design='6,3'/>
+      <Bier name='Engel Frühlingsbier' note='5' design='5,3'/>
+      <Bier name='Engel Landbier Hell' note='6' design='6'/>
+      <Bier name='Enzensteiner Landbier' note='4,7' design='5,3'/>
+      <Bier name='Eschenbacher Urtyp Hell' note='5' design='4,2'/>
+      <Bier name='Ettaler Benediktiner Trunk' note='7' design='5,7'/>
+      <Bier name='Ettaler Kloster Edel Hell' note='5,8' design='6,3'/>
+      <Bier name='Falkenfelser Premium Hell' note='5' design='5,5'/>
+      <Bier name='Falter`s Privat Hell' note='5' design='4,7'/>
+      <Bier name='Faust Miltenberger Festbier' note='5,3' design='6,7'/>
+      <Bier name='Flensburger Gold' note='5' design='6,4'/>
+      <Bier name='Flötzinger Bräu Rosenheim Hell' note='5,3' design='4'/>
+      <Bier name='Freibergisch Jubiläums Festbier' note='7,7' design='8'/>
+      <Bier name='Fürst Wallerstein Classic' note='5,5' design='7,5'/>
+      <Bier name='Fürstenberg Fasnet Bier' note='6' design='6,5'/>
+      <Bier name='Gaffel 1396 Hell' note='5,3' design='4,5'/>
+      <Bier name='Gemünder Special' note='6' design='5'/>
+      <Bier name='Gleumes Hell' note='5,3' design='6'/>
+      <Bier name='Glückauf Das Deputat' note='6' design='5,5'/>
+      <Bier name='Gold Ochsen Original' note='5,3' design='5,7'/>
+      <Bier name='Gold Ochsen Weihnachtsbier' note='4,8' design='4,8'/>
+      <Bier name='Göller Brotzeitseidla' note='5' design='5,6'/>
+      <Bier name='Göller Rauchbier' note='7,3' design='7,8'/>
+      <Bier name='Graf Töerring Original Urhell' note='4,7' design='3,7'/>
+      <Bier name='Grafensteiner Hell' note='4' design='5,6'/>
+      <Bier name='Greizer Urbräu Spezial' note='5' design='4'/>
+      <Bier name='Günzburger Radbier Märzen Spezial' note='5,5' design='4'/>
+      <Bier name='Haake Beck Edel Hell' note='5,7' design='4'/>
+      <Bier name='Hacker-Pschorr Oktoberfest Märzen' note='6,8' design='7,4'/>
+      <Bier name='Hacker-Pschorr Superior Festbier' note='5,8' design='6,6'/>
+      <Bier name='Hacklberg Urhell' note='4,7' design='3,7'/>
+      <Bier name='Hallerndorfer Hausbrauerbier Rittmayer' note='6,3' design='7,3'/>
+      <Bier name='Hallerndorfer Kellerbier Rittmayer' note='6' design='6,8'/>
+      <Bier name='Hallerndorfer Landbier Hell Rittmayer' note='6,2' design='7'/>
+      <Bier name='Hallerndorfer Rauchbier Rittmayer' note='6,5' design='5'/>
+      <Bier name='Hallertauer Hopfentrunk' note='5' design='3,5'/>
+      <Bier name='Halloren Spezial Mammut' note='6,2' design='6,4'/>
+      <Bier name='Hartmann Felsentrunk' note='6,8' design='5,3'/>
+      <Bier name='Härtsfelder Helles' note='6' design='5'/>
+      <Bier name='Hasen Bräu Oster Festbier' note='7,3' design='7'/>
+      <Bier name='Hebendanz Annafest' note='7,5' design='8'/>
+      <Bier name='Hebendanz Märzen Gold' note='7,3' design='7,3'/>
+      <Bier name='Heidelberger Weihnachtsbier' note='6' design='6'/>
+      <Bier name='Heldbräu Hell' note='4,5' design='3,5'/>
+      <Bier name='Hemelinger Spezial Schankbier Haake-Beck' note='6' design='4,3'/>
+      <Bier name='Herforder Weihnacht' note='6' design='5,5'/>
+      <Bier name='Hetzelsdorfer Bier' note='5' design='6,8'/>
+      <Bier name='Hinterländer Meisterdud' note='5,8' design='5,3'/>
+      <Bier name='Hirsch Bier Vollbier Ulm' note='6,3' design='6'/>
+      <Bier name='Hirsch Honer Gold' note='3,8' design='4'/>
+      <Bier name='Hirschbräu Allgäuer Hüttenbier' note='5,2' design='6,4'/>
+      <Bier name='Hirschbräu Neuschwansteiner Das Echte' note='6' design='8,2'/>
+      <Bier name='Hofbräuhaus München' note='5,7' design='6,7'/>
+      <Bier name='Hofbräu-München Festbier' note='5,5' design='5,8'/>
+      <Bier name='Hofbräu-München Oktoberfestbier' note='6' design='6,3'/>
+      <Bier name='Hofmann Helles Landbier' note='5,8' design='3,6'/>
+      <Bier name='Hofmark Öko Premium' note='4,7' design='8'/>
+      <Bier name='Holzar-Bier Hirschbräu' note='5,7' design='8,7'/>
+      <Bier name='Holzkirchner Festbier' note='6' design='6,5'/>
+      <Bier name='Holzkirchner Hell' note='4,2' design='5,6'/>
+      <Bier name='Holzkirchner Oberbräu Urtyp Hell' note='3,2' design='4,4'/>
+      <Bier name='Hornecker Hell' note='4,7' design='3,3'/>
+      <Bier name='Hösl Wintertraum' note='5,3' design='5'/>
+      <Bier name='Hot Lips' note='5,3' design='7,3'/>
+      <Bier name='Hövels Bitter Bier' note='8' design='10'/>
+      <Bier name='Hübner Bräu Vollbier' note='8' design='5,8'/>
+      <Bier name='Huppendorfer Vollbier' note='6,3' design='5'/>
+      <Bier name='Huppendorfer Weihnachtsfestbier' note='6,4' design='5,6'/>
+      <Bier name='I Love You' note='3' design='4,7'/>
+      <Bier name='Ingobräu Hell' note='5,3' design='4,7'/>
+      <Bier name='Innstadt Neues Helles' note='5,5' design='6,5'/>
+      <Bier name='Iserlohn 1899 Blond' note='4' design='6'/>
+      <Bier name='Jacob Bodenwöhrer Hell' note='5,7' design='5,7'/>
+      <Bier name='Jaga Halbe (Wildbräu) Helles Vollbier' note='5,8' design='5,8'/>
+      <Bier name='Janka Gloserer Bier' note='5,7' design='6'/>
+      <Bier name='Kaltenberg Hell' note='3,3' design='4'/>
+      <Bier name='Karlsberger Hof Karlsberg' note='5,3' design='8'/>
+      <Bier name='Kitzmann Wintergold' note='5,8' design='6,3'/>
+      <Bier name='Kloster Urstoff Spezial Märzen' note='6,7' design='8'/>
+      <Bier name='Klosterbräu Wallersdorf' note='6,7' design='8,7'/>
+      <Bier name='Klösterle Premium' note='3,5' design='5,5'/>
+      <Bier name='Klösterle Privat' note='4,4' design='5,8'/>
+      <Bier name='Königl.Festtags Bier' note='6,7' design='5,7'/>
+      <Bier name='Königsee Festbier' note='5,8' design='8'/>
+      <Bier name='Kössel Bräu Maria Hilf' note='7,6' design='6,4'/>
+      <Bier name='Kreuzberg' note='8' design='9,3'/>
+      <Bier name='Krombacher Extra Mild' note='4,3' design='3'/>
+      <Bier name='Kulmbacher Mönchshof Weihnachtsbier' note='5,3' design='6,5'/>
+      <Bier name='Landsberger Goitzsche Bräu' note='7' design='5,7'/>
+      <Bier name='Landsberger Salzfest Bier' note='5' design='4,3'/>
+      <Bier name='Landskron Hell' note='5,3' design='6,5'/>
+      <Bier name='Lauterbacher Brotzeitbier' note='6' design='6'/>
+      <Bier name='Leibinger Edel Spezial' note='5' design='5'/>
+      <Bier name='Leibinger Max Fünf Komma 2' note='4,3' design='3,5'/>
+      <Bier name='Leikeim Original Landbier' note='4,6' design='6,4'/>
+      <Bier name='Liebhart´s Bio-Reis-Gold' note='2,7' design='5,7'/>
+      <Bier name='Liebhart´s Residenz Bio Reisbier' note='4,7' design='5'/>
+      <Bier name='Lindener Spezial Hannover Spezielles' note='4,3' design='3,7'/>
+      <Bier name='Löwenbräu Ice Beer' note='4,5' design='8'/>
+      <Bier name='Löwenbräu Oktoberfestbier' note='6,5' design='5,5'/>
+      <Bier name='Löwenbräu Original' note='4,7' design='5'/>
+      <Bier name='Löwenbrauerei Passau Urtyp Hell' note='5,7' design='3,3'/>
+      <Bier name='Lübzer Urkraft' note='3,6' design='4'/>
+      <Bier name='Maisel Bamberger Hell' note='4,3' design='6,5'/>
+      <Bier name='Marktrecht Nesselwang' note='6,7' design='8,3'/>
+      <Bier name='Mauritius Spezial Zwickau' note='6,5' design='4,5'/>
+      <Bier name='Maxlrainer Ernte Bier' note='5,6' design='6,4'/>
+      <Bier name='Meckatzer Weiss-Gold' note='6' design='4,5'/>
+      <Bier name='Meister Brauerei Vollbier' note='6,3' design='6,8'/>
+      <Bier name='Memminger Winterbier Spezial' note='5,3' design='6'/>
+      <Bier name='Mittenwalder Karwendel Hell' note='5,3' design='6,5'/>
+      <Bier name='Moritz Fiege Gründer Hell' note='4,3' design='5'/>
+      <Bier name='Muffen Gold' note='5,8' design='5,5'/>
+      <Bier name='Münz Märzen' note='6,5' design='7'/>
+      <Bier name='Nailaer Fichten Zäpfla' note='4,5' design='6'/>
+      <Bier name='Neder St.Anna Festbier' note='6,5' design='6'/>
+      <Bier name='Neumarkter Lammsbräu Blond' note='4,5' design='4,8'/>
+      <Bier name='Neumarkter Lammsbräu Mild' note='4,3' design='4,3'/>
+      <Bier name='Neumarkter Lammsbräu Urstoff' note='3,8' design='4,2'/>
+      <Bier name='Oberelchingen Prälat' note='5,5' design='6,5'/>
+      <Bier name='Oberelchinger Hell' note='5,5' design='4,5'/>
+      <Bier name='Oettinger Hell' note='5,3' design='5,3'/>
+      <Bier name='Oettinger Winterbier' note='5,3' design='5,7'/>
+      <Bier name='Oster-Engel Exclusiv Festbier' note='5,3' design='7,7'/>
+      <Bier name='Patrizier Bräu Urbräu Hell' note='4' design='4,7'/>
+      <Bier name='Paulaner Münchner Urtyp' note='6' design='5'/>
+      <Bier name='Paulaner Oktoberfestbier' note='5,7' design='7'/>
+      <Bier name='Paulaner Original Münchner' note='5,3' design='5,7'/>
+      <Bier name='Pfungstädter Festbier Märzen' note='5,3' design='7,3'/>
+      <Bier name='Pfungstädter Golden' note='3,7' design='4,7'/>
+      <Bier name='Pinkus Original Obergärig' note='5,3' design='6,3'/>
+      <Bier name='Pionier Bier Schwäbisch Gemünd Engel' note='2' design='4,5'/>
+      <Bier name='Postbräu Frühlings Bier' note='5,3' design='5,7'/>
+      <Bier name='Postbräu Geburtstags Bier' note='3,7' design='4,5'/>
+      <Bier name='Postbräu Thannhausen Bernhardi Gold' note='5' design='6,3'/>
+      <Bier name='Prösslbräu Adlersberg' note='5' design='5,5'/>
+      <Bier name='Rappen Hell' note='2,5' design='3'/>
+      <Bier name='Reudnitzer Weihnachtsbier' note='5,7' design='6'/>
+      <Bier name='Riedl Hell' note='6' design='5'/>
+      <Bier name='Riegele Feines Urhell' note='5,5' design='6'/>
+      <Bier name='Ritter Bräu Bretniger' note='7' design='6'/>
+      <Bier name='Röhrlbräu Straubing Helles' note='4,5' design='2,5'/>
+      <Bier name='Rolinck Friedensreiter Bräu' note='6,3' design='7'/>
+      <Bier name='Rosen Edel Hell' note='5,7' design='6,7'/>
+      <Bier name='Rosen Spezial' note='6' design='6,7'/>
+      <Bier name='Rosenheimer Auer Bräu Hell' note='4,7' design='6,7'/>
+      <Bier name='Rosenheimer Auer Bräu Herbstfest Märzen' note='6,5' design='6'/>
+      <Bier name='Sachsengold Landbier' note='5,3' design='5,3'/>
+      <Bier name='Schäffler Bräu Winterzauber' note='6' design='6'/>
+      <Bier name='Scheyern Kloster Gold Hell' note='7,5' design='7,3'/>
+      <Bier name='Schinner 1860' note='5,5' design='8'/>
+      <Bier name='Schlappe Seppel Special' note='5,5' design='6,5'/>
+      <Bier name='Schlappe-Seppel' note='8,3' design='8,3'/>
+      <Bier name='Schmucker Märzen' note='5,5' design='5'/>
+      <Bier name='Schussenrieder Kronen Perle' note='5' design='7,8'/>
+      <Bier name='Schussenrieder Orginal Spezial' note='5,5' design='7'/>
+      <Bier name='Schwaben Bräü Das Echte Märzen' note='7' design='8,3'/>
+      <Bier name='Schwaben Bräu Das Helle' note='5,3' design='7,8'/>
+      <Bier name='Schwaben Bräu Volksfestbier' note='5' design='5,7'/>
+      <Bier name='Schwabenbräu Weihnachtsbier' note='5,6' design='7,4'/>
+      <Bier name='Schwalm Bräu Ur-Typ' note='4,8' design='4,8'/>
+      <Bier name='Schwanen Bräu (Zum Goldenen Schwan)' note='8,3' design='8,3'/>
+      <Bier name='Schwarz Bräu Urtyp' note='5,5' design='5'/>
+      <Bier name='Schwarzburg Premium' note='5' design='8'/>
+      <Bier name='Schwelmer Bernstein' note='6,8' design='5,8'/>
+      <Bier name='Singer Bier' note='7' design='7,5'/>
+      <Bier name='Spalter Helles Vollbier' note='5,5' design='4'/>
+      <Bier name='Spaten Münchner Hell' note='6,7' design='5'/>
+      <Bier name='Spaten Oktoberfestbier' note='5' design='6,5'/>
+      <Bier name='St.Georgen Bräu Buttenheim Gold Märzen' note='6,2' design='6,2'/>
+      <Bier name='St.Pauli Girl' note='3' design='6,3'/>
+      <Bier name='Steffens Casbacher Braunbier' note='4' design='3,7'/>
+      <Bier name='Steinfelder Klosterbier' note='3,3' design='5,7'/>
+      <Bier name='Stuttgarter Hofbräu Frühlings-Bier' note='5,7' design='5,3'/>
+      <Bier name='Tegernseer Hell' note='6,7' design='5,7'/>
+      <Bier name='Tegernseer Spezial' note='5,7' design='4,7'/>
+      <Bier name='Thurn und Taxis Fürsten Gold Märzen' note='4,7' design='6'/>
+      <Bier name='Torgauer Landbier' note='7,3' design='8,3'/>
+      <Bier name='Torgauer Sommerbier' note='6,5' design='9'/>
+      <Bier name='Torgisch Hell' note='6,3' design='7'/>
+      <Bier name='Trabelsdorfer Schloßgold' note='6' design='5'/>
+      <Bier name='Trabi Deluxe Zwickau Sachsen' note='6,7' design='8,3'/>
+      <Bier name='Traugott Simon Bayerisch Edelstoff' note='4,3' design='5'/>
+      <Bier name='Traugott Simon Gold' note='3,8' design='3,8'/>
+      <Bier name='Traugott Simon Landbier 1798' note='6,8' design='7'/>
+      <Bier name='Traugott Simon Urtyp' note='4,5' design='6,3'/>
+      <Bier name='Traugott Simon Winterbier' note='4,2' design='3'/>
+      <Bier name='Tucher Christkindlsmarkt Bier' note='5,6' design='4,6'/>
+      <Bier name='Tucher Urbräu Hell' note='5' design='5,3'/>
+      <Bier name='Turmbläser Landbier' note='5' design='5,5'/>
+      <Bier name='Turn the Hemp Beer Berlin' note='3,7' design='6,7'/>
+      <Bier name='Urbanus Fest-Märzen' note='5,7' design='7,3'/>
+      <Bier name='Uriges Landbier Hell' note='5' design='6,3'/>
+      <Bier name='Ur-Saalfelder 1100 Jahre Saalfeld' note='6,3' design='7'/>
+      <Bier name='Ustersbacher Urhell' note='6' design='4'/>
+      <Bier name='Vamp Bier Schwäbisch Gemünd Engel' note='3,3' design='6,7'/>
+      <Bier name='Weihenstephaner Original' note='6' design='5'/>
+      <Bier name='Weismainer Püls-Bräu Premium' note='5,8' design='6,3'/>
+      <Bier name='Weißenoher Eucharius Märzen' note='7,3' design='7,3'/>
+      <Bier name='Weißenoher Glocken Hell' note='5,8' design='7'/>
+      <Bier name='Weißenoher Klosterbier' note='6,8' design='6,5'/>
+      <Bier name='Weißenoher Klosterbier Weihnachts Festbier' note='6,4' design='5,5'/>
+      <Bier name='Weißenoher Kloster-Sud' note='7,8' design='6,5'/>
+      <Bier name='Weltenburger Kloster 1050' note='6' design='5,3'/>
+      <Bier name='Weltenburger Kloster Barock Hell' note='6,5' design='7,5'/>
+      <Bier name='Weltenburger Kloster Winter Traum' note='6,6' design='6'/>
+      <Bier name='Weltenburger Urtyp Hell' note='5,2' design='5,8'/>
+      <Bier name='Wettelsheimer Bier' note='5,7' design='6'/>
+      <Bier name='Wettelsheimer Märzen' note='6,3' design='6,7'/>
+      <Bier name='Wildbräu Bayrisch Hell' note='5' design='4,8'/>
+      <Bier name='Wildbräu Meistersud Spezialbier' note='5,8' design='6'/>
+      <Bier name='Wildschütz Hell' note='5,5' design='8,5'/>
+      <Bier name='Winkler Bräu Lengenfeld Hell' note='5,5' design='5,5'/>
+      <Bier name='Winkler Bräu Lengenfeld Kupfer Spezial' note='6,7' design='5,7'/>
+      <Bier name='Winter Bier Schwäbisch Gemünd Engel' note='4,3' design='7'/>
+      <Bier name='Winterhopfen Landskron' note='6' design='6,5'/>
+      <Bier name='Wolfshöher Premium' note='5' design='6,8'/>
+      <Bier name='Wormser Nibelungen Hagenbräu' note='8' design='9'/>
+      <Bier name='Zirndorfer Landbier' note='5,5' design='4,5'/>
+      <Bier name='Zötler Bier Bayerisch Hell' note='5,3' design='4,3'/>
+      <Bier name='Zur Alten Freyung Hausbrauerbier Göller' note='5' design='7,5'/>
+  </sorte>
+    <sorte name='Kölsch'>
+      <Bier name='Agrippa Kölsch' note='4' design='5'/>
+      <Bier name='Bartmann`s Kölsch' note='3,5' design='8'/>
+      <Bier name='Bischoff Kölsch' note='7,8' design='9,3'/>
+      <Bier name='Bürger Kölsch' note='3,5' design='3,5'/>
+      <Bier name='Dom' note='5,3' design='5,3'/>
+      <Bier name='Fels Krone Kölsch' note='4' design='3'/>
+      <Bier name='Früh' note='8' design='6'/>
+      <Bier name='Gaffel' note='7,3' design='7,3'/>
+      <Bier name='Gaffel 1396 Stadtjubiläums Bier' note='4,3' design='6,3'/>
+      <Bier name='Ganser' note='6' design='5'/>
+      <Bier name='Garde' note='3,5' design='4,5'/>
+      <Bier name='Giesler Kölsch' note='5,7' design='5'/>
+      <Bier name='Gilden' note='2,5' design='3'/>
+      <Bier name='Hansa Kölsch' note='4,8' design='3'/>
+      <Bier name='Hellers Kölsch' note='5,5' design='7,5'/>
+      <Bier name='Küppers' note='4,3' design='3,7'/>
+      <Bier name='Kurfürsten' note='3' design='3'/>
+      <Bier name='Maximilian Kölsch Kurfürsten' note='8' design='8'/>
+      <Bier name='Mühlen' note='7' design='4,3'/>
+      <Bier name='Peters' note='6,3' design='7'/>
+      <Bier name='Pfaffen Bier Original' note='9' design='8,3'/>
+      <Bier name='Rats Kölsch' note='4,7' design='3,7'/>
+      <Bier name='Reissdorf' note='9,3' design='7,3'/>
+      <Bier name='Richmodis' note='6,3' design='4,3'/>
+      <Bier name='Römer Kölsch (Dose)' note='2,5' design='3'/>
+      <Bier name='Schreckenskammer Wirtz Köln' note='7' design='5'/>
+      <Bier name='Sester' note='6,3' design='4'/>
+      <Bier name='Sion' note='7' design='5'/>
+      <Bier name='Stecken Kölsch' note='4,3' design='4,7'/>
+      <Bier name='Steffi Kölsch' note='5' design='4,5'/>
+      <Bier name='Sünner' note='6,5' design='6'/>
+      <Bier name='Traugott Simon Kölsch' note='4,8' design='4,3'/>
+      <Bier name='Troilsch Troisdorf' note='4' design='3,3'/>
+      <Bier name='Zunft Kölsch' note='5,3' design='3,7'/>
+  </sorte>
+    <sorte name='Light'>
+      <Bier name='Bitburger Light' note='6,7' design='4'/>
+      <Bier name='Eichbaum Leichter Typ' note='3,5' design='3'/>
+      <Bier name='Fairlight Krombacher' note='5,5' design='3,5'/>
+      <Bier name='Gaffel Kölsch Light' note='5,7' design='5,3'/>
+      <Bier name='Gold Ochsen Weißbier Leicht' note='5' design='3,8'/>
+      <Bier name='Günzburger Leichtes Weizen' note='3,8' design='4,3'/>
+      <Bier name='Herrnbräu Leichtes Weizen' note='2,3' design='5'/>
+      <Bier name='Huber Weisses Leicht' note='3' design='6,6'/>
+      <Bier name='Karlsberg Ur Pils Light' note='5' design='3,5'/>
+      <Bier name='Koch´sches Malzbier' note='5,3' design='5'/>
+      <Bier name='Meckatzer Leichtes Helles' note='5,5' design='5'/>
+      <Bier name='Meckatzer Leichtes Weizen' note='3' design='5,3'/>
+      <Bier name='Oettinger Leicht' note='4,5' design='3'/>
+      <Bier name='Park Leicht' note='3,5' design='3,8'/>
+      <Bier name='Schwarzbräu Weizen Light Naturtrüb' note='4,3' design='4,7'/>
+      <Bier name='Stades Leicht' note='6' design='4'/>
+      <Bier name='Thurn und Taxis Leichte Weisse' note='0' design='0'/>
+      <Bier name='Unertl Leichte Weisse' note='5,5' design='3,5'/>
+      <Bier name='Veltins Leicht' note='5' design='3,3'/>
+  </sorte>
+    <sorte name='Mix'>
+      <Bier name='Agent Apple' note='5,5' design='5'/>
+      <Bier name='Allgäuer Brauhaus Radler' note='4' design='4,3'/>
+      <Bier name='Bavaria Russ Hefeweizen' note='3,8' design='4,5'/>
+      <Bier name='Becks Green Lemon' note='4,4' design='4'/>
+      <Bier name='Bischoff Twin Weizen Zitrone' note='5' design='3,7'/>
+      <Bier name='Bit Passion' note='3,3' design='3,5'/>
+      <Bier name='Bitburger Radler' note='0' design='0'/>
+      <Bier name='Bosch`s Power Cola' note='4,8' design='4,5'/>
+      <Bier name='Braugold Radler' note='4,7' design='6,7'/>
+      <Bier name='BT Black Tiger' note='5' design='6,5'/>
+      <Bier name='Caiman Beer + Caipirinha' note='5' design='4,7'/>
+      <Bier name='Caipi Beer Mix' note='5,3' design='5,3'/>
+      <Bier name='Diebels dimix' note='5' design='3,5'/>
+      <Bier name='Erzquell Black + Cola + Kölsch' note='2,5' design='4'/>
+      <Bier name='Erzquell Zunft Radler' note='5,5' design='3'/>
+      <Bier name='Farny Allgäuer Weizen Radler' note='3,3' design='4,5'/>
+      <Bier name='Frankenheim Blue' note='4' design='6,8'/>
+      <Bier name='Grafenwalder Wild Orange' note='0' design='0'/>
+      <Bier name='Grafenwalder Wild Passion' note='0' design='0'/>
+      <Bier name='Hachenburger Frischling' note='3,3' design='6,3'/>
+      <Bier name='Hachenburger Radler' note='5' design='6'/>
+      <Bier name='Henninger Radler' note='4,7' design='4,3'/>
+      <Bier name='Karlsberg Mixery Bier &amp; Cola' note='4,7' design='6'/>
+      <Bier name='Kölner Radler (Dose)' note='3,5' design='3,5'/>
+      <Bier name='Köstritzer bibop' note='4' design='3'/>
+      <Bier name='Kurfürst Carl Theodor Radler' note='4,8' design='4'/>
+      <Bier name='Lahnsteiner Radler' note='6' design='5,7'/>
+      <Bier name='Meckatzer Radler Halbe' note='4' design='3'/>
+      <Bier name='Neuzeller Klosterbräu Kirsch Bier' note='5,5' design='6'/>
+      <Bier name='Oettinger Radler' note='4' design='3'/>
+      <Bier name='Perlenbacher Wild Lemon' note='0' design='0'/>
+      <Bier name='Pfungstädter Radler' note='4,8' design='4,5'/>
+      <Bier name='Postbräu Post Radler' note='2' design='5'/>
+      <Bier name='Red Canny Altenburger' note='5,3' design='7'/>
+      <Bier name='Russ Weizen Radler Denninghoffs' note='4' design='6'/>
+      <Bier name='Salitos Tequila' note='6' design='4,8'/>
+      <Bier name='Schimpfle Radler' note='3,5' design='2,8'/>
+      <Bier name='Schlappe Seppel Radler' note='4' design='6,5'/>
+      <Bier name='Schloßbräu Odin Trunk' note='6,4' design='7'/>
+      <Bier name='Schussenrieder Radler' note='5' design='6'/>
+      <Bier name='Sombreros with Tequila' note='4,7' design='5'/>
+      <Bier name='Stuttgarter Hofbräu Das Radler' note='3,5' design='4,8'/>
+      <Bier name='Veldenstein Kaiser Radler' note='3,5' design='4'/>
+      <Bier name='Veltins+Cola' note='5,3' design='4'/>
+      <Bier name='Veltins+Lemon' note='5' design='4,3'/>
+      <Bier name='Vormann Malz  1,5%' note='5,3' design='3,3'/>
+      <Bier name='Warsteiner Cola' note='1,7' design='3,7'/>
+      <Bier name='Warsteiner Lemon' note='3,7' design='4,3'/>
+      <Bier name='Zip Alsfeld' note='3' design='3,7'/>
+      <Bier name='Zötler Bier Russ`n Halbe' note='4,6' design='3,7'/>
+  </sorte>
+    <sorte name='Pils'>
+      <Bier name='Achtern Diek Landbier Pils' note='6,5' design='6,3'/>
+      <Bier name='Adelskronen Pils' note='4,3' design='3,3'/>
+      <Bier name='Ahornberger Landbier (Pils Hopfig)' note='5,3' design='7,3'/>
+      <Bier name='Allersheimer Bügel Pils' note='7,3' design='7,7'/>
+      <Bier name='Allersheimer Urpils' note='3,3' design='3'/>
+      <Bier name='Allgäuer Brauhaus Teutsch Pils' note='4,7' design='4,7'/>
+      <Bier name='Alpirsbacher Klosterbräu Pils' note='5' design='5,8'/>
+      <Bier name='Alte Dessauer Pils' note='7' design='6'/>
+      <Bier name='Altenburger Premium Thüringen' note='7' design='8,7'/>
+      <Bier name='Angermann Pils' note='3,5' design='5'/>
+      <Bier name='Apoldaer Diät Pils' note='3,3' design='3,5'/>
+      <Bier name='Apoldaer Gambrinus Pilsner' note='5,3' design='6'/>
+      <Bier name='Apoldaer Glockenpils' note='5,3' design='5,3'/>
+      <Bier name='Apoldaer Pils Spezial Domi' note='5' design='5'/>
+      <Bier name='Apoldaer Premium Pils' note='5,3' design='6'/>
+      <Bier name='Apostel Bräu' note='5,5' design='4,5'/>
+      <Bier name='Astra Urtyp' note='5,7' design='5'/>
+      <Bier name='Auerhahn Pils' note='6' design='5'/>
+      <Bier name='Aufsesser Premium Pils' note='5,3' design='7,3'/>
+      <Bier name='Autenrieder Pilsner' note='4' design='4'/>
+      <Bier name='Bayerisch Zunftherrn Pils' note='3,7' design='5,3'/>
+      <Bier name='Beck Bräu Pils' note='4,4' design='3,4'/>
+      <Bier name='Becker`s Extra Premium Pils' note='5,5' design='5'/>
+      <Bier name='Becker`s Pils' note='5' design='4'/>
+      <Bier name='Becks' note='6,5' design='4,5'/>
+      <Bier name='Bellheimer Lord Premium Pils' note='5,8' design='5,8'/>
+      <Bier name='Bergadler Premium Pils' note='4,7' design='3,7'/>
+      <Bier name='Berliner Bürgerbräu' note='5,3' design='6,3'/>
+      <Bier name='Berliner Bürgerbräu Bio Pils' note='5' design='5,3'/>
+      <Bier name='Berliner Kindl Jubiläums Pilsener' note='6,5' design='4,5'/>
+      <Bier name='Berliner Pilsener' note='6,3' design='6,3'/>
+      <Bier name='Binding Römer Pils' note='6,7' design='5,3'/>
+      <Bier name='Binding Römer Pilsener Spezial' note='5,5' design='4'/>
+      <Bier name='Bischoff Pils' note='6' design='4,5'/>
+      <Bier name='Bitburger Pils' note='8' design='5'/>
+      <Bier name='Böhmisch Brauhaus Premium Pilsener' note='6,7' design='6'/>
+      <Bier name='Böhse Onkelz' note='2,8' design='4,8'/>
+      <Bier name='Bölkstoff Pilsener' note='4,3' design='7'/>
+      <Bier name='Bosch Pils' note='4,5' design='3,3'/>
+      <Bier name='Brandmeister Trunk Ludwigsstadt' note='6' design='7,3'/>
+      <Bier name='Brau Stolz Pils' note='5,3' design='4,3'/>
+      <Bier name='Braugold Pilsener Spezial' note='7' design='6'/>
+      <Bier name='Brinkhoffs No.1' note='6,5' design='6'/>
+      <Bier name='Bruch´s No 1 Pilsener' note='4,8' design='4'/>
+      <Bier name='Burg Krone Pilsener' note='5' design='5,5'/>
+      <Bier name='Burgbräu Pilsener' note='3,8' design='4,8'/>
+      <Bier name='Cannabis Designer Bier Pils' note='3' design='6'/>
+      <Bier name='Coschützer Pils' note='5,5' design='4'/>
+      <Bier name='DAB Pilsener' note='6,7' design='5,3'/>
+      <Bier name='DAB Strong Pilsener' note='6,3' design='4,7'/>
+      <Bier name='Darguner Pilsener' note='5,3' design='4,3'/>
+      <Bier name='Darmstädter Braustübl Pilsner' note='5' design='7'/>
+      <Bier name='Darmstädter Pilsner Premium' note='5' design='5'/>
+      <Bier name='Deil Öko Pils' note='7' design='7'/>
+      <Bier name='Detmolder Pilsener (Bügel)' note='6,3' design='7,3'/>
+      <Bier name='Detmolder Pilsener (Fein Herb)' note='6,3' design='4,3'/>
+      <Bier name='Diebels Pils' note='5,2' design='4,8'/>
+      <Bier name='Dingslebener Edel Pils' note='5,3' design='5'/>
+      <Bier name='Dingslebener Edel Pils Geschenkfl.4,9%' note='5,3' design='7'/>
+      <Bier name='Dingslebener Edel Pils Rennsteig 5%' note='6,3' design='9'/>
+      <Bier name='Dinkel Acker CD-Pils' note='5,5' design='3,8'/>
+      <Bier name='Dithmarscher Pilsener' note='6,3' design='7,7'/>
+      <Bier name='Domrat Pilsener' note='5,7' design='4,7'/>
+      <Bier name='Dortmunder Kronen Pilsener' note='6' design='3,8'/>
+      <Bier name='Dortmunder Stifts Pils' note='6,5' design='4'/>
+      <Bier name='Dortmunder Union Siegel Pils' note='5,3' design='3,3'/>
+      <Bier name='D-Pils Wicküler' note='4' design='3'/>
+      <Bier name='Dresdner Felsenkeller Pilsener' note='4' design='3,7'/>
+      <Bier name='Eibauer Pilsner' note='3,5' design='6'/>
+      <Bier name='Eichbaum Pilsener' note='7' design='4,7'/>
+      <Bier name='Eichbaum Ureich Premium Pils' note='4,3' design='4'/>
+      <Bier name='Eichener Pils' note='5,7' design='4,7'/>
+      <Bier name='Einbecker Pilsener' note='6' design='4,3'/>
+      <Bier name='Einsiedler Jubiläums Pils' note='5,3' design='6,7'/>
+      <Bier name='Elbschloss Pilsener' note='5,5' design='4'/>
+      <Bier name='Erzquell Pils' note='6,5' design='3,5'/>
+      <Bier name='Eschenbacher Pilsener Premium' note='3' design='4,5'/>
+      <Bier name='Falkenfelser Premium Pilsener' note='6' design='6,3'/>
+      <Bier name='Feldschlößchen Pils' note='4,5' design='4'/>
+      <Bier name='Felsgold Pils' note='4' design='3'/>
+      <Bier name='Felskrone Pilsener' note='4' design='3,5'/>
+      <Bier name='Fiege Pils Moritz' note='4,8' design='5,3'/>
+      <Bier name='Finkbeiner Pils' note='5,7' design='4'/>
+      <Bier name='Finkbeiner Premium Pils' note='6,5' design='6,5'/>
+      <Bier name='Flensburger Pilsener' note='6,3' design='7,3'/>
+      <Bier name='Fohr Pils' note='4' design='3'/>
+      <Bier name='Franken Bräu Premium Pilsener' note='5,7' design='7'/>
+      <Bier name='Freiberger Premium Pils Sachsen' note='5' design='4,5'/>
+      <Bier name='Fürsten Pils' note='5,5' design='4'/>
+      <Bier name='Fürstenberg Premium Pils' note='6,5' design='5'/>
+      <Bier name='Gampertbräu Förster Pils' note='5,5' design='5,3'/>
+      <Bier name='Germania Edel Pils' note='4' design='2'/>
+      <Bier name='Germania Pils' note='4' design='3'/>
+      <Bier name='Gessner Pilsner' note='6' design='5,8'/>
+      <Bier name='Gessner Premium Pils' note='5' design='7'/>
+      <Bier name='Gold Ochsen Pils' note='5' design='3,8'/>
+      <Bier name='Göller Original Pilsner Art' note='5,4' design='7'/>
+      <Bier name='Göltzschtal Premium Pils' note='4,5' design='7,5'/>
+      <Bier name='Graf Ignaz Premium Pilsner' note='4,6' design='4,8'/>
+      <Bier name='Grafenwalder Premium Pils' note='4,3' design='3,3'/>
+      <Bier name='Greizer Schloß Pils' note='7' design='6'/>
+      <Bier name='Grenzquell Pilsener' note='4,5' design='5,8'/>
+      <Bier name='Gutsherren Pils' note='5,7' design='4,3'/>
+      <Bier name='Haake Beck Pils' note='4' design='3,3'/>
+      <Bier name='Habichtsteiner Pilsener' note='6' design='6,5'/>
+      <Bier name='Hachenburger' note='6,7' design='6'/>
+      <Bier name='Hansa Pils' note='3,3' design='3,7'/>
+      <Bier name='Hartmannsdorfer Pils' note='7' design='6'/>
+      <Bier name='Harzer Tanne' note='6' design='6'/>
+      <Bier name='Hasseröder' note='7,5' design='6,5'/>
+      <Bier name='Henninger Kaiser Pilsener Premium Privat' note='6,3' design='6,3'/>
+      <Bier name='Herborner Edel Pils' note='5' design='4,7'/>
+      <Bier name='Herforder Pils' note='5' design='4'/>
+      <Bier name='Herrenhäuser Premium Pilsener' note='6' design='3,3'/>
+      <Bier name='Herzog Wilhelm Pils' note='5,4' design='6,6'/>
+      <Bier name='Hinterländer Herb-Pils' note='6,7' design='6,7'/>
+      <Bier name='Hinterländer Pils' note='7' design='6,7'/>
+      <Bier name='Holsten Edel' note='6,3' design='4'/>
+      <Bier name='Holsten Pilsener' note='7' design='6'/>
+      <Bier name='Hövelshofer das Schnuckelige Sennebier Pils' note='5,7' design='6,7'/>
+      <Bier name='Innstadt Pilsener' note='4,8' design='3,8'/>
+      <Bier name='Isenbeck Premium Pils' note='5,5' design='3,3'/>
+      <Bier name='Iserlohner Pilsner' note='6' design='4,8'/>
+      <Bier name='Jahn´s Braumeister Pilsener Premium' note='4,8' design='4,8'/>
+      <Bier name='Jahns Nortwald Premium Pils' note='4,7' design='5,7'/>
+      <Bier name='Jever Pilsener' note='7' design='6'/>
+      <Bier name='Kaiserhof Pils' note='4' design='4'/>
+      <Bier name='Karlsberg Feingold Pilsner' note='5,6' design='5,4'/>
+      <Bier name='Karlsberg Ur Pils' note='5,5' design='4,5'/>
+      <Bier name='King M 2000 Königsbräu' note='2,7' design='4,7'/>
+      <Bier name='Kirner 1798 Pilsner Brauart' note='6,3' design='5,5'/>
+      <Bier name='Kirner Pils' note='4,7' design='3,7'/>
+      <Bier name='Kitzmann Edelpils' note='5,3' design='4'/>
+      <Bier name='Klausner Pils' note='7' design='5'/>
+      <Bier name='Kloster Pilsner' note='5,8' design='5,8'/>
+      <Bier name='Klosterhof Öko.Pilsener' note='5,3' design='3,7'/>
+      <Bier name='Klösterle Pils' note='6' design='7'/>
+      <Bier name='König Pilsener' note='6,3' design='4,7'/>
+      <Bier name='Königsbacher' note='6' design='4,5'/>
+      <Bier name='Königsbräu Edel Pils Heidenheim' note='3,7' design='3,3'/>
+      <Bier name='Königsee Pilsener Thüringen' note='4' design='6'/>
+      <Bier name='Köstritzer Edel Pils' note='6,7' design='5,7'/>
+      <Bier name='Köthener Spezial Pils' note='5' design='4'/>
+      <Bier name='Krombacher' note='6' design='4'/>
+      <Bier name='Kronsberg Pilsener' note='4,3' design='2,7'/>
+      <Bier name='Kronsberg Pilsner Lingen' note='3,3' design='3,3'/>
+      <Bier name='Krug Bräu Pilsner' note='6' design='7'/>
+      <Bier name='Kulmbacher Mönchshof' note='7' design='8'/>
+      <Bier name='Kulmbacher Premium Pils' note='6,7' design='7'/>
+      <Bier name='Landsberger Premium Pils' note='5,5' design='5,8'/>
+      <Bier name='Landskron Premium Pils' note='6,5' design='5,5'/>
+      <Bier name='Landskron Pro Millenium Pils' note='5,5' design='5,5'/>
+      <Bier name='Lehestener Premium Pilsener' note='4,5' design='5'/>
+      <Bier name='Leibinger Edel Pils' note='5' design='4,6'/>
+      <Bier name='Leikeim Premium' note='5,7' design='7,7'/>
+      <Bier name='Leikeim Premium Festtagsauflage' note='7' design='8'/>
+      <Bier name='Licher' note='5,3' design='6'/>
+      <Bier name='Lübzer Pils' note='6,5' design='4,5'/>
+      <Bier name='Lück Pils' note='5' design='4,5'/>
+      <Bier name='Lüneburger Pilsener' note='6,5' design='8'/>
+      <Bier name='Mammut Ur Pils' note='6,3' design='6,7'/>
+      <Bier name='Markgrafenbräu Pilsener' note='4,5' design='3,3'/>
+      <Bier name='Mauritius Zwickauer Pilsener' note='6' design='7'/>
+      <Bier name='Meckatzer Pils' note='5,5' design='4'/>
+      <Bier name='Mecklenburger Landbier' note='4,7' design='5,7'/>
+      <Bier name='Mecklenburger Pilsener' note='4' design='3,3'/>
+      <Bier name='Medardusbräu Pils' note='5' design='7,8'/>
+      <Bier name='Meininger Premium Pilsener' note='4,7' design='3,7'/>
+      <Bier name='Meister Bräu Pilsener' note='5' design='4'/>
+      <Bier name='Meister Pils' note='4,8' design='2,8'/>
+      <Bier name='MEK Pils Premium Olbernhauer' note='6,7' design='8'/>
+      <Bier name='Mittweidaer Löwenbräu Pils' note='6' design='7,5'/>
+      <Bier name='Moravia Pils Holsten' note='3,3' design='2,7'/>
+      <Bier name='Neumarkter Lammsbräu (Öko)' note='4,7' design='6'/>
+      <Bier name='Neuzeller Klosterbräu Mönchspils' note='3' design='5,8'/>
+      <Bier name='Nordbräu Ingolstadt Privat Pilsener' note='4,5' design='3,5'/>
+      <Bier name='Nörten-Hardenberger Pils' note='5,5' design='4,5'/>
+      <Bier name='Oettinger Pils' note='4,7' design='4,3'/>
+      <Bier name='Oscar Maxxum Pils' note='5' design='5,2'/>
+      <Bier name='Osser Pils' note='6' design='3,5'/>
+      <Bier name='Ottweiler Pils' note='5' design='3'/>
+      <Bier name='Paderborner Pilsener' note='4,4' design='2,6'/>
+      <Bier name='Park Pils Premium' note='5' design='3,7'/>
+      <Bier name='Peniger Pilsener Premium' note='5' design='8'/>
+      <Bier name='Perlenbacher Gold' note='3,6' design='3,2'/>
+      <Bier name='Pfungstädter Edel Pils Exclusiv' note='5' design='4'/>
+      <Bier name='Pfungstädter Edel Pils Premium' note='4,8' design='5,8'/>
+      <Bier name='Postbrauerei Nesselwang Edel Pils' note='5,7' design='5,7'/>
+      <Bier name='Potsdamer Rex Pils' note='5' design='6'/>
+      <Bier name='Pott`s Pilsener' note='6,5' design='7'/>
+      <Bier name='Pott´s Prinzipal' note='5,3' design='5'/>
+      <Bier name='Radeberger' note='6' design='5'/>
+      <Bier name='Rats Krone Pils' note='3' design='2,7'/>
+      <Bier name='Ratsherrn Premium Pilsener' note='5,3' design='5'/>
+      <Bier name='Ratskrone Premium Pilsener' note='2,3' design='3'/>
+      <Bier name='Räuber Heine Klemens Pilsener' note='7,3' design='7,5'/>
+      <Bier name='Reh-Pils' note='4,8' design='6'/>
+      <Bier name='Reichenbrander Classic Pilsner' note='4,5' design='6'/>
+      <Bier name='Reudnitzer Pils Premium' note='6,7' design='6,3'/>
+      <Bier name='Reuther Schloßpils' note='4,7' design='3,7'/>
+      <Bier name='Rhöner Pils' note='6,7' design='5,3'/>
+      <Bier name='Riegeler Felsen Pils' note='4,8' design='4,5'/>
+      <Bier name='Ritter First Premium Pilsener' note='5,7' design='3,3'/>
+      <Bier name='Rolinck Pilsener Premium' note='6,5' design='5'/>
+      <Bier name='Rosen Pils' note='6' design='6,7'/>
+      <Bier name='Rosenheimer Auer Bräu Pils' note='5' design='5,5'/>
+      <Bier name='Rostocker Pils' note='6' design='4'/>
+      <Bier name='Rostocker Pilsener Premium' note='5,3' design='6'/>
+      <Bier name='Rothaus Pils' note='4,5' design='4,5'/>
+      <Bier name='Rother Bräu Öko Ur-Pils' note='5,5' design='6,3'/>
+      <Bier name='Rother Bräu Pils' note='7,3' design='3,7'/>
+      <Bier name='Ruppaners Schimmele Naturtrübes Pils' note='5,7' design='5'/>
+      <Bier name='Saalfelder Pilsener' note='7' design='5'/>
+      <Bier name='Sachsen Krone' note='3,7' design='4'/>
+      <Bier name='Sachsen Krone Pilsener Pemium' note='3,3' design='3'/>
+      <Bier name='Sachsenschlösser Pils' note='5' design='4,7'/>
+      <Bier name='Scherdel Premium Pilsener' note='5,3' design='2,7'/>
+      <Bier name='Schierlinger Pils' note='5,3' design='5'/>
+      <Bier name='Schloss Edel Pils' note='5' design='4'/>
+      <Bier name='Schloss Premium Pilsener' note='4,3' design='5,3'/>
+      <Bier name='Schloßberg Pils' note='3,8' design='3,3'/>
+      <Bier name='Schloßbräu Rheder Pils' note='5,3' design='4,3'/>
+      <Bier name='Schloßbrauerei Chr.Stelzer Bio Gold' note='4' design='4,3'/>
+      <Bier name='Schloß-Pils Miltenberg' note='4,3' design='5,7'/>
+      <Bier name='Schmucker Meister Pils' note='4,7' design='5,3'/>
+      <Bier name='Schönberger Ur-Pils' note='5' design='5,2'/>
+      <Bier name='Schussenrieder Pils' note='5,7' design='7,7'/>
+      <Bier name='Schwaben Bräu Meister Pils' note='4,7' design='8'/>
+      <Bier name='Schwalm Bräu Pilsener' note='5,7' design='3,7'/>
+      <Bier name='Schwandorfer Schmidt Bräu Pils' note='3,3' design='3,7'/>
+      <Bier name='Schwanen Pilsener' note='3' design='2'/>
+      <Bier name='Schwarzbräu Pilsener' note='5' design='5,7'/>
+      <Bier name='Schwelmer Pils' note='4,8' design='5,8'/>
+      <Bier name='Schweriner Petermännchen Pils' note='6,3' design='7'/>
+      <Bier name='Severins Pils' note='4,8' design='3,5'/>
+      <Bier name='Spalter Premium Pils' note='4,5' design='4,8'/>
+      <Bier name='Stauder Premium Pils' note='5' design='3'/>
+      <Bier name='Steffens Pilsener' note='4,7' design='3,7'/>
+      <Bier name='Sternburg Pilsener' note='5' design='2,5'/>
+      <Bier name='Sternquell Pils Plauen' note='6,3' design='5,3'/>
+      <Bier name='Stier Bier Premium Pilsener' note='7' design='5'/>
+      <Bier name='Störtebeker Pilsener' note='5,7' design='7,3'/>
+      <Bier name='Stralsunder Premium Pils' note='2,4' design='4,2'/>
+      <Bier name='Stuttgarter Hofbräu Herren Pils' note='5' design='4,3'/>
+      <Bier name='Stuttgarter Hofbräu Pilsner' note='4,3' design='3'/>
+      <Bier name='Thier Pils Dortmund' note='6' design='5'/>
+      <Bier name='Thüringer Waldbräu Pils' note='3,6' design='3,4'/>
+      <Bier name='Thurn und Taxis Pils' note='6' design='4,5'/>
+      <Bier name='Traugott Simon Pils' note='3,7' design='4,3'/>
+      <Bier name='Traugott Simon Pilsener 1798' note='4' design='5,8'/>
+      <Bier name='Tuborg Weihnachts-Pilsener' note='6,7' design='5,3'/>
+      <Bier name='Ulmer Münster Herren Pils' note='5,5' design='3,5'/>
+      <Bier name='Urfels Pils' note='5,3' design='3,7'/>
+      <Bier name='Uriges Premium Pils' note='5,7' design='6,7'/>
+      <Bier name='Ur-Krostitzer' note='6,3' design='5,7'/>
+      <Bier name='Veldensteiner Premium Pils' note='5,3' design='7'/>
+      <Bier name='Veltins' note='6,7' design='2,7'/>
+      <Bier name='Waidbauer Pils' note='5,5' design='5'/>
+      <Bier name='Wald Schloss Pils' note='2,5' design='2'/>
+      <Bier name='Warsteiner Premium Verum' note='7,7' design='6,7'/>
+      <Bier name='Watzdorfer Burg Pils' note='5,7' design='5,3'/>
+      <Bier name='Weimarer Pilsener' note='4,5' design='3,5'/>
+      <Bier name='Weiss Rössl Pilsener' note='4,5' design='4'/>
+      <Bier name='Welde No.1 Premium Pils' note='7,3' design='8'/>
+      <Bier name='Wernesgrüner' note='7,5' design='8'/>
+      <Bier name='Westheimer Premium Pils' note='6,7' design='4,3'/>
+      <Bier name='Wicküler Pilsener' note='4,7' design='5'/>
+      <Bier name='Wildbräu Gräfing Landpils' note='4,5' design='6'/>
+      <Bier name='Will Pils de Luxe' note='5' design='3,5'/>
+      <Bier name='Wolfshöher Pilsner' note='5' design='5,7'/>
+      <Bier name='Wolters Pilsener Premium' note='7,3' design='7,7'/>
+      <Bier name='Wolterstetter Josef Groll Pils' note='6,7' design='8,3'/>
+      <Bier name='Würzburger Hofbräu Pilsner' note='6,2' design='5'/>
+      <Bier name='Zoller-Hof Fürsten Pils' note='4,7' design='5'/>
+      <Bier name='Zwergen Bräu Pils' note='6' design='7'/>
+  </sorte>
+    <sorte name='Stark-Bock'>
+      <Bier name='Ahornberger Maibock' note='6,7' design='7,3'/>
+      <Bier name='Allgäuer Brauhaus Cambonator Dkl.Doppel' note='6,7' design='8'/>
+      <Bier name='Allgäuer Brauhaus St.Magnus Heller Bock' note='6,7' design='7,7'/>
+      <Bier name='Altenmünster Mai Bock' note='6,5' design='7,3'/>
+      <Bier name='Andechser Bergbock Hell' note='5' design='4,3'/>
+      <Bier name='Andechser Doppelbock Dunkel' note='6,7' design='5,3'/>
+      <Bier name='Apoldaer Festbock' note='6,5' design='5'/>
+      <Bier name='Autenrieder Leonhardi Bock' note='6,7' design='5'/>
+      <Bier name='Aventinus Weizenstarkbier' note='7,3' design='8,7'/>
+      <Bier name='Ballermann 6 Designer Bier' note='5' design='5'/>
+      <Bier name='Bavaria Dunkles Starkbier' note='5,3' design='6,7'/>
+      <Bier name='Berliner Kindl Bock Dunkel' note='5,7' design='7'/>
+      <Bier name='Berliner Kindl Bock Hell' note='5' design='5'/>
+      <Bier name='Bischoff Doppel Bock' note='6,4' design='4'/>
+      <Bier name='Björne Beer (Deutschland) Dose' note='5' design='5,5'/>
+      <Bier name='Brauhaus Füssen Alpinator Doppelbock' note='6' design='8,5'/>
+      <Bier name='Cannabis Power' note='3,8' design='3,8'/>
+      <Bier name='Carolus der Starke' note='6,3' design='8'/>
+      <Bier name='Doppel Hirsch Allgäuer Doppelbock' note='6,5' design='8'/>
+      <Bier name='Eick Bräu Gievitzer' note='7,2' design='7'/>
+      <Bier name='Eifel-Böckchen Bock Bier' note='5,7' design='5'/>
+      <Bier name='Einbecker Mai Ur-Bock' note='5,3' design='7'/>
+      <Bier name='Einbecker Ur-Bock' note='6,3' design='6'/>
+      <Bier name='Einbecker Ur-Bock Dunkel' note='5,3' design='5,7'/>
+      <Bier name='Einsiedler Doppel Bock' note='5' design='7,3'/>
+      <Bier name='Einsiedler Heller Bock' note='7' design='5,7'/>
+      <Bier name='Ettaler Curator Dunkler Doppelbock' note='4,8' design='6,8'/>
+      <Bier name='Feldschlößchen Urbock' note='5,3' design='5'/>
+      <Bier name='Fiedlers Bock im Stein' note='5,5' design='9'/>
+      <Bier name='Fliegerbier Engel Brauerei' note='3' design='6'/>
+      <Bier name='Freibergisch Bock Dunkel' note='5,3' design='6,7'/>
+      <Bier name='Freibeuter Starkbier' note='5,8' design='6'/>
+      <Bier name='Fürst Wallerstein Winter Böckle' note='6,3' design='6'/>
+      <Bier name='Göller Herbst Bock' note='6,3' design='7,3'/>
+      <Bier name='Hacker-Pschorr Hubertus Bock' note='5,3' design='5,3'/>
+      <Bier name='HB Mai Bock' note='5,5' design='8'/>
+      <Bier name='Hirschbräu Heller Bock' note='5,8' design='5,5'/>
+      <Bier name='Hopf Weißer Bock' note='6,3' design='4'/>
+      <Bier name='Kaiserhof Kromator Dunkler Doppelbock' note='6' design='7,7'/>
+      <Bier name='Kaltenberg Ritterbock' note='5' design='7,5'/>
+      <Bier name='Karlsberg Stamper Designer Bier' note='6,3' design='8'/>
+      <Bier name='Kitzmann Urbock' note='5,3' design='7,7'/>
+      <Bier name='Königsbräu Heller Bock' note='5' design='3'/>
+      <Bier name='Königsee Bockbier Hell' note='6,5' design='5,3'/>
+      <Bier name='Krug Bräu Bock Bier' note='6' design='6,5'/>
+      <Bier name='Kulmbacher EKU 28' note='3,5' design='6'/>
+      <Bier name='Kulmbacher Mönchshof Bockbier' note='7' design='6,8'/>
+      <Bier name='Lahnsteiner Jäger Bock' note='5,5' design='6'/>
+      <Bier name='Lahnsteiner Martinator' note='6,4' design='7,4'/>
+      <Bier name='Lahnsteiner Schnee-Bock' note='6,7' design='6,7'/>
+      <Bier name='Landsberger Bock Bier' note='6,7' design='5,7'/>
+      <Bier name='Landskron Goldbock' note='5' design='6'/>
+      <Bier name='Landskron Mai Bock' note='6,7' design='6,7'/>
+      <Bier name='Löwenbräu Triumphator Doppelbock' note='6,3' design='6,3'/>
+      <Bier name='Lübzer Bock' note='7,3' design='6,3'/>
+      <Bier name='Mauritius Zwickauer Bock Dunkel' note='6,7' design='7'/>
+      <Bier name='Owasa Bark' note='3,2' design='5,6'/>
+      <Bier name='Paulaner Salvator' note='6,7' design='7,7'/>
+      <Bier name='Pfungstädter St. Nikolaus' note='6' design='5'/>
+      <Bier name='Pfungstädter St.Nikolaus Bockbier z. Fest' note='6,2' design='5,7'/>
+      <Bier name='Postbrauerei Maibock' note='6,7' design='7,3'/>
+      <Bier name='Rostocker Bock Dunkel' note='6' design='6,3'/>
+      <Bier name='Rostocker Bock Hell' note='5,3' design='5,8'/>
+      <Bier name='Rostocker Dunkles Bockbier' note='7' design='4,8'/>
+      <Bier name='Saalfelder Bockbier' note='6,3' design='6,3'/>
+      <Bier name='Scheyern Kloster Doppelbock Dunkel' note='7,3' design='7'/>
+      <Bier name='Schmucker Doppel-Bock Dunkel' note='7' design='5'/>
+      <Bier name='Schwelmer Bock Dunkel 2000' note='5,3' design='4,7'/>
+      <Bier name='Specht Bockbier' note='6,7' design='4,3'/>
+      <Bier name='Specht Schwarzer Specht' note='7,3' design='6'/>
+      <Bier name='Stülpner-Bräu' note='7' design='7,7'/>
+      <Bier name='Tegernseer Heller Bock' note='7,3' design='6'/>
+      <Bier name='Torgauer Ritter Dunkel' note='7' design='8,7'/>
+      <Bier name='Traugott Simon Heller Bock 1798' note='4,4' design='5'/>
+      <Bier name='Tucher Bajavator Doppelbock' note='6,7' design='5,7'/>
+      <Bier name='Weltenburger Kloster Asam-Bock' note='4,8' design='6,3'/>
+      <Bier name='Wieninger Impulsator' note='7' design='7'/>
+      <Bier name='Zötler Bier Bock Dunkel' note='6,3' design='5'/>
+  </sorte>
+    <sorte name='Trübes'>
+      <Bier name='Arnstädter Ur Stoff' note='6,3' design='5,8'/>
+      <Bier name='Auer Bräu 111 Zwickel' note='6,7' design='7'/>
+      <Bier name='Ayinger Frühlingsbier naturtrüb' note='6' design='3'/>
+      <Bier name='Ayinger Liebhard´s Kellerbier Naturtrüb' note='6' design='7,5'/>
+      <Bier name='Benediktinerabtei Plankstetten Dinkel Trüb' note='5,7' design='6'/>
+      <Bier name='Bischoff Fritz Walter Naturtrüb' note='5,3' design='6,3'/>
+      <Bier name='Casbachtaler Kräusen' note='3,5' design='5'/>
+      <Bier name='Deil Zwickel Naturbelassen' note='6,5' design='7'/>
+      <Bier name='Dinkel Apostel Bräu naturtrüb' note='7,3' design='7,7'/>
+      <Bier name='Eichbaum Kellerbier Naturtrüb' note='6' design='7,8'/>
+      <Bier name='Eifeler Landbier Krönes' note='5,5' design='7'/>
+      <Bier name='Faust Kräusen Naturtrüb' note='6' design='7'/>
+      <Bier name='Finkbeiner Gilbert´s Kellerbier' note='0' design='0'/>
+      <Bier name='Fürst Wallerstein Fürsten Zwickel' note='6,8' design='7'/>
+      <Bier name='Füssener Kellerbier Naturtrüb' note='5,5' design='7'/>
+      <Bier name='Göller Kellerbier Naturtrüb' note='6,6' design='7'/>
+      <Bier name='Haake Beck Kräusen Naturtrüb' note='4,5' design='3'/>
+      <Bier name='Hachenburger Ur-Trüb' note='7' design='7,7'/>
+      <Bier name='Hacker-Pschorr Anno 1417 Trüb Kellerbier' note='6,6' design='8'/>
+      <Bier name='Heinz vom Stein der Wilde naturtrüb Lager' note='6,8' design='7,3'/>
+      <Bier name='Hirsch Naturtrübes Zwickl' note='5,3' design='6,3'/>
+      <Bier name='Hüchelner Urstoff' note='5,7' design='5'/>
+      <Bier name='Klösterle Kellerbier Naturtrüb' note='4' design='6'/>
+      <Bier name='Königsbacher Zischke Kellerbier' note='7,5' design='9'/>
+      <Bier name='Krug Bräu Kraft Stöffla Naturtrüb' note='7' design='7'/>
+      <Bier name='Luisenbräu Berlin Charlottenburg' note='7,3' design='8,5'/>
+      <Bier name='Mahr´s Bräu Ungespundet Hefetrüb' note='5,8' design='6,6'/>
+      <Bier name='Medardusbräu Schillerbad Trüb' note='5,8' design='7,8'/>
+      <Bier name='Münstereifeler Landbier' note='4,7' design='4,3'/>
+      <Bier name='Münstereifeler Primus Landbier' note='7,3' design='8,7'/>
+      <Bier name='Neumarkter Lammsbräu Dinkel Trüb' note='6,3' design='5,7'/>
+      <Bier name='Paulaner Roggen' note='5' design='5,7'/>
+      <Bier name='Pinkus Special Naturtrüb' note='6' design='6,4'/>
+      <Bier name='Riedenburger 5 Korn Urbier' note='6' design='5,3'/>
+      <Bier name='Riedenburger Bened.Plankst.Dinkel Naturtrüb' note='5,3' design='6,3'/>
+      <Bier name='Riedenburger Bened.Plankst.Dunkles Naturtrüb' note='4,5' design='6,5'/>
+      <Bier name='Riedenburger Bened.Plankst.Spezial Naturtrüb' note='5,5' design='6,3'/>
+      <Bier name='Riedenburger Einkorn Naturtrüb' note='5' design='5,7'/>
+      <Bier name='Rother Bräu Öko Urtrunk' note='6,2' design='6'/>
+      <Bier name='Schäffler Bräu Zwickl' note='6' design='6,3'/>
+      <Bier name='Schussenrieder Original No 1 Museumsbier' note='6,4' design='8'/>
+      <Bier name='Schwabenbräu Das Naturtrübe' note='0' design='0'/>
+      <Bier name='St.Georgen Bräu Kellerbier Hefetrüb' note='7' design='8,3'/>
+      <Bier name='Steffens Kräusen' note='5' design='6,5'/>
+      <Bier name='Vulkan-Bräu Naturtrüb' note='6,3' design='6'/>
+      <Bier name='Zwickel Bier Bongartz Hefetrüb Dunkel' note='5,3' design='7'/>
+      <Bier name='Zwickel Bier Lahnstein' note='5' design='6,3'/>
+  </sorte>
+    <sorte name='Weizen'>
+      <Bier name='Aecht Schlenkerla Weizen Rauchbier' note='7' design='5,3'/>
+      <Bier name='Aktienbr.Kaufbeuren Steingadener Dunkel' note='6,3' design='5,7'/>
+      <Bier name='Aktienbr.Kaufbeuren Weizen Anno 25 Trüb' note='6,7' design='6,7'/>
+      <Bier name='Aldersbacher Kloster Weisse Hell' note='5,3' design='5,5'/>
+      <Bier name='Allgäuer Brauhaus Alt Kemptener Weisse' note='6,7' design='6,7'/>
+      <Bier name='Allgäuer Brauhaus Fürstadt Hefe Weizen' note='7,3' design='7'/>
+      <Bier name='Allgäuer Brauhaus Stifts Weizenbock' note='6,7' design='7,3'/>
+      <Bier name='Altenmünster Hefeweizen Dunkel' note='6,3' design='7'/>
+      <Bier name='Altenmünster Hefeweizen Hell' note='5' design='8'/>
+      <Bier name='Altöttinger Weissbier' note='5' design='7,5'/>
+      <Bier name='Altöttinger Weissbier Dunkel' note='3,5' design='7,5'/>
+      <Bier name='Andechser Dunkles Weissbier' note='5,3' design='5,3'/>
+      <Bier name='Andechser Weissbier Hefetrüb' note='6,7' design='4'/>
+      <Bier name='Angermann Hefe-Weissbier' note='5,7' design='4,7'/>
+      <Bier name='Angermann Hefe-Weissbier Dunkel' note='5' design='5'/>
+      <Bier name='Arcobräu Weissbier Dunkel' note='5,5' design='7'/>
+      <Bier name='Arnstädter Ur Weizen' note='5,8' design='5,6'/>
+      <Bier name='Aufsesser Hefe Weizen' note='6' design='7,2'/>
+      <Bier name='Augustiner Weissbier Hefe' note='7' design='6,5'/>
+      <Bier name='Autenrieder Weizen Hefe' note='4,3' design='4,3'/>
+      <Bier name='Bavaria Dunkles Hefe Weizen' note='4,3' design='6'/>
+      <Bier name='Bavaria Hefe Weizen' note='7,3' design='6,3'/>
+      <Bier name='Bavaria Kristall Weizen' note='6' design='5'/>
+      <Bier name='Bayerisch Zunftherrn Hefe Weisse' note='4' design='5,3'/>
+      <Bier name='Berg Hefe Weizen' note='5,3' design='5,7'/>
+      <Bier name='Berliner Kindl Weisse' note='3,7' design='3,3'/>
+      <Bier name='Berliner Weisse Schultheiss' note='4' design='2,5'/>
+      <Bier name='Bischoff Falkensteiner Ur-Weisse Hefetrüb' note='5,4' design='5'/>
+      <Bier name='Bischoff Falkensteiner Weizen Kristall' note='5' design='4,5'/>
+      <Bier name='Boltens Ur-Weizen' note='5,6' design='4,8'/>
+      <Bier name='Bosch Weizen' note='5,7' design='6'/>
+      <Bier name='Brauhaus Pforzheim Goldstadt Hefe Weizen' note='5,3' design='3,3'/>
+      <Bier name='Bruch Weizen Hefetrüb' note='4,3' design='3,8'/>
+      <Bier name='Burg Bier Bad Müntereifel Weissbier' note='6' design='5,7'/>
+      <Bier name='Chiemseer Dunkle Weisse' note='6,3' design='6,3'/>
+      <Bier name='Chiemseer Helle Weisse' note='5,3' design='6,8'/>
+      <Bier name='Darmstädter Weissbier Hefe-Hell' note='4,8' design='5,3'/>
+      <Bier name='Deil Dunkles Weizen' note='6,5' design='5,5'/>
+      <Bier name='Deil Festtagsweizen' note='5,3' design='5'/>
+      <Bier name='Deil Hefe Weizen' note='6' design='4,7'/>
+      <Bier name='Denninghoffs Weisse Kristall' note='6' design='4,5'/>
+      <Bier name='Detmolder Weizen' note='5,5' design='7'/>
+      <Bier name='Eichbaum Dunkles Weizen' note='4,8' design='6'/>
+      <Bier name='Eichbaum Hefe Weißbier Naturtrüb' note='5' design='4'/>
+      <Bier name='Eichbaum Hefe Weizen' note='5,3' design='6'/>
+      <Bier name='Eichbaum Kristall Weizen' note='4,5' design='5'/>
+      <Bier name='Eine Bayern Halbe Hefe Weizen Hell' note='6,5' design='6'/>
+      <Bier name='Eis Weißbier Schwäbisch Gemünd Engel' note='3,5' design='8,5'/>
+      <Bier name='Erdinger Champ' note='4,3' design='3,3'/>
+      <Bier name='Erdinger Pikantus Dunkler Weizenbock' note='7' design='5'/>
+      <Bier name='Erdinger Schneeweiße' note='5,3' design='6'/>
+      <Bier name='Erdinger Urweisse' note='6,3' design='6'/>
+      <Bier name='Erdinger Weißbier Dunkel' note='5,5' design='7'/>
+      <Bier name='Erdinger Weißbier Kristallklar' note='4,5' design='5,5'/>
+      <Bier name='Erdinger Weißbier Premium Hefe' note='6,3' design='5'/>
+      <Bier name='Ettaler Helles Weizen Kloster Weißbier' note='5,7' design='6'/>
+      <Bier name='Falkenfelser Weißbier Hell Hefe' note='6' design='6,5'/>
+      <Bier name='Falter´s Weissbier Hefe' note='5,7' design='6'/>
+      <Bier name='Farny Edelweiss Hefe Weizen' note='5,3' design='4,3'/>
+      <Bier name='Farny Kristall Weizen' note='4,8' design='3,8'/>
+      <Bier name='Fässla Weizla Helles Hefe' note='6,4' design='6,6'/>
+      <Bier name='Finkbeiner Hefeweizen Dunkel' note='5,3' design='5'/>
+      <Bier name='Finkbeiner Schloßberg Hefe Weißbier' note='5,5' design='4,3'/>
+      <Bier name='Fips-Weizen' note='4,3' design='2,7'/>
+      <Bier name='Flensburger Weizen Naturtrüb' note='4' design='6,7'/>
+      <Bier name='Flötzinger Bräu Hefe Weisse Trüb 1543' note='6,7' design='7,3'/>
+      <Bier name='Fortuna Hefeweizen' note='5,7' design='7,7'/>
+      <Bier name='Franziskaner Hefe Weißbier' note='5' design='7,5'/>
+      <Bier name='Franziskaner Hefe Weißbier Dunkel' note='5,2' design='5,6'/>
+      <Bier name='Fürstenberg Hefe Weizen Dunkel' note='6' design='5,3'/>
+      <Bier name='Fürstenberg Hefe Weizen Hell' note='5,7' design='5'/>
+      <Bier name='Fürstenberg Kristall Weizen' note='6,3' design='5,3'/>
+      <Bier name='Gögginger Hefe Weizen' note='6' design='3,8'/>
+      <Bier name='Gold Ochsen Weißbier Hefe' note='5,5' design='3,8'/>
+      <Bier name='Gold Ochsen Weißbier Kristall' note='4,8' design='3,8'/>
+      <Bier name='Göller Steinhauer Weisse' note='5,5' design='7,3'/>
+      <Bier name='Göller Weizen Bock' note='6,3' design='6,7'/>
+      <Bier name='Graf Arco Weiße Dunkel' note='4,5' design='4'/>
+      <Bier name='Graf Arco Weiße Hell' note='3,3' design='4,7'/>
+      <Bier name='Greif-Bräu Hefeweizen Hell' note='4,3' design='5,3'/>
+      <Bier name='Grosswald Urweizen' note='5' design='4'/>
+      <Bier name='Grünbacher Green Flash' note='3,7' design='5'/>
+      <Bier name='Grünbacher Weissbier Altweizen Dunkel' note='5' design='4,5'/>
+      <Bier name='Grünbacher Weissbier Altweizen Gold' note='4,3' design='4,3'/>
+      <Bier name='Günzburger Hefe Weizen' note='6,7' design='4,3'/>
+      <Bier name='Gutmann Dunkles Hefeweizen' note='5,3' design='5,5'/>
+      <Bier name='Gutmann Hefe Weizen' note='5,5' design='4,8'/>
+      <Bier name='Gutmann Weizenbock' note='6,5' design='6,8'/>
+      <Bier name='Hacker Pschorr Weisse Hefe' note='5,5' design='7'/>
+      <Bier name='Hacker-Pschorr Sternweisse Hefe' note='6,3' design='6,8'/>
+      <Bier name='Hacklberg Dunkle Weisse' note='6,5' design='7,5'/>
+      <Bier name='Hanseaten Weisse' note='5' design='6'/>
+      <Bier name='Hasen Bräu Weißer Hase' note='7,7' design='7,3'/>
+      <Bier name='Hefe-Weiße (Norma)' note='5,3' design='2,7'/>
+      <Bier name='Hellers Weizen' note='4,8' design='5,8'/>
+      <Bier name='Hellers Weizenbock Winterbier' note='5' design='6,3'/>
+      <Bier name='Herrnbräu Hefe Weissbier' note='6' design='6'/>
+      <Bier name='Herrnbräu Schneewalzer Winter Weisse' note='5,7' design='6,3'/>
+      <Bier name='Hinterländer Sommerweizen' note='5,5' design='6,8'/>
+      <Bier name='Hirschbräu Weisser Hirsch Hefe Weizen' note='6' design='7,8'/>
+      <Bier name='Hofbräu München Schwarze Weisse' note='5,5' design='6'/>
+      <Bier name='Hofbräuhaus Traunstein Altbayrisch Ur Weizen' note='5,5' design='5'/>
+      <Bier name='Holledauer Weisses' note='6,5' design='7'/>
+      <Bier name='Holzkirchener Oberbräu Weizen 1605' note='5,2' design='5,8'/>
+      <Bier name='Holzkirchner Weisse Dunkel' note='6' design='5,3'/>
+      <Bier name='Hopf Dunkle Weiße' note='6' design='4,7'/>
+      <Bier name='Hopf Eisweissbier' note='4,3' design='6'/>
+      <Bier name='Hopf Helle Weiße' note='6' design='4'/>
+      <Bier name='Hopf Kristall Weiße' note='6' design='4'/>
+      <Bier name='Hopf Weiße Export' note='6' design='5'/>
+      <Bier name='Huber Weisses Dunkel' note='6' design='6'/>
+      <Bier name='Huber Weisses Fresh' note='7' design='7,8'/>
+      <Bier name='Huber Weisses Kristall' note='5,5' design='6,3'/>
+      <Bier name='Huber Weisses Original' note='6,5' design='6,5'/>
+      <Bier name='Huppendorfer Hefeweizen' note='7' design='4,5'/>
+      <Bier name='Innstadt Hefe Weißbier' note='5,8' design='4,5'/>
+      <Bier name='Irlbacher Premium Hefe Weizen' note='6,8' design='5'/>
+      <Bier name='Jakobinus Weizen Dunkles Weizen' note='6,3' design='7'/>
+      <Bier name='Jakobinus Weizen Hefe Weizen' note='5,5' design='6'/>
+      <Bier name='Janka Finken Weizen' note='6,5' design='5,5'/>
+      <Bier name='Julius Echter Würzburger Hofbräu' note='7,5' design='6,5'/>
+      <Bier name='Justus Weizen Hefe Hell' note='7' design='7'/>
+      <Bier name='Kaiser Weizen Hefe Natur' note='3,3' design='3,3'/>
+      <Bier name='Kaiser Weizen Schwarzes Hefe' note='5' design='6'/>
+      <Bier name='Kapuziner Weißbier Hefe' note='6' design='8'/>
+      <Bier name='Kapuziner Weißbier Kristall' note='6,5' design='8,3'/>
+      <Bier name='Kapuziner Wießbier Schwarz Hefe' note='6,3' design='7,5'/>
+      <Bier name='Karg Weißbier' note='4' design='5'/>
+      <Bier name='Keiler Weißbier' note='7' design='8'/>
+      <Bier name='Kirner Weizen Hefetrüb' note='5,5' design='5,5'/>
+      <Bier name='Kloster Hefe-Weizen' note='5,3' design='7'/>
+      <Bier name='Klösterle Dunkle Weisse' note='3,5' design='5,8'/>
+      <Bier name='Klösterle Kristall Weizen' note='5,5' design='5,5'/>
+      <Bier name='Klösterle Weisse Hefe' note='5,3' design='5,8'/>
+      <Bier name='König Ludwig Weissbier Dunkel' note='6,4' design='6,2'/>
+      <Bier name='König Ludwig Weissbier Hell' note='5,5' design='6,3'/>
+      <Bier name='Krombacher Weizen' note='4,3' design='4,3'/>
+      <Bier name='Krug Bräu Hefe Weisse' note='6,4' design='7,2'/>
+      <Bier name='Kuchlbauer Aloysius Bock Weissbier' note='6,7' design='6'/>
+      <Bier name='Kuchlbauer Alte Liebe Dunkle Weisse' note='7' design='6,5'/>
+      <Bier name='Kuchlbauer Weisse Hefe' note='7' design='7,3'/>
+      <Bier name='Lauterbacher Jahrtausend Weisse' note='6' design='9'/>
+      <Bier name='Löbauer Bergquell Lausitzer Hefe Weizen' note='5,3' design='5'/>
+      <Bier name='Maisels Weisse Dunkel' note='6' design='6,2'/>
+      <Bier name='Maisels Weisse Kristall' note='5,8' design='5,5'/>
+      <Bier name='Maisels Weisse Original' note='5,3' design='5'/>
+      <Bier name='Maisels Weisse Winter' note='6,5' design='5'/>
+      <Bier name='Maisels Weisse Wintertraum' note='7' design='6'/>
+      <Bier name='Malteser Weissbier Hefe Hell' note='4,7' design='5'/>
+      <Bier name='Maxlrainer Leo Weisse' note='5,7' design='5,3'/>
+      <Bier name='Meckatzer Urweizen Dunkel' note='8' design='7'/>
+      <Bier name='Meckatzer Weizen Hell Hefe' note='5,7' design='6,7'/>
+      <Bier name='Medardusbräu Schillerbad Hefetrübes' note='4,2' design='4,4'/>
+      <Bier name='Memminger Dunkle Weiße' note='6,3' design='7'/>
+      <Bier name='Memminger Flight Hefe Weizen' note='4,5' design='6'/>
+      <Bier name='Memminger Hefe Weizen' note='6,5' design='6,5'/>
+      <Bier name='Münchner Kindl Weissbier Hefe' note='7' design='8,5'/>
+      <Bier name='Neumarkter Lammsbräu Helles Hefeweizen' note='5,2' design='3,8'/>
+      <Bier name='Oberdorfer Dunkles Hefe' note='4,5' design='8'/>
+      <Bier name='Oberdorfer Helles Hefe' note='5' design='9,5'/>
+      <Bier name='Oberdorfer Helles Hefe Naturtrüb' note='4' design='7,5'/>
+      <Bier name='Oettinger Dunkles Hefeweizen Naturtrüb' note='5,5' design='5,5'/>
+      <Bier name='Oettinger Hefe Weizen Hell' note='6,7' design='4,7'/>
+      <Bier name='Oettinger Kristall Weizen' note='6' design='4'/>
+      <Bier name='OXX White' note='5' design='3,7'/>
+      <Bier name='Park Weizen Hefe' note='4,8' design='4'/>
+      <Bier name='Patrizier Weißbier Dunkel' note='5,7' design='5,3'/>
+      <Bier name='Patrizier Weißbier Hefe' note='4,7' design='3,3'/>
+      <Bier name='Patrizier Weißbier Kristall' note='5,7' design='6'/>
+      <Bier name='Paulaner Hefe Weißbier' note='6' design='7'/>
+      <Bier name='Paulaner Hefe Weißbier Dunkel' note='6,8' design='5,5'/>
+      <Bier name='Paulaner Weißbier Kristallklar' note='5,7' design='6'/>
+      <Bier name='Pinkus Hefe Weizen' note='6' design='6,5'/>
+      <Bier name='Postbräu Thannhausen Hefe Weisse' note='5,7' design='5,3'/>
+      <Bier name='Postbrauerei Nesselwang Hefe Weizen' note='5,8' design='5,8'/>
+      <Bier name='Prinzregent Luitpold Weißbier Dunkel' note='6,3' design='7,3'/>
+      <Bier name='Prinzregent Luitpold Weißbier Hell' note='6,7' design='6,3'/>
+      <Bier name='Reutberger Kloster Weisse' note='7' design='5'/>
+      <Bier name='Riedenburger Weisse' note='6,3' design='4,3'/>
+      <Bier name='Röhrl Bräu Straubinger Weisse Naturtrüb' note='5' design='3,3'/>
+      <Bier name='Röhrlbräu Straubinger Weisse Millenium 2000' note='6,3' design='4,3'/>
+      <Bier name='Rosenheimer Auer Bräu Hefe Weizen' note='5,5' design='7'/>
+      <Bier name='Rosenheimer Dunkle Weiße Johann Auer' note='6' design='8'/>
+      <Bier name='Rothaus Hefe Weizen' note='6,5' design='5'/>
+      <Bier name='Ruppaner Hefe Weizen Dunkel' note='5,7' design='3,7'/>
+      <Bier name='Sanwald Hefeweizen' note='5,3' design='6'/>
+      <Bier name='Sanwald Kristallweizen' note='4,8' design='4,8'/>
+      <Bier name='Sanwald Weizen Dunkel' note='5,5' design='5,8'/>
+      <Bier name='Schäffler Dunkle Weisse' note='6,3' design='5'/>
+      <Bier name='Schäffler Hefe Weißbier' note='5,7' design='5'/>
+      <Bier name='Schäffler Weißbier' note='5,7' design='6,3'/>
+      <Bier name='Schäffler Weißer Bock' note='7' design='6,7'/>
+      <Bier name='Schäffs Dunkle Weisse' note='5' design='6'/>
+      <Bier name='Schäffs Helle Weisse' note='7,3' design='6,7'/>
+      <Bier name='Schaller Hefe Weizen Hell' note='6,5' design='3,5'/>
+      <Bier name='Scheyern Kloster-Weisse Dunkel' note='6' design='6'/>
+      <Bier name='Schmucker Hefe Weizen' note='3,3' design='4,8'/>
+      <Bier name='Schneider Weisse Hefe' note='5,7' design='5,3'/>
+      <Bier name='Schöfferhofer Dunkles Hefeweizen' note='5,7' design='6,3'/>
+      <Bier name='Schöfferhofer Hefe Weizen' note='6,5' design='7'/>
+      <Bier name='Schöfferhofer Kristall Weizen' note='5' design='5'/>
+      <Bier name='Schwabenbräu Das Weizen Hefe Hell' note='6,3' design='7,8'/>
+      <Bier name='Schwarzbräu Schweden Weizen' note='6' design='4'/>
+      <Bier name='Schwarzbräu Weizen Hell' note='6' design='5,7'/>
+      <Bier name='Sigwart Hefeweizen' note='4' design='3,7'/>
+      <Bier name='Sternburg Hefe-Weizen' note='5,3' design='5'/>
+      <Bier name='Störtebeker Bernstein-Weizen' note='6,5' design='7'/>
+      <Bier name='Stuttgarter Hofbräu Weizen Kristallklar' note='4,7' design='5'/>
+      <Bier name='Sünner Hefeweizen Naturtrüb' note='4,7' design='5'/>
+      <Bier name='Traugott Simon Weizen 1798 Hefe' note='3,3' design='6,7'/>
+      <Bier name='Traugott Simon Weizen Bier Dunkles' note='4,3' design='4,7'/>
+      <Bier name='Traugott Simon Weizen Bier Hefetrüb' note='4,7' design='4,3'/>
+      <Bier name='Traugott Simon Weizen Bier Kristall' note='3,3' design='3,5'/>
+      <Bier name='Tucher Dunkles Hefe' note='6' design='5'/>
+      <Bier name='Tucher Helles Hefe' note='6' design='4,5'/>
+      <Bier name='Uerige Weizen Hefe' note='5,3' design='6,8'/>
+      <Bier name='Ulmer Münster Hefe Weizen' note='5,5' design='5,5'/>
+      <Bier name='Ulmer Münster Kristall' note='5,5' design='5,5'/>
+      <Bier name='Ulmer Münster Zunft Weizen' note='6' design='4,3'/>
+      <Bier name='Unertl Martl Weisse' note='5,7' design='6,3'/>
+      <Bier name='Unertl Weißbier Trüb' note='6,3' design='3,7'/>
+      <Bier name='Urbanus Kellerweizen Sekthefe' note='5' design='6,4'/>
+      <Bier name='Ustersbacher Bayrisch Hefe' note='6,3' design='5'/>
+      <Bier name='Valentinus Weißbier Hefetrüb' note='5,5' design='6,3'/>
+      <Bier name='Veldensteiner Weißbier' note='4,3' design='5,8'/>
+      <Bier name='Vormann Sauerländer Weizenbier' note='6,3' design='5'/>
+      <Bier name='Warbacher Hefe Weißbier' note='4,4' design='4,8'/>
+      <Bier name='Weihenstephaner Hefe Weissbier' note='6,5' design='5'/>
+      <Bier name='Weihenstephaner Hefe Weissbier Dunkel' note='7' design='5'/>
+      <Bier name='Weihenstephaner Kristall' note='5,3' design='5'/>
+      <Bier name='Weiss Rössl Hefeweizen' note='5,4' design='4,8'/>
+      <Bier name='Weissensteiner Weissbier' note='8' design='7'/>
+      <Bier name='Weltenburger Hefe Weißbier Hell' note='4,7' design='5'/>
+      <Bier name='Weltenburger Kloster Hefe Weißbier Dunkel' note='6' design='6'/>
+      <Bier name='Wendelsteiner Naturtrüb Hefeweissbier' note='4' design='7'/>
+      <Bier name='Wieninger Weissbier Naturtrüb' note='5' design='6,5'/>
+      <Bier name='Wildbräu Dunkle Weisse Naturtrüb' note='5,8' design='5,8'/>
+      <Bier name='Wildbräu Hefe Weisse Naturtrüb' note='6,3' design='4'/>
+      <Bier name='Wildbräu Hefeweisse Weizen Export' note='7' design='4,7'/>
+      <Bier name='Wildbräu Weißbierpils' note='4,4' design='4,8'/>
+      <Bier name='Zoller-Hof Hefe Weizen' note='5,5' design='5,3'/>
+      <Bier name='Zötler Hefe Weizen' note='4,6' design='3,4'/>
+      <Bier name='Zötler Hefe Weizen Dunkel' note='6,8' design='5'/>
+  </sorte>
+  </land>
+  <land name='Dänemark'>
+      <Bier name='Albani Odense Classic' note='0' design='0'/>
+      <Bier name='Carlsberg Bier' note='6,7' design='5,7'/>
+      <Bier name='Ceres Old 9' note='7,2' design='6,4'/>
+      <Bier name='Ceres Red Erik' note='6,5' design='7'/>
+      <Bier name='Ceres Royal Export' note='6' design='6,5'/>
+      <Bier name='Ceres Top Pilsner' note='0' design='0'/>
+      <Bier name='Faxe Premium Pils' note='6,7' design='5,3'/>
+      <Bier name='Fregatten Jylland' note='5,7' design='8'/>
+      <Bier name='Karlsberg Elephant Beer   (Dose)' note='5,7' design='3,3'/>
+      <Bier name='Slots Pilsner' note='0' design='0'/>
+      <Bier name='Thor Classic' note='0' design='0'/>
+      <Bier name='Thor Pilsner' note='0' design='0'/>
+      <Bier name='Tuborg Pilsener  (Deutsch)' note='6,5' design='9'/>
+  </land>
+  <land name='Dom-Rep'>
+      <Bier name='Kubuli Extra' note='5,7' design='5,7'/>
+      <Bier name='Presidente Tipo Pilsener' note='5,5' design='3,5'/>
+      <Bier name='Soberana Tipo Pilsener' note='5,3' design='4,3'/>
+  </land>
+  <land name='England'>
+      <Bier name='Bishops Finger Kentish Strong Ale' note='5,3' design='6,5'/>
+      <Bier name='Blackadder  (Mix)' note='4,3' design='6'/>
+      <Bier name='Boddingtons Pub Ale (Dose)' note='4' design='4,3'/>
+      <Bier name='Bombardier Export Strong Ale' note='6' design='8,7'/>
+      <Bier name='Bud UK' note='4,3' design='6'/>
+      <Bier name='Carlsberg Ice Beer (England)' note='5' design='5,7'/>
+      <Bier name='Cobra Indisches Bier UK' note='3,3' design='6,3'/>
+      <Bier name='Coors' note='4' design='7,3'/>
+      <Bier name='Dogs Hair' note='6,3' design='6,3'/>
+      <Bier name='Fuller´s London Pride Ale' note='4,7' design='8,3'/>
+      <Bier name='Gold Label Very Strong' note='5,3' design='4,7'/>
+      <Bier name='Green King Abbot Ale' note='6,6' design='8,6'/>
+      <Bier name='Green Mamba Cider' note='2' design='5'/>
+      <Bier name='Hobgoblin Extra Strong Ale' note='6,5' design='10'/>
+      <Bier name='Kingfisher Premium Lager Beer UK' note='3,8' design='6,8'/>
+      <Bier name='Labatt Blue (Brewed in UK)' note='2,7' design='5'/>
+      <Bier name='LCL Pils Lager' note='5,7' design='4,7'/>
+      <Bier name='LCL Strong Premium Lager' note='5' design='4'/>
+      <Bier name='Manns Brown Ale' note='4,3' design='4,7'/>
+      <Bier name='Marston´s Oyster Stout' note='7' design='8,5'/>
+      <Bier name='Marston´s Pedigree' note='5' design='7,3'/>
+      <Bier name='Morland Hen´s Tooth' note='5,3' design='7'/>
+      <Bier name='Morland Old Speckled Hen' note='4,3' design='7,7'/>
+      <Bier name='Morton´s Single Malt Ale' note='5' design='8'/>
+      <Bier name='Newcastle Brown Ale' note='5,7' design='6,3'/>
+      <Bier name='Pitchfork Bitter' note='5,5' design='7'/>
+      <Bier name='Red Stripe Jamaica Beer UK' note='3,5' design='4,3'/>
+      <Bier name='Rugby Ale' note='5,3' design='7'/>
+      <Bier name='Scoresby Stout' note='5' design='9'/>
+      <Bier name='Spitfire Bitter' note='5,5' design='7'/>
+      <Bier name='Spitfire Kentish Ale' note='0' design='0'/>
+      <Bier name='Tetley´s Original Bitter' note='3,3' design='3,3'/>
+      <Bier name='Whitbread Extra Stout' note='6' design='8'/>
+      <Bier name='Young`s Old Nick' note='6,5' design='7'/>
+      <Bier name='Young´s Light Ale' note='3,7' design='4,3'/>
+  </land>
+  <land name='Finnland'>
+      <Bier name='Karhu Bier IVA' note='6,3' design='7,7'/>
+      <Bier name='Karhu Tosi Vahva' note='6' design='7'/>
+      <Bier name='Karjala Bier' note='5,7' design='6'/>
+      <Bier name='Koff' note='5,3' design='6,3'/>
+      <Bier name='Kommodori Lager' note='4,3' design='5,7'/>
+      <Bier name='Kuohu Vahva Tumma' note='4,7' design='7'/>
+      <Bier name='Kuohu Vahva Vaalea' note='4,3' design='6'/>
+      <Bier name='Lapin Kulta Premium Bier' note='5' design='5,7'/>
+      <Bier name='Lapin Kulta Premium Lager' note='5' design='6'/>
+      <Bier name='Legenda' note='5' design='5,7'/>
+      <Bier name='Nokian Vaalea' note='4,3' design='6'/>
+      <Bier name='Olvi Export' note='5,7' design='5,3'/>
+      <Bier name='Sandels Lager' note='7' design='8'/>
+      <Bier name='Urho Suoma Lainen' note='5,7' design='6,7'/>
+  </land>
+  <land name='Frankreich'>
+      <Bier name='1664 de Kronenbourg' note='5,3' design='5'/>
+      <Bier name='1664 de Kronenbourg Haute' note='6' design='7,5'/>
+      <Bier name='3 Monts' note='6' design='8,3'/>
+      <Bier name='33" Export' note='4' design='4,5'/>
+      <Bier name='8,8 Premium' note='5,7' design='4,7'/>
+      <Bier name='Abbaye de Lille' note='6' design='8'/>
+      <Bier name='Abbaye de St.Landelin' note='5,7' design='7,3'/>
+      <Bier name='Adelscott au Malt a Whisky' note='6,5' design='5,5'/>
+      <Bier name='Amadeus' note='5,5' design='7'/>
+      <Bier name='Belzebuth' note='7' design='8,3'/>
+      <Bier name='Biere Blonde Authentique' note='5' design='5'/>
+      <Bier name='Biere Bretonne Lancelot' note='6,3' design='7,8'/>
+      <Bier name='Biere de France' note='3,3' design='3,3'/>
+      <Bier name='Biere des Naufrageurs' note='5' design='7,8'/>
+      <Bier name='Biere du Carnaval' note='0' design='0'/>
+      <Bier name='Biere Tradition du Nord Blonde' note='5' design='8,5'/>
+      <Bier name='Blanche du Brasseur' note='5,5' design='7'/>
+      <Bier name='Blanche Hermine' note='3,3' design='7'/>
+      <Bier name='CH´TI Ambree' note='0' design='0'/>
+      <Bier name='CH´TI Blonde' note='8' design='8,5'/>
+      <Bier name='Christmas Ambree Terken' note='5' design='6,5'/>
+      <Bier name='Desperados Desighner Bier' note='6,5' design='5'/>
+      <Bier name='Duchesse Anne' note='4,7' design='8,3'/>
+      <Bier name='Fischer Dorelei Ambree' note='5,5' design='8,3'/>
+      <Bier name='Fischer Tradition Alsace' note='5,3' design='8,3'/>
+      <Bier name='Gavroche Fermentation Haute' note='5,7' design='6,3'/>
+      <Bier name='Grain d´Orge' note='0' design='0'/>
+      <Bier name='Gruber Lager' note='5' design='4'/>
+      <Bier name='Jenlain' note='6' design='8,3'/>
+      <Bier name='Jenlain Ambree' note='7,5' design='7'/>
+      <Bier name='Jenlain Blonde Speciale' note='5' design='6,3'/>
+      <Bier name='Kronenbourg' note='5' design='3,7'/>
+      <Bier name='La Biere du Demon' note='7' design='8'/>
+      <Bier name='La Choulette Ambree' note='0' design='0'/>
+      <Bier name='La Divine St.Landelin' note='8' design='8,3'/>
+      <Bier name='La Goudale' note='4,7' design='7,3'/>
+      <Bier name='La Reserve Maitre Kanter' note='5,5' design='9'/>
+      <Bier name='La Wambrechies' note='5,3' design='9,7'/>
+      <Bier name='Lutece Paris' note='7' design='7,7'/>
+      <Bier name='Mortimer' note='6,8' design='6,6'/>
+      <Bier name='Nordik Gold' note='0' design='0'/>
+      <Bier name='Pelforth Brune' note='7' design='9'/>
+      <Bier name='Pelforth Pelican Blonde' note='0' design='0'/>
+      <Bier name='Pelforth Pelican Brune 5,8%' note='7,5' design='7'/>
+      <Bier name='Pietra Korsika' note='6' design='7'/>
+      <Bier name='Saint Landelin' note='0' design='0'/>
+      <Bier name='Saint-Omer Blonde 4%' note='0' design='0'/>
+      <Bier name='Saint-Omer Blonde 5%' note='5' design='4,6'/>
+      <Bier name='Schutzenberger Biere de Mars' note='5,5' design='4,5'/>
+      <Bier name='Schutzenberger Criolos Chocolat' note='7' design='6'/>
+      <Bier name='Septante 5 Blonde' note='5' design='6,3'/>
+      <Bier name='Sterling Blonde' note='0' design='0'/>
+      <Bier name='Tequileros' note='6' design='5,8'/>
+      <Bier name='Tourtel Blonde' note='2,8' design='3,3'/>
+      <Bier name='Valstar Biere Fine et Legere' note='3' design='2,7'/>
+  </land>
+  <land name='Griechenland'>
+      <Bier name='2000 Millennium Heineken Greek' note='5,5' design='5,5'/>
+      <Bier name='Alfa Hellenic Beer' note='5,7' design='4,7'/>
+      <Bier name='Amstel Beer Greek' note='5,3' design='4,7'/>
+      <Bier name='Dia Helles Lager Premium' note='1,5' design='3'/>
+      <Bier name='Diabräu Greek (Dose)' note='3,8' design='2,6'/>
+      <Bier name='Fischer Greek' note='5' design='6'/>
+      <Bier name='Fix Hellas (Dose)' note='1,7' design='3,7'/>
+      <Bier name='Hellas Pils' note='4' design='4'/>
+      <Bier name='Henninger Quality Beer Greek' note='3,5' design='4'/>
+      <Bier name='Marathon' note='4,3' design='5,7'/>
+      <Bier name='Mythos' note='4,7' design='6,3'/>
+      <Bier name='Vergina Lager Beer Premium' note='5' design='4'/>
+      <Bier name='Vergina Red Premium Beer' note='4,5' design='5'/>
+      <Bier name='Wind Lager Beer (Dose)' note='3,8' design='3,5'/>
+      <Bier name='Zorbas Beer' note='4' design='6,3'/>
+  </land>
+  <land name='Holland'>
+      <Bier name='`t Schoenlappertje' note='6' design='6'/>
+      <Bier name='Albert Heijn Pilsener' note='4' design='4,7'/>
+      <Bier name='Alfa Edel Pils' note='3,7' design='4,7'/>
+      <Bier name='Amstel 1870' note='5,3' design='5'/>
+      <Bier name='Amstel Pilsener' note='4,3' design='4,7'/>
+      <Bier name='Amsterdam Mariner' note='5' design='5,5'/>
+      <Bier name='Bavaria Pilsener Bier' note='5,5' design='4'/>
+      <Bier name='Bavaria Special Blond Beer 8.6.' note='7' design='7,3'/>
+      <Bier name='Bon Vivant' note='4,5' design='6,5'/>
+      <Bier name='Brand Imperator' note='6' design='7'/>
+      <Bier name='Brand Pilsener' note='5,5' design='6,5'/>
+      <Bier name='Christoffel Blond' note='5' design='7'/>
+      <Bier name='Classe Royale Pilsener' note='4' design='4'/>
+      <Bier name='Croy Dubbel' note='5,8' design='5,8'/>
+      <Bier name='De Zeezuiper natuurbier' note='5,7' design='7,3'/>
+      <Bier name='Dommelsch Pilsener' note='5,5' design='5'/>
+      <Bier name='Emelisse Noord Bevelands Dubbel Abdijb.' note='5,5' design='6,5'/>
+      <Bier name='Graf Geschut' note='1,7' design='6,7'/>
+      <Bier name='Grolsch 2,5' note='6' design='5,3'/>
+      <Bier name='Grolsch 2,5 Pink Grapefruit' note='5' design='5'/>
+      <Bier name='Grölsch Het Kanon' note='5' design='5,7'/>
+      <Bier name='Grolsch Kanon' note='7' design='4,3'/>
+      <Bier name='Grolsch Kanon Schot' note='6' design='8'/>
+      <Bier name='Grolsch Oud Bruin' note='0' design='0'/>
+      <Bier name='Grolsch Premium Lager' note='6,3' design='7,3'/>
+      <Bier name='Grolsch Premium Pilsner' note='5,3' design='6,7'/>
+      <Bier name='Grolsch Premium Weizen' note='0' design='0'/>
+      <Bier name='Grolsch Winter Vorst' note='6,3' design='7,7'/>
+      <Bier name='Grolsch Zomer Goud' note='5,5' design='6'/>
+      <Bier name='Gulpener Korenwolf' note='4,3' design='7,3'/>
+      <Bier name='Gulpener Pilsener' note='4,3' design='6,7'/>
+      <Bier name='Heineken Oud Bruin' note='7' design='7'/>
+      <Bier name='Heineken Pilsener' note='5' design='5,3'/>
+      <Bier name='Heineken Tarwebok' note='6,7' design='6,7'/>
+      <Bier name='Hertog Jan' note='5' design='8'/>
+      <Bier name='Het Elfde Gebod' note='5,5' design='8,5'/>
+      <Bier name='Hollandia Lager Bier' note='3,3' design='4,7'/>
+      <Bier name='Jaeger Bier' note='4' design='6'/>
+      <Bier name='Karthuizer Dubbel' note='4,3' design='7'/>
+      <Bier name='Karthuizer Tripel' note='5,5' design='7,5'/>
+      <Bier name='Keizers Kroon Premium Pilsner' note='0' design='0'/>
+      <Bier name='Kroon Bier (Dose)' note='2,3' design='2,5'/>
+      <Bier name='La Trappe Blond' note='6' design='5,7'/>
+      <Bier name='La Trappe Konigshoeven Trappiste Brune' note='4,7' design='5'/>
+      <Bier name='La Trappe Trappist Dubbel' note='6,5' design='5'/>
+      <Bier name='Lamme Goedzak Speciaal Bier' note='5' design='6,7'/>
+      <Bier name='Lazarus' note='5,5' design='6'/>
+      <Bier name='Leeuw Pilsener' note='5' design='6'/>
+      <Bier name='Lindeboom Pilsener' note='5,7' design='5,3'/>
+      <Bier name='Lingen´s Blond' note='3,7' design='4'/>
+      <Bier name='Lingen´s Lemon' note='5' design='4,5'/>
+      <Bier name='Merck toch hoe sterck Donker Zwaar' note='4,5' design='6,5'/>
+      <Bier name='Middelburgs Witheer' note='5,5' design='6,5'/>
+      <Bier name='Mongozo Africa Bier' note='4,3' design='6'/>
+      <Bier name='Mongozo Banana' note='0' design='0'/>
+      <Bier name='Mongozo Coconut' note='0' design='0'/>
+      <Bier name='Moreeke Speciaal Bier' note='5,5' design='6,5'/>
+      <Bier name='Neubourg Pilsener' note='4' design='6,5'/>
+      <Bier name='Paasij Amsterdams Bier' note='4,7' design='5,3'/>
+      <Bier name='Pitt Bier' note='3,7' design='3,3'/>
+      <Bier name='Playboy Premium Pilsener' note='4' design='5,5'/>
+      <Bier name='Scheldepils' note='0' design='0'/>
+      <Bier name='Sjöes Limburgs Bier' note='5,7' design='6'/>
+      <Bier name='Sleutel Bokbier' note='5' design='6'/>
+      <Bier name='Stads Brouwerij Maastrich' note='5,5' design='3,5'/>
+      <Bier name='Strandgaper' note='6,5' design='7,5'/>
+      <Bier name='Van Vollenhoven`s Stout' note='5' design='6'/>
+      <Bier name='Vos' note='5' design='5,7'/>
+      <Bier name='Wertha Breda Pilsener Bier' note='4' design='2,7'/>
+      <Bier name='Wieckse Witte' note='3,5' design='4'/>
+      <Bier name='Wildebok' note='6' design='7'/>
+      <Bier name='Zeeuws Kersen Bier' note='3,5' design='5,5'/>
+      <Bier name='Zeeuws Vlegel Bier' note='5,7' design='5,3'/>
+      <Bier name='Zeeuwsch Alexis' note='2,7' design='4'/>
+      <Bier name='Zeeuwsche Witte' note='5,3' design='6'/>
+      <Bier name='Zinniz Crispy Lime' note='4,3' design='3,5'/>
+      <Bier name='Zinniz Tropical Red' note='4,3' design='3,5'/>
+      <Bier name='Zondebok' note='5' design='7,5'/>
+  </land>
+  <land name='Indien'>
+      <Bier name='Anokhi Beer' note='3' design='7,5'/>
+      <Bier name='Belo Lager Beer' note='5' design='6,3'/>
+      <Bier name='Cobra Extra Smooth' note='5,5' design='7,5'/>
+      <Bier name='King´s Premium Pils' note='2,3' design='4,8'/>
+      <Bier name='King´s Strong Beer' note='4' design='4,3'/>
+      <Bier name='Kingfisher' note='3,3' design='6,3'/>
+      <Bier name='Lal Toofan Red Storm' note='6,3' design='8,3'/>
+      <Bier name='Namaste' note='0' design='0'/>
+  </land>
+  <land name='Indonesien'>
+      <Bier name='Bintang Pils' note='5,5' design='6,5'/>
+  </land>
+  <land name='Irland'>
+      <Bier name='Coors Light (Irland)' note='2,7' design='6,7'/>
+      <Bier name='Finians Irish Red Ale' note='6,3' design='9,3'/>
+      <Bier name='Guinness' note='6' design='6,7'/>
+      <Bier name='Guinness Draught' note='4,7' design='7'/>
+      <Bier name='Guinness Special Export' note='5,7' design='7'/>
+      <Bier name='Harp Lager' note='6,5' design='6'/>
+      <Bier name='Independence American Style Lager' note='4,3' design='4,3'/>
+      <Bier name='Kilkenny Irish Beer' note='5,3' design='7,3'/>
+      <Bier name='McFarland Red Beer' note='5,3' design='6,7'/>
+      <Bier name='Murphys Irish Red Beer' note='5' design='7'/>
+      <Bier name='Murphys Irish Stout Draught' note='5,5' design='7,5'/>
+      <Bier name='Smithwick´s' note='5,3' design='5,7'/>
+  </land>
+  <land name='Island'>
+      <Bier name='Egils Gull Redjavik' note='5,3' design='5,3'/>
+  </land>
+  <land name='Israel'>
+      <Bier name='Maccabee Premium Bier' note='6,5' design='8'/>
+  </land>
+  <land name='Italien'>
+      <Bier name='Birra Ichnusa' note='4' design='4'/>
+      <Bier name='Birra Moretti' note='5,7' design='6,3'/>
+      <Bier name='Castello' note='0' design='0'/>
+      <Bier name='Dana Bräu' note='2,7' design='3,3'/>
+      <Bier name='Dreher' note='3' design='4,7'/>
+      <Bier name='Forst Kronen Spezial' note='4,7' design='5'/>
+      <Bier name='Forst Pemium' note='2' design='3'/>
+      <Bier name='Kantel Bräu Export Lager' note='5,5' design='4'/>
+      <Bier name='Menabrea' note='5' design='7'/>
+      <Bier name='Nastro Azzuro' note='4' design='5,3'/>
+      <Bier name='Peroni' note='4' design='3,7'/>
+      <Bier name='Peroni Gran Riserva' note='6,5' design='9'/>
+      <Bier name='Peroni Peroncino' note='5' design='7'/>
+      <Bier name='Prinz Lager 3,5' note='3,3' design='3'/>
+      <Bier name='Sans Souci Export 5,6' note='4,7' design='5,7'/>
+      <Bier name='Splügen' note='4,3' design='4'/>
+      <Bier name='Von Wunster Classica' note='4' design='3,8'/>
+      <Bier name='XXXX Australia (Italia)' note='4,7' design='5'/>
+  </land>
+  <land name='Jamaika'>
+      <Bier name='Red Stripe' note='5,7' design='5,3'/>
+  </land>
+  <land name='Japan'>
+      <Bier name='Asahi Super Dry' note='6' design='8'/>
+      <Bier name='Ginga Kogen Beer' note='6,5' design='9'/>
+      <Bier name='Kirin Bier Premium Lager' note='5' design='9'/>
+      <Bier name='Sapporo Premium Lager (Irland)' note='5,5' design='8,5'/>
+      <Bier name='Shonan Beer' note='6,7' design='6,3'/>
+  </land>
+  <land name='Kanada'>
+      <Bier name='Labatt Ice' note='4,5' design='6'/>
+      <Bier name='Molson Golden' note='5,5' design='7,5'/>
+      <Bier name='Moosehead Lager Beer' note='4' design='9'/>
+      <Bier name='Whistler Premium Lager' note='5,5' design='6,5'/>
+  </land>
+  <land name='Kenia'>
+      <Bier name='Tusker Premium Lager' note='5' design='9,5'/>
+  </land>
+  <land name='Kroatien'>
+      <Bier name='Bohemian Lager Beer' note='5,3' design='6,8'/>
+      <Bier name='Fovorit' note='3,8' design='5,3'/>
+      <Bier name='Karlovacko CRNO' note='4,8' design='4,2'/>
+      <Bier name='Karlovacko Pivo' note='5' design='4,5'/>
+      <Bier name='Osjecko Pivo' note='5' design='6'/>
+      <Bier name='Ozujsko Pivo' note='4,3' design='4,3'/>
+      <Bier name='Ozujsko Strong' note='5,5' design='6'/>
+      <Bier name='PAN Lager' note='5,5' design='5,3'/>
+      <Bier name='Staro Cesko Lager' note='5' design='5,2'/>
+      <Bier name='Staro Cesko Pivo' note='4,5' design='6'/>
+      <Bier name='Tomislav Pivo' note='5,5' design='6'/>
+      <Bier name='Zlatorog Pivo' note='2,3' design='5'/>
+  </land>
+  <land name='Laos'>
+      <Bier name='Beerlao' note='5,3' design='6'/>
+  </land>
+  <land name='Lettland'>
+      <Bier name='Rigas' note='4,5' design='5,5'/>
+  </land>
+  <land name='Litauen'>
+      <Bier name='Gubernija Choroshee' note='6,3' design='5'/>
+      <Bier name='Gubernija Kolos Swetloje' note='5,7' design='5,3'/>
+      <Bier name='Gubernija Schachtjorskoje Tjamnoje' note='6' design='5,5'/>
+      <Bier name='Gubernija Zschiguljowskoje Kollekzionnoje' note='5,5' design='5'/>
+  </land>
+  <land name='Luxemburg'>
+      <Bier name='Altmunster' note='4,8' design='4,5'/>
+      <Bier name='Battin Edelpils' note='5,3' design='5'/>
+      <Bier name='Battin Gambrinus' note='5,7' design='6,3'/>
+      <Bier name='Bofferding Christmas Beier' note='5' design='5'/>
+      <Bier name='Bofferding Hausbeier' note='6,8' design='6'/>
+      <Bier name='Bofferding Lager Pils' note='4,3' design='3'/>
+      <Bier name='Brass.Artisanale d.Redange Nr 1 Blanche' note='4,8' design='5,5'/>
+      <Bier name='Brass.Artisanale d.Redange Nr 2 Rousse' note='3' design='4,3'/>
+      <Bier name='Brass.Artisanale d.Redange Nr 3 Blonde' note='4,3' design='4,3'/>
+      <Bier name='Brass.Artisanale d.Redange Stout' note='5' design='4,3'/>
+      <Bier name='Diekirch Biere de Noel' note='6' design='5,3'/>
+      <Bier name='Diekirch Exclusive' note='4,8' design='4,8'/>
+      <Bier name='Diekirch Grand Cru' note='5,7' design='5,7'/>
+      <Bier name='Diekirch Grande Reserve' note='6' design='6,6'/>
+      <Bier name='Diekirch Premium' note='5' design='6,8'/>
+      <Bier name='Henri Funck Lager Bier' note='4,4' design='3,6'/>
+      <Bier name='Mousel Premium Pils' note='5' design='4,3'/>
+      <Bier name='Simon Dinkel' note='4' design='3'/>
+      <Bier name='Simon Noel' note='5,8' design='3,8'/>
+      <Bier name='Simon Pils' note='3,8' design='1,8'/>
+      <Bier name='Simon Prestige' note='3,5' design='4,8'/>
+      <Bier name='Simon Regal' note='3,3' design='2'/>
+  </land>
+  <land name='Malta'>
+      <Bier name='CISK Lager Beer' note='4,7' design='5,7'/>
+      <Bier name='Hopleaf Pale Ale' note='4' design='5,7'/>
+  </land>
+  <land name='Marokko'>
+      <Bier name='Casablanca Beer' note='6' design='7,3'/>
+  </land>
+  <land name='Mazedonien'>
+      <Bier name='Aa 6.' note='4' design='4,5'/>
+      <Bier name='Choncko' note='4' design='2'/>
+  </land>
+  <land name='Mexiko'>
+      <Bier name='Corona' note='6' design='5'/>
+      <Bier name='Dos Equis XX' note='4' design='6,5'/>
+      <Bier name='Negra Modelo' note='5,7' design='6,3'/>
+      <Bier name='Sol' note='5' design='4,3'/>
+  </land>
+  <land name='Namibia'>
+      <Bier name='Das Pilsener' note='0' design='0'/>
+      <Bier name='Windhoek Export    4,5% alc.' note='6' design='6,3'/>
+      <Bier name='Windhoek Pemium Lager   4% alc.' note='0' design='0'/>
+  </land>
+  <land name='Neu Seeland'>
+      <Bier name='Steinlager Premium Lager' note='4,3' design='6'/>
+  </land>
+  <land name='Nigeria'>
+      <Bier name='Nigeria Pal Lager Bier' note='6' design='6,3'/>
+  </land>
+  <land name='Norwegen'>
+      <Bier name='Arctic Beer' note='6,7' design='8,3'/>
+      <Bier name='Haakon Spesiaol Mack' note='5,7' design='7'/>
+      <Bier name='Lysholmer Double Ice' note='6' design='6,5'/>
+  </land>
+  <land name='Österreich'>
+      <Bier name='Bürgerbräu Kaiser Märzen' note='5' design='4'/>
+      <Bier name='Edelweiss Weißbier Dunkel' note='5,3' design='6'/>
+      <Bier name='Edelweiss Weißbier Hefetrüb' note='5,7' design='5,7'/>
+      <Bier name='Edelweiss Weißbier Kristallklar' note='5,7' design='5,7'/>
+      <Bier name='Eggenberger Urbock 23' note='6,5' design='9'/>
+      <Bier name='Egger Naturtrüb' note='4,7' design='5'/>
+      <Bier name='Engelburg Bräu' note='5' design='4'/>
+      <Bier name='Fohrenburger 1881 Gold Märzen' note='6' design='5'/>
+      <Bier name='Fohrenburger Doppel Malz' note='6,7' design='5'/>
+      <Bier name='Fohrenburger Fohr Radler' note='4,3' design='3,8'/>
+      <Bier name='Fohrenburger Jubiläum' note='5' design='4'/>
+      <Bier name='Fohrenburger Lager Extra Dry' note='4,7' design='4,3'/>
+      <Bier name='Fohrenburger Stiftle' note='5' design='4'/>
+      <Bier name='Fohrenburger Winter Bock' note='7' design='6,3'/>
+      <Bier name='Frastanzer Bock' note='4,3' design='3,7'/>
+      <Bier name='Frastanzer Classic Gold' note='3' design='7,3'/>
+      <Bier name='Frastanzer Gold Spezial' note='5,3' design='4,3'/>
+      <Bier name='Frastanzer Helles' note='4,7' design='4'/>
+      <Bier name='Frastanzer Jubiläums Bräu' note='4,7' design='5'/>
+      <Bier name='Frastanzer Jubiläums Kellerbier Naturtrüb' note='6' design='6,7'/>
+      <Bier name='Frastanzer Piccolo' note='6' design='6,5'/>
+      <Bier name='Gösser Bier' note='5,5' design='5'/>
+      <Bier name='Gösser Märzen' note='5,5' design='4,5'/>
+      <Bier name='Hirter Morchl Kärnten' note='5' design='7'/>
+      <Bier name='Hirter Privat Pils Kärnten' note='6,7' design='6,7'/>
+      <Bier name='Kapsreiter Landbier Goldbraun' note='6,5' design='7,5'/>
+      <Bier name='Kapsreiter Landbier Hell' note='6,7' design='8'/>
+      <Bier name='Mac Queens Nessie' note='5,7' design='6,7'/>
+      <Bier name='Mohren Export' note='5' design='3,7'/>
+      <Bier name='Mohren Gambrinus' note='6,5' design='5'/>
+      <Bier name='Mohren Pfiff' note='4,7' design='4,7'/>
+      <Bier name='Mohren Spezial' note='4,5' design='3,5'/>
+      <Bier name='Muntanella Original Murmeli' note='8,3' design='8'/>
+      <Bier name='Ottakringer Helles' note='5' design='6,3'/>
+      <Bier name='Ottakringer Schnitt' note='6,3' design='6'/>
+      <Bier name='Puntigamer Steirisches Bier' note='4,7' design='5,7'/>
+      <Bier name='Raschhofer Zwickl Bier' note='6' design='5'/>
+      <Bier name='Schloss Eggenberg Hopfen König' note='6,3' design='5,7'/>
+      <Bier name='Schützen Bräu' note='5' design='3,7'/>
+      <Bier name='Spirit of Hemp-Tirol' note='5,3' design='4,3'/>
+      <Bier name='Starkenberger Gold Lager' note='5' design='4,3'/>
+      <Bier name='Stiegl Brau Kunst Edition 22' note='3,7' design='4,3'/>
+      <Bier name='Stiegl Goldbräu' note='5,3' design='4'/>
+      <Bier name='Stiegl Original Stieglbock' note='5,3' design='6'/>
+      <Bier name='Stiegl Pils' note='4' design='3,5'/>
+      <Bier name='Stiegl Weizen Gold Dunkel' note='4' design='5'/>
+      <Bier name='Stiegl Weizen Gold Hefefein' note='6,7' design='5'/>
+      <Bier name='Stiegl Zwickl' note='5' design='5'/>
+      <Bier name='Trumer Pils' note='2' design='3,3'/>
+      <Bier name='Wieselburger Bier Stammbräu' note='7,3' design='8,7'/>
+      <Bier name='Wurmhöringer Märzen Bier' note='4,3' design='4,7'/>
+      <Bier name='Zipfer Märzen' note='4,7' design='3,7'/>
+      <Bier name='Zipfer Premium' note='5,3' design='6,7'/>
+      <Bier name='Zipfer Stefani Bock' note='7' design='4'/>
+      <Bier name='Zipfer Urtyp' note='5,3' design='4,7'/>
+  </land>
+  <land name='Palestina'>
+      <Bier name='Taybeh Bier' note='5,5' design='8,5'/>
+  </land>
+  <land name='Philippinen'>
+      <Bier name='Red Horse Beer Extra Strong' note='5,3' design='5,7'/>
+      <Bier name='San Miguel Pale Pilsen' note='4' design='5,5'/>
+  </land>
+  <land name='Polen'>
+      <Bier name='10,5 Podwojnie Ehmielone' note='2,3' design='4,5'/>
+      <Bier name='Brok Sambor' note='5,5' design='4'/>
+      <Bier name='Debowe Mocne' note='4,8' design='6,5'/>
+      <Bier name='EB' note='5' design='4'/>
+      <Bier name='Gingers Beer' note='6,5' design='6,8'/>
+      <Bier name='Hammer Super Mocny' note='5,3' design='8'/>
+      <Bier name='Harnas' note='5,8' design='6,5'/>
+      <Bier name='Karmi Uwodzi Smakien' note='5,5' design='4,8'/>
+      <Bier name='Krolewskie Pivo Jasne Pelne' note='5,7' design='7'/>
+      <Bier name='Lech Premium' note='5,3' design='5,7'/>
+      <Bier name='Okocim Mocne' note='6,8' design='5,8'/>
+      <Bier name='Okocim Palone' note='6,3' design='7,3'/>
+      <Bier name='Okocim Traditional' note='0' design='0'/>
+      <Bier name='Pils Export' note='5,3' design='7,7'/>
+      <Bier name='Redd´s Pemium Cold (Dose)' note='6' design='4,5'/>
+      <Bier name='Redd´s Premium Beer' note='7,3' design='4,5'/>
+      <Bier name='Specjal Full Light' note='5' design='3,3'/>
+      <Bier name='Specjal Jasne Pelne' note='5,7' design='5,7'/>
+      <Bier name='Specjal Mocny' note='6' design='6'/>
+      <Bier name='Tatra Gleboki Pelny Smak' note='6,5' design='6,5'/>
+      <Bier name='Tatra Pils Doskonaly Pelny Smak' note='6' design='6'/>
+      <Bier name='Tatra Pils Z Nasyk Polskik Gor' note='6' design='7'/>
+      <Bier name='Tyskie Gronie' note='4,7' design='4,7'/>
+      <Bier name='Warka Strong 1478' note='6' design='8'/>
+      <Bier name='Warka Uznamy Smak' note='6' design='6,3'/>
+      <Bier name='Warka Zdecydowany Piwny Smak' note='5,3' design='6'/>
+      <Bier name='Zlatyhrad Strong Silne Pivo' note='7,3' design='8,3'/>
+      <Bier name='Zubr 1768 Jasne Pelne' note='6,8' design='7,3'/>
+      <Bier name='Zywiec' note='4,3' design='4'/>
+  </land>
+  <land name='Portugal'>
+      <Bier name='Cristal Pilsen' note='5' design='5'/>
+      <Bier name='Imperial' note='5,5' design='5,5'/>
+      <Bier name='Sagres' note='6' design='4'/>
+      <Bier name='Super Bock' note='6' design='5,5'/>
+      <Bier name='Super Bock Cool Beer' note='5' design='4,3'/>
+  </land>
+  <land name='Rumänien'>
+      <Bier name='Ursus Premium' note='5' design='5,7'/>
+  </land>
+  <land name='Russland'>
+      <Bier name='Baltika Classical No.3' note='5,3' design='6,7'/>
+      <Bier name='Baltika No.4 Dunkles Bier' note='6,5' design='7'/>
+      <Bier name='Baltika No.9' note='6,3' design='6,5'/>
+      <Bier name='Baltika Parnas No.5' note='5' design='6'/>
+      <Bier name='Baltika Swetloje No.1' note='5,5' design='5'/>
+      <Bier name='Dovgan No.20 Hell' note='6,7' design='6'/>
+      <Bier name='Dovgan No.23 Dunkel' note='6' design='7,3'/>
+      <Bier name='Jatschmennui Kolos' note='5' design='5,5'/>
+      <Bier name='Medowoje Krepkoje' note='7' design='5,3'/>
+      <Bier name='Medowoje Ljogkoje' note='8' design='5'/>
+      <Bier name='Ochakovo Classic' note='5,8' design='4'/>
+      <Bier name='Ochakovo Original' note='4,8' design='4'/>
+      <Bier name='Ochakovo Special' note='4,8' design='5,3'/>
+      <Bier name='Pyeckoe' note='6,3' design='6,3'/>
+      <Bier name='Schachtjorskoje' note='4,5' design='7'/>
+      <Bier name='Schachtjorskoje Premium' note='5,7' design='7'/>
+      <Bier name='Schiguljewskoje (gelbes Label)' note='6,5' design='5'/>
+      <Bier name='Schiguljewskoje (grünes Label)' note='4,7' design='5'/>
+      <Bier name='Schiguljewskoje Pilsner' note='7' design='4,5'/>
+      <Bier name='Tri Medwedja' note='4,3' design='7'/>
+      <Bier name='Tri Medwedja Hell' note='5,2' design='5,4'/>
+  </land>
+  <land name='Schottland'>
+      <Bier name='Belhaven McCallum´s Stout' note='7,3' design='7'/>
+      <Bier name='Caledonian Golden Promise' note='7,5' design='8,5'/>
+      <Bier name='Code Red' note='1,5' design='5,5'/>
+      <Bier name='Gordon Finest Gold Blond' note='8,7' design='7,7'/>
+      <Bier name='Gordon Highland Scotch Ale' note='7' design='6,3'/>
+      <Bier name='Highlander Finest Whisky Male Beer' note='5,7' design='7,3'/>
+      <Bier name='Lia Fail' note='5,7' design='7'/>
+      <Bier name='Mc.Ewans Export' note='5' design='6,3'/>
+  </land>
+  <land name='Schweden'>
+      <Bier name='D.Carnegie Stark-Porter' note='0' design='0'/>
+      <Bier name='Spendrups Old Gold' note='6,5' design='9,5'/>
+      <Bier name='Spendrups Orginal' note='3,7' design='5'/>
+  </land>
+  <land name='Schweiz'>
+      <Bier name='Appenzeller Holzfass Bier' note='6,3' design='8,3'/>
+      <Bier name='Cardinal Lager' note='5,5' design='6'/>
+      <Bier name='Eichhof Braugold' note='4,3' design='4'/>
+      <Bier name='Eichhof Pony' note='5,8' design='5,5'/>
+      <Bier name='Eichhof Spiess Draft' note='4,3' design='6,3'/>
+      <Bier name='Falken Hell Lager' note='6,7' design='4'/>
+      <Bier name='Feldschlösschen Dunkle Perle' note='5,5' design='5'/>
+      <Bier name='Feldschlösschen Rheinfelden' note='6' design='5'/>
+      <Bier name='Hürlimann Lager Bier' note='6,3' design='5,7'/>
+      <Bier name='Quöllfrisch Naturtrüb' note='6,7' design='9,7'/>
+      <Bier name='Rheintaler Maisbier Premium' note='6,3' design='7,3'/>
+      <Bier name='Volg Lager Bier' note='3,7' design='3'/>
+  </land>
+  <land name='Singapur'>
+      <Bier name='Tiger Bier Lager' note='5' design='5,3'/>
+  </land>
+  <land name='Slowakei'>
+      <Bier name='Slawisches Bier Podkovanske' note='5,7' design='4'/>
+  </land>
+  <land name='Slowenien'>
+      <Bier name='Temno Lasko' note='6,3' design='4,7'/>
+      <Bier name='Union Crni Baron' note='5,7' design='7'/>
+      <Bier name='Union Pils' note='5,8' design='4,3'/>
+      <Bier name='Union Pils Original' note='3,3' design='3'/>
+      <Bier name='Union Pivo' note='4,6' design='6'/>
+  </land>
+  <land name='Spanien'>
+      <Bier name='4 C' note='4' design='5,5'/>
+      <Bier name='76 Di-Aglut' note='3,3' design='6'/>
+      <Bier name='A.K.Damm Laser' note='4,5' design='7'/>
+      <Bier name='Aguila Reserva Extra Especial' note='5,5' design='7'/>
+      <Bier name='Ambar Negra' note='3' design='5,3'/>
+      <Bier name='Amstel Aguila' note='5' design='4,5'/>
+      <Bier name='Bock Damm' note='6,3' design='7,7'/>
+      <Bier name='Cruzcampo Pilsen' note='4' design='4'/>
+      <Bier name='Cruzcampo Premium Lager' note='4,3' design='5,3'/>
+      <Bier name='Dorada Especial' note='6,7' design='6'/>
+      <Bier name='Dorada Pilsen' note='5' design='5,7'/>
+      <Bier name='Estrella Damm' note='4,5' design='4'/>
+      <Bier name='Estrella Galicia Especial' note='5,3' design='6,5'/>
+      <Bier name='Geniuss Beer' note='5,7' design='5,7'/>
+      <Bier name='Mahou Clasica' note='5,5' design='5'/>
+      <Bier name='Mahou Especial' note='5,5' design='5,5'/>
+      <Bier name='San Miguel 1516' note='4,3' design='6'/>
+      <Bier name='San Miguel Export' note='4,3' design='7'/>
+      <Bier name='San Miguel Tradition' note='3,5' design='6'/>
+      <Bier name='Surena' note='4' design='5,5'/>
+      <Bier name='Tropical' note='4,3' design='4,6'/>
+      <Bier name='Voll Damm' note='6' design='6,7'/>
+      <Bier name='Wuld Beer Pilsen (Dose)' note='3' design='4'/>
+  </land>
+  <land name='Sri Lanka'>
+      <Bier name='Sri Lanka Negombo Gold' note='4,5' design='7'/>
+  </land>
+  <land name='Süd Afrika'>
+      <Bier name='Carling Black Label Beer' note='6' design='6'/>
+      <Bier name='Castle Lager' note='5' design='4,7'/>
+      <Bier name='Lion Lager' note='5,7' design='5'/>
+  </land>
+  <land name='Tahiti'>
+      <Bier name='Hinano Premium Bier' note='5,5' design='7,5'/>
+  </land>
+  <land name='Thailand'>
+      <Bier name='Singha Bier' note='6' design='5,7'/>
+  </land>
+  <land name='Trinidad'>
+      <Bier name='Carib Lager' note='5,5' design='5,5'/>
+  </land>
+  <land name='Tschechien'>
+      <Bier name='Ambrosius Special' note='5,7' design='5,7'/>
+      <Bier name='Baron Trenck Svetle Pivo' note='7' design='6'/>
+      <Bier name='BernardPolotmavy Lezak' note='6' design='4,7'/>
+      <Bier name='Branik 100 Let' note='7,3' design='9'/>
+      <Bier name='Branik 1899' note='7' design='8'/>
+      <Bier name='Branik Premier Schwarzbier' note='6,5' design='6'/>
+      <Bier name='Breznak Böhmen' note='7,5' design='9'/>
+      <Bier name='Budweiser Budejovicky Budvar' note='8' design='6,5'/>
+      <Bier name='Budweiser Budvar' note='7,5' design='5,5'/>
+      <Bier name='Chodovar Cerna Desitka' note='7,7' design='8'/>
+      <Bier name='D-Svetle' note='4,7' design='4'/>
+      <Bier name='Gambrinus' note='7' design='6,7'/>
+      <Bier name='Gold Bohemia Beer' note='7' design='5,5'/>
+      <Bier name='Jezek Light Bier' note='4,5' design='3,5'/>
+      <Bier name='Jezek Premium Pils' note='6' design='5,3'/>
+      <Bier name='Krusovice Cerne' note='6,3' design='7'/>
+      <Bier name='Krusovice Imperial' note='6' design='6,3'/>
+      <Bier name='Krusovice Svetle' note='5,7' design='5,3'/>
+      <Bier name='Lobkowicz Baron Urböhmisches Schwarzb' note='7,3' design='6,7'/>
+      <Bier name='Lobkowicz Fürst' note='0' design='0'/>
+      <Bier name='Louny Fürst von Louny Schwarz' note='6,3' design='6'/>
+      <Bier name='Louny Lager' note='6' design='5'/>
+      <Bier name='Mestan Sladkuv' note='6' design='8,5'/>
+      <Bier name='Original Böhmisches Bier' note='8' design='8'/>
+      <Bier name='Ox Bernard' note='5' design='6,7'/>
+      <Bier name='Pilsner Urquell' note='8,7' design='6'/>
+      <Bier name='Pivoj Vycepni Svetle' note='6,3' design='7'/>
+      <Bier name='Pivrnec (Louny)' note='5,7' design='7'/>
+      <Bier name='Platan Jedenact' note='7' design='3,5'/>
+      <Bier name='Premier Schwarzbier' note='6,3' design='4,3'/>
+      <Bier name='Primator Premium Dark' note='7' design='5,8'/>
+      <Bier name='Primus Svetle' note='7' design='3,5'/>
+      <Bier name='Radegast Klasik' note='6' design='5,5'/>
+      <Bier name='Radegast Premium' note='6' design='6,5'/>
+      <Bier name='Radegast Triumf' note='6,3' design='5'/>
+      <Bier name='Saazer Dunkles Lagerbier' note='6' design='4,7'/>
+      <Bier name='Saazer Exportbier' note='4,5' design='5,5'/>
+      <Bier name='Saazer Lagerbier' note='7,3' design='4,3'/>
+      <Bier name='Saazer Pils Lagerbier' note='6,5' design='4,8'/>
+      <Bier name='Saazer Premium Bier' note='6,5' design='5,5'/>
+      <Bier name='Samson Vycepni Budweiser' note='5' design='6'/>
+      <Bier name='Skalak Marina' note='4' design='5'/>
+      <Bier name='Slawanskoje Bockbier' note='5,7' design='4,7'/>
+      <Bier name='Stara Bohemia' note='6' design='5'/>
+      <Bier name='Starobrno Cerne' note='5,7' design='5,7'/>
+      <Bier name='Starobrno Lezak' note='7' design='6'/>
+      <Bier name='Starobrno Tradicni' note='5,7' design='4,7'/>
+      <Bier name='Staropramen Cerny' note='6' design='7'/>
+      <Bier name='Staropramen Export' note='5,7' design='5,3'/>
+      <Bier name='Staropramen Lezak' note='6' design='6,5'/>
+      <Bier name='Staropramen Millenium' note='6' design='6'/>
+      <Bier name='Staropramen Premium' note='6,7' design='6'/>
+      <Bier name='Staropramen Premium Lager' note='7,7' design='8,3'/>
+      <Bier name='Staropramen Svetly' note='6,7' design='5,7'/>
+      <Bier name='Yelkopopovicky Premium' note='7,5' design='7'/>
+      <Bier name='Yelkopopovicky Svetly' note='5,5' design='6,5'/>
+      <Bier name='Yelkopopovicky Tmavy' note='6,3' design='7,3'/>
+      <Bier name='Zlatopramen' note='7' design='4,5'/>
+  </land>
+  <land name='Türkei'>
+      <Bier name='Efes Dark' note='3,3' design='4,7'/>
+      <Bier name='Efes Extra' note='4,3' design='4,7'/>
+      <Bier name='Efes Pilsener' note='4' design='3,7'/>
+  </land>
+  <land name='Ukraine'>
+      <Bier name='Krim' note='5,5' design='4,3'/>
+      <Bier name='Obolon Lager' note='6' design='5,5'/>
+      <Bier name='Obolon Oksamitowje' note='6' design='6'/>
+      <Bier name='Obolon Premium' note='7' design='7'/>
+      <Bier name='Weselni Monach' note='7,8' design='8,5'/>
+  </land>
+  <land name='Ungarn'>
+      <Bier name='Arany Aszok' note='5,7' design='5'/>
+      <Bier name='Borsodi Sör' note='6,5' design='5'/>
+      <Bier name='Dreher Bak' note='5' design='5,7'/>
+      <Bier name='Dreher Lager' note='7' design='6'/>
+      <Bier name='Dreher Pils' note='6,3' design='4,7'/>
+      <Bier name='Kaiser Premium Vilagos Sör (Ungarn)' note='4,5' design='4,5'/>
+      <Bier name='Kanizsai Vilagos' note='5' design='4,5'/>
+      <Bier name='Köbanyai Vilagos Sör' note='6' design='6,7'/>
+      <Bier name='Korona Kanizsai' note='5' design='5,5'/>
+      <Bier name='Soproni Aszok' note='6' design='3,5'/>
+      <Bier name='Soproni Kinizsi' note='6,3' design='5,7'/>
+      <Bier name='Steffl Bier (Ungarn)' note='5' design='4'/>
+      <Bier name='Szalon Barna Pecsi' note='6,3' design='6,7'/>
+      <Bier name='Szalon Sör' note='6,3' design='7'/>
+      <Bier name='Talleros' note='6,3' design='5'/>
+      <Bier name='Tikettes Sör' note='6,7' design='7'/>
+      <Bier name='Zlaty Bazant' note='6,5' design='7,5'/>
+  </land>
+  <land name='USA'>
+      <Bier name='Anchor Liberty Ale' note='5,5' design='8'/>
+      <Bier name='Anchor Steam Beer' note='5' design='7'/>
+      <Bier name='Anheuser Busch St.Louis' note='5,3' design='6,3'/>
+      <Bier name='Big Daddy Speakeasy' note='3,3' design='6'/>
+      <Bier name='Coors Banquet Beer   (Dose)' note='3,8' design='6,3'/>
+      <Bier name='Coors Light' note='3' design='5,7'/>
+      <Bier name='Dixie New Orleans' note='5,5' design='7,5'/>
+      <Bier name='Eureka 1881 Black &amp; Tan' note='5,7' design='7,3'/>
+      <Bier name='Full Sail Wassail' note='5,8' design='6,8'/>
+      <Bier name='Hard Rock  Hard Gauge Beer' note='4' design='6,5'/>
+      <Bier name='Iron City Beer Premium' note='5,5' design='5'/>
+      <Bier name='J.J.Wainright Black Jack' note='5,7' design='7,7'/>
+      <Bier name='Michelob (Anheuser Busch)' note='3,7' design='7,3'/>
+      <Bier name='Michelob Lager' note='4,5' design='7,3'/>
+      <Bier name='Miller' note='5,3' design='6,7'/>
+      <Bier name='Miller High Life' note='4,3' design='5,3'/>
+      <Bier name='Miller Lite' note='2,3' design='4,3'/>
+      <Bier name='Pete´s Wicked Maple Porter' note='6,3' design='6,3'/>
+      <Bier name='Prohibition' note='5,2' design='6,8'/>
+      <Bier name='Red Dog Premium Beer' note='4' design='7,7'/>
+      <Bier name='Rolling Rock Extra Pale' note='3,3' design='4'/>
+      <Bier name='Salvation Avery' note='3,3' design='9,8'/>
+      <Bier name='Samuel Adams Boston' note='6' design='8'/>
+      <Bier name='Saranac Lager' note='4,3' design='6'/>
+      <Bier name='Sea Dog Hazelnut Porter' note='4' design='6'/>
+      <Bier name='Sierra Nevada Celebration Ale' note='2,8' design='6,3'/>
+      <Bier name='Sierra Nevada Pale Ale' note='6' design='7'/>
+      <Bier name='St.Ides Premium   (Dose)' note='3,3' design='3,3'/>
+      <Bier name='Tequiza Anheuser Busch' note='5,5' design='6,5'/>
+      <Bier name='The Raven' note='4,7' design='6,7'/>
+  </land>
+  <land name='Venezuela'>
+      <Bier name='Polar Premium Beer' note='5' design='6'/>
+  </land>
+  <land name='Vietnam'>
+      <Bier name='Halida Export' note='6' design='6'/>
+  </land>
+  <land name='Zimbabwe'>
+      <Bier name='Zambezi' note='5' design='6'/>
+  </land>
+</liste>
