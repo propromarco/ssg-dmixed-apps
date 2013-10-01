@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kontinente>
+  <kontinent name="Afrika">
+    <land name="Ägypten" />
+    <land name="Kenia" />
+    <land name="Marokko" />
+    <land name="Namibia" />
+    <land name="Nigeria" />
+    <land name="Süd Afrika" />
+    <land name="Zimbabwe" />
+  </kontinent>
+  <kontinent name="Amerika">
+    <land name="Argentinien" />
+    <land name="Bolivien" />
+    <land name="Brasilien" />
+    <land name="Chile" />
+    <land name="Cuba" />
+    <land name="Dom-Rep" />
+    <land name="Jamaika" />
+    <land name="Kanada" />
+    <land name="Mexiko" />
+    <land name="Trinidad" />
+    <land name="USA" />
+    <land name="Venezuela" />
+  </kontinent>
+  <kontinent name="Asien">
+    <land name="China" />
+    <land name="Indien" />
+    <land name="Indonesien" />
+    <land name="Israel" />
+    <land name="Japan" />
+    <land name="Laos" />
+    <land name="Palestina" />
+    <land name="Philippinen" />
+    <land name="Singapur" />
+    <land name="Sri Lanka" />
+    <land name="Thailand" />
+    <land name="Türkei" />
+    <land name="Vietnam" />
+  </kontinent>
+  <kontinent name="Australien und Ozeanien">
+    <land name="Australien" />
+    <land name="Neu Seeland" />
+    <land name="Tahiti" />
+  </kontinent>
+  <kontinent name="Europa">
+    <land name="Aserbeidschan" />
+    <land name="Belgien" />
+    <land name="Bulgarien" />
+    <land name="Dänemark" />
+    <land name="D" />
+    <land name="England" />
+    <land name="Finnland" />
+    <land name="Frankreich" />
+    <land name="Griechenland" />
+    <land name="Holland" />
+    <land name="Irland" />
+    <land name="Island" />
+    <land name="Italien" />
+    <land name="Kroatien" />
+    <land name="Lettland" />
+    <land name="Litauen" />
+    <land name="Luxemburg" />
+    <land name="Malta" />
+    <land name="Mazedonien" />
+    <land name="Norwegen" />
+    <land name="Österreich" />
+    <land name="Polen" />
+    <land name="Portugal" />
+    <land name="Rumänien" />
+    <land name="Russland" />
+    <land name="Schottland" />
+    <land name="Schweden" />
+    <land name="Schweiz" />
+    <land name="Slowakei" />
+    <land name="Slowenien" />
+    <land name="Spanien" />
+    <land name="Tschechien" />
+    <land name="Ukraine" />
+    <land name="Ungarn" />
+  </kontinent>
+</kontinente>

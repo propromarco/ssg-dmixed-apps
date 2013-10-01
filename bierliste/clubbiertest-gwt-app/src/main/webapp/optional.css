@@ -1,0 +1,33 @@
+.willkommen-bild {
+	text-align: center;
+}
+
+.willkommen-bild-beschriftung {
+	text-align: center;
+}
+
+.info-section {
+	border-bottom: 1px solid black;
+	padding: 0.4em;
+}
+
+.info-section .description {
+	float: left;
+	width: 3.5em;
+	font-weight: bold;
+}
+
+.info-section .value {
+	float: left;
+	width: 80%;
+}
+
+.info-section .ende {
+	clear: left;
+}
+
+.info-section .nottestet {
+	font-weight: bold;
+	color: red;
+	text-align: center;
+}

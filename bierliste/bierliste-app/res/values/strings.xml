@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="backButton">zur&#252;ck</string>
+    <string name="app_name">Bierliste des Clubbiertest</string>
+    <!-- Willkommen -->
+    <string name="welcome1">Willkommen im Clubbiertest</string>
+    <string name="welcome2">(unabh&#228;ngiger Bierclub seit 1998)</string>
+    <!-- Willkommen Buttons -->
+    <string name="bestenListe">die Besten</string>
+    <string name="schlechtestenListe">die Schlechtesten</string>
+    <string name="kompletteListe">die Liste</string>
+    <string name="info">&#252;ber uns</string>
+    <string name="suchErgebnis">Ergebnis der Suche</string>
+    <string name="kontinente">Kontinente</string>
+    <string name="laender">L&#228;nder</string>
+    <string name="searchHint">Suchwort eingeben&#8230;</string>
+    <!-- Bierinfo -->
+    <string name="bierland">Land</string>
+    <string name="biersorte">Sorte</string>
+    <string name="biername">Name</string>
+    <string name="biernote">Note</string>
+    <string name="bierdesign">Design</string>
+    <string name="biernichtgetestet">Bier wurde noch nicht getestet</string>
+</resources>

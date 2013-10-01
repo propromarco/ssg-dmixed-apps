@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:layout_height="fill_parent"
+    android:orientation="horizontal" android:baselineAligned="false">
+    <LinearLayout android:layout_height="match_parent" android:orientation="vertical"
+        android:layout_width="wrap_content">
+        <ImageView android:layout_height="wrap_content" android:layout_width="wrap_content"
+            android:src="@drawable/logo" android:contentDescription="@string/app_name"></ImageView>
+    </LinearLayout>
+    <LinearLayout android:layout_height="match_parent" android:orientation="vertical"
+        android:layout_weight="1" android:layout_width="0dp">
+        <TextView android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/welcome1" android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content" android:layout_height="56dp"></TextView>
+        <TextView android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/welcome2" android:layout_width="wrap_content"
+            android:layout_height="46dp" android:layout_gravity="center_vertical"></TextView>
+        <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent">
+            <Button android:layout_height="wrap_content" android:id="@+id/dieBesten"
+                android:text="@string/bestenListe" android:layout_gravity="center_horizontal"
+                android:layout_weight="1" android:layout_width="0dp"></Button>
+            <Button android:layout_height="wrap_content" android:id="@+id/kompletteListe"
+                android:text="@string/kompletteListe" android:layout_gravity="center_horizontal"
+                android:layout_weight="1" android:layout_width="0dp"></Button>
+        </LinearLayout>
+        <EditText android:layout_height="wrap_content" android:layout_width="match_parent"
+            android:id="@+id/searchText" android:hint="@string/searchHint"
+            android:imeOptions="actionDone" android:singleLine="true"></EditText>
+        <Button android:layout_height="wrap_content" android:id="@+id/about"
+            android:text="@string/info" android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"></Button>
+    </LinearLayout>
+</LinearLayout>
