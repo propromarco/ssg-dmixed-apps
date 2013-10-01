@@ -4,7 +4,7 @@
 
   <groupId>de.clubbiertest</groupId>
   <artifactId>bierliste-commons</artifactId>
-  <version>1.0.4</version>
+  <version>1-SNAPSHOT</version>
 
   <packaging>jar</packaging>
 

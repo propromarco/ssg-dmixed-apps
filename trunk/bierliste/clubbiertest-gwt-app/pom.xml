@@ -120,8 +120,9 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>build</groupId>
+      <groupId>de.clubbiertest</groupId>
       <artifactId>gwt-starter</artifactId>
+	  <version>1-SNAPSHOT</version>
       <scope>test</scope>
     </dependency>
     <dependency>

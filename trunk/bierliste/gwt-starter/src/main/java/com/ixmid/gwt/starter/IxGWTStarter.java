@@ -23,7 +23,7 @@ public class IxGWTStarter
 
     public static void start( final String startupUrl, final String war, final String logdir, final String module, final boolean headless )
     {
-        start(startupUrl, war, logdir, module, "de.finlix.gwt.test.StJettyLauncher", headless);
+        start(startupUrl, war, logdir, module, "com.ixmid.gwt.starter.StJettyLauncher", headless);
     }
 
     public static void start(
