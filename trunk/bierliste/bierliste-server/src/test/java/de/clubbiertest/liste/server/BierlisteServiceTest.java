@@ -3,10 +3,8 @@
 package de.clubbiertest.liste.server;
 
 import java.lang.reflect.Method;
-
 import java.net.URI;
 import java.net.URISyntaxException;
-
 import java.util.List;
 import java.util.Map;
 
@@ -21,265 +19,238 @@ import de.clubbiertest.liste.server.jaxb.BierImpl;
 import de.clubbiertest.liste.server.jaxb.ListItemImpl;
 import de.clubbiertest.liste.server.jaxb.ListeItemsImpl;
 import de.clubbiertest.liste.shared.ListItem;
-
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-public class BierlisteServiceTest
-{
-    private class TestBuilder extends UriBuilder
-    {
-        @Override public URI build( final Object... values )
-                throws IllegalArgumentException, UriBuilderException
-        {
-            try
-            {
+public class BierlisteServiceTest {
+    private class TestBuilder extends UriBuilder {
+        @Override
+        public URI build(final Object... values) throws IllegalArgumentException, UriBuilderException {
+            try {
                 return new URI("");
             }
-            catch ( final URISyntaxException e )
-            {
+            catch (final URISyntaxException e) {
                 e.printStackTrace();
                 return null;
             }
         }
 
-        @Override public URI buildFromEncoded( final Object... values )
-                throws IllegalArgumentException, UriBuilderException
-        {
+        @Override
+        public URI buildFromEncoded(final Object... values) throws IllegalArgumentException, UriBuilderException {
             return null;
         }
 
-        @Override public URI buildFromEncodedMap( final Map<String, ? extends Object> values )
-                throws IllegalArgumentException, UriBuilderException
-        {
+        @Override
+        public URI buildFromEncodedMap(final Map<String, ? extends Object> values) throws IllegalArgumentException, UriBuilderException {
             return null;
         }
 
-        @Override public URI buildFromMap( final Map<String, ? extends Object> values )
-                throws IllegalArgumentException, UriBuilderException
-        {
+        @Override
+        public URI buildFromMap(final Map<String, ? extends Object> values) throws IllegalArgumentException, UriBuilderException {
             return null;
         }
 
-        @Override public UriBuilder clone()
-        {
+        @Override
+        public UriBuilder clone() {
             return null;
         }
 
-        @Override public UriBuilder fragment( final String fragment )
-        {
+        @Override
+        public UriBuilder fragment(final String fragment) {
             return null;
         }
 
-        @Override public UriBuilder host( final String host )
-                throws IllegalArgumentException
-        {
+        @Override
+        public UriBuilder host(final String host) throws IllegalArgumentException {
             return new TestBuilder();
         }
 
-        @Override public UriBuilder matrixParam( final String name, final Object... values )
-                throws IllegalArgumentException
-        {
+        @Override
+        public UriBuilder matrixParam(final String name, final Object... values) throws IllegalArgumentException {
             return null;
         }
 
-        @Override public UriBuilder path( final String path )
-                throws IllegalArgumentException
-        {
+        @Override
+        public UriBuilder path(final String path) throws IllegalArgumentException {
             return new TestBuilder();
         }
 
-        @SuppressWarnings( "unchecked" ) @Override
-        public UriBuilder path( final Class resource )
-                throws IllegalArgumentException
-        {
+        @SuppressWarnings("rawtypes")
+        @Override
+        public UriBuilder path(final Class resource) throws IllegalArgumentException {
             return null;
         }
 
-        @Override public UriBuilder path( final Method method )
-                throws IllegalArgumentException
-        {
+        @Override
+        public UriBuilder path(final Method method) throws IllegalArgumentException {
             return null;
         }
 
-        @SuppressWarnings( "unchecked" ) @Override
-        public UriBuilder path( final Class resource, final String method )
-                throws IllegalArgumentException
-        {
+        @SuppressWarnings("rawtypes")
+        @Override
+        public UriBuilder path(final Class resource, final String method) throws IllegalArgumentException {
             return null;
         }
 
-        @Override public UriBuilder port( final int port )
-                throws IllegalArgumentException
-        {
+        @Override
+        public UriBuilder port(final int port) throws IllegalArgumentException {
             return null;
         }
 
-        @Override public UriBuilder queryParam( final String name, final Object... values )
-                throws IllegalArgumentException
-        {
+        @Override
+        public UriBuilder queryParam(final String name, final Object... values) throws IllegalArgumentException {
             return null;
         }
 
-        @Override public UriBuilder replaceMatrix( final String matrix )
-                throws IllegalArgumentException
-        {
+        @Override
+        public UriBuilder replaceMatrix(final String matrix) throws IllegalArgumentException {
             return null;
         }
 
-        @Override public UriBuilder replaceMatrixParam( final String name, final Object... values )
-                throws IllegalArgumentException
-        {
+        @Override
+        public UriBuilder replaceMatrixParam(final String name, final Object... values) throws IllegalArgumentException {
             return null;
         }
 
-        @Override public UriBuilder replacePath( final String path )
-        {
+        @Override
+        public UriBuilder replacePath(final String path) {
             return null;
         }
 
-        @Override public UriBuilder replaceQuery( final String query )
-                throws IllegalArgumentException
-        {
+        @Override
+        public UriBuilder replaceQuery(final String query) throws IllegalArgumentException {
             return null;
         }
 
-        @Override public UriBuilder replaceQueryParam( final String name, final Object... values )
-                throws IllegalArgumentException
-        {
+        @Override
+        public UriBuilder replaceQueryParam(final String name, final Object... values) throws IllegalArgumentException {
             return null;
         }
 
-        @Override public UriBuilder scheme( final String scheme )
-                throws IllegalArgumentException
-        {
+        @Override
+        public UriBuilder scheme(final String scheme) throws IllegalArgumentException {
             return null;
         }
 
-        @Override public UriBuilder schemeSpecificPart( final String ssp )
-                throws IllegalArgumentException
-        {
+        @Override
+        public UriBuilder schemeSpecificPart(final String ssp) throws IllegalArgumentException {
             return null;
         }
 
-        @Override public UriBuilder segment( final String... segments )
-                throws IllegalArgumentException
-        {
+        @Override
+        public UriBuilder segment(final String... segments) throws IllegalArgumentException {
             return null;
         }
 
-        @Override public UriBuilder uri( final URI uri )
-                throws IllegalArgumentException
-        {
+        @Override
+        public UriBuilder uri(final URI uri) throws IllegalArgumentException {
             return null;
         }
 
-        @Override public UriBuilder userInfo( final String ui )
-        {
+        @Override
+        public UriBuilder userInfo(final String ui) {
             return null;
         }
     }
 
     private BierlisteService service;
 
-    @Before public void setUp()
-            throws Exception
-    {
+    @Before
+    public void setUp() throws Exception {
         this.service = new BierlisteService();
-        final UriInfo info = new UriInfo()
-        {
-            @Override public UriBuilder getRequestUriBuilder()
-            {
+        final UriInfo info = new UriInfo() {
+            @Override
+            public UriBuilder getRequestUriBuilder() {
                 return null;
             }
 
-            @Override public URI getRequestUri()
-            {
+            @Override
+            public URI getRequestUri() {
                 return null;
             }
 
-            @Override public MultivaluedMap<String, String> getQueryParameters( final boolean decode )
-            {
+            @Override
+            public MultivaluedMap<String, String> getQueryParameters(final boolean decode) {
                 return null;
             }
 
-            @Override public MultivaluedMap<String, String> getQueryParameters()
-            {
+            @Override
+            public MultivaluedMap<String, String> getQueryParameters() {
                 return null;
             }
 
-            @Override public List<PathSegment> getPathSegments( final boolean decode )
-            {
+            @Override
+            public List<PathSegment> getPathSegments(final boolean decode) {
                 return null;
             }
 
-            @Override public List<PathSegment> getPathSegments()
-            {
+            @Override
+            public List<PathSegment> getPathSegments() {
                 return null;
             }
 
-            @Override public MultivaluedMap<String, String> getPathParameters( final boolean decode )
-            {
+            @Override
+            public MultivaluedMap<String, String> getPathParameters(final boolean decode) {
                 return null;
             }
 
-            @Override public MultivaluedMap<String, String> getPathParameters()
-            {
+            @Override
+            public MultivaluedMap<String, String> getPathParameters() {
                 return null;
             }
 
-            @Override public String getPath( final boolean decode )
-            {
+            @Override
+            public String getPath(final boolean decode) {
                 return null;
             }
 
-            @Override public String getPath()
-            {
+            @Override
+            public String getPath() {
                 return null;
             }
 
-            @Override public List<String> getMatchedURIs( final boolean decode )
-            {
+            @Override
+            public List<String> getMatchedURIs(final boolean decode) {
                 return null;
             }
 
-            @Override public List<String> getMatchedURIs()
-            {
+            @Override
+            public List<String> getMatchedURIs() {
                 return null;
             }
 
-            @Override public List<Object> getMatchedResources()
-            {
+            @Override
+            public List<Object> getMatchedResources() {
                 return null;
             }
 
-            @Override public UriBuilder getBaseUriBuilder()
-            {
+            @Override
+            public UriBuilder getBaseUriBuilder() {
                 return new TestBuilder();
             }
 
-            @Override public URI getBaseUri()
-            {
+            @Override
+            public URI getBaseUri() {
                 return null;
             }
 
-            @Override public UriBuilder getAbsolutePathBuilder()
-            {
+            @Override
+            public UriBuilder getAbsolutePathBuilder() {
                 return null;
             }
 
-            @Override public URI getAbsolutePath()
-            {
+            @Override
+            public URI getAbsolutePath() {
                 return null;
             }
         };
         this.service.setInfo(info);
     }
 
-    @Test public void testGetApplication()
-    {
+    @Test
+    public void testGetApplication() {
         final BierApplication application = this.service.getApplication();
         assertNotNull(application);
         final List<ListItemImpl> childs = application.getChilds();
@@ -287,8 +258,8 @@ public class BierlisteServiceTest
         assertEquals(2, childs.size());
     }
 
-    @Test public void testGetBestenliste()
-    {
+    @Test
+    public void testGetBestenliste() {
         final ListeItemsImpl liste = this.service.getBestenliste();
         assertNotNull(liste);
         final List<ListItem> childs = liste.getChilds();
@@ -296,8 +267,8 @@ public class BierlisteServiceTest
         assertEquals(26, childs.size());
     }
 
-    @Test public void testGetKontinente()
-    {
+    @Test
+    public void testGetKontinente() {
         final ListeItemsImpl liste = this.service.getKontinente();
         assertNotNull(liste);
         final List<ListItem> childs = liste.getChilds();
@@ -305,8 +276,8 @@ public class BierlisteServiceTest
         assertEquals(5, childs.size());
     }
 
-    @Test public void testGetKontinent()
-    {
+    @Test
+    public void testGetKontinent() {
         final ListeItemsImpl liste = this.service.getKontinent("Europa");
         assertNotNull(liste);
         final List<ListItem> childs = liste.getChilds();
@@ -314,8 +285,8 @@ public class BierlisteServiceTest
         assertEquals(34, childs.size());
     }
 
-    @Test public void testGetLand()
-    {
+    @Test
+    public void testGetLand() {
         final ListeItemsImpl liste = this.service.getLand("Deutschland");
         assertNotNull(liste);
         final List<ListItem> childs = liste.getChilds();
@@ -323,8 +294,8 @@ public class BierlisteServiceTest
         assertEquals(11, childs.size());
     }
 
-    @Test public void testGetSorte()
-    {
+    @Test
+    public void testGetSorte() {
         final ListeItemsImpl liste = this.service.getSorte("Alt");
         assertNotNull(liste);
         final List<ListItem> childs = liste.getChilds();
@@ -332,8 +303,8 @@ public class BierlisteServiceTest
         assertEquals(33, childs.size());
     }
 
-    @Test public void testGetBier()
-    {
+    @Test
+    public void testGetBier() {
         final BierImpl bier = this.service.getBier("Bolten Alt");
         assertNotNull(bier);
         assertEquals(6.0, bier.getDesign(), 0);
@@ -345,8 +316,8 @@ public class BierlisteServiceTest
         assertNull(bier.getUri());
     }
 
-    @Test public void testSearch()
-    {
+    @Test
+    public void testSearch() {
         {
             final ListeItemsImpl liste = this.service.search("alt");
             assertNotNull(liste);
