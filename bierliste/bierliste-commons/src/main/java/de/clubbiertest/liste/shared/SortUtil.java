@@ -8,10 +8,10 @@ public class SortUtil
     {
         String back;
         back = string.toLowerCase();
-        back = back.replaceAll("ä", "ae");
-        back = back.replaceAll("ö", "oe");
-        back = back.replaceAll("ü", "ue");
-        back = back.replaceAll("ß", "ss");
+        back = back.replaceAll("\u00E4", "ae");
+        back = back.replaceAll("\u00F6", "oe");
+        back = back.replaceAll("\u00FC", "ue");
+        back = back.replaceAll("\u00DF", "ss");
         back = back.replaceAll("/", "_");
         return back;
     }
