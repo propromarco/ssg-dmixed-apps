@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+  	<groupId>de.clubbiertest</groupId>
+  	<artifactId>parent</artifactId>
+  	<version>1-SNAPSHOT</version>
+  </parent>
+  <artifactId>clubbiertest-gwt-app</artifactId>
+
+  <packaging>war</packaging>
+  <name>Clubbiertest GWT Application</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <gae.version>1.7.2</gae.version>
+  </properties>
+
+  <build>
+    <finalName>clubbiertest</finalName>
+    <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
+    <resources>
+      <resource>
+        <targetPath>${project.build.directory}/${project.build.finalName}</targetPath>
+        <directory>src/main/webapp</directory>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <resource>
+        <directory>src/main/filtered-resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+    <plugins>
+      <!-- Java auf Compiler-Level 1.5 -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+          <compilerVersion>1.6</compilerVersion>
+        </configuration>
+      </plugin>
+      <!-- GWT generate, test, compile -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>gwt-maven-plugin</artifactId>
+        <version>2.5.1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>test</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <style>PRETTY</style>
+          <hostedWebapp>${project.build.directory}/${project.build.finalName}</hostedWebapp>
+          <debugPort>54000</debugPort>
+          <runTarget>index.html</runTarget>
+          <modules>
+            <param>de.clubbiertest.clubbiertest</param>
+          </modules>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>net.kindleit</groupId>
+        <artifactId>maven-gae-plugin</artifactId>
+        <version>0.9.1</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.1-alpha-1</version>
+        <executions>
+          <execution>
+            <id>default-war</id>
+            <phase>package</phase>
+            <goals>
+              <goal>war</goal>
+            </goals>
+            <configuration>
+              <ignoreWebxml>false</ignoreWebxml>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>de.clubbiertest</groupId>
+      <artifactId>bierliste-commons</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>de.clubbiertest</groupId>
+      <artifactId>bierliste-server</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <!-- Dependencies for run -->
+    <dependency>
+      <groupId>com.sksamuel.jqm4gwt</groupId>
+      <artifactId>jqm4gwt</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>xalan</groupId>
+      <artifactId>xalan</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <!-- Dependencies for compile/debug -->
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-user</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>de.clubbiertest</groupId>
+      <artifactId>gwt-starter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-dev</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+<!--
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>de.sogu</groupId>
+        <artifactId>home-versions</artifactId>
+        <version>1-SNAPSHOT</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+-->
+  <repositories>
+    <repository>
+      <id>m2</id>
+      <url>http://repo1.maven.org/maven2/</url>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>maven-gae-plugin-repo</id>
+      <name>Maven Google App Engine Repository</name>
+      <url>http://maven-gae-plugin.googlecode.com/svn/repository/</url>
+    </pluginRepository>
+  </pluginRepositories>
+</project>
