@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+
+  <inherits name='com.google.gwt.user.User' />
+  <source path='jqm4gwt' />
+
+  <script src="jquery.js" />
+  <script src="jquery.mobile-1.0.min.js" />
+  <stylesheet src="jquery.mobile-1.0.min.css" />
+
+</module>

@@ -19,6 +19,7 @@
     <module>bierliste-commons</module>
     <module>bierliste-server</module>
     <module>clubbiertest-gwt-app</module>
+    <module>jqm4gwt</module>
 <!--
     <module>bierliste-app</module>
 -->
