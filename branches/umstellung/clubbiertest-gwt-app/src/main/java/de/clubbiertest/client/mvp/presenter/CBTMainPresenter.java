@@ -20,6 +20,9 @@ public class CBTMainPresenter extends AMainPresenter<CBTMainView, ClubbiertestCo
         final Slot sidebarSlot = view.getSidebarSlot();
         final CBTSidebarPresenter sidebarPresenter = context.createSidebarPresenter();
         setInSlot(sidebarSlot, sidebarPresenter);
+        final Slot contentSlot = view.getContentSlot();
+        final CBTWelcomePresenter welcomePresenter = context.createWelcomePresenter();
+        setInSlot(contentSlot, welcomePresenter);
     }
 
 }

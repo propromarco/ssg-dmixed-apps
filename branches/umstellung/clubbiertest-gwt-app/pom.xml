@@ -60,12 +60,13 @@
         </executions>
         <configuration>
           <style>PRETTY</style>
+          <strict>true</strict>
           <hostedWebapp>${project.build.directory}/${project.build.finalName}</hostedWebapp>
           <debugPort>54000</debugPort>
           <runTarget>index.html</runTarget>
-          <modules>
-            <param>de.clubbiertest.clubbiertest</param>
-          </modules>
+<!--           <modules> -->
+<!--             <param>de.clubbiertest.clubbiertest</param> -->
+<!--           </modules> -->
         </configuration>
       </plugin>
       <plugin>

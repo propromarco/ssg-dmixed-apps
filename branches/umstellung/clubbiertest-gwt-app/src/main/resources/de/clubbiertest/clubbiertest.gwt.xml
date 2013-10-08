@@ -8,7 +8,6 @@
   <inherits name="com.google.msc.framework.framework"/>
   <inherits name="de.clubbiertest.liste.Liste"/>
 
-  <inherits name='com.sksamuel.Jqm4gwt' />
   <entry-point class='de.clubbiertest.client.ClubbiertestJqm4gwt' />
 
   <source path='client' />
@@ -19,5 +18,4 @@
 
   <set-property-fallback name="locale" value="de" />
 
-  <set-property name="user.agent" value="gecko1_8,safari,opera"/>
 </module>
