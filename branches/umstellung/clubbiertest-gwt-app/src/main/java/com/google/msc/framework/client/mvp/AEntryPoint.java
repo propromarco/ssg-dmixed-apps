@@ -1,4 +1,4 @@
-package com.google.msc.framework.client.mvp.presenter;
+package com.google.msc.framework.client.mvp;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.place.shared.Place;

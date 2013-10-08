@@ -1,4 +1,4 @@
-package com.google.msc.framework.client.mvp.presenter;
+package com.google.msc.framework.client.mvp;
 
 import java.util.ArrayList;
 import java.util.Collection;

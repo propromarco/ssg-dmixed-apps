@@ -1,4 +1,4 @@
-package com.google.msc.framework.client.mvp.presenter;
+package com.google.msc.framework.client.mvp;
 
 public class AMainPresenter<V extends AView, I extends IContext> extends APresenter<V, I> {
 

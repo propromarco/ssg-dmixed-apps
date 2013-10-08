@@ -4,9 +4,9 @@ import com.google.msc.framework.client.mvp.AView;
 
 import de.clubbiertest.client.ClubbiertestCss;
 
-public class CBTKontinentView extends AView {
+public class CBTSorteView extends AView {
 
-    public CBTKontinentView(final ClubbiertestCss clubbiertestCss) {
+    public CBTSorteView(final ClubbiertestCss clubbiertestCss) {
         setStyleName(clubbiertestCss.content());
     }
 

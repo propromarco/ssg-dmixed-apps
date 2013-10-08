@@ -2,8 +2,8 @@ package de.clubbiertest.client;
 
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceHistoryMapper;
-import com.google.msc.framework.client.mvp.presenter.AEntryPoint;
-import com.google.msc.framework.client.mvp.presenter.IClientFactory;
+import com.google.msc.framework.client.mvp.AEntryPoint;
+import com.google.msc.framework.client.mvp.IClientFactory;
 
 import de.clubbiertest.client.mvp.CBTClientFactory;
 import de.clubbiertest.client.mvp.ClubbiertestPlace;

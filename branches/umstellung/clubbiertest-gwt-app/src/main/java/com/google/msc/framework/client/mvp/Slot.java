@@ -1,4 +1,4 @@
-package com.google.msc.framework.client.mvp.presenter;
+package com.google.msc.framework.client.mvp;
 
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Widget;
@@ -7,11 +7,11 @@ public class Slot extends FlowPanel {
 
     private APresenter<?, ?> presenter;
 
-    Slot(final String id) {
+    protected Slot(final String id) {
         getElement().setId(id);
     }
 
-    void setPresenter(final APresenter<?, ?> presenter) {
+    protected void setPresenter(final APresenter<?, ?> presenter) {
         final Widget oldWidget;
         if (this.presenter != null) {
             oldWidget = this.presenter.getView();

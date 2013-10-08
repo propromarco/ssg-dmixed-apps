@@ -1,7 +1,7 @@
 package de.clubbiertest.client.mvp.presenter;
 
-import com.google.msc.framework.client.mvp.presenter.AMainPresenter;
-import com.google.msc.framework.client.mvp.presenter.Slot;
+import com.google.msc.framework.client.mvp.AMainPresenter;
+import com.google.msc.framework.client.mvp.Slot;
 
 import de.clubbiertest.client.ClubbiertestContext;
 import de.clubbiertest.client.mvp.view.CBTMainView;
