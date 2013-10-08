@@ -5,11 +5,12 @@ package de.clubbiertest.client;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.i18n.client.Messages;
 
-public interface ClubbiertestTexte extends Messages
-{
+public interface ClubbiertestTexte extends Messages {
     ClubbiertestTexte TEXTE = GWT.create(ClubbiertestTexte.class);
 
     String ladeDaten();
+
+    String kontinent();
 
     String land();
 
@@ -36,4 +37,5 @@ public interface ClubbiertestTexte extends Messages
     String about2();
 
     String about3();
+
 }

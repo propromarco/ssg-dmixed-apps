@@ -10,6 +10,7 @@ import com.google.web.bindery.event.shared.EventBus;
 import de.clubbiertest.client.ClubbiertestContext;
 import de.clubbiertest.client.ClubbiertestCss;
 import de.clubbiertest.client.ClubbiertestResources;
+import de.clubbiertest.client.ClubbiertestTexte;
 import de.clubbiertest.client.mvp.presenter.CBTKontinentPresenter;
 import de.clubbiertest.client.mvp.presenter.CBTLandPresenter;
 import de.clubbiertest.client.mvp.presenter.CBTMainPresenter;
@@ -29,9 +30,11 @@ public class CBTClientFactory implements IClientFactory<ClubbiertestContext>, Cl
     private final PlaceController placeController = new PlaceController(eventBus);
     private final PlaceHistoryMapper placeHistoryMapper;
     private final ClubbiertestCss clubbiertestCss;
+    private final ClubbiertestTexte texte;
 
     public CBTClientFactory(final PlaceHistoryMapper placeHistoryMapper) {
         this.placeHistoryMapper = placeHistoryMapper;
+        this.texte = ClubbiertestTexte.TEXTE;
         this.clubbiertestCss = ClubbiertestResources.RESOURCES.getClubbiertestCss();
         this.clubbiertestCss.ensureInjected();
     }
@@ -60,7 +63,7 @@ public class CBTClientFactory implements IClientFactory<ClubbiertestContext>, Cl
 
     @Override
     public CBTSidebarPresenter createSidebarPresenter() {
-        final SidebarView view = new SidebarView(clubbiertestCss);
+        final SidebarView view = new SidebarView(clubbiertestCss, texte);
         final CBTSidebarPresenter sidebarPresenter = new CBTSidebarPresenter(view, this);
         return sidebarPresenter;
     }
@@ -85,12 +88,12 @@ public class CBTClientFactory implements IClientFactory<ClubbiertestContext>, Cl
         final CBTLandPresenter landPresenter = new CBTLandPresenter(view, this);
         return landPresenter;
     }
-    
+
     @Override
     public CBTSortePresenter createSortePresenter() {
         final CBTSorteView view = new CBTSorteView(clubbiertestCss);
         final CBTSortePresenter sortePresenter = new CBTSortePresenter(view, this);
         return sortePresenter;
     }
-    
+
 }

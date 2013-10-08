@@ -1,16 +1,20 @@
 package com.google.msc.framework.client.mvp;
 
-import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.Anchor;
+import com.google.gwt.user.client.ui.FlowPanel;
 
 public class ASidebarView extends AView {
 
     public class SidebarEntry {
 
         private final Slot slot;
-        private final HTML header;
+        private final FlowPanel header;
 
-        public SidebarEntry(final String id) {
-            this.header = new HTML();
+        public SidebarEntry(final String id, final String header) {
+            this.header = new FlowPanel();
+            final Anchor w = new Anchor();
+            w.getElement().setInnerHTML(header);
+            this.header.add(w);
             this.slot = createSlot(id);
         }
 
@@ -18,7 +22,7 @@ public class ASidebarView extends AView {
             return slot;
         }
 
-        public HTML getHeader() {
+        public FlowPanel getHeader() {
             return header;
         }
 
