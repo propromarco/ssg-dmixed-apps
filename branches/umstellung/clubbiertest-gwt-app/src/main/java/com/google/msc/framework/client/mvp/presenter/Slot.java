@@ -4,17 +4,17 @@ import com.google.gwt.user.client.ui.FlowPanel;
 
 public class Slot extends FlowPanel {
 
-	private AbstractPresenter<?, ?> presenter;
+	private APresenter<?> presenter;
 
 	Slot(final String id) {
 		getElement().setId(id);
 	}
 
-	void setPresenter(final AbstractPresenter<?, ?> presenter) {
+	void setPresenter(final APresenter<?> presenter) {
 		this.presenter = presenter;
 	}
 
-	AbstractPresenter<?, ?> getPresenter() {
+	APresenter<?> getPresenter() {
 		return presenter;
 	}
 

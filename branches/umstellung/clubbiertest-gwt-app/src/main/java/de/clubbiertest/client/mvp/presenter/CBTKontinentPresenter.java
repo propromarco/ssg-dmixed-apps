@@ -1,19 +1,13 @@
 package de.clubbiertest.client.mvp.presenter;
 
-import com.google.msc.framework.client.mvp.presenter.AbstractPresenter;
-import com.google.msc.framework.client.mvp.presenter.IView;
+import com.google.msc.framework.client.mvp.presenter.APresenter;
 
-import de.clubbiertest.client.mvp.presenter.CBTKontinentPresenter.IKontinentView;
+import de.clubbiertest.client.mvp.view.CBTKontinentView;
 
-public class CBTKontinentPresenter extends
-		AbstractPresenter<IKontinentView, ICBTContext> {
+public class CBTKontinentPresenter extends APresenter<CBTKontinentView> {
 
-	public interface IKontinentView extends IView {
-
-	}
-
-	public CBTKontinentPresenter(final IKontinentView view) {
-		super(view);
-	}
+    public CBTKontinentPresenter(final CBTKontinentView view) {
+        super(view);
+    }
 
 }
