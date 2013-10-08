@@ -7,6 +7,6 @@ public class ClubbiertestStarter
 {
     public static void main( final String[] args )
     {
-        IxGWTStarter.start("index.html", "target/clubbiertest", "target", "de.clubbiertest.clubbiertest");
+        IxGWTStarter.start("cbt.html", "target/clubbiertest", "target", "de.clubbiertest.cbt");
     }
 }

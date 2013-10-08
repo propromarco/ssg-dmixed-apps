@@ -4,13 +4,13 @@ import com.google.gwt.user.client.ui.FlowPanel;
 
 public abstract class AView extends FlowPanel {
 
-    private APresenter<?> _presenter;
+    private APresenter<?, ?> _presenter;
 
     protected Slot createSlot(final String id) {
         return new Slot(id);
     }
 
-    void setPresenter(final APresenter<?> presenter) {
+    void setPresenter(final APresenter<?, ?> presenter) {
         _presenter = presenter;
     }
 

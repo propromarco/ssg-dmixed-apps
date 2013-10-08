@@ -3,19 +3,25 @@ package com.google.msc.framework.client.mvp.presenter;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public abstract class APresenter<V extends AView> {
+public abstract class APresenter<V extends AView, I extends IContext> {
 
     private final V view;
     private boolean bound = false;
-    final Collection<APresenter<?>> childs = new ArrayList<APresenter<?>>();
+    final Collection<APresenter<?, ?>> childs = new ArrayList<APresenter<?, ?>>();
+    private final I _context;
 
-    public APresenter(final V view) {
+    public APresenter(final V view, final I context) {
         this.view = view;
+        _context = context;
         this.view.setPresenter(this);
     }
 
     protected V getView() {
         return view;
+    }
+
+    protected I getContext() {
+        return _context;
     }
 
     protected boolean isBound() {
@@ -51,9 +57,9 @@ public abstract class APresenter<V extends AView> {
     protected void onUpdate() {
     }
 
-    protected void setInSlot(final Slot slot, final APresenter<?> presenter) {
+    protected void setInSlot(final Slot slot, final APresenter<?, ?> presenter) {
         // Lösen
-        final APresenter<?> p = slot.getPresenter();
+        final APresenter<?, ?> p = slot.getPresenter();
         childs.remove(p);
         // Hinzufügen
         slot.setPresenter(presenter);
