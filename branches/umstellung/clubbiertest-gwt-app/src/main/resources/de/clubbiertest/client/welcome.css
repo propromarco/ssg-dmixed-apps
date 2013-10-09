@@ -1,0 +1,41 @@
+.willkommenbild {
+	text-align: center;
+}
+
+.willkommenbildbeschriftung {
+	text-align: center;
+}
+
+.infosection {
+	border-bottom: 1px solid black;
+	padding: 0.4em;
+}
+
+.infosection .description {
+	float: left;
+	width: 3.5em;
+	font-weight: bold;
+}
+
+.infosection .value {
+	float: left;
+	width: 80%;
+}
+
+.infosection .ende {
+	clear: left;
+}
+
+.infosection .nottestet {
+	font-weight: bold;
+	color: red;
+	text-align: center;
+}
+
+.willkommenfirst {
+	
+}
+
+.willkommensecond {
+	
+}

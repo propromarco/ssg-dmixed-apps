@@ -14,4 +14,7 @@ public interface ClubbiertestResources extends ClientBundle {
 
 	@Source("clubbiertest.css")
 	ClubbiertestCss getClubbiertestCss();
+
+	@Source("welcome.css")
+	WelcomeCss getWelcomeCss();
 }
