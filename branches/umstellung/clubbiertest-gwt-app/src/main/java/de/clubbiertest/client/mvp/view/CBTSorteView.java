@@ -7,7 +7,6 @@ import de.clubbiertest.client.ClubbiertestCss;
 public class CBTSorteView extends AView {
 
     public CBTSorteView(final ClubbiertestCss clubbiertestCss) {
-        setStyleName(clubbiertestCss.content());
     }
 
 }

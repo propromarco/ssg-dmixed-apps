@@ -22,7 +22,7 @@ import de.clubbiertest.client.mvp.view.CBTLandView;
 import de.clubbiertest.client.mvp.view.CBTMainView;
 import de.clubbiertest.client.mvp.view.CBTSorteView;
 import de.clubbiertest.client.mvp.view.CBTWelcomeView;
-import de.clubbiertest.client.mvp.view.SidebarView;
+import de.clubbiertest.client.mvp.view.CBTSidebarView;
 
 public class CBTClientFactory implements IClientFactory<ClubbiertestContext>, ClubbiertestContext {
 
@@ -63,7 +63,7 @@ public class CBTClientFactory implements IClientFactory<ClubbiertestContext>, Cl
 
     @Override
     public CBTSidebarPresenter createSidebarPresenter() {
-        final SidebarView view = new SidebarView(clubbiertestCss, texte);
+        final CBTSidebarView view = new CBTSidebarView(clubbiertestCss, texte);
         final CBTSidebarPresenter sidebarPresenter = new CBTSidebarPresenter(view, this);
         return sidebarPresenter;
     }

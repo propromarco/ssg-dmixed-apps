@@ -7,7 +7,6 @@ import de.clubbiertest.client.ClubbiertestCss;
 public class CBTLandView extends AView {
 
     public CBTLandView(final ClubbiertestCss clubbiertestCss) {
-        setStyleName(clubbiertestCss.content());
     }
 
 }
