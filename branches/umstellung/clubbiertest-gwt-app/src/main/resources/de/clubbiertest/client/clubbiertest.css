@@ -13,14 +13,34 @@ html,body {
 }
 
 .sidebar {
-	height: 100%;
+	height: literal("calc(100% - 2px)");
 	width: 15em;
 	float: left;
+	background: #1e5799; /* Old browsers */
+	background: -moz-linear-gradient(top, #1e5799 0%, #7db9e8 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #1e5799 0%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #1e5799 0%,#7db9e8 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #1e5799 0%,#7db9e8 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #1e5799 0%,#7db9e8 100%); /* W3C */
+	border-color: #1e5799; /* Old browsers */
+	border-color: -moz-linear-gradient(top, #1e5799 0%, #7db9e8 100%); /* FF3.6+ */
+	border-color: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
+	border-color: -webkit-linear-gradient(top, #1e5799 0%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+	border-color: -o-linear-gradient(top, #1e5799 0%,#7db9e8 100%); /* Opera 11.10+ */
+	border-color: -ms-linear-gradient(top, #1e5799 0%,#7db9e8 100%); /* IE10+ */
+	border-color: linear-gradient(to bottom, #1e5799 0%,#7db9e8 100%); /* W3C */
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 1em;
+	-o-border-radius: 1em;
+	-webkit-border-radius: 1em;
+	-moz-border-radius: 1em;
 }
 
 .maincontent {
 	height: 100%;
-	width: literal("calc(100% - 15em)");
+	width: literal("calc(100% - 15em - 2px)");
 	float: left;
 }
 
@@ -38,6 +58,7 @@ html,body {
 .sidebar .content {
 	height: literal("calc(100% - 6em)");
 	overflow: auto;
+	background-color: #ffffff;
 }
 
 .sidebar .content a {
