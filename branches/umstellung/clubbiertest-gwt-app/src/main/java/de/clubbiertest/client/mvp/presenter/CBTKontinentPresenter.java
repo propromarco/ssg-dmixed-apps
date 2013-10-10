@@ -2,6 +2,8 @@ package de.clubbiertest.client.mvp.presenter;
 
 import java.util.List;
 
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.msc.framework.client.mvp.APresenter;
 
 import de.clubbiertest.client.ClubbiertestContext;
@@ -31,7 +33,13 @@ public class CBTKontinentPresenter extends APresenter<CBTKontinentView, Clubbier
                 public void onSuccess(final ListeItems data) {
                     final List<ListItem> childs = data.getChilds();
                     for (final ListItem listItem : childs) {
-                        getView().addItem(listItem);
+                        getView().addItem(listItem, new ClickHandler() {
+
+                            @Override
+                            public void onClick(final ClickEvent event) {
+                                model.selectKontinent(listItem.getId());
+                            }
+                        });
                     }
                     loaded = true;
                 }
