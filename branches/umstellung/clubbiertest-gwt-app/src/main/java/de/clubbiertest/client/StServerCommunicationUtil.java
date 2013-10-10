@@ -26,42 +26,37 @@ import de.clubbiertest.liste.shared.ListItem;
 import de.clubbiertest.liste.shared.ListeItems;
 import de.clubbiertest.liste.shared.Uris;
 
-public class StServerCommunicationUtil implements AbstractListe, Uris
-{
-    public static final String
-        TYPE_APPLICATION_JSON = "application/json", CONTENT_TYPE_HEADER = "Content-Type", ACCEPT_HEADER = "Accept";
+public class StServerCommunicationUtil implements AbstractListe, Uris {
+    public static final String TYPE_APPLICATION_JSON = "application/json", CONTENT_TYPE_HEADER = "Content-Type", ACCEPT_HEADER = "Accept";
     public static final String JERSEY = "services";
 
-    private static RequestBuilder createRequestBuilder( final Method method, final String url )
-    {
+    private static RequestBuilder createRequestBuilder(final Method method, final String url) {
         final RequestBuilder requestBuilder = new RequestBuilder(method, url);
         requestBuilder.setHeader(ACCEPT_HEADER, TYPE_APPLICATION_JSON);
         requestBuilder.setHeader(CONTENT_TYPE_HEADER, TYPE_APPLICATION_JSON);
         return requestBuilder;
     }
 
-    @Override public void getMain( final Async<List<ListItem>> async )
-    {
+    @Override
+    public void getMain(final Async<List<ListItem>> async) {
         final String baseUrl = GWT.getHostPageBaseURL();
         final String url = baseUrl + JERSEY + "/" + LISTE_PATH;
         final RequestBuilder builder = createRequestBuilder(RequestBuilder.GET, url);
 
-        final RequestCallback callback = new RequestCallback()
-        {
-            public void onError( final Request request, final Throwable exception )
-            {
+        final RequestCallback callback = new RequestCallback() {
+            @Override
+            public void onError(final Request request, final Throwable exception) {
                 async.onError(exception);
             }
 
-            public void onResponseReceived( final Request request, final Response response )
-            {
+            @Override
+            public void onResponseReceived(final Request request, final Response response) {
                 final String jsonString = response.getText();
                 final JSONValue jsonValue = JSONParser.parseStrict(jsonString);
                 final JSONObject obj = jsonValue.isObject();
                 final JSONArray koo = obj.get("childs").isArray();
                 final List<ListItem> application = new ArrayList<ListItem>();
-                for ( int i = 0; i < koo.size(); i++ )
-                {
+                for (int i = 0; i < koo.size(); i++) {
                     final JSONObject object = koo.get(i).isObject();
                     application.add(new JSONItem(object));
                 }
@@ -69,29 +64,26 @@ public class StServerCommunicationUtil implements AbstractListe, Uris
             }
         };
         builder.setCallback(callback);
-        try
-        {
+        try {
             builder.send();
         }
-        catch ( final RequestException e )
-        {
+        catch (final RequestException e) {
             async.onError(e);
         }
     }
 
-    @Override public void call( final String url, final Async<ListeItems> async )
-    {
+    @Override
+    public void call(final String url, final Async<ListeItems> async) {
         final RequestBuilder builder = createRequestBuilder(RequestBuilder.GET, url);
 
-        final RequestCallback callback = new RequestCallback()
-        {
-            public void onError( final Request request, final Throwable exception )
-            {
+        final RequestCallback callback = new RequestCallback() {
+            @Override
+            public void onError(final Request request, final Throwable exception) {
                 async.onError(exception);
             }
 
-            public void onResponseReceived( final Request request, final Response response )
-            {
+            @Override
+            public void onResponseReceived(final Request request, final Response response) {
                 final String jsonString = response.getText();
                 final JSONValue jsonValue = JSONParser.parseStrict(jsonString);
                 final JSONObject obj = jsonValue.isObject();
@@ -100,31 +92,27 @@ public class StServerCommunicationUtil implements AbstractListe, Uris
             }
         };
         builder.setCallback(callback);
-        try
-        {
+        try {
             builder.send();
         }
-        catch ( final RequestException e )
-        {
+        catch (final RequestException e) {
             async.onError(e);
         }
     }
 
-    public void getKontinente( final Async<ListeItems> async )
-    {
-        final String baseUrl = GWT.getModuleBaseURL();
+    public void getKontinente(final Async<ListeItems> async) {
+        final String baseUrl = GWT.getHostPageBaseURL();
         final String url = baseUrl + JERSEY + "/" + LISTE_PATH + "/" + KONTINENTE_PATH;
         final RequestBuilder builder = createRequestBuilder(RequestBuilder.GET, url);
 
-        final RequestCallback callback = new RequestCallback()
-        {
-            public void onError( final Request request, final Throwable exception )
-            {
+        final RequestCallback callback = new RequestCallback() {
+            @Override
+            public void onError(final Request request, final Throwable exception) {
                 async.onError(exception);
             }
 
-            public void onResponseReceived( final Request request, final Response response )
-            {
+            @Override
+            public void onResponseReceived(final Request request, final Response response) {
                 final String jsonString = response.getText();
                 final JSONValue jsonValue = JSONParser.parseStrict(jsonString);
                 final JSONObject obj = jsonValue.isObject();
@@ -133,29 +121,26 @@ public class StServerCommunicationUtil implements AbstractListe, Uris
             }
         };
         builder.setCallback(callback);
-        try
-        {
+        try {
             builder.send();
         }
-        catch ( final RequestException e )
-        {
+        catch (final RequestException e) {
             async.onError(e);
         }
     }
 
-    @Override public void getBier( final String uri, final Async<Bier> async )
-    {
+    @Override
+    public void getBier(final String uri, final Async<Bier> async) {
         final RequestBuilder builder = createRequestBuilder(RequestBuilder.GET, uri);
 
-        final RequestCallback callback = new RequestCallback()
-        {
-            public void onError( final Request request, final Throwable exception )
-            {
+        final RequestCallback callback = new RequestCallback() {
+            @Override
+            public void onError(final Request request, final Throwable exception) {
                 async.onError(exception);
             }
 
-            public void onResponseReceived( final Request request, final Response response )
-            {
+            @Override
+            public void onResponseReceived(final Request request, final Response response) {
                 final String jsonString = response.getText();
                 final JSONValue jsonValue = JSONParser.parseStrict(jsonString);
                 final JSONObject obj = jsonValue.isObject();
@@ -163,31 +148,28 @@ public class StServerCommunicationUtil implements AbstractListe, Uris
             }
         };
         builder.setCallback(callback);
-        try
-        {
+        try {
             builder.send();
         }
-        catch ( final RequestException e )
-        {
+        catch (final RequestException e) {
             async.onError(e);
         }
     }
 
-    @Override public void search( final String uri, final Async<ListeItems> async )
-    {
+    @Override
+    public void search(final String uri, final Async<ListeItems> async) {
         final String baseUrl = GWT.getHostPageBaseURL();
         final String url = baseUrl + JERSEY + "/" + LISTE_PATH + "/" + SEARCH_PATH + "/" + uri;
         final RequestBuilder builder = createRequestBuilder(RequestBuilder.GET, url);
 
-        final RequestCallback callback = new RequestCallback()
-        {
-            public void onError( final Request request, final Throwable exception )
-            {
+        final RequestCallback callback = new RequestCallback() {
+            @Override
+            public void onError(final Request request, final Throwable exception) {
                 async.onError(exception);
             }
 
-            public void onResponseReceived( final Request request, final Response response )
-            {
+            @Override
+            public void onResponseReceived(final Request request, final Response response) {
                 final String jsonString = response.getText();
                 final JSONValue jsonValue = JSONParser.parseStrict(jsonString);
                 final JSONObject obj = jsonValue.isObject();
@@ -196,12 +178,10 @@ public class StServerCommunicationUtil implements AbstractListe, Uris
             }
         };
         builder.setCallback(callback);
-        try
-        {
+        try {
             builder.send();
         }
-        catch ( final RequestException e )
-        {
+        catch (final RequestException e) {
             async.onError(e);
         }
     }

@@ -6,9 +6,9 @@ import de.clubbiertest.client.ClubbiertestCss;
 
 public class ClubbiertestContent extends FlowPanel {
 
-	public ClubbiertestContent(ClubbiertestDataHandler dataHandler) {
-		ClubbiertestCss css = dataHandler.getCss();
-		setStyleName(css.maincontent());
-	}
+    public ClubbiertestContent(ClubbiertestDataHandler dataHandler) {
+        ClubbiertestCss css = dataHandler.getCss();
+        setStyleName(css.maincontent());
+    }
 
 }

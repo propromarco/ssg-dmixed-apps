@@ -7,50 +7,50 @@ import com.google.gwt.user.client.ui.FlowPanel;
 
 public class ASidebarView extends AView {
 
-	public class SidebarEntry {
+    public class SidebarEntry {
 
-		private final Slot slot;
-		private final FlowPanel header;
-		private final FlowPanel content;
-		private final Anchor w;
+        private final Slot slot;
+        private final FlowPanel header;
+        private final FlowPanel content;
+        private final Anchor w;
 
-		public SidebarEntry(final String id, final String header) {
-			this.header = new FlowPanel();
-			w = new Anchor();
-			w.getElement().setInnerHTML(header);
-			this.header.add(w);
-			this.content = new FlowPanel();
-			this.slot = createSlot(id);
-			this.content.add(slot);
-		}
+        public SidebarEntry(final String id, final String header) {
+            this.header = new FlowPanel();
+            w = new Anchor();
+            w.getElement().setInnerHTML(header);
+            this.header.add(w);
+            this.content = new FlowPanel();
+            this.slot = createSlot(id);
+            this.content.add(slot);
+        }
 
-		public HandlerRegistration addClickHandler(final ClickHandler handler) {
-			return w.addClickHandler(handler);
-		}
+        public HandlerRegistration addClickHandler(final ClickHandler handler) {
+            return w.addClickHandler(handler);
+        }
 
-		public Slot getSlot() {
-			return slot;
-		}
+        public Slot getSlot() {
+            return slot;
+        }
 
-		public FlowPanel getHeader() {
-			return header;
-		}
+        public FlowPanel getHeader() {
+            return header;
+        }
 
-		public FlowPanel getContent() {
-			return content;
-		}
+        public FlowPanel getContent() {
+            return content;
+        }
 
-		public void disable() {
-			content.setVisible(false);
-		}
+        public void disable() {
+            content.setVisible(false);
+        }
 
-		public void enable() {
-			content.setVisible(true);
-		}
+        public void enable() {
+            content.setVisible(true);
+        }
 
-	}
+    }
 
-	public ASidebarView() {
-	}
+    public ASidebarView() {
+    }
 
 }

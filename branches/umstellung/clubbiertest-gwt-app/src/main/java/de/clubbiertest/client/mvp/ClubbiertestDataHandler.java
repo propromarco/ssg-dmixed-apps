@@ -10,49 +10,48 @@ import de.clubbiertest.client.StServerCommunicationUtil;
 
 public class ClubbiertestDataHandler implements PlaceHistoryMapper {
 
-	public enum Sidebars {
-		Kontinente, Laender, Sorten
-	}
+    public enum Sidebars {
+        Kontinente, Laender, Sorten
+    }
 
-	private StServerCommunicationUtil util;
-	private EventBus eventBus;
-	private ClubbiertestCss css;
-	private ClubbiertestTexte texte;
+    private StServerCommunicationUtil util;
+    private EventBus eventBus;
+    private ClubbiertestCss css;
+    private ClubbiertestTexte texte;
 
-	public ClubbiertestDataHandler(StServerCommunicationUtil util,
-			EventBus eventBus, ClubbiertestCss css, ClubbiertestTexte texte) {
-		this.util = util;
-		this.eventBus = eventBus;
-		this.css = css;
-		this.texte = texte;
-	}
+    public ClubbiertestDataHandler(StServerCommunicationUtil util, EventBus eventBus, ClubbiertestCss css, ClubbiertestTexte texte) {
+        this.util = util;
+        this.eventBus = eventBus;
+        this.css = css;
+        this.texte = texte;
+    }
 
-	public EventBus getEventBus() {
-		return eventBus;
-	}
+    public EventBus getEventBus() {
+        return eventBus;
+    }
 
-	public StServerCommunicationUtil getUtil() {
-		return util;
-	}
+    public StServerCommunicationUtil getUtil() {
+        return util;
+    }
 
-	public ClubbiertestCss getCss() {
-		return css;
-	}
+    public ClubbiertestCss getCss() {
+        return css;
+    }
 
-	public ClubbiertestTexte getTexte() {
-		return texte;
-	}
+    public ClubbiertestTexte getTexte() {
+        return texte;
+    }
 
-	@Override
-	public Place getPlace(String token) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public Place getPlace(String token) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public String getToken(Place place) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public String getToken(Place place) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
 }

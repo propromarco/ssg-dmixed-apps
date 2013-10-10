@@ -4,14 +4,14 @@ import com.google.gwt.resources.client.CssResource;
 
 public interface ClubbiertestCss extends CssResource {
 
-	String main();
+    String main();
 
-	String sidebar();
+    String sidebar();
 
-	String maincontent();
+    String maincontent();
 
-	String header();
+    String header();
 
-	String content();
+    String content();
 
 }

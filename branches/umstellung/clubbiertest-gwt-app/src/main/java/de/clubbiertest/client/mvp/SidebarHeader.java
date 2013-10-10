@@ -12,22 +12,22 @@ import de.clubbiertest.client.mvp.ClubbiertestDataHandler.Sidebars;
 
 public class SidebarHeader extends FlowPanel {
 
-	private Anchor link;
-	private Sidebars type;
+    private Anchor link;
+    private Sidebars type;
 
-	public SidebarHeader(ClubbiertestDataHandler dataHandler, String text, Sidebars type) {
-		this.type = type;
-		ClubbiertestCss css = dataHandler.getCss();
-		setStyleName(css.header());
-		link = new Anchor();
-		add(link);
-		Element textSpan = DOM.createSpan();
-		link.getElement().appendChild(textSpan);
-		textSpan.setInnerHTML(text);
-	}
+    public SidebarHeader(ClubbiertestDataHandler dataHandler, String text, Sidebars type) {
+        this.type = type;
+        ClubbiertestCss css = dataHandler.getCss();
+        setStyleName(css.header());
+        link = new Anchor();
+        add(link);
+        Element textSpan = DOM.createSpan();
+        link.getElement().appendChild(textSpan);
+        textSpan.setInnerHTML(text);
+    }
 
-	public HandlerRegistration addClickHandler(ClickHandler handler) {
-		return link.addClickHandler(handler);
-	}
+    public HandlerRegistration addClickHandler(ClickHandler handler) {
+        return link.addClickHandler(handler);
+    }
 
 }

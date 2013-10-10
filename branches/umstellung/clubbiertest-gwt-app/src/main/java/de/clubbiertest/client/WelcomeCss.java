@@ -3,21 +3,21 @@ package de.clubbiertest.client;
 import com.google.gwt.resources.client.CssResource;
 
 public interface WelcomeCss extends CssResource {
-	String willkommenbild();
+    String willkommenbild();
 
-	String willkommenbildbeschriftung();
+    String willkommenbildbeschriftung();
 
-	String infosection();
+    String infosection();
 
-	String description();
+    String description();
 
-	String value();
+    String value();
 
-	String ende();
+    String ende();
 
-	String nottestet();
+    String nottestet();
 
-	String willkommenfirst();
+    String willkommenfirst();
 
-	String willkommensecond();
+    String willkommensecond();
 }

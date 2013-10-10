@@ -1,9 +1,11 @@
 package de.clubbiertest.client.mvp.presenter;
 
+import com.google.gwt.place.shared.PlaceChangeEvent;
 import com.google.msc.framework.client.mvp.AMainPresenter;
 import com.google.msc.framework.client.mvp.Slot;
 
 import de.clubbiertest.client.ClubbiertestContext;
+import de.clubbiertest.client.mvp.ClubbiertestPlace;
 import de.clubbiertest.client.mvp.view.CBTMainView;
 
 public class CBTMainPresenter extends AMainPresenter<CBTMainView, ClubbiertestContext> {
@@ -23,6 +25,12 @@ public class CBTMainPresenter extends AMainPresenter<CBTMainView, ClubbiertestCo
         final Slot contentSlot = view.getContentSlot();
         final CBTWelcomePresenter welcomePresenter = context.createWelcomePresenter();
         setInSlot(contentSlot, welcomePresenter);
+    }
+
+    @Override
+    public void onPlaceChange(final PlaceChangeEvent event) {
+        final ClubbiertestPlace clubbiertestPlace = (ClubbiertestPlace) event.getNewPlace();
+        super.onUpdate();
     }
 
 }

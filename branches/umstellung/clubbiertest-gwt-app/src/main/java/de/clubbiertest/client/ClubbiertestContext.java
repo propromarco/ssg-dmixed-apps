@@ -2,6 +2,7 @@ package de.clubbiertest.client;
 
 import com.google.msc.framework.client.mvp.IContext;
 
+import de.clubbiertest.client.mvp.CBTModel;
 import de.clubbiertest.client.mvp.presenter.CBTKontinentPresenter;
 import de.clubbiertest.client.mvp.presenter.CBTLandPresenter;
 import de.clubbiertest.client.mvp.presenter.CBTSidebarPresenter;
@@ -19,5 +20,7 @@ public interface ClubbiertestContext extends IContext {
     CBTLandPresenter createLandPresenter();
 
     CBTSortePresenter createSortePresenter();
+
+    CBTModel getModel();
 
 }

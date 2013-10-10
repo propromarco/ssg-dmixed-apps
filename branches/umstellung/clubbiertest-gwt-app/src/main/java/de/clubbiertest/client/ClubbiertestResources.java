@@ -7,14 +7,14 @@ import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.resources.client.ImageResource;
 
 public interface ClubbiertestResources extends ClientBundle {
-	ClubbiertestResources RESOURCES = GWT.create(ClubbiertestResources.class);
+    ClubbiertestResources RESOURCES = GWT.create(ClubbiertestResources.class);
 
-	@Source("anfang1.png")
-	ImageResource anfang();
+    @Source("anfang1.png")
+    ImageResource anfang();
 
-	@Source("clubbiertest.css")
-	ClubbiertestCss getClubbiertestCss();
+    @Source("clubbiertest.css")
+    ClubbiertestCss getClubbiertestCss();
 
-	@Source("welcome.css")
-	WelcomeCss getWelcomeCss();
+    @Source("welcome.css")
+    WelcomeCss getWelcomeCss();
 }

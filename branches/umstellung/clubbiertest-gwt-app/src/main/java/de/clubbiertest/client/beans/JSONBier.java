@@ -6,13 +6,11 @@ import com.google.gwt.json.client.JSONObject;
 
 import de.clubbiertest.liste.shared.Bier;
 
-public class JSONBier extends JSONItem implements Bier
-{
+public class JSONBier extends JSONItem implements Bier {
     private final Double note, design;
     private final String sorte, land;
 
-    public JSONBier( final JSONObject object )
-    {
+    public JSONBier(final JSONObject object) {
         super(object);
         this.land = JSONUtils.getString(object.get("land"));
         this.sorte = JSONUtils.getString(object.get("sorte"));
@@ -20,23 +18,23 @@ public class JSONBier extends JSONItem implements Bier
         this.design = JSONUtils.getDouble(object.get("design"));
     }
 
-    @Override public Double getDesign()
-    {
+    @Override
+    public Double getDesign() {
         return this.design;
     }
 
-    @Override public Double getNote()
-    {
+    @Override
+    public Double getNote() {
         return this.note;
     }
 
-    @Override public String getLand()
-    {
+    @Override
+    public String getLand() {
         return this.land;
     }
 
-    @Override public String getSorte()
-    {
+    @Override
+    public String getSorte() {
         return this.sorte;
     }
 }
