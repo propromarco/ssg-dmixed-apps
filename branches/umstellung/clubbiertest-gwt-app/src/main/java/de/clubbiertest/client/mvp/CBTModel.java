@@ -4,12 +4,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.google.gwt.core.client.GWT;
+
 import de.clubbiertest.client.StServerCommunicationUtil;
 import de.clubbiertest.liste.shared.AbstractListe.Async;
 import de.clubbiertest.liste.shared.ListItem;
 import de.clubbiertest.liste.shared.ListeItems;
+import de.clubbiertest.liste.shared.Uris;
 
-public class CBTModel {
+public class CBTModel implements Uris {
     public interface ICallback<Data> {
         void onSuccess(Data data);
     }
@@ -20,6 +23,8 @@ public class CBTModel {
     private final Map<String, ListeItems> kontinent = new HashMap<String, ListeItems>();
     private final Map<String, ListeItems> laender = new HashMap<String, ListeItems>();
     private final Map<String, ListeItems> sorten = new HashMap<String, ListeItems>();
+    private String kontinentId = null;
+    private String landId = null;
 
     public CBTModel(final StServerCommunicationUtil util) {
         super();
@@ -94,14 +99,14 @@ public class CBTModel {
         }
     }
 
-    public void loadLand(final ListItem item, final ICallback<ListeItems> cb) {
-        final String id = item.getId();
-        final ListeItems land = this.laender.get(id);
+    public void loadLand(final String landId, final ICallback<ListeItems> cb) {
+        final ListeItems land = this.laender.get(landId);
         if (land != null) {
             cb.onSuccess(land);
         }
         else {
-            final String url = item.getUri();
+            final String hostPageBaseURL = GWT.getHostPageBaseURL();
+            final String landPath = hostPageBaseURL + LISTE_PATH + "/" + LAND_PATH + "/" + landId;
             final Async<ListeItems> async = new Async<ListeItems>() {
 
                 @Override
@@ -111,11 +116,11 @@ public class CBTModel {
 
                 @Override
                 public void afterCall(final ListeItems land) {
-                    CBTModel.this.laender.put(id, land);
+                    CBTModel.this.laender.put(landId, land);
                     cb.onSuccess(land);
                 }
             };
-            util.call(url, async);
+            util.call(landPath, async);
         }
     }
 
@@ -142,6 +147,22 @@ public class CBTModel {
             };
             util.call(url, async);
         }
+    }
+
+    public String getActiveLand() {
+        return landId;
+    }
+
+    public String getActiveKontinent() {
+        return kontinentId;
+    }
+
+    public void selectKontinent(final String kontinentId) {
+        this.kontinentId = kontinentId;
+    }
+
+    public void selectLand(final String landId) {
+        this.landId = landId;
     }
 
 }
