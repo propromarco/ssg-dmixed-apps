@@ -16,7 +16,7 @@ import de.clubbiertest.liste.shared.ListeItems;
 
 public class CBTLaenderPresenter extends APresenter<CBTLaenderView, ClubbiertestContext> {
 
-    private ListeItems lastLand = null;
+    private String lastKontinent = null;
 
     public CBTLaenderPresenter(final CBTLaenderView view, final ClubbiertestContext context) {
         super(view, context);
@@ -27,12 +27,12 @@ public class CBTLaenderPresenter extends APresenter<CBTLaenderView, Clubbiertest
         super.onUpdate();
         final CBTModel model = getContext().getModel();
         final EventBus eventBus = getContext().getEventBus();
-        final String activeLand = model.getActiveLand();
-        if (activeLand != null) {
+        final String activeKontinent = model.getActiveKontinent();
+        if (activeKontinent != null) {
             final ICallback<ListeItems> cb = new ICallback<ListeItems>() {
                 @Override
                 public void onSuccess(final ListeItems data) {
-                    lastLand = data;
+                    lastKontinent = data.getId();
                     final List<ListItem> childs = data.getChilds();
                     for (final ListItem listItem : childs) {
                         getView().addItem(listItem, new IClick() {
@@ -45,11 +45,11 @@ public class CBTLaenderPresenter extends APresenter<CBTLaenderView, Clubbiertest
                     }
                 }
             };
-            if (lastLand == null) {
-                model.loadLand(activeLand, cb);
+            if (lastKontinent == null) {
+                model.loadKontinent(activeKontinent, cb);
             }
-            else if (lastLand.getId().equals(activeLand)) {
-                model.loadLand(activeLand, cb);
+            else if (lastKontinent.equals(activeKontinent)) {
+                model.loadKontinent(activeKontinent, cb);
             }
         }
     }

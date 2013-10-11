@@ -10,9 +10,9 @@ import de.clubbiertest.client.StServerCommunicationUtil;
 import de.clubbiertest.liste.shared.AbstractListe.Async;
 import de.clubbiertest.liste.shared.ListItem;
 import de.clubbiertest.liste.shared.ListeItems;
-import de.clubbiertest.liste.shared.Uris;
+import de.clubbiertest.liste.shared.UriUtils;
 
-public class CBTModel implements Uris {
+public class CBTModel {
     public interface ICallback<Data> {
         void onSuccess(Data data);
     }
@@ -20,7 +20,7 @@ public class CBTModel implements Uris {
     private final StServerCommunicationUtil util;
     private List<ListItem> main = null;
     private ListeItems kontinente = null;
-    private final Map<String, ListeItems> kontinent = new HashMap<String, ListeItems>();
+    private final Map<String, ListeItems> kontinenteMap = new HashMap<String, ListeItems>();
     private final Map<String, ListeItems> laender = new HashMap<String, ListeItems>();
     private final Map<String, ListeItems> sorten = new HashMap<String, ListeItems>();
     private final String kontinentId = null;
@@ -74,14 +74,14 @@ public class CBTModel implements Uris {
         }
     }
 
-    public void loadKontinent(final ListItem item, final ICallback<ListeItems> cb) {
-        final String id = item.getId();
-        final ListeItems kontinent = this.kontinent.get(id);
+    public void loadKontinent(final String kontinentId, final ICallback<ListeItems> cb) {
+        final ListeItems kontinent = this.kontinenteMap.get(kontinentId);
         if (kontinent != null) {
             cb.onSuccess(kontinent);
         }
         else {
-            final String url = item.getUri();
+            final String hostPageBaseURL = GWT.getHostPageBaseURL();
+            final String kontinentPath = UriUtils.getKontinentPath(hostPageBaseURL, kontinentId);
             final Async<ListeItems> async = new Async<ListeItems>() {
 
                 @Override
@@ -91,11 +91,11 @@ public class CBTModel implements Uris {
 
                 @Override
                 public void afterCall(final ListeItems kontinent) {
-                    CBTModel.this.kontinent.put(id, kontinent);
+                    CBTModel.this.kontinenteMap.put(kontinentId, kontinent);
                     cb.onSuccess(kontinent);
                 }
             };
-            util.call(url, async);
+            util.call(kontinentPath, async);
         }
     }
 
@@ -106,7 +106,7 @@ public class CBTModel implements Uris {
         }
         else {
             final String hostPageBaseURL = GWT.getHostPageBaseURL();
-            final String landPath = hostPageBaseURL + LISTE_PATH + "/" + LAND_PATH + "/" + landId;
+            final String landPath = UriUtils.getLandPath(hostPageBaseURL, landId);
             final Async<ListeItems> async = new Async<ListeItems>() {
 
                 @Override
@@ -124,14 +124,14 @@ public class CBTModel implements Uris {
         }
     }
 
-    public void loadSorte(final ListItem item, final ICallback<ListeItems> cb) {
-        final String id = item.getId();
-        final ListeItems sorte = this.sorten.get(id);
+    public void loadSorte(final String sorteId, final ICallback<ListeItems> cb) {
+        final ListeItems sorte = this.sorten.get(sorteId);
         if (sorte != null) {
             cb.onSuccess(sorte);
         }
         else {
-            final String url = item.getUri();
+            final String hostPageBaseURL = GWT.getHostPageBaseURL();
+            final String sortePath = UriUtils.getSortePath(hostPageBaseURL, sorteId);
             final Async<ListeItems> async = new Async<ListeItems>() {
 
                 @Override
@@ -141,11 +141,11 @@ public class CBTModel implements Uris {
 
                 @Override
                 public void afterCall(final ListeItems sorte) {
-                    CBTModel.this.sorten.put(id, sorte);
+                    CBTModel.this.sorten.put(sorteId, sorte);
                     cb.onSuccess(sorte);
                 }
             };
-            util.call(url, async);
+            util.call(sortePath, async);
         }
     }
 
