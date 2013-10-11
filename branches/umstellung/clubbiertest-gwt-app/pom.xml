@@ -103,11 +103,13 @@
       <scope>runtime</scope>
     </dependency>
     <!-- Dependencies for run -->
+<!--
     <dependency>
       <groupId>com.sksamuel.jqm4gwt</groupId>
       <artifactId>jqm4gwt</artifactId>
       <version>1.1.0</version>
     </dependency>
+-->
     <dependency>
       <groupId>org.json</groupId>
       <artifactId>json</artifactId>
