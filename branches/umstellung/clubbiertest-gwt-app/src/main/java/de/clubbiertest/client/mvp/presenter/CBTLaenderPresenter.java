@@ -32,6 +32,7 @@ public class CBTLaenderPresenter extends APresenter<CBTLaenderView, Clubbiertest
             final ICallback<ListeItems> cb = new ICallback<ListeItems>() {
                 @Override
                 public void onSuccess(final ListeItems data) {
+                    getView().clearItems();
                     lastKontinent = data.getId();
                     final List<ListItem> childs = data.getChilds();
                     for (final ListItem listItem : childs) {

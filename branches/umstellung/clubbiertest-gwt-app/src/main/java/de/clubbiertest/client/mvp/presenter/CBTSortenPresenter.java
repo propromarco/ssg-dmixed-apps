@@ -33,6 +33,7 @@ public class CBTSortenPresenter extends APresenter<CBTSortenView, ClubbiertestCo
 
                 @Override
                 public void onSuccess(final ListeItems data) {
+                    getView().clearItems();
                     lastLand = data.getId();
                     final List<ListItem> childs = data.getChilds();
                     for (final ListItem listItem : childs) {

@@ -14,6 +14,23 @@ public class ClubbiertestPlace extends Place {
     public ClubbiertestPlace() {
     }
 
+    public ClubbiertestPlace(final String[] split) {
+        for (int i = 0; i < split.length; i++) {
+            final String string = split[i];
+            switch (i) {
+            case 0:
+                _kontinentId = string;
+                break;
+            case 1:
+                _landId = string;
+                break;
+            case 2:
+                _sorteId = string;
+                break;
+            }
+        }
+    }
+
     public ClubbiertestPlace(final String kontinentId, final Sidebars openSidebar) {
         _kontinentId = kontinentId;
         this.openSidebar = openSidebar;

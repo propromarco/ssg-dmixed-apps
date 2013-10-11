@@ -1,7 +1,6 @@
 package de.clubbiertest.client;
 
 import com.google.gwt.place.shared.Place;
-import com.google.gwt.place.shared.PlaceHistoryMapper;
 import com.google.msc.framework.client.mvp.AEntryPoint;
 import com.google.msc.framework.client.mvp.IClientFactory;
 
@@ -12,8 +11,7 @@ public class ClubbiertestEntryPoint extends AEntryPoint<ClubbiertestContext> {
 
     @Override
     protected IClientFactory<ClubbiertestContext> createFactory() {
-        final PlaceHistoryMapper placeHistoryMapper = null;
-        final CBTClientFactory factory = new CBTClientFactory(placeHistoryMapper);
+        final CBTClientFactory factory = new CBTClientFactory();
         return factory;
     }
 

@@ -1,6 +1,7 @@
 package de.clubbiertest.client.mvp;
 
 import com.google.gwt.event.shared.SimpleEventBus;
+import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.place.shared.PlaceHistoryMapper;
 import com.google.msc.framework.client.mvp.AMainPresenter;
@@ -26,18 +27,16 @@ import de.clubbiertest.client.mvp.view.CBTSidebarView;
 import de.clubbiertest.client.mvp.view.CBTSortenView;
 import de.clubbiertest.client.mvp.view.CBTWelcomeView;
 
-public class CBTClientFactory implements IClientFactory<ClubbiertestContext>, ClubbiertestContext {
+public class CBTClientFactory implements IClientFactory<ClubbiertestContext>, ClubbiertestContext, PlaceHistoryMapper {
 
     private final EventBus eventBus = new SimpleEventBus();
     private final PlaceController placeController = new PlaceController(eventBus);
-    private final PlaceHistoryMapper placeHistoryMapper;
     private final ClubbiertestCss clubbiertestCss;
     private final ClubbiertestTexte texte;
     private final WelcomeCss welcomeCss;
     private final CBTModel model;
 
-    public CBTClientFactory(final PlaceHistoryMapper placeHistoryMapper) {
-        this.placeHistoryMapper = placeHistoryMapper;
+    public CBTClientFactory() {
         this.texte = ClubbiertestTexte.TEXTE;
         this.clubbiertestCss = ClubbiertestResources.RESOURCES.getClubbiertestCss();
         this.clubbiertestCss.ensureInjected();
@@ -64,7 +63,7 @@ public class CBTClientFactory implements IClientFactory<ClubbiertestContext>, Cl
 
     @Override
     public PlaceHistoryMapper getPlaceHistoryMapper() {
-        return placeHistoryMapper;
+        return this;
     }
 
     @Override
@@ -107,6 +106,35 @@ public class CBTClientFactory implements IClientFactory<ClubbiertestContext>, Cl
         final CBTSortenView view = new CBTSortenView(clubbiertestCss);
         final CBTSortenPresenter sortePresenter = new CBTSortenPresenter(view, this);
         return sortePresenter;
+    }
+
+    @Override
+    public Place getPlace(final String token) {
+        final String[] split = token.split(":");
+        final ClubbiertestPlace place;
+        if (split != null)
+            place = new ClubbiertestPlace(split);
+        else
+            place = new ClubbiertestPlace();
+        return place;
+    }
+
+    @Override
+    public String getToken(final Place place) {
+        final ClubbiertestPlace clubbiertestPlace = (ClubbiertestPlace) place;
+        final StringBuffer buffer = new StringBuffer();
+        final String kontinentId = clubbiertestPlace.getKontinentId();
+        if (kontinentId != null)
+            buffer.append(kontinentId);
+        buffer.append(':');
+        final String landId = clubbiertestPlace.getLandId();
+        if (landId != null)
+            buffer.append(landId);
+        buffer.append(':');
+        final String sorteId = clubbiertestPlace.getSorteId();
+        if (sorteId != null)
+            buffer.append(sorteId);
+        return buffer.toString();
     }
 
 }
