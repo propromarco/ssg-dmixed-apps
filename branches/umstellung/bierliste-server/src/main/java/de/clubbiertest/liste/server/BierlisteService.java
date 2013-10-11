@@ -3,7 +3,6 @@
 package de.clubbiertest.liste.server;
 
 import java.net.URI;
-
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -24,8 +23,8 @@ import de.clubbiertest.liste.server.jaxb.ListeItemsImpl;
 import de.clubbiertest.liste.server.jaxb.ListeItemsImpl.UriCallback;
 import de.clubbiertest.liste.server.util.ListeParser;
 import de.clubbiertest.liste.server.util.OrderUtils;
-import de.clubbiertest.liste.server.util.UriUtils;
 import de.clubbiertest.liste.shared.SortType;
+import de.clubbiertest.liste.shared.UriUtils;
 import de.clubbiertest.liste.shared.Uris;
 
 import org.w3c.dom.Element;

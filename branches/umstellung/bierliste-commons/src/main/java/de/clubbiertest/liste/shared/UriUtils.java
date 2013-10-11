@@ -1,8 +1,7 @@
 /* Copyright, (c) 2011 Suretec GmbH  */
 
-package de.clubbiertest.liste.server.util;
+package de.clubbiertest.liste.shared;
 
-import de.clubbiertest.liste.shared.Uris;
 
 public class UriUtils implements Uris
 {

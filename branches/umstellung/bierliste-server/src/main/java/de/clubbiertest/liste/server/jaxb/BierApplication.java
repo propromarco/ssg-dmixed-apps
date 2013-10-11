@@ -3,15 +3,13 @@
 package de.clubbiertest.liste.server.jaxb;
 
 import java.net.URI;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.core.UriInfo;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
-import de.clubbiertest.liste.server.util.UriUtils;
+import de.clubbiertest.liste.shared.UriUtils;
 
 @XmlRootElement
 public class BierApplication
