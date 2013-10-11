@@ -21,7 +21,7 @@ public class CBTSidebarPresenter extends ASidebarPresenter<CBTSidebarView, Clubb
         final ClubbiertestContext context = getContext();
         final CBTSidebarView view = getView();
         final SidebarEntry kontinentEntry = view.createSlot(Stacks.KONTINENT);
-        final CBTKontinentPresenter kontinentPresenter = context.createKontinentPresenter();
+        final CBTKontinentePresenter kontinentPresenter = context.createKontinentPresenter();
         setInSlot(kontinentEntry.getSlot(), kontinentPresenter);
         addHandler(kontinentEntry.addClickHandler(new ClickHandler() {
             @Override
@@ -30,7 +30,7 @@ public class CBTSidebarPresenter extends ASidebarPresenter<CBTSidebarView, Clubb
             }
         }));
         final SidebarEntry landEntry = view.createSlot(Stacks.LAND);
-        final CBTLandPresenter landPresenter = context.createLandPresenter();
+        final CBTLaenderPresenter landPresenter = context.createLandPresenter();
         setInSlot(landEntry.getSlot(), landPresenter);
         addHandler(landEntry.addClickHandler(new ClickHandler() {
             @Override
@@ -39,7 +39,7 @@ public class CBTSidebarPresenter extends ASidebarPresenter<CBTSidebarView, Clubb
             }
         }));
         final SidebarEntry sorteEntry = view.createSlot(Stacks.SORTE);
-        final CBTSortePresenter sortePresenter = context.createSortePresenter();
+        final CBTSortenPresenter sortePresenter = context.createSortePresenter();
         setInSlot(sorteEntry.getSlot(), sortePresenter);
         addHandler(sorteEntry.addClickHandler(new ClickHandler() {
             @Override

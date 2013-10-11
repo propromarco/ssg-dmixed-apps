@@ -3,8 +3,6 @@ package de.clubbiertest.client.mvp.events;
 import com.google.gwt.event.shared.EventHandler;
 import com.google.gwt.event.shared.GwtEvent;
 
-import de.clubbiertest.liste.shared.ListItem;
-
 public class CBTSorteEvent extends GwtEvent<CBTSorteEvent.ISorteHandler> {
 
     public interface ISorteHandler extends EventHandler {
@@ -12,14 +10,14 @@ public class CBTSorteEvent extends GwtEvent<CBTSorteEvent.ISorteHandler> {
     }
 
     public static final Type<ISorteHandler> TYPE = new Type<CBTSorteEvent.ISorteHandler>();
-    private final ListItem item;
+    private final String _sorteId;
 
-    public CBTSorteEvent(final ListItem item) {
-        this.item = item;
+    public CBTSorteEvent(final String sorteId) {
+        _sorteId = sorteId;
     }
 
-    public ListItem getItem() {
-        return item;
+    public String getSorteId() {
+        return _sorteId;
     }
 
     @Override

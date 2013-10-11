@@ -13,17 +13,17 @@ import de.clubbiertest.client.ClubbiertestResources;
 import de.clubbiertest.client.ClubbiertestTexte;
 import de.clubbiertest.client.StServerCommunicationUtil;
 import de.clubbiertest.client.WelcomeCss;
-import de.clubbiertest.client.mvp.presenter.CBTKontinentPresenter;
-import de.clubbiertest.client.mvp.presenter.CBTLandPresenter;
+import de.clubbiertest.client.mvp.presenter.CBTKontinentePresenter;
+import de.clubbiertest.client.mvp.presenter.CBTLaenderPresenter;
 import de.clubbiertest.client.mvp.presenter.CBTMainPresenter;
 import de.clubbiertest.client.mvp.presenter.CBTSidebarPresenter;
-import de.clubbiertest.client.mvp.presenter.CBTSortePresenter;
+import de.clubbiertest.client.mvp.presenter.CBTSortenPresenter;
 import de.clubbiertest.client.mvp.presenter.CBTWelcomePresenter;
-import de.clubbiertest.client.mvp.view.CBTKontinentView;
-import de.clubbiertest.client.mvp.view.CBTLandView;
+import de.clubbiertest.client.mvp.view.CBTKontinenteView;
+import de.clubbiertest.client.mvp.view.CBTLaenderView;
 import de.clubbiertest.client.mvp.view.CBTMainView;
 import de.clubbiertest.client.mvp.view.CBTSidebarView;
-import de.clubbiertest.client.mvp.view.CBTSorteView;
+import de.clubbiertest.client.mvp.view.CBTSortenView;
 import de.clubbiertest.client.mvp.view.CBTWelcomeView;
 
 public class CBTClientFactory implements IClientFactory<ClubbiertestContext>, ClubbiertestContext {
@@ -89,23 +89,23 @@ public class CBTClientFactory implements IClientFactory<ClubbiertestContext>, Cl
     }
 
     @Override
-    public CBTKontinentPresenter createKontinentPresenter() {
-        final CBTKontinentView view = new CBTKontinentView(clubbiertestCss);
-        final CBTKontinentPresenter kontinentPresenter = new CBTKontinentPresenter(view, this);
+    public CBTKontinentePresenter createKontinentPresenter() {
+        final CBTKontinenteView view = new CBTKontinenteView(clubbiertestCss);
+        final CBTKontinentePresenter kontinentPresenter = new CBTKontinentePresenter(view, this);
         return kontinentPresenter;
     }
 
     @Override
-    public CBTLandPresenter createLandPresenter() {
-        final CBTLandView view = new CBTLandView(clubbiertestCss);
-        final CBTLandPresenter landPresenter = new CBTLandPresenter(view, this);
+    public CBTLaenderPresenter createLandPresenter() {
+        final CBTLaenderView view = new CBTLaenderView(clubbiertestCss);
+        final CBTLaenderPresenter landPresenter = new CBTLaenderPresenter(view, this);
         return landPresenter;
     }
 
     @Override
-    public CBTSortePresenter createSortePresenter() {
-        final CBTSorteView view = new CBTSorteView(clubbiertestCss);
-        final CBTSortePresenter sortePresenter = new CBTSortePresenter(view, this);
+    public CBTSortenPresenter createSortePresenter() {
+        final CBTSortenView view = new CBTSortenView(clubbiertestCss);
+        final CBTSortenPresenter sortePresenter = new CBTSortenPresenter(view, this);
         return sortePresenter;
     }
 

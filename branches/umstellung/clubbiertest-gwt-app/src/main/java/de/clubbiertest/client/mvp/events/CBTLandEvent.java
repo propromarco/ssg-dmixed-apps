@@ -3,8 +3,6 @@ package de.clubbiertest.client.mvp.events;
 import com.google.gwt.event.shared.EventHandler;
 import com.google.gwt.event.shared.GwtEvent;
 
-import de.clubbiertest.liste.shared.ListItem;
-
 public class CBTLandEvent extends GwtEvent<CBTLandEvent.ILandHandler> {
 
     public interface ILandHandler extends EventHandler {
@@ -12,14 +10,14 @@ public class CBTLandEvent extends GwtEvent<CBTLandEvent.ILandHandler> {
     }
 
     public static final Type<ILandHandler> TYPE = new Type<CBTLandEvent.ILandHandler>();
-    private final ListItem item;
+    private final String _landId;
 
-    public CBTLandEvent(final ListItem item) {
-        this.item = item;
+    public CBTLandEvent(final String landId) {
+        _landId = landId;
     }
 
-    public ListItem getItem() {
-        return item;
+    public String getLandId() {
+        return _landId;
     }
 
     @Override

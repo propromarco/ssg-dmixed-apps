@@ -23,8 +23,8 @@ public class CBTModel implements Uris {
     private final Map<String, ListeItems> kontinent = new HashMap<String, ListeItems>();
     private final Map<String, ListeItems> laender = new HashMap<String, ListeItems>();
     private final Map<String, ListeItems> sorten = new HashMap<String, ListeItems>();
-    private String kontinentId = null;
-    private String landId = null;
+    private final String kontinentId = null;
+    private final String landId = null;
 
     public CBTModel(final StServerCommunicationUtil util) {
         super();
@@ -155,14 +155,6 @@ public class CBTModel implements Uris {
 
     public String getActiveKontinent() {
         return kontinentId;
-    }
-
-    public void selectKontinent(final String kontinentId) {
-        this.kontinentId = kontinentId;
-    }
-
-    public void selectLand(final String landId) {
-        this.landId = landId;
     }
 
 }

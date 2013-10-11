@@ -3,8 +3,6 @@ package de.clubbiertest.client.mvp.events;
 import com.google.gwt.event.shared.EventHandler;
 import com.google.gwt.event.shared.GwtEvent;
 
-import de.clubbiertest.liste.shared.ListItem;
-
 public class CBTKontinentEvent extends GwtEvent<CBTKontinentEvent.IKontinentHandler> {
 
     public interface IKontinentHandler extends EventHandler {
@@ -12,14 +10,14 @@ public class CBTKontinentEvent extends GwtEvent<CBTKontinentEvent.IKontinentHand
     }
 
     public static final Type<IKontinentHandler> TYPE = new Type<CBTKontinentEvent.IKontinentHandler>();
-    private final ListItem item;
+    private final String kontinentId;
 
-    public CBTKontinentEvent(final ListItem item) {
-        this.item = item;
+    public CBTKontinentEvent(final String kontinentId) {
+        this.kontinentId = kontinentId;
     }
 
-    public ListItem getItem() {
-        return item;
+    public String getKontinentId() {
+        return kontinentId;
     }
 
     @Override

@@ -2,9 +2,9 @@ package de.clubbiertest.client.mvp.view;
 
 import de.clubbiertest.client.ClubbiertestCss;
 
-public class CBTSorteView extends AListView {
+public class CBTKontinenteView extends AListView {
 
-    public CBTSorteView(final ClubbiertestCss clubbiertestCss) {
+    public CBTKontinenteView(final ClubbiertestCss clubbiertestCss) {
         super(clubbiertestCss);
     }
 
