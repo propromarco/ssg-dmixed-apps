@@ -38,7 +38,7 @@ public class CBTKontinentePresenter extends APresenter<CBTKontinenteView, Clubbi
                         getView().addItem(listItem, new IClick() {
                             @Override
                             public void onClick(final int absoluteTop, final int absoluteLeft) {
-                                eventBus.fireEvent(new CBTKontinentEvent(listItem.getId()));
+                                eventBus.fireEvent(new CBTKontinentEvent(listItem.getName()));
                             }
                         });
                     }

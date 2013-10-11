@@ -23,8 +23,9 @@ public class CBTModel {
     private final Map<String, ListeItems> kontinenteMap = new HashMap<String, ListeItems>();
     private final Map<String, ListeItems> laender = new HashMap<String, ListeItems>();
     private final Map<String, ListeItems> sorten = new HashMap<String, ListeItems>();
-    private final String kontinentId = null;
-    private final String landId = null;
+    private String kontinentId = null;
+    private String landId = null;
+    private String _sorteId;
 
     public CBTModel(final StServerCommunicationUtil util) {
         super();
@@ -80,7 +81,7 @@ public class CBTModel {
             cb.onSuccess(kontinent);
         }
         else {
-            final String hostPageBaseURL = GWT.getHostPageBaseURL();
+            final String hostPageBaseURL = GWT.getHostPageBaseURL() + StServerCommunicationUtil.JERSEY + "/";
             final String kontinentPath = UriUtils.getKontinentPath(hostPageBaseURL, kontinentId);
             final Async<ListeItems> async = new Async<ListeItems>() {
 
@@ -105,7 +106,7 @@ public class CBTModel {
             cb.onSuccess(land);
         }
         else {
-            final String hostPageBaseURL = GWT.getHostPageBaseURL();
+            final String hostPageBaseURL = GWT.getHostPageBaseURL() + StServerCommunicationUtil.JERSEY + "/";
             final String landPath = UriUtils.getLandPath(hostPageBaseURL, landId);
             final Async<ListeItems> async = new Async<ListeItems>() {
 
@@ -130,7 +131,7 @@ public class CBTModel {
             cb.onSuccess(sorte);
         }
         else {
-            final String hostPageBaseURL = GWT.getHostPageBaseURL();
+            final String hostPageBaseURL = GWT.getHostPageBaseURL() + StServerCommunicationUtil.JERSEY + "/";
             final String sortePath = UriUtils.getSortePath(hostPageBaseURL, sorteId);
             final Async<ListeItems> async = new Async<ListeItems>() {
 
@@ -153,8 +154,24 @@ public class CBTModel {
         return landId;
     }
 
+    public void setActiveLand(final String landId) {
+        this.landId = landId;
+    }
+
     public String getActiveKontinent() {
         return kontinentId;
+    }
+
+    public void setActiveKontinent(final String kontinentId) {
+        this.kontinentId = kontinentId;
+    }
+
+    public void setActiveSorte(final String sorteId) {
+        _sorteId = sorteId;
+    }
+
+    public String getActiveSorte() {
+        return _sorteId;
     }
 
 }

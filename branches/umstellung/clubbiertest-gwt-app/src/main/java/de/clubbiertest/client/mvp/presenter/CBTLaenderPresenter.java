@@ -39,7 +39,7 @@ public class CBTLaenderPresenter extends APresenter<CBTLaenderView, Clubbiertest
 
                             @Override
                             public void onClick(final int absoluteTop, final int absoluteLeft) {
-                                eventBus.fireEvent(new CBTLandEvent(listItem.getId()));
+                                eventBus.fireEvent(new CBTLandEvent(listItem.getName()));
                             }
                         });
                     }
@@ -48,7 +48,7 @@ public class CBTLaenderPresenter extends APresenter<CBTLaenderView, Clubbiertest
             if (lastKontinent == null) {
                 model.loadKontinent(activeKontinent, cb);
             }
-            else if (lastKontinent.equals(activeKontinent)) {
+            else if (!lastKontinent.equals(activeKontinent)) {
                 model.loadKontinent(activeKontinent, cb);
             }
         }
