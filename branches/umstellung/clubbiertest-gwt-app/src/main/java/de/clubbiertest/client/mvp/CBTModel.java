@@ -7,6 +7,7 @@ import java.util.Map;
 import com.google.gwt.core.client.GWT;
 
 import de.clubbiertest.client.StServerCommunicationUtil;
+import de.clubbiertest.client.mvp.view.CBTSidebarView.Stacks;
 import de.clubbiertest.liste.shared.AbstractListe.Async;
 import de.clubbiertest.liste.shared.ListItem;
 import de.clubbiertest.liste.shared.ListeItems;
@@ -26,6 +27,7 @@ public class CBTModel {
     private String kontinentId = null;
     private String landId = null;
     private String _sorteId;
+    private Stacks _openSidebar;
 
     public CBTModel(final StServerCommunicationUtil util) {
         super();
@@ -172,6 +174,14 @@ public class CBTModel {
 
     public String getActiveSorte() {
         return _sorteId;
+    }
+
+    public void setOpenSidebar(final Stacks openSidebar) {
+        _openSidebar = openSidebar;
+    }
+
+    public Stacks getOpenSidebar() {
+        return _openSidebar;
     }
 
 }

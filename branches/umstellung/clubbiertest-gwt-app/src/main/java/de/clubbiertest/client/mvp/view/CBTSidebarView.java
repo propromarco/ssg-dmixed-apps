@@ -11,7 +11,7 @@ import de.clubbiertest.client.ClubbiertestTexte;
 public class CBTSidebarView extends ASidebarView {
 
     public enum Stacks {
-        KONTINENT, LAND, SORTE
+        KONTINENTE, LAENDER, SORTEN
     }
 
     private final ClubbiertestCss clubbiertestCss;
@@ -27,13 +27,13 @@ public class CBTSidebarView extends ASidebarView {
     public SidebarEntry createSlot(final Stacks stack) {
         final String text;
         switch (stack) {
-        case KONTINENT:
+        case KONTINENTE:
             text = texte.kontinent();
             break;
-        case LAND:
+        case LAENDER:
             text = texte.land();
             break;
-        case SORTE:
+        case SORTEN:
             text = texte.sorte();
             break;
         default:

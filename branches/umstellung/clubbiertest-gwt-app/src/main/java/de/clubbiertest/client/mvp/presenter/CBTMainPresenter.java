@@ -7,15 +7,15 @@ import com.google.web.bindery.event.shared.EventBus;
 
 import de.clubbiertest.client.ClubbiertestContext;
 import de.clubbiertest.client.mvp.CBTModel;
-import de.clubbiertest.client.mvp.ClubbiertestDataHandler.Sidebars;
 import de.clubbiertest.client.mvp.ClubbiertestPlace;
 import de.clubbiertest.client.mvp.events.CBTKontinentEvent;
 import de.clubbiertest.client.mvp.events.CBTKontinentEvent.IKontinentHandler;
-import de.clubbiertest.client.mvp.events.CBTLandEvent.ILandHandler;
-import de.clubbiertest.client.mvp.events.CBTSorteEvent.ISorteHandler;
 import de.clubbiertest.client.mvp.events.CBTLandEvent;
+import de.clubbiertest.client.mvp.events.CBTLandEvent.ILandHandler;
 import de.clubbiertest.client.mvp.events.CBTSorteEvent;
+import de.clubbiertest.client.mvp.events.CBTSorteEvent.ISorteHandler;
 import de.clubbiertest.client.mvp.view.CBTMainView;
+import de.clubbiertest.client.mvp.view.CBTSidebarView.Stacks;
 
 public class CBTMainPresenter extends AMainPresenter<CBTMainView, ClubbiertestContext> implements IKontinentHandler, ILandHandler, ISorteHandler {
 
@@ -48,13 +48,14 @@ public class CBTMainPresenter extends AMainPresenter<CBTMainView, ClubbiertestCo
         model.setActiveKontinent(clubbiertestPlace.getKontinentId());
         model.setActiveLand(clubbiertestPlace.getLandId());
         model.setActiveSorte(clubbiertestPlace.getSorteId());
+        model.setOpenSidebar(clubbiertestPlace.getOpenSidebar());
         super.onUpdate();
     }
 
     @Override
     public void onKontinentChanged(final CBTKontinentEvent event) {
         final String kontinentId = event.getKontinentId();
-        final ClubbiertestPlace place = new ClubbiertestPlace(kontinentId, Sidebars.Laender);
+        final ClubbiertestPlace place = new ClubbiertestPlace(kontinentId, Stacks.LAENDER);
         getContext().getPlaceController().goTo(place);
     }
 
@@ -62,7 +63,7 @@ public class CBTMainPresenter extends AMainPresenter<CBTMainView, ClubbiertestCo
     public void onLandChanged(final CBTLandEvent event) {
         final String kontinentId = getContext().getModel().getActiveKontinent();
         final String landId = event.getLandId();
-        final ClubbiertestPlace place = new ClubbiertestPlace(kontinentId, landId, Sidebars.Sorten);
+        final ClubbiertestPlace place = new ClubbiertestPlace(kontinentId, landId, Stacks.SORTEN);
         getContext().getPlaceController().goTo(place);
     }
 
@@ -71,7 +72,7 @@ public class CBTMainPresenter extends AMainPresenter<CBTMainView, ClubbiertestCo
         final String kontinentId = getContext().getModel().getActiveKontinent();
         final String landId = getContext().getModel().getActiveLand();
         final String sorteId = event.getSorteId();
-        final ClubbiertestPlace place = new ClubbiertestPlace(kontinentId, landId, sorteId, Sidebars.Laender);
+        final ClubbiertestPlace place = new ClubbiertestPlace(kontinentId, landId, sorteId, Stacks.LAENDER);
         getContext().getPlaceController().goTo(place);
     }
 

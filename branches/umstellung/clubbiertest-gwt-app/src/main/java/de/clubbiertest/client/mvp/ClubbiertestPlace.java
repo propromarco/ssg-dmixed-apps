@@ -2,11 +2,11 @@ package de.clubbiertest.client.mvp;
 
 import com.google.gwt.place.shared.Place;
 
-import de.clubbiertest.client.mvp.ClubbiertestDataHandler.Sidebars;
+import de.clubbiertest.client.mvp.view.CBTSidebarView.Stacks;
 
 public class ClubbiertestPlace extends Place {
 
-    private Sidebars openSidebar = Sidebars.Kontinente;
+    private Stacks openSidebar = Stacks.KONTINENTE;
     private String _kontinentId;
     private String _landId;
     private String _sorteId;
@@ -31,29 +31,29 @@ public class ClubbiertestPlace extends Place {
         }
     }
 
-    public ClubbiertestPlace(final String kontinentId, final Sidebars openSidebar) {
+    public ClubbiertestPlace(final String kontinentId, final Stacks openSidebar) {
         _kontinentId = kontinentId;
         this.openSidebar = openSidebar;
     }
 
-    public ClubbiertestPlace(final String kontinentId, final String landId, final Sidebars openSidebar) {
+    public ClubbiertestPlace(final String kontinentId, final String landId, final Stacks openSidebar) {
         _kontinentId = kontinentId;
         _landId = landId;
         this.openSidebar = openSidebar;
     }
 
-    public ClubbiertestPlace(final String kontinentId, final String landId, final String sorteId, final Sidebars openSidebar) {
+    public ClubbiertestPlace(final String kontinentId, final String landId, final String sorteId, final Stacks openSidebar) {
         _kontinentId = kontinentId;
         _landId = landId;
         _sorteId = sorteId;
         this.openSidebar = openSidebar;
     }
 
-    public Sidebars getOpenSidebar() {
+    public Stacks getOpenSidebar() {
         return openSidebar;
     }
 
-    public void setOpenSidebar(final Sidebars openSidebar) {
+    public void setOpenSidebar(final Stacks openSidebar) {
         this.openSidebar = openSidebar;
     }
 

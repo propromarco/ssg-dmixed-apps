@@ -12,13 +12,13 @@ import de.clubbiertest.client.mvp.ClubbiertestDataHandler.Sidebars;
 
 public class ClubbiertestSidebar extends FlowPanel implements PlaceChangeEvent.Handler {
 
-    private SidebarEntry kontinentEntry, laenderEntry, sortenEntry;
-    private EventBus eventBus;
+    private final SidebarEntry kontinentEntry, laenderEntry, sortenEntry;
+    private final EventBus eventBus;
     private HandlerRegistration registration, kRegistration, lRegistration, sRegistration;
 
-    public ClubbiertestSidebar(ClubbiertestDataHandler dataHandler) {
+    public ClubbiertestSidebar(final ClubbiertestDataHandler dataHandler) {
         this.eventBus = dataHandler.getEventBus();
-        ClubbiertestCss css = dataHandler.getCss();
+        final ClubbiertestCss css = dataHandler.getCss();
         setStyleName(css.sidebar());
         kontinentEntry = new SidebarEntry(dataHandler, "Kontinente", Sidebars.Kontinente);
         laenderEntry = new SidebarEntry(dataHandler, "L&auml;nder", Sidebars.Laender);
@@ -37,19 +37,19 @@ public class ClubbiertestSidebar extends FlowPanel implements PlaceChangeEvent.H
         registration = eventBus.addHandler(PlaceChangeEvent.TYPE, this);
         kRegistration = kontinentEntry.getHeader().addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 openSidebar(Sidebars.Kontinente);
             }
         });
         lRegistration = laenderEntry.getHeader().addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 openSidebar(Sidebars.Laender);
             }
         });
         sRegistration = sortenEntry.getHeader().addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 openSidebar(Sidebars.Sorten);
             }
         });
@@ -65,13 +65,13 @@ public class ClubbiertestSidebar extends FlowPanel implements PlaceChangeEvent.H
     }
 
     @Override
-    public void onPlaceChange(PlaceChangeEvent event) {
-        ClubbiertestPlace newPlace = (ClubbiertestPlace) event.getNewPlace();
-        Sidebars openSidebar = newPlace.getOpenSidebar();
-        openSidebar(openSidebar);
+    public void onPlaceChange(final PlaceChangeEvent event) {
+        final ClubbiertestPlace newPlace = (ClubbiertestPlace) event.getNewPlace();
+//        Sidebars openSidebar = newPlace.getOpenSidebar();
+//        openSidebar(openSidebar);
     }
 
-    private void openSidebar(Sidebars openSidebar) {
+    private void openSidebar(final Sidebars openSidebar) {
         switch (openSidebar) {
         case Kontinente:
             kontinentEntry.open(true);
