@@ -13,7 +13,7 @@ html,body {
 }
 
 .sidebar {
-	height: literal("calc(100% - 2px)");
+	height: literal("calc(100% - 12px)");
 	width: 15em;
 	float: left;
 	background: #1e5799; /* Old browsers */
@@ -36,16 +36,21 @@ html,body {
 	-o-border-radius: 1em;
 	-webkit-border-radius: 1em;
 	-moz-border-radius: 1em;
+	padding: 5px;
 }
 
 .maincontent {
 	height: 100%;
-	width: literal("calc(100% - 15em - 2px)");
+	width: literal("calc(100% - 15em - 12px)");
 	float: left;
 }
 
 .sidebar .header {
 	height: sidebarheaderheight;
+}
+
+.sidebar .header.disabled {
+	opacity: 0.29;
 }
 
 .sidebar .header a {

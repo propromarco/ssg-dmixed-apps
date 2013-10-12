@@ -1,20 +1,16 @@
 package de.clubbiertest.client.mvp.presenter;
 
-import java.util.List;
-
-import com.google.msc.framework.client.mvp.APresenter;
 import com.google.web.bindery.event.shared.EventBus;
 
 import de.clubbiertest.client.ClubbiertestContext;
 import de.clubbiertest.client.mvp.CBTModel;
 import de.clubbiertest.client.mvp.CBTModel.ICallback;
 import de.clubbiertest.client.mvp.events.CBTKontinentEvent;
-import de.clubbiertest.client.mvp.view.AListView.IClick;
 import de.clubbiertest.client.mvp.view.CBTKontinenteView;
 import de.clubbiertest.liste.shared.ListItem;
 import de.clubbiertest.liste.shared.ListeItems;
 
-public class CBTKontinentePresenter extends APresenter<CBTKontinenteView, ClubbiertestContext> {
+public class CBTKontinentePresenter extends AListPresenter<CBTKontinenteView, ClubbiertestContext> {
 
     private boolean loaded = false;
 
@@ -27,29 +23,25 @@ public class CBTKontinentePresenter extends APresenter<CBTKontinenteView, Clubbi
         super.onUpdate();
         final CBTModel model = getContext().getModel();
         if (!loaded) {
-            final EventBus eventBus = getContext().getEventBus();
-            getView().clearItems();
-            final ICallback<ListeItems> cb = new ICallback<ListeItems>() {
-
-                @Override
-                public void onSuccess(final ListeItems data) {
-                    final List<ListItem> childs = data.getChilds();
-                    for (final ListItem listItem : childs) {
-                        getView().addItem(listItem, new IClick() {
-                            @Override
-                            public void onClick(final int absoluteTop, final int absoluteLeft) {
-                                eventBus.fireEvent(new CBTKontinentEvent(listItem.getName()));
-                            }
-                        });
-                    }
-                    loaded = true;
-                }
-            };
+            final ICallback<ListeItems> cb = createCallback();
             model.loadKontinente(cb);
-        } else {
+        }
+        else {
             final String activeKontinent = model.getActiveKontinent();
             getView().select(activeKontinent);
         }
+    }
+
+    @Override
+    protected void onLoad(final ListeItems data) {
+        loaded = true;
+    }
+
+    @Override
+    protected void fireEvent(final ListItem listItem) {
+        final ClubbiertestContext context = getContext();
+        final EventBus eventBus = context.getEventBus();
+        eventBus.fireEvent(new CBTKontinentEvent(listItem.getName()));
     }
 
 }

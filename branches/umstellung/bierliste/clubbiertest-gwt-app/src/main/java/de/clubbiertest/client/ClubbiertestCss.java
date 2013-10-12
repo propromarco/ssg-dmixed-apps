@@ -15,5 +15,7 @@ public interface ClubbiertestCss extends CssResource {
     String content();
 
     String selected();
+    
+    String disabled();
 
 }
