@@ -25,8 +25,8 @@ public class CBTKontinentePresenter extends APresenter<CBTKontinenteView, Clubbi
     @Override
     protected void onUpdate() {
         super.onUpdate();
+        final CBTModel model = getContext().getModel();
         if (!loaded) {
-            final CBTModel model = getContext().getModel();
             final EventBus eventBus = getContext().getEventBus();
             getView().clearItems();
             final ICallback<ListeItems> cb = new ICallback<ListeItems>() {
@@ -46,6 +46,9 @@ public class CBTKontinentePresenter extends APresenter<CBTKontinenteView, Clubbi
                 }
             };
             model.loadKontinente(cb);
+        } else {
+            final String activeKontinent = model.getActiveKontinent();
+            getView().select(activeKontinent);
         }
     }
 

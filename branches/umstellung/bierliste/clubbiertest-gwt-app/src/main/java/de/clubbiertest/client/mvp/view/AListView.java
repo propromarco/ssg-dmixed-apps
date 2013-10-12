@@ -48,8 +48,24 @@ public class AListView extends AView {
     public void addItem(final ListItem listItem, final IClick click) {
         final String name = listItem.getName();
         final ClickableAnchor anchor = new ClickableAnchor(click);
-        anchor._element.setInnerHTML(name);
-        getElement().appendChild(anchor._element);
+        final Element el = anchor._element;
+        el.setInnerHTML(name);
+        getElement().appendChild(el);
+        el.setId(name);
+    }
+
+    public void select(final String name) {
+        final int childCount = getElement().getChildCount();
+        for (int index = 0; index < childCount; index++) {
+            final Element child = (Element) getElement().getChild(index);
+            final String id = child.getId();
+            if (id.equals(name)) {
+                child.addClassName(_clubbiertestCss.selected());
+            }
+            else {
+                child.removeClassName(_clubbiertestCss.selected());
+            }
+        }
     }
 
 }
