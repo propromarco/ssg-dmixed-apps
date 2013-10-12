@@ -21,8 +21,8 @@
     <module>clubbiertest-gwt-app</module>
 <!--
     <module>bierliste-app</module>
--->
     <module>gwt-starter</module>
+-->
   </modules>
   <dependencyManagement>
     <dependencies>
