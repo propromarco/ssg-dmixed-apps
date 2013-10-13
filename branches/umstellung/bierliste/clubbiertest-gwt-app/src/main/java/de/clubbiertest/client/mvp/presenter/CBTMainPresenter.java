@@ -5,7 +5,7 @@ import com.google.msc.framework.client.mvp.AMainPresenter;
 import com.google.msc.framework.client.mvp.Slot;
 import com.google.web.bindery.event.shared.EventBus;
 
-import de.clubbiertest.client.ClubbiertestContext;
+import de.clubbiertest.client.CBTContext;
 import de.clubbiertest.client.mvp.CBTModel;
 import de.clubbiertest.client.mvp.ClubbiertestPlace;
 import de.clubbiertest.client.mvp.events.CBTKontinentEvent;
@@ -17,9 +17,12 @@ import de.clubbiertest.client.mvp.events.CBTSorteEvent.ISorteHandler;
 import de.clubbiertest.client.mvp.view.CBTMainView;
 import de.clubbiertest.client.mvp.view.CBTSidebarView.Stacks;
 
-public class CBTMainPresenter extends AMainPresenter<CBTMainView, ClubbiertestContext> implements IKontinentHandler, ILandHandler, ISorteHandler {
+public class CBTMainPresenter extends AMainPresenter<CBTMainView, CBTContext> implements IKontinentHandler, ILandHandler, ISorteHandler {
 
-    public CBTMainPresenter(final CBTMainView view, final ClubbiertestContext context) {
+    private CBTMainListPresenter mainListPresenter;
+    private CBTWelcomePresenter welcomePresenter;
+
+    public CBTMainPresenter(final CBTMainView view, final CBTContext context) {
         super(view, context);
     }
 
@@ -31,14 +34,33 @@ public class CBTMainPresenter extends AMainPresenter<CBTMainView, ClubbiertestCo
         addHandler(eventBus.addHandler(CBTLandEvent.TYPE, this));
         addHandler(eventBus.addHandler(CBTSorteEvent.TYPE, this));
 
-        final ClubbiertestContext context = getContext();
+        final CBTContext context = getContext();
         final CBTMainView view = getView();
         final Slot sidebarSlot = view.getSidebarSlot();
         final CBTSidebarPresenter sidebarPresenter = context.createSidebarPresenter();
         setInSlot(sidebarSlot, sidebarPresenter);
-        final Slot contentSlot = view.getContentSlot();
-        final CBTWelcomePresenter welcomePresenter = context.createWelcomePresenter();
-        setInSlot(contentSlot, welcomePresenter);
+        this.welcomePresenter = context.createWelcomePresenter();
+        this.mainListPresenter = context.createMainListPresenter();
+        final Slot bierSlot = view.getBierSlot();
+        final CBTBierPresenter bierPresenter = context.createBierPresenter();
+        setInSlot(bierSlot, bierPresenter);
+    }
+
+    @Override
+    protected void onUpdate() {
+        super.onUpdate();
+        final CBTContext context = getContext();
+        final CBTModel model = context.getModel();
+        final String activeKontinent = model.getActiveKontinent();
+        final String activeLand = model.getActiveLand();
+        final String activeSorte = model.getActiveSorte();
+        final Slot contentSlot = getView().getContentSlot();
+        if (activeKontinent != null || activeLand != null || activeSorte != null) {
+            setInSlot(contentSlot, mainListPresenter);
+        }
+        else {
+            setInSlot(contentSlot, welcomePresenter);
+        }
     }
 
     @Override
@@ -49,7 +71,7 @@ public class CBTMainPresenter extends AMainPresenter<CBTMainView, ClubbiertestCo
         model.setActiveLand(clubbiertestPlace.getLandId());
         model.setActiveSorte(clubbiertestPlace.getSorteId());
         model.setOpenSidebar(clubbiertestPlace.getOpenSidebar());
-        super.onUpdate();
+        onUpdate();
     }
 
     @Override

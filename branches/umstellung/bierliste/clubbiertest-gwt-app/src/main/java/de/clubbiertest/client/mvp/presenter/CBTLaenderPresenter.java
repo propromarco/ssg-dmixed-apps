@@ -2,7 +2,7 @@ package de.clubbiertest.client.mvp.presenter;
 
 import com.google.web.bindery.event.shared.EventBus;
 
-import de.clubbiertest.client.ClubbiertestContext;
+import de.clubbiertest.client.CBTContext;
 import de.clubbiertest.client.mvp.CBTModel;
 import de.clubbiertest.client.mvp.CBTModel.ICallback;
 import de.clubbiertest.client.mvp.events.CBTLandEvent;
@@ -10,17 +10,27 @@ import de.clubbiertest.client.mvp.view.CBTLaenderView;
 import de.clubbiertest.liste.shared.ListItem;
 import de.clubbiertest.liste.shared.ListeItems;
 
-public class CBTLaenderPresenter extends AListPresenter<CBTLaenderView, ClubbiertestContext> {
+public class CBTLaenderPresenter extends AListPresenter<CBTLaenderView, CBTContext> {
 
     private String lastKontinent = null;
 
-    public CBTLaenderPresenter(final CBTLaenderView view, final ClubbiertestContext context) {
+    public CBTLaenderPresenter(final CBTLaenderView view, final CBTContext context) {
         super(view, context);
+    }
+
+    @Override
+    protected void onBind() {
+        super.onBind();
+        checkLaender();
     }
 
     @Override
     protected void onUpdate() {
         super.onUpdate();
+        checkLaender();
+    }
+
+    private void checkLaender() {
         final CBTModel model = getContext().getModel();
         final String activeKontinent = model.getActiveKontinent();
         final String activeLand = model.getActiveLand();
@@ -45,7 +55,7 @@ public class CBTLaenderPresenter extends AListPresenter<CBTLaenderView, Clubbier
 
     @Override
     protected void fireEvent(final ListItem listItem) {
-        final ClubbiertestContext context = getContext();
+        final CBTContext context = getContext();
         final EventBus eventBus = context.getEventBus();
         eventBus.fireEvent(new CBTLandEvent(listItem.getName()));
     }

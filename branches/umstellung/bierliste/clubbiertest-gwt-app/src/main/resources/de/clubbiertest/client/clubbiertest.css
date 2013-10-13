@@ -41,7 +41,14 @@ html,body {
 
 .maincontent {
 	height: 100%;
-	width: literal("calc(100% - 15em - 12px)");
+	width: literal("calc(100% - 30em - 24px)");
+	float: left;
+	overflow: auto;
+}
+
+.bierInfo {
+	height: 100%;
+	width: 15em;
 	float: left;
 }
 
@@ -53,7 +60,8 @@ html,body {
 	opacity: 0.29;
 }
 
-.sidebar .header a {
+.sidebar .header a,
+.maincontent a {
 	display: block;
 	font-weight: bold;
 	line-height: sidebarheaderheight;

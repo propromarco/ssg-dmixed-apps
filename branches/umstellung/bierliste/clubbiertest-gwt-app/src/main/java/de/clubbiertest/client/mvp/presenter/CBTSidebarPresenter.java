@@ -5,21 +5,21 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.msc.framework.client.mvp.ASidebarPresenter;
 import com.google.msc.framework.client.mvp.ASidebarView.SidebarEntry;
 
-import de.clubbiertest.client.ClubbiertestContext;
+import de.clubbiertest.client.CBTContext;
 import de.clubbiertest.client.mvp.CBTModel;
 import de.clubbiertest.client.mvp.view.CBTSidebarView;
 import de.clubbiertest.client.mvp.view.CBTSidebarView.Stacks;
 
-public class CBTSidebarPresenter extends ASidebarPresenter<CBTSidebarView, ClubbiertestContext> {
+public class CBTSidebarPresenter extends ASidebarPresenter<CBTSidebarView, CBTContext> {
 
-    public CBTSidebarPresenter(final CBTSidebarView view, final ClubbiertestContext context) {
+    public CBTSidebarPresenter(final CBTSidebarView view, final CBTContext context) {
         super(view, context);
     }
 
     @Override
     protected void onBind() {
         super.onBind();
-        final ClubbiertestContext context = getContext();
+        final CBTContext context = getContext();
         final CBTSidebarView view = getView();
         final SidebarEntry kontinentEntry = view.createSlot(Stacks.KONTINENTE);
         final CBTKontinentePresenter kontinentPresenter = context.createKontinentPresenter();

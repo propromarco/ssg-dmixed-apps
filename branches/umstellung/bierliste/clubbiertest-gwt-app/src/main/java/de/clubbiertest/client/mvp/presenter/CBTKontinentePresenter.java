@@ -2,7 +2,7 @@ package de.clubbiertest.client.mvp.presenter;
 
 import com.google.web.bindery.event.shared.EventBus;
 
-import de.clubbiertest.client.ClubbiertestContext;
+import de.clubbiertest.client.CBTContext;
 import de.clubbiertest.client.mvp.CBTModel;
 import de.clubbiertest.client.mvp.CBTModel.ICallback;
 import de.clubbiertest.client.mvp.events.CBTKontinentEvent;
@@ -10,17 +10,27 @@ import de.clubbiertest.client.mvp.view.CBTKontinenteView;
 import de.clubbiertest.liste.shared.ListItem;
 import de.clubbiertest.liste.shared.ListeItems;
 
-public class CBTKontinentePresenter extends AListPresenter<CBTKontinenteView, ClubbiertestContext> {
+public class CBTKontinentePresenter extends AListPresenter<CBTKontinenteView, CBTContext> {
 
     private boolean loaded = false;
 
-    public CBTKontinentePresenter(final CBTKontinenteView view, final ClubbiertestContext context) {
+    public CBTKontinentePresenter(final CBTKontinenteView view, final CBTContext context) {
         super(view, context);
+    }
+
+    @Override
+    protected void onBind() {
+        super.onBind();
+//        checkKontinente();
     }
 
     @Override
     protected void onUpdate() {
         super.onUpdate();
+        checkKontinente();
+    }
+
+    private void checkKontinente() {
         final CBTModel model = getContext().getModel();
         if (!loaded) {
             final ICallback<ListeItems> cb = createCallback();
@@ -39,7 +49,7 @@ public class CBTKontinentePresenter extends AListPresenter<CBTKontinenteView, Cl
 
     @Override
     protected void fireEvent(final ListItem listItem) {
-        final ClubbiertestContext context = getContext();
+        final CBTContext context = getContext();
         final EventBus eventBus = context.getEventBus();
         eventBus.fireEvent(new CBTKontinentEvent(listItem.getName()));
     }

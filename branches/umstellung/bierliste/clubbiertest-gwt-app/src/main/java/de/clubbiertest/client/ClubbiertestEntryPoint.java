@@ -7,10 +7,10 @@ import com.google.msc.framework.client.mvp.IClientFactory;
 import de.clubbiertest.client.mvp.CBTClientFactory;
 import de.clubbiertest.client.mvp.ClubbiertestPlace;
 
-public class ClubbiertestEntryPoint extends AEntryPoint<ClubbiertestContext> {
+public class ClubbiertestEntryPoint extends AEntryPoint<CBTContext> {
 
     @Override
-    protected IClientFactory<ClubbiertestContext> createFactory() {
+    protected IClientFactory<CBTContext> createFactory() {
         final CBTClientFactory factory = new CBTClientFactory();
         return factory;
     }

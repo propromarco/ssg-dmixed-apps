@@ -2,7 +2,7 @@ package de.clubbiertest.client.mvp.presenter;
 
 import com.google.web.bindery.event.shared.EventBus;
 
-import de.clubbiertest.client.ClubbiertestContext;
+import de.clubbiertest.client.CBTContext;
 import de.clubbiertest.client.mvp.CBTModel;
 import de.clubbiertest.client.mvp.CBTModel.ICallback;
 import de.clubbiertest.client.mvp.events.CBTSorteEvent;
@@ -10,17 +10,27 @@ import de.clubbiertest.client.mvp.view.CBTSortenView;
 import de.clubbiertest.liste.shared.ListItem;
 import de.clubbiertest.liste.shared.ListeItems;
 
-public class CBTSortenPresenter extends AListPresenter<CBTSortenView, ClubbiertestContext> {
+public class CBTSortenPresenter extends AListPresenter<CBTSortenView, CBTContext> {
 
     private String lastLand = null;
 
-    public CBTSortenPresenter(final CBTSortenView view, final ClubbiertestContext context) {
+    public CBTSortenPresenter(final CBTSortenView view, final CBTContext context) {
         super(view, context);
+    }
+
+    @Override
+    protected void onBind() {
+        super.onBind();
+        checkSorten();
     }
 
     @Override
     protected void onUpdate() {
         super.onUpdate();
+        checkSorten();
+    }
+
+    private void checkSorten() {
         final CBTModel model = getContext().getModel();
         final String activeLand = model.getActiveLand();
         final String activeSorte = model.getActiveSorte();
@@ -45,7 +55,7 @@ public class CBTSortenPresenter extends AListPresenter<CBTSortenView, Clubbierte
 
     @Override
     protected void fireEvent(final ListItem listItem) {
-        final ClubbiertestContext context = getContext();
+        final CBTContext context = getContext();
         final EventBus eventBus = context.getEventBus();
         eventBus.fireEvent(new CBTSorteEvent(listItem.getName()));
     }

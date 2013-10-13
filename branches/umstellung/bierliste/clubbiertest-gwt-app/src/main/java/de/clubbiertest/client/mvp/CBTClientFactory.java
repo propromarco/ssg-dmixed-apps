@@ -8,26 +8,30 @@ import com.google.msc.framework.client.mvp.AMainPresenter;
 import com.google.msc.framework.client.mvp.IClientFactory;
 import com.google.web.bindery.event.shared.EventBus;
 
-import de.clubbiertest.client.ClubbiertestContext;
+import de.clubbiertest.client.CBTContext;
 import de.clubbiertest.client.ClubbiertestCss;
 import de.clubbiertest.client.ClubbiertestResources;
 import de.clubbiertest.client.ClubbiertestTexte;
 import de.clubbiertest.client.StServerCommunicationUtil;
 import de.clubbiertest.client.WelcomeCss;
+import de.clubbiertest.client.mvp.presenter.CBTBierPresenter;
 import de.clubbiertest.client.mvp.presenter.CBTKontinentePresenter;
 import de.clubbiertest.client.mvp.presenter.CBTLaenderPresenter;
+import de.clubbiertest.client.mvp.presenter.CBTMainListPresenter;
 import de.clubbiertest.client.mvp.presenter.CBTMainPresenter;
 import de.clubbiertest.client.mvp.presenter.CBTSidebarPresenter;
 import de.clubbiertest.client.mvp.presenter.CBTSortenPresenter;
 import de.clubbiertest.client.mvp.presenter.CBTWelcomePresenter;
+import de.clubbiertest.client.mvp.view.CBTBierView;
 import de.clubbiertest.client.mvp.view.CBTKontinenteView;
 import de.clubbiertest.client.mvp.view.CBTLaenderView;
+import de.clubbiertest.client.mvp.view.CBTMainListView;
 import de.clubbiertest.client.mvp.view.CBTMainView;
 import de.clubbiertest.client.mvp.view.CBTSidebarView;
 import de.clubbiertest.client.mvp.view.CBTSortenView;
 import de.clubbiertest.client.mvp.view.CBTWelcomeView;
 
-public class CBTClientFactory implements IClientFactory<ClubbiertestContext>, ClubbiertestContext, PlaceHistoryMapper {
+public class CBTClientFactory implements IClientFactory<CBTContext>, CBTContext, PlaceHistoryMapper {
 
     private final EventBus eventBus = new SimpleEventBus();
     private final PlaceController placeController = new PlaceController(eventBus);
@@ -67,7 +71,7 @@ public class CBTClientFactory implements IClientFactory<ClubbiertestContext>, Cl
     }
 
     @Override
-    public AMainPresenter<?, ClubbiertestContext> createMainPresenter() {
+    public AMainPresenter<?, CBTContext> createMainPresenter() {
         final CBTMainView mainView = new CBTMainView(clubbiertestCss);
         final CBTMainPresenter mainPresenter = new CBTMainPresenter(mainView, this);
         return mainPresenter;
@@ -106,6 +110,20 @@ public class CBTClientFactory implements IClientFactory<ClubbiertestContext>, Cl
         final CBTSortenView view = new CBTSortenView(clubbiertestCss);
         final CBTSortenPresenter sortePresenter = new CBTSortenPresenter(view, this);
         return sortePresenter;
+    }
+
+    @Override
+    public CBTMainListPresenter createMainListPresenter() {
+        final CBTMainListView view = new CBTMainListView(clubbiertestCss);
+        final CBTMainListPresenter mainListPresenter = new CBTMainListPresenter(view, this);
+        return mainListPresenter;
+    }
+
+    @Override
+    public CBTBierPresenter createBierPresenter() {
+        final CBTBierView view = new CBTBierView(clubbiertestCss);
+        final CBTBierPresenter bierPresenter = new CBTBierPresenter(view, this);
+        return bierPresenter;
     }
 
     @Override

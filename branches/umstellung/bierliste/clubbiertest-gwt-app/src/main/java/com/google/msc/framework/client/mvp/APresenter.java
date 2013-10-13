@@ -70,6 +70,8 @@ public abstract class APresenter<V extends AView, I extends IContext> {
     protected void setInSlot(final Slot slot, final APresenter<?, ?> presenter) {
         // Lösen
         final APresenter<?, ?> p = slot.getPresenter();
+        if (p == presenter)
+            return;
         childs.remove(p);
         // Hinzufügen
         slot.setPresenter(presenter);

@@ -18,4 +18,6 @@ public interface ClubbiertestCss extends CssResource {
     
     String disabled();
 
+    String bierInfo();
+
 }
