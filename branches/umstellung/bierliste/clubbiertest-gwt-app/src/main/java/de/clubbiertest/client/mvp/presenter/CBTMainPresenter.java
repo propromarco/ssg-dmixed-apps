@@ -48,7 +48,6 @@ public class CBTMainPresenter extends AMainPresenter<CBTMainView, CBTContext> im
 
     @Override
     protected void onUpdate() {
-        super.onUpdate();
         final CBTContext context = getContext();
         final CBTModel model = context.getModel();
         final String activeKontinent = model.getActiveKontinent();
@@ -61,6 +60,7 @@ public class CBTMainPresenter extends AMainPresenter<CBTMainView, CBTContext> im
         else {
             setInSlot(contentSlot, welcomePresenter);
         }
+        super.onUpdate();
     }
 
     @Override

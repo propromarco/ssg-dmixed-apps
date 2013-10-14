@@ -19,12 +19,6 @@ public class CBTKontinentePresenter extends AListPresenter<CBTKontinenteView, CB
     }
 
     @Override
-    protected void onBind() {
-        super.onBind();
-//        checkKontinente();
-    }
-
-    @Override
     protected void onUpdate() {
         super.onUpdate();
         checkKontinente();

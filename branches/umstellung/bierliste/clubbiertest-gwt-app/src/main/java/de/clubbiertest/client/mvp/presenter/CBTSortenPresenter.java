@@ -19,12 +19,6 @@ public class CBTSortenPresenter extends AListPresenter<CBTSortenView, CBTContext
     }
 
     @Override
-    protected void onBind() {
-        super.onBind();
-        checkSorten();
-    }
-
-    @Override
     protected void onUpdate() {
         super.onUpdate();
         checkSorten();

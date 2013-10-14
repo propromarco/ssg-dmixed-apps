@@ -23,12 +23,6 @@ public class CBTMainListPresenter extends AListPresenter<CBTMainListView, CBTCon
     }
 
     @Override
-    protected void onBind() {
-        super.onBind();
-        checkListen();
-    }
-
-    @Override
     protected void onUpdate() {
         super.onUpdate();
         checkListen();

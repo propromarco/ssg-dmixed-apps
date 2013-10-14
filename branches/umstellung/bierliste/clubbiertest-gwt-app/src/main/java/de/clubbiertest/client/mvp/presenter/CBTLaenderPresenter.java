@@ -19,12 +19,6 @@ public class CBTLaenderPresenter extends AListPresenter<CBTLaenderView, CBTConte
     }
 
     @Override
-    protected void onBind() {
-        super.onBind();
-        checkLaender();
-    }
-
-    @Override
     protected void onUpdate() {
         super.onUpdate();
         checkLaender();
