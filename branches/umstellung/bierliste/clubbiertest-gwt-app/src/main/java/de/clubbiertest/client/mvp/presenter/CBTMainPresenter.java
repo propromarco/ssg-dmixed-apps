@@ -85,7 +85,8 @@ public class CBTMainPresenter extends AMainPresenter<CBTMainView, CBTContext> im
     public void onLandChanged(final CBTLandEvent event) {
         final String kontinentId = getContext().getModel().getActiveKontinent();
         final String landId = event.getLandId();
-        final ClubbiertestPlace place = new ClubbiertestPlace(kontinentId, landId, Stacks.SORTEN);
+        final boolean isSorte = "Deutschland".equals(landId);
+        final ClubbiertestPlace place = new ClubbiertestPlace(kontinentId, landId, isSorte ? Stacks.SORTEN : null);
         getContext().getPlaceController().goTo(place);
     }
 
@@ -94,7 +95,7 @@ public class CBTMainPresenter extends AMainPresenter<CBTMainView, CBTContext> im
         final String kontinentId = getContext().getModel().getActiveKontinent();
         final String landId = getContext().getModel().getActiveLand();
         final String sorteId = event.getSorteId();
-        final ClubbiertestPlace place = new ClubbiertestPlace(kontinentId, landId, sorteId, Stacks.LAENDER);
+        final ClubbiertestPlace place = new ClubbiertestPlace(kontinentId, landId, sorteId, null);
         getContext().getPlaceController().goTo(place);
     }
 

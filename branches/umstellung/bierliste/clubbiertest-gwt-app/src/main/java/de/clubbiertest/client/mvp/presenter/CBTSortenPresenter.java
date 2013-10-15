@@ -28,7 +28,8 @@ public class CBTSortenPresenter extends AListPresenter<CBTSortenView, CBTContext
         final CBTModel model = getContext().getModel();
         final String activeLand = model.getActiveLand();
         final String activeSorte = model.getActiveSorte();
-        if (activeLand != null) {
+        final boolean isSorte = "Deutschland".equals(activeLand);
+        if (activeLand != null && isSorte) {
             final ICallback<ListeItems> cb = createCallback();
             if (lastLand == null) {
                 model.loadLand(activeLand, cb);
@@ -36,6 +37,9 @@ public class CBTSortenPresenter extends AListPresenter<CBTSortenView, CBTContext
             else if (!lastLand.equals(activeLand)) {
                 model.loadLand(activeLand, cb);
             }
+        }
+        else {
+            getView().clearItems();
         }
         if (activeSorte != null) {
             getView().select(activeSorte);

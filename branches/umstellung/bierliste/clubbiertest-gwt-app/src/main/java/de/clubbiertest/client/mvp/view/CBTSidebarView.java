@@ -49,6 +49,8 @@ public class CBTSidebarView extends ASidebarView {
     }
 
     public void selectStack(final Stacks stack) {
+        if (stack == null)
+            return;
         for (final SidebarEntry sidebarStack : stacks.values()) {
             sidebarStack.disable();
         }
