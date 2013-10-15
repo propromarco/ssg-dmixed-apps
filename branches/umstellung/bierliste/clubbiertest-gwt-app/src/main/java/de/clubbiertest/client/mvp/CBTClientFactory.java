@@ -152,6 +152,10 @@ public class CBTClientFactory implements IClientFactory<CBTContext>, CBTContext,
         final String sorteId = clubbiertestPlace.getSorteId();
         if (sorteId != null)
             buffer.append(sorteId);
+        buffer.append(':');
+        final String bierId = clubbiertestPlace.getBierId();
+        if (bierId != null)
+            buffer.append(bierId);
         return buffer.toString();
     }
 

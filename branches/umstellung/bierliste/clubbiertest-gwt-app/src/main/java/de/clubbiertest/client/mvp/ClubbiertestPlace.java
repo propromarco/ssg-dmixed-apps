@@ -10,6 +10,7 @@ public class ClubbiertestPlace extends Place {
     private String _kontinentId;
     private String _landId;
     private String _sorteId;
+    private String _bierId;
 
     public ClubbiertestPlace() {
     }
@@ -26,6 +27,9 @@ public class ClubbiertestPlace extends Place {
                 break;
             case 2:
                 _sorteId = string;
+                break;
+            case 3:
+                _bierId = string;
                 break;
             }
         }
@@ -46,6 +50,14 @@ public class ClubbiertestPlace extends Place {
         _kontinentId = kontinentId;
         _landId = landId;
         _sorteId = sorteId;
+        this.openSidebar = openSidebar;
+    }
+
+    public ClubbiertestPlace(final String kontinentId, final String landId, final String sorteId, final String bierId, final Stacks openSidebar) {
+        _kontinentId = kontinentId;
+        _landId = landId;
+        _sorteId = sorteId;
+        _bierId = bierId;
         this.openSidebar = openSidebar;
     }
 
@@ -79,6 +91,14 @@ public class ClubbiertestPlace extends Place {
 
     public void setSorteId(final String sorteId) {
         _sorteId = sorteId;
+    }
+
+    public String getBierId() {
+        return _bierId;
+    }
+
+    public void setBierId(final String bierId) {
+        _bierId = bierId;
     }
 
 }

@@ -9,6 +9,7 @@ import com.google.gwt.core.client.GWT;
 import de.clubbiertest.client.StServerCommunicationUtil;
 import de.clubbiertest.client.mvp.view.CBTSidebarView.Stacks;
 import de.clubbiertest.liste.shared.AbstractListe.Async;
+import de.clubbiertest.liste.shared.Bier;
 import de.clubbiertest.liste.shared.ListItem;
 import de.clubbiertest.liste.shared.ListeItems;
 import de.clubbiertest.liste.shared.UriUtils;
@@ -24,10 +25,12 @@ public class CBTModel {
     private final Map<String, ListeItems> kontinenteMap = new HashMap<String, ListeItems>();
     private final Map<String, ListeItems> laender = new HashMap<String, ListeItems>();
     private final Map<String, ListeItems> sorten = new HashMap<String, ListeItems>();
+    private final Map<String, Bier> biere = new HashMap<String, Bier>();
     private String kontinentId = null;
     private String landId = null;
     private String _sorteId;
     private Stacks _openSidebar;
+    private String _bierId;
 
     public CBTModel(final StServerCommunicationUtil util) {
         super();
@@ -152,6 +155,31 @@ public class CBTModel {
         }
     }
 
+    public void loadBier(final String bierId, final ICallback<Bier> cb) {
+        final Bier bier = this.biere.get(bierId);
+        if (bier != null) {
+            cb.onSuccess(bier);
+        }
+        else {
+            final String hostPageBaseURL = GWT.getHostPageBaseURL() + StServerCommunicationUtil.JERSEY + "/";
+            final String bierPath = UriUtils.getBierPath(hostPageBaseURL, bierId);
+            final Async<Bier> async = new Async<Bier>() {
+
+                @Override
+                public void onError(final Throwable exception) {
+                    // TODO Global Error Handling
+                }
+
+                @Override
+                public void afterCall(final Bier result) {
+                    CBTModel.this.biere.put(bierId, bier);
+                    cb.onSuccess(bier);
+                }
+            };
+            util.getBier(bierPath, async);
+        }
+    }
+
     public String getActiveLand() {
         return landId;
     }
@@ -174,6 +202,14 @@ public class CBTModel {
 
     public String getActiveSorte() {
         return _sorteId;
+    }
+
+    public void setActiveBier(final String bierId) {
+        _bierId = bierId;
+    }
+
+    public String getActiveBier() {
+        return _bierId;
     }
 
     public void setOpenSidebar(final Stacks openSidebar) {

@@ -5,7 +5,9 @@ import com.google.web.bindery.event.shared.EventBus;
 import de.clubbiertest.client.CBTContext;
 import de.clubbiertest.client.mvp.CBTModel;
 import de.clubbiertest.client.mvp.CBTModel.ICallback;
+import de.clubbiertest.client.mvp.events.CBTBierEvent;
 import de.clubbiertest.client.mvp.events.CBTLandEvent;
+import de.clubbiertest.client.mvp.events.CBTSorteEvent;
 import de.clubbiertest.client.mvp.view.CBTMainListView;
 import de.clubbiertest.liste.shared.ListItem;
 import de.clubbiertest.liste.shared.ListeItems;
@@ -67,12 +69,16 @@ public class CBTMainListPresenter extends AListPresenter<CBTMainListView, CBTCon
             eventBus.fireEvent(new CBTLandEvent(listItem.getName()));
             break;
         case Sorten:
+            eventBus.fireEvent(new CBTSorteEvent(listItem.getName()));
             break;
         case Biere:
+            eventBus.fireEvent(new CBTBierEvent(listItem.getName()));
             break;
         case Bestenliste:
+            eventBus.fireEvent(new CBTBierEvent(listItem.getName()));
             break;
         case Suchergebnisse:
+            eventBus.fireEvent(new CBTBierEvent(listItem.getName()));
             break;
         }
     }
