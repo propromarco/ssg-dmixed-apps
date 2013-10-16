@@ -11,7 +11,11 @@ public class ClubbiertestEntryPoint extends AEntryPoint<CBTContext> {
 
     @Override
     protected IClientFactory<CBTContext> createFactory() {
-        final CBTClientFactory factory = new CBTClientFactory();
+        final ClubbiertestCss clubbiertestCss = ClubbiertestResources.RESOURCES.getClubbiertestCss();
+        final WelcomeCss welcomeCss = ClubbiertestResources.RESOURCES.getWelcomeCss();
+        clubbiertestCss.ensureInjected();
+        welcomeCss.ensureInjected();
+        final CBTClientFactory factory = new CBTClientFactory(clubbiertestCss, welcomeCss);
         return factory;
     }
 

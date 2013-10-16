@@ -10,7 +10,6 @@ import com.google.web.bindery.event.shared.EventBus;
 
 import de.clubbiertest.client.CBTContext;
 import de.clubbiertest.client.ClubbiertestCss;
-import de.clubbiertest.client.ClubbiertestResources;
 import de.clubbiertest.client.ClubbiertestTexte;
 import de.clubbiertest.client.StServerCommunicationUtil;
 import de.clubbiertest.client.WelcomeCss;
@@ -40,12 +39,10 @@ public class CBTClientFactory implements IClientFactory<CBTContext>, CBTContext,
     private final WelcomeCss welcomeCss;
     private final CBTModel model;
 
-    public CBTClientFactory() {
+    public CBTClientFactory(final ClubbiertestCss clubbiertestCss, final WelcomeCss welcomeCss) {
+        this.clubbiertestCss = clubbiertestCss;
+        this.welcomeCss = welcomeCss;
         this.texte = ClubbiertestTexte.TEXTE;
-        this.clubbiertestCss = ClubbiertestResources.RESOURCES.getClubbiertestCss();
-        this.clubbiertestCss.ensureInjected();
-        this.welcomeCss = ClubbiertestResources.RESOURCES.getWelcomeCss();
-        this.welcomeCss.ensureInjected();
         final StServerCommunicationUtil util = new StServerCommunicationUtil();
         this.model = new CBTModel(util);
     }
