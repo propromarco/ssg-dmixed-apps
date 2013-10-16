@@ -4,6 +4,7 @@ import com.google.msc.framework.client.mvp.IContext;
 
 import de.clubbiertest.client.mvp.CBTModel;
 import de.clubbiertest.client.mvp.presenter.CBTBierPresenter;
+import de.clubbiertest.client.mvp.presenter.CBTHeaderPresenter;
 import de.clubbiertest.client.mvp.presenter.CBTKontinentePresenter;
 import de.clubbiertest.client.mvp.presenter.CBTLaenderPresenter;
 import de.clubbiertest.client.mvp.presenter.CBTMainListPresenter;
@@ -12,6 +13,8 @@ import de.clubbiertest.client.mvp.presenter.CBTSortenPresenter;
 import de.clubbiertest.client.mvp.presenter.CBTWelcomePresenter;
 
 public interface CBTContext extends IContext {
+
+    CBTHeaderPresenter createHeaderPresenter();
 
     CBTSidebarPresenter createSidebarPresenter();
 

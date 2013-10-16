@@ -14,6 +14,7 @@ import de.clubbiertest.client.ClubbiertestTexte;
 import de.clubbiertest.client.StServerCommunicationUtil;
 import de.clubbiertest.client.WelcomeCss;
 import de.clubbiertest.client.mvp.presenter.CBTBierPresenter;
+import de.clubbiertest.client.mvp.presenter.CBTHeaderPresenter;
 import de.clubbiertest.client.mvp.presenter.CBTKontinentePresenter;
 import de.clubbiertest.client.mvp.presenter.CBTLaenderPresenter;
 import de.clubbiertest.client.mvp.presenter.CBTMainListPresenter;
@@ -22,6 +23,7 @@ import de.clubbiertest.client.mvp.presenter.CBTSidebarPresenter;
 import de.clubbiertest.client.mvp.presenter.CBTSortenPresenter;
 import de.clubbiertest.client.mvp.presenter.CBTWelcomePresenter;
 import de.clubbiertest.client.mvp.view.CBTBierView;
+import de.clubbiertest.client.mvp.view.CBTHeaderView;
 import de.clubbiertest.client.mvp.view.CBTKontinenteView;
 import de.clubbiertest.client.mvp.view.CBTLaenderView;
 import de.clubbiertest.client.mvp.view.CBTMainListView;
@@ -72,6 +74,13 @@ public class CBTLandscapeClientFactory implements IClientFactory<CBTContext>, CB
         final CBTMainView mainView = new CBTMainView(clubbiertestCss);
         final CBTMainPresenter mainPresenter = new CBTMainPresenter(mainView, this);
         return mainPresenter;
+    }
+
+    @Override
+    public CBTHeaderPresenter createHeaderPresenter() {
+        final CBTHeaderView view = new CBTHeaderView(clubbiertestCss);
+        final CBTHeaderPresenter headerPresenter = new CBTHeaderPresenter(view, this);
+        return headerPresenter;
     }
 
     @Override

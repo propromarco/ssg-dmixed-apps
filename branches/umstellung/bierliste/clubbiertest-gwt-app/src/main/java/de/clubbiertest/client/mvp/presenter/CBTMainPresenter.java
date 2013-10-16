@@ -39,7 +39,11 @@ public class CBTMainPresenter extends AMainPresenter<CBTMainView, CBTContext> im
 
         final CBTContext context = getContext();
         final CBTMainView view = getView();
+
+        final Slot headerSlot = view.getHeaderSlot();
+        final CBTHeaderPresenter headerPresenter = context.createHeaderPresenter();
         final Slot sidebarSlot = view.getSidebarSlot();
+        setInSlot(headerSlot, headerPresenter);
         final CBTSidebarPresenter sidebarPresenter = context.createSidebarPresenter();
         setInSlot(sidebarSlot, sidebarPresenter);
         this.welcomePresenter = context.createWelcomePresenter();

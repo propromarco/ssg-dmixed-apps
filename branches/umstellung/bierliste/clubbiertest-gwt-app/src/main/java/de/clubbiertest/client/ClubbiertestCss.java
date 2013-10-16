@@ -6,6 +6,8 @@ public interface ClubbiertestCss extends CssResource {
 
     String main();
 
+    String mainheader();
+
     String sidebar();
 
     String maincontent();

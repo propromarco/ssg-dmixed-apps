@@ -10,9 +10,12 @@ public class CBTMainView extends AView {
     private final Slot sidebarSlot;
     private final Slot contentSlot;
     private final Slot bierSlot;
+    private final Slot headerSlot;
 
     public CBTMainView(final ClubbiertestCss clubbiertestCss) {
         setStyleName(clubbiertestCss.main());
+        headerSlot = createSlot("header");
+        add(headerSlot);
         sidebarSlot = createSlot("sidebar");
         add(sidebarSlot);
         contentSlot = createSlot("content");
@@ -31,6 +34,10 @@ public class CBTMainView extends AView {
 
     public Slot getBierSlot() {
         return bierSlot;
+    }
+
+    public Slot getHeaderSlot() {
+        return headerSlot;
     }
 
 }

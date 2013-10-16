@@ -13,8 +13,12 @@ html,body {
 	height: 100%;
 }
 
+.mainheader {
+	height: 2em;
+}
+
 .sidebar {
-	height: literal("calc(100% - 1.2em)");
+	height: literal("calc(100% - 2em - 1.2em)");
 	width: 12em;
 	float: left;
 	background: #1e5799; /* Old browsers */
@@ -41,14 +45,14 @@ html,body {
 }
 
 .maincontent {
-	height: 100%;
+	height: literal("calc(100% - 2em)");
 	width: literal("calc(100% - 24em - 2.4em)");
 	float: left;
 	overflow: auto;
 }
 
 .bierInfo {
-	height: literal("calc(100% - 1.2em)");
+	height: literal("calc(100% - 2em - 1.2em)");
 	width: 12em;
 	float: left;
 	background: #1e5799; /* Old browsers */
