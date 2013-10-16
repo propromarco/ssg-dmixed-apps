@@ -172,8 +172,8 @@ public class CBTModel {
 
                 @Override
                 public void afterCall(final Bier result) {
-                    CBTModel.this.biere.put(bierId, bier);
-                    cb.onSuccess(bier);
+                    CBTModel.this.biere.put(bierId, result);
+                    cb.onSuccess(result);
                 }
             };
             util.getBier(bierPath, async);

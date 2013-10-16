@@ -24,7 +24,7 @@ public class CBTBierPresenter extends APresenter<CBTBierView, CBTContext> {
 
                 @Override
                 public void onSuccess(final Bier data) {
-                    System.out.println(data);
+                    getView().show(data);
                 }
             };
             model.loadBier(activeBier, cb);

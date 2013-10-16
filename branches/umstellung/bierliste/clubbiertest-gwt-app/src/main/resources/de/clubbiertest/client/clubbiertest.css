@@ -13,8 +13,8 @@ html,body {
 }
 
 .sidebar {
-	height: literal("calc(100% - 12px)");
-	width: 15em;
+	height: literal("calc(100% - 1.2em)");
+	width: 20em;
 	float: left;
 	background: #1e5799; /* Old browsers */
 	background: -moz-linear-gradient(top, #1e5799 0%, #7db9e8 100%); /* FF3.6+ */
@@ -36,20 +36,42 @@ html,body {
 	-o-border-radius: 1em;
 	-webkit-border-radius: 1em;
 	-moz-border-radius: 1em;
-	padding: 5px;
+	padding: 0.5em;
 }
 
 .maincontent {
 	height: 100%;
-	width: literal("calc(100% - 30em - 24px)");
+	width: literal("calc(100% - 40em - 2.4em)");
 	float: left;
 	overflow: auto;
 }
 
 .bierInfo {
-	height: 100%;
-	width: 15em;
+	height: literal("calc(100% - 1.2em)");
+	width: 20em;
 	float: left;
+	background: #1e5799; /* Old browsers */
+	background: -moz-linear-gradient(top, #1e5799 0%, #7db9e8 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #1e5799 0%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #1e5799 0%,#7db9e8 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #1e5799 0%,#7db9e8 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #1e5799 0%,#7db9e8 100%); /* W3C */
+	border-color: #1e5799; /* Old browsers */
+	border-color: -moz-linear-gradient(top, #1e5799 0%, #7db9e8 100%); /* FF3.6+ */
+	border-color: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
+	border-color: -webkit-linear-gradient(top, #1e5799 0%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+	border-color: -o-linear-gradient(top, #1e5799 0%,#7db9e8 100%); /* Opera 11.10+ */
+	border-color: -ms-linear-gradient(top, #1e5799 0%,#7db9e8 100%); /* IE10+ */
+	border-color: linear-gradient(to bottom, #1e5799 0%,#7db9e8 100%); /* W3C */
+	border-width: 0.1em;
+	border-style: solid;
+	border-radius: 1em;
+	-o-border-radius: 1em;
+	-webkit-border-radius: 1em;
+	-moz-border-radius: 1em;
+	padding: 0.5em;
+	color: #C0C0C0;
 }
 
 .sidebar .header {
@@ -84,3 +106,23 @@ html,body {
 .sidebar .content .selected {
 	background-color: #7db9e8;
 }
+
+.infosection {
+	display: table;
+}
+
+.infosection .description {
+	display: table-cell;
+	width: 3.5em;
+}
+
+.infosection .value {
+	display: table-cell;
+	font-weight: bold;
+}
+
+.infosection .nottestet {
+	color: red;
+	text-align: center;
+}
+
