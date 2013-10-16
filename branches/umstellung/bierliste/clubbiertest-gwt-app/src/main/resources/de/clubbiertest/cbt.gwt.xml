@@ -17,5 +17,6 @@
   <extend-property name="locale" values="en" />
 
   <set-property-fallback name="locale" value="de" />
+  <set-property name="user.agent" value="ie9,gecko1_8,safari,opera" />
 
 </module>

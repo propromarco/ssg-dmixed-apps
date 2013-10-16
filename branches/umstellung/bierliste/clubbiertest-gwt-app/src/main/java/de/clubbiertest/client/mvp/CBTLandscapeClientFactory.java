@@ -30,7 +30,7 @@ import de.clubbiertest.client.mvp.view.CBTSidebarView;
 import de.clubbiertest.client.mvp.view.CBTSortenView;
 import de.clubbiertest.client.mvp.view.CBTWelcomeView;
 
-public class CBTClientFactory implements IClientFactory<CBTContext>, CBTContext, PlaceHistoryMapper {
+public class CBTLandscapeClientFactory implements IClientFactory<CBTContext>, CBTContext, PlaceHistoryMapper {
 
     private final EventBus eventBus = new SimpleEventBus();
     private final PlaceController placeController = new PlaceController(eventBus);
@@ -39,7 +39,7 @@ public class CBTClientFactory implements IClientFactory<CBTContext>, CBTContext,
     private final WelcomeCss welcomeCss;
     private final CBTModel model;
 
-    public CBTClientFactory(final ClubbiertestCss clubbiertestCss, final WelcomeCss welcomeCss) {
+    public CBTLandscapeClientFactory(final ClubbiertestCss clubbiertestCss, final WelcomeCss welcomeCss) {
         this.clubbiertestCss = clubbiertestCss;
         this.welcomeCss = welcomeCss;
         this.texte = ClubbiertestTexte.TEXTE;
