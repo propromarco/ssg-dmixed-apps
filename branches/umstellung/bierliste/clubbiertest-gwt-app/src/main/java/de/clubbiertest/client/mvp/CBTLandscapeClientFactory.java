@@ -162,7 +162,8 @@ public class CBTLandscapeClientFactory implements IClientFactory<CBTContext>, CB
         final String bierId = clubbiertestPlace.getBierId();
         if (bierId != null)
             buffer.append(bierId);
-        return buffer.toString();
+        final String token = buffer.toString();
+        return token;
     }
 
 }
