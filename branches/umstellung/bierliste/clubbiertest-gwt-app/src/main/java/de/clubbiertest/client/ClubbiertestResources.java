@@ -12,12 +12,12 @@ public interface ClubbiertestResources extends ClientBundle {
     @Source("anfang1.png")
     ImageResource anfang();
 
-    @Source("landscape.css")
+    @Source({ "landscape.css", "all.css" })
     ClubbiertestCss getCBTLandscapeCss();
 
-    @Source("portrait.css")
+    @Source({ "portrait.css", "all.css" })
     ClubbiertestCss getCBTPortraitCss();
-    
+
     @Source("welcome.css")
     WelcomeCss getWelcomeCss();
 }

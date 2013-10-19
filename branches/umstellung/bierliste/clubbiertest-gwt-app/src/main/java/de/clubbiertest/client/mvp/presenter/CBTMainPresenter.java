@@ -8,10 +8,14 @@ import com.google.web.bindery.event.shared.EventBus;
 import de.clubbiertest.client.CBTContext;
 import de.clubbiertest.client.mvp.CBTModel;
 import de.clubbiertest.client.mvp.ClubbiertestPlace;
+import de.clubbiertest.client.mvp.events.CBTBestenlisteEvent;
+import de.clubbiertest.client.mvp.events.CBTBestenlisteEvent.IBestenlisteHandler;
 import de.clubbiertest.client.mvp.events.CBTBierEvent;
 import de.clubbiertest.client.mvp.events.CBTBierEvent.IBierHandler;
 import de.clubbiertest.client.mvp.events.CBTKontinentEvent;
 import de.clubbiertest.client.mvp.events.CBTKontinentEvent.IKontinentHandler;
+import de.clubbiertest.client.mvp.events.CBTKontinenteEvent;
+import de.clubbiertest.client.mvp.events.CBTKontinenteEvent.IKontinenteHandler;
 import de.clubbiertest.client.mvp.events.CBTLandEvent;
 import de.clubbiertest.client.mvp.events.CBTLandEvent.ILandHandler;
 import de.clubbiertest.client.mvp.events.CBTSorteEvent;
@@ -19,7 +23,8 @@ import de.clubbiertest.client.mvp.events.CBTSorteEvent.ISorteHandler;
 import de.clubbiertest.client.mvp.view.CBTMainView;
 import de.clubbiertest.client.mvp.view.CBTSidebarView.Stacks;
 
-public class CBTMainPresenter extends AMainPresenter<CBTMainView, CBTContext> implements IKontinentHandler, ILandHandler, ISorteHandler, IBierHandler {
+public class CBTMainPresenter extends AMainPresenter<CBTMainView, CBTContext> implements IKontinentHandler, ILandHandler, ISorteHandler,
+        IBierHandler, IBestenlisteHandler, IKontinenteHandler {
 
     private CBTMainListPresenter mainListPresenter;
     private CBTWelcomePresenter welcomePresenter;
@@ -36,6 +41,8 @@ public class CBTMainPresenter extends AMainPresenter<CBTMainView, CBTContext> im
         addHandler(eventBus.addHandler(CBTLandEvent.TYPE, this));
         addHandler(eventBus.addHandler(CBTSorteEvent.TYPE, this));
         addHandler(eventBus.addHandler(CBTBierEvent.TYPE, this));
+        addHandler(eventBus.addHandler(CBTKontinenteEvent.TYPE, this));
+        addHandler(eventBus.addHandler(CBTBestenlisteEvent.TYPE, this));
 
         final CBTContext context = getContext();
         final CBTMainView view = getView();
@@ -115,6 +122,18 @@ public class CBTMainPresenter extends AMainPresenter<CBTMainView, CBTContext> im
         final String bierId = event.getBierId();
         final ClubbiertestPlace place = new ClubbiertestPlace(kontinentId, landId, sorteId, bierId, null);
         getContext().getPlaceController().goTo(place);
+    }
+
+    @Override
+    public void onKontinente() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void onBestenliste() {
+        // TODO Auto-generated method stub
+        
     }
 
 }
