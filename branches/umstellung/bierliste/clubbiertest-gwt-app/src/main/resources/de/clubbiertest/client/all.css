@@ -14,11 +14,11 @@ html,body {
 }
 
 .mainheader {
-	height: 2em;
+	height: 33px;
 }
 
 .sidebar {
-	height: literal("calc(100% - 2em - 1.2em)");
+	height: literal("calc(100% - 33px - 1.2em)");
 	width: 12em;
 	float: left;
 	background: #1e5799; /* Old browsers */
@@ -45,14 +45,14 @@ html,body {
 }
 
 .maincontent {
-	height: literal("calc(100% - 2em)");
+	height: literal("calc(100% - 33px)");
 	width: literal("calc(100% - 24em - 2.4em)");
 	float: left;
 	overflow: auto;
 }
 
 .bierInfo {
-	height: literal("calc(100% - 2em - 1.2em)");
+	height: literal("calc(100% - 33px - 1.2em)");
 	width: 12em;
 	float: left;
 	background: #1e5799; /* Old browsers */
@@ -135,3 +135,10 @@ html,body {
 	text-align: center;
 }
 
+.navigationinfo {
+	text-align: center;
+	float: left;
+	width: literal("calc(100% - 161px)");
+	font-size: 20px;
+	font-weight: bold;
+}

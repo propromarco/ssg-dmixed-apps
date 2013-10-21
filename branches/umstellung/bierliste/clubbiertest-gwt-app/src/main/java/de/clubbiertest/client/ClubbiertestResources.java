@@ -5,6 +5,7 @@ package de.clubbiertest.client;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.resources.client.ImageResource;
+import com.google.msc.framework.client.widgets.SearchField.ISearchFieldDesign;
 
 public interface ClubbiertestResources extends ClientBundle {
     ClubbiertestResources RESOURCES = GWT.create(ClubbiertestResources.class);
@@ -12,6 +13,9 @@ public interface ClubbiertestResources extends ClientBundle {
     @Source("anfang1.png")
     ImageResource anfang();
 
+    @Source("search_icon.png")
+    ImageResource search();
+    
     @Source({ "landscape.css", "all.css" })
     ClubbiertestCss getCBTLandscapeCss();
 
@@ -20,4 +24,7 @@ public interface ClubbiertestResources extends ClientBundle {
 
     @Source("welcome.css")
     WelcomeCss getWelcomeCss();
+
+    @Source("searchfield.css")
+    ISearchFieldDesign getSearchFieldDesign();
 }

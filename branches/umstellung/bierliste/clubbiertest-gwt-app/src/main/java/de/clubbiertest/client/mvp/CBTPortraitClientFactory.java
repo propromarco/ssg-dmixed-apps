@@ -6,6 +6,7 @@ import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.place.shared.PlaceHistoryMapper;
 import com.google.msc.framework.client.mvp.AMainPresenter;
 import com.google.msc.framework.client.mvp.IClientFactory;
+import com.google.msc.framework.client.widgets.SearchField.ISearchFieldDesign;
 import com.google.web.bindery.event.shared.EventBus;
 
 import de.clubbiertest.client.CBTContext;
@@ -40,10 +41,12 @@ public class CBTPortraitClientFactory implements IClientFactory<CBTContext>, CBT
     private final ClubbiertestTexte texte;
     private final WelcomeCss welcomeCss;
     private final CBTModel model;
+    private final ISearchFieldDesign searchFieldDesign;
 
-    public CBTPortraitClientFactory(final ClubbiertestCss clubbiertestCss, final WelcomeCss welcomeCss) {
+    public CBTPortraitClientFactory(final ClubbiertestCss clubbiertestCss, final WelcomeCss welcomeCss, final ISearchFieldDesign searchFieldDesign) {
         this.clubbiertestCss = clubbiertestCss;
         this.welcomeCss = welcomeCss;
+        this.searchFieldDesign = searchFieldDesign;
         this.texte = ClubbiertestTexte.TEXTE;
         final StServerCommunicationUtil util = new StServerCommunicationUtil();
         this.model = new CBTModel(util);
@@ -78,7 +81,7 @@ public class CBTPortraitClientFactory implements IClientFactory<CBTContext>, CBT
 
     @Override
     public CBTHeaderPresenter createHeaderPresenter() {
-        final CBTHeaderView view = new CBTHeaderView(clubbiertestCss);
+        final CBTHeaderView view = new CBTHeaderView(clubbiertestCss, searchFieldDesign);
         final CBTHeaderPresenter headerPresenter = new CBTHeaderPresenter(view, this);
         return headerPresenter;
     }

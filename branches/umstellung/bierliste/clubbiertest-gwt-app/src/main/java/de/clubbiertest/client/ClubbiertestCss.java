@@ -30,4 +30,6 @@ public interface ClubbiertestCss extends CssResource {
 
     String nottestet();
 
+    String navigationinfo();
+
 }

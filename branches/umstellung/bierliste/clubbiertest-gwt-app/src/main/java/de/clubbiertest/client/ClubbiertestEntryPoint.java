@@ -6,6 +6,7 @@ import com.google.gwt.place.shared.Place;
 import com.google.gwt.user.client.Window;
 import com.google.msc.framework.client.mvp.AEntryPoint;
 import com.google.msc.framework.client.mvp.IClientFactory;
+import com.google.msc.framework.client.widgets.SearchField.ISearchFieldDesign;
 
 import de.clubbiertest.client.mvp.CBTLandscapeClientFactory;
 import de.clubbiertest.client.mvp.CBTPortraitClientFactory;
@@ -30,17 +31,21 @@ public class ClubbiertestEntryPoint extends AEntryPoint<CBTContext> {
         if (isLandScape()) {
             final ClubbiertestCss clubbiertestCss = ClubbiertestResources.RESOURCES.getCBTLandscapeCss();
             final WelcomeCss welcomeCss = ClubbiertestResources.RESOURCES.getWelcomeCss();
+            final ISearchFieldDesign searchFieldDesign = ClubbiertestResources.RESOURCES.getSearchFieldDesign();
             clubbiertestCss.ensureInjected();
             welcomeCss.ensureInjected();
-            final CBTLandscapeClientFactory factory = new CBTLandscapeClientFactory(clubbiertestCss, welcomeCss);
+            searchFieldDesign.ensureInjected();
+            final CBTLandscapeClientFactory factory = new CBTLandscapeClientFactory(clubbiertestCss, welcomeCss, searchFieldDesign);
             return factory;
         }
         else {
             final ClubbiertestCss clubbiertestCss = ClubbiertestResources.RESOURCES.getCBTPortraitCss();
             final WelcomeCss welcomeCss = ClubbiertestResources.RESOURCES.getWelcomeCss();
+            final ISearchFieldDesign searchFieldDesign = ClubbiertestResources.RESOURCES.getSearchFieldDesign();
             clubbiertestCss.ensureInjected();
             welcomeCss.ensureInjected();
-            final CBTPortraitClientFactory factory = new CBTPortraitClientFactory(clubbiertestCss, welcomeCss);
+            searchFieldDesign.ensureInjected();
+            final CBTPortraitClientFactory factory = new CBTPortraitClientFactory(clubbiertestCss, welcomeCss, searchFieldDesign);
             return factory;
         }
     }
