@@ -3,9 +3,11 @@ package de.marco.test.generator;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.Collection;
+import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Logger;
 
 import javax.annotation.Generated;
 import javax.annotation.processing.AbstractProcessor;
@@ -17,6 +19,8 @@ import javax.lang.model.element.TypeElement;
 import javax.lang.model.type.DeclaredType;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.ElementFilter;
+import javax.lang.model.util.Elements;
+import javax.lang.model.util.Types;
 import javax.tools.Diagnostic.Kind;
 import javax.tools.JavaFileObject;
 
@@ -28,6 +32,8 @@ import de.marco.test.annotations.MappingMain;
  * Define
  */
 public class WrapperGenerator extends AbstractProcessor {
+
+	private final Logger log = Logger.getLogger(getClass().getName());
 
 	private static class WriterWithIndent {
 
@@ -149,7 +155,10 @@ public class WrapperGenerator extends AbstractProcessor {
 			final String mapping = mappingAnnotation.value();
 			final String[] subObjects = mapping.split("\\.");
 			final String getObject = "element." + method.getSimpleName().toString();
-			if (subObjects.length == 1) {// simple
+			final TypeMirror returnType = method.getReturnType();
+			boolean simple = isSimple(returnType);
+			log.info(returnType + " " + simple);
+			if (simple) {// simple
 				wrapperWriter.println("if(" + getObject + "() != null) ");
 				wrapperWriter.println("{");
 				wrapperWriter.indent();
@@ -157,7 +166,6 @@ public class WrapperGenerator extends AbstractProcessor {
 				wrapperWriter.outdent();
 				wrapperWriter.println("}");
 			} else {// complex
-				final TypeMirror returnType = method.getReturnType();
 				final TypeMirror nonGenericReturnType = processingEnv.getTypeUtils().erasure(returnType);
 				// Think about Iterable instead of Collection
 				final TypeElement collectionElement = processingEnv.getElementUtils().getTypeElement(Collection.class.getCanonicalName());
@@ -170,7 +178,14 @@ public class WrapperGenerator extends AbstractProcessor {
 				wrapperWriter.println("{");
 				wrapperWriter.indent();
 				TypeMirror subObject = getJaxbObject(jaxbTypeElement, getGetMethod(subObjects[0]));
-				wrapperWriter.println(processingEnv.getTypeUtils().erasure(subObject).toString() + " var = new " + subObject + "();");
+				if (subObject == null) {
+					continue;
+				}
+				final TypeMirror erasure = processingEnv.getTypeUtils().erasure(subObject);
+				if (erasure == null) {
+					continue;
+				}
+				wrapperWriter.println(erasure.toString() + " var = new " + subObject + "();");
 				wrapperWriter.println("result." + getSetMethod(subObjects[0]) + "(var);");
 				wrapperWriter.outdent();
 				wrapperWriter.println("}");
@@ -207,6 +222,28 @@ public class WrapperGenerator extends AbstractProcessor {
 		wrapperWriter.outdent();
 		wrapperWriter.println("}");
 		wrapperWriter.close();
+	}
+
+	private boolean isSimple(TypeMirror type) {
+		if (type == null) {
+			return false;
+		}
+		boolean isBoolean = isClass(type, Boolean.class);
+		boolean isInteger = isClass(type, Integer.class);
+		boolean isLong = isClass(type, Long.class);
+		boolean isDouble = isClass(type, Double.class);
+		boolean isFloat = isClass(type, Float.class);
+		boolean isDate = isClass(type, Date.class);
+		boolean isString = isClass(type, String.class);
+		return isBoolean || isInteger || isLong || isDouble || isFloat || isDate || isString;
+	}
+
+	private boolean isClass(TypeMirror type, Class<?> clazz) {
+		final Elements elementUtils = processingEnv.getElementUtils();
+		final Types typeUtils = processingEnv.getTypeUtils();
+		final TypeMirror nonGenericReturnType = typeUtils.erasure(type);
+		final TypeElement collectionElement = elementUtils.getTypeElement(clazz.getCanonicalName());
+		return typeUtils.isAssignable(nonGenericReturnType, collectionElement.asType());
 	}
 
 	private TypeMirror getJaxbObject(TypeElement jaxbTypeElement, String getMethod) {
