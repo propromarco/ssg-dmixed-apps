@@ -24,7 +24,7 @@ public class Application {
 		ConfigurableApplicationContext ctx = builder.run(args);
 		// ApplicationContext ctx = SpringApplication.run(Application.class, args);
 
-		final URL icoPath = Application.class.getResource("/checked.png");
+		final URL icoPath = Application.class.getResource("/kalender.png");
 
 		System.out.println("Let's inspect the beans provided by Spring Boot:");
 
