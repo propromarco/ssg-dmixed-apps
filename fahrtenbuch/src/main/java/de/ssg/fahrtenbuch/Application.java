@@ -1,4 +1,4 @@
-package hello;
+package de.ssg.fahrtenbuch;
 
 import java.awt.MenuItem;
 import java.awt.PopupMenu;
